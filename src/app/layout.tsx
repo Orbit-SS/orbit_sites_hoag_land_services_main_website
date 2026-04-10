@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     url: 'https://hlsdeland.com',
     images: [
       {
-        url: 'https://hlsdeland.com/photos/site7.JPG',
+        url: '/photos/site7.JPG',
         width: 1200,
         height: 630,
         alt: 'Hoag Land Services — Land Clearing, Tree Services & Fencing in Central Florida',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing',
     description:
       'Professional land clearing, tree services, and fencing in Central Florida. ISA Certified Arborist. Est. 2017.',
-    images: ['https://hlsdeland.com/photos/site7.JPG'],
+    images: ['/photos/site7.JPG'],
   },
   alternates: {
     canonical: 'https://hlsdeland.com',
@@ -68,8 +68,8 @@ const orgSchema = {
   name: 'Hoag Land Services',
   legalName: 'Hoag Land Services, LLC',
   url: 'https://hlsdeland.com',
-  logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-  image: 'https://hlsdeland.com/photos/site7.JPG',
+  logo: '/photos/HLSlogo-nobackground.png',
+  image: '/photos/site7.JPG',
   description:
     'Professional land clearing, tree services, and fencing for residential and commercial properties in Central Florida. ISA Certified Arborist. Licensed and Insured. Est. 2017.',
   telephone: '+1-386-561-0003',

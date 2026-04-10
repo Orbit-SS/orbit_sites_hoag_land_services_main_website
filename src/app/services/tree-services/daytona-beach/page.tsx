@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://hlsdeland.com/photos/tree2.jpeg',
+        url: '/photos/tree2.jpeg',
         width: 1200,
         height: 630,
         alt: 'Tree service in Daytona Beach FL by Hoag Land Services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Tree Service Daytona Beach FL | Hoag Land Services',
     description:
       'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
-    images: ['https://hlsdeland.com/photos/tree2.jpeg'],
+    images: ['/photos/tree2.jpeg'],
   },
   robots: {
     index: true,
@@ -66,10 +66,10 @@ const data: LocationPageData = {
   title: 'Tree Service Daytona Beach FL | Hoag Land Services',
   metaDescription:
     'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
-  ogImage: 'https://hlsdeland.com/photos/tree2.jpeg',
+  ogImage: '/photos/tree2.jpeg',
 
   // Hero
-  heroImage: 'https://hlsdeland.com/photos/tree2.jpeg',
+  heroImage: '/photos/tree2.jpeg',
   h1: 'Tree Service in Daytona Beach, FL \u2014 Certified Arborist Care You Can Trust',
   subheadline:
     'From beachside live oaks battered by salt spray to towering mainland pines threatening rooflines near LPGA Boulevard, Daytona Beach properties need an arborist who understands coastal and inland tree challenges. We provide honest assessments and careful work \u2014 no upselling, no shortcuts.',
@@ -208,8 +208,8 @@ const data: LocationPageData = {
       '@type': 'TreeService',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/tree2.jpeg',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/tree2.jpeg',
       description:
         'ISA Certified Arborist providing professional tree service in Daytona Beach, FL. Tree removal, tree trimming, palm pruning, and storm damage clean-up for residential and commercial properties.',
       telephone: '+1-386-561-0003',
@@ -374,7 +374,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/tree2.jpeg',
+        url: '/photos/tree2.jpeg',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

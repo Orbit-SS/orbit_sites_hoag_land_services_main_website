@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://hlsdeland.com/photos/tree8.jpeg',
+        url: '/photos/tree8.jpeg',
         width: 1200,
         height: 630,
         alt: 'Tree service in DeLand FL by Hoag Land Services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Tree Service DeLand FL | Hoag Land Services',
     description:
       'ISA Certified Arborist tree service in DeLand, FL. Tree removal, trimming, stump grinding and storm cleanup. 5.0 stars, 33 reviews. Free estimates.',
-    images: ['https://hlsdeland.com/photos/tree8.jpeg'],
+    images: ['/photos/tree8.jpeg'],
   },
   robots: {
     index: true,
@@ -68,10 +68,10 @@ const data: LocationPageData = {
   title: 'Tree Service DeLand FL | Hoag Land Services',
   metaDescription:
     'ISA Certified Arborist tree service in DeLand, FL. Tree removal, trimming, stump grinding and storm cleanup. 5.0 stars, 33 reviews. Free estimates.',
-  ogImage: 'https://hlsdeland.com/photos/tree8.jpeg',
+  ogImage: '/photos/tree8.jpeg',
 
   // Hero
-  heroImage: 'https://hlsdeland.com/photos/tree8.jpeg',
+  heroImage: '/photos/tree8.jpeg',
   h1: 'Tree Service in DeLand, FL \u2014 Built on Hard Work',
   subheadline:
     'From the historic live oaks along Woodland Boulevard to storm-damaged pines in Victoria Park, DeLand properties need an arborist who knows the local canopy. We bring ISA-certified expertise to every job.',
@@ -205,8 +205,8 @@ const data: LocationPageData = {
       '@type': 'TreeService',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/tree8.jpeg',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/tree8.jpeg',
       description:
         'ISA Certified Arborist providing professional tree service in DeLand, FL. Tree removal, trimming, palm pruning, stump grinding, storm damage cleanup, and tree installation for residential and commercial properties.',
       telephone: '+1-386-561-0003',
@@ -371,7 +371,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/tree8.jpeg',
+        url: '/photos/tree8.jpeg',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

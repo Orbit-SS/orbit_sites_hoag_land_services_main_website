@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     url: 'https://hlsdeland.com/services/site-work/palm-coast',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
-    images: [{ url: 'https://hlsdeland.com/photos/site3.jpeg' }],
+    images: [{ url: '/photos/site3.jpeg' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Land Clearing Palm Coast FL | Hoag Land Services',
     description:
       'Professional land clearing in Palm Coast, FL. Forestry mulching, lot clearing & grading by a licensed team. 5.0 stars. Free estimates available.',
-    images: ['https://hlsdeland.com/photos/site3.jpeg'],
+    images: ['/photos/site3.jpeg'],
   },
   robots: {
     index: true,
@@ -86,9 +86,9 @@ const data: LocationPageData = {
   title: 'Land Clearing Palm Coast FL | Hoag Land Services',
   metaDescription:
     'Professional land clearing in Palm Coast, FL. Forestry mulching, lot clearing & grading by a licensed team. 5.0 stars. Free estimates available.',
-  ogImage: 'https://hlsdeland.com/photos/site3.jpeg',
+  ogImage: '/photos/site3.jpeg',
 
-  heroImage: 'https://hlsdeland.com/photos/site3.jpeg',
+  heroImage: '/photos/site3.jpeg',
   h1: 'Land Clearing in Palm Coast, FL \u2014 Built on Hard Work',
   subheadline:
     'Thousands of pre-platted lots across Palm Coast have sat undeveloped since the ITT master plan of the 1970s, buried under decades of palmetto, pine, and invasive brush. Hoag Land Services turns overgrown Flagler County land into usable property.',
@@ -186,8 +186,8 @@ const data: LocationPageData = {
       '@type': 'GeneralContractor',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/site3.jpeg',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/site3.jpeg',
       description:
         'Hoag Land Services provides professional land clearing in Palm Coast, FL including forestry mulching, lot clearing, grading, drainage, and erosion control for residential and commercial properties in Flagler County.',
       telephone: '+1-386-561-0003',
@@ -301,7 +301,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/site3.jpeg',
+        url: '/photos/site3.jpeg',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

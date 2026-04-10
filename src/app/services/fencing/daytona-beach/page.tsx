@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://hlsdeland.com/photos/fence3.jpeg',
+        url: '/photos/fence3.jpeg',
         width: 1200,
         height: 630,
         alt: 'Fence installation in Daytona Beach FL by Hoag Land Services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Fence Company Daytona Beach FL | Hoag Land Services',
     description:
       'Trusted fence contractor in Daytona Beach, FL. Wood, vinyl, and aluminum fence installation. 5.0 stars on Google, licensed and insured. Free estimates available.',
-    images: ['https://hlsdeland.com/photos/fence3.jpeg'],
+    images: ['/photos/fence3.jpeg'],
   },
   robots: {
     index: true,
@@ -66,10 +66,10 @@ const data: LocationPageData = {
   title: 'Fence Company Daytona Beach FL | Hoag Land Services',
   metaDescription:
     'Trusted fence contractor in Daytona Beach, FL. Wood, vinyl, and aluminum fence installation. 5.0 stars on Google, licensed and insured. Free estimates available.',
-  ogImage: 'https://hlsdeland.com/photos/fence3.jpeg',
+  ogImage: '/photos/fence3.jpeg',
 
   // Hero
-  heroImage: 'https://hlsdeland.com/photos/fence3.jpeg',
+  heroImage: '/photos/fence3.jpeg',
   h1: 'Fence Company in Daytona Beach, FL \u2014 Built Right the First Time',
   subheadline:
     'From privacy fencing for mainland subdivisions near Pelican Bay to aluminum pool enclosures meeting Volusia County barrier code, Daytona Beach homeowners need a fence contractor who does the job right. We clear the fence line, set the posts, and build a fence that lasts.',
@@ -208,8 +208,8 @@ const data: LocationPageData = {
       '@type': 'FenceContractor',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/fence3.jpeg',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/fence3.jpeg',
       description:
         'Trusted fence company in Daytona Beach, FL. Professional fence installation including wood, vinyl, and aluminum fencing for residential and commercial properties. Licensed and insured fence contractor.',
       telephone: '+1-386-561-0003',
@@ -374,7 +374,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/fence3.jpeg',
+        url: '/photos/fence3.jpeg',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

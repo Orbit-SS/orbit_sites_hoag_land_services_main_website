@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://hlsdeland.com/photos/fence6.jpeg',
+        url: '/photos/fence6.jpeg',
         width: 1200,
         height: 630,
         alt: 'Fence installation in DeLand FL by Hoag Land Services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Fence Company DeLand FL | Hoag Land Services',
     description:
       'Trusted fence company in DeLand, FL. Wood, vinyl, and aluminum fence installation for homes and properties. 5.0 stars on Google. Call for a free estimate.',
-    images: ['https://hlsdeland.com/photos/fence6.jpeg'],
+    images: ['/photos/fence6.jpeg'],
   },
   robots: {
     index: true,
@@ -67,10 +67,10 @@ const data: LocationPageData = {
   title: 'Fence Company DeLand FL | Hoag Land Services',
   metaDescription:
     'Trusted fence company in DeLand, FL. Wood, vinyl, and aluminum fence installation for homes and properties. 5.0 stars on Google. Call for a free estimate.',
-  ogImage: 'https://hlsdeland.com/photos/fence6.jpeg',
+  ogImage: '/photos/fence6.jpeg',
 
   // Hero
-  heroImage: 'https://hlsdeland.com/photos/fence6.jpeg',
+  heroImage: '/photos/fence6.jpeg',
   h1: 'Fence Company in DeLand, FL \u2014 Built on Hard Work',
   subheadline:
     'DeLand properties range from quarter-acre lots in Victoria Park to multi-acre homesteads along the St. Johns River corridor. We build fences that fit your property, your purpose, and your budget\u2014wood, vinyl, or aluminum.',
@@ -205,8 +205,8 @@ const data: LocationPageData = {
       '@id': 'https://hlsdeland.com/services/fencing/deland#business',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/fence6.jpeg',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/fence6.jpeg',
       description:
         'Trusted fence company in DeLand, FL. Professional installation of wood, vinyl, and aluminum fencing for residential and commercial properties, with full fence line clearing and site preparation included.',
       telephone: '+1-386-561-0003',
@@ -371,7 +371,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/fence6.jpeg',
+        url: '/photos/fence6.jpeg',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://hlsdeland.com/photos/site10.JPG',
+        url: '/photos/site10.JPG',
         width: 1200,
         height: 630,
         alt: 'Land clearing and site work in Daytona Beach FL by Hoag Land Services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Land Clearing Daytona Beach FL | Hoag Land Services',
     description:
       'Professional land clearing and site work in Daytona Beach, FL. Lot clearing, forestry mulching, grading, and excavation. Licensed, insured, and 5.0-star rated.',
-    images: ['https://hlsdeland.com/photos/site10.JPG'],
+    images: ['/photos/site10.JPG'],
   },
   robots: {
     index: true,
@@ -65,10 +65,10 @@ const data: LocationPageData = {
   title: 'Land Clearing Daytona Beach FL | Hoag Land Services',
   metaDescription:
     'Professional land clearing and site work in Daytona Beach, FL. Lot clearing, forestry mulching, grading, and excavation. Licensed, insured, and 5.0-star rated.',
-  ogImage: 'https://hlsdeland.com/photos/site10.JPG',
+  ogImage: '/photos/site10.JPG',
 
   // Hero
-  heroImage: 'https://hlsdeland.com/photos/site10.JPG',
+  heroImage: '/photos/site10.JPG',
   h1: 'Land Clearing in Daytona Beach, FL \u2014 From Single Lots to Hundreds of Acres',
   subheadline:
     'Whether you are preparing a vacant lot off International Speedway Boulevard for new construction or clearing overgrown acreage in western Daytona Beach near I-95, we bring the equipment and experience to get your site ready. Straightforward pricing, no hidden costs.',
@@ -204,8 +204,8 @@ const data: LocationPageData = {
       '@id': 'https://hlsdeland.com/#business',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/site10.JPG',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/site10.JPG',
       description:
         'Professional land clearing in Daytona Beach, FL. Lot clearing, forestry mulching, earthworks, excavation, grading, and erosion control for residential and commercial properties.',
       telephone: '+1-386-561-0003',
@@ -362,7 +362,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/site10.JPG',
+        url: '/photos/site10.JPG',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

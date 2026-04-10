@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     url: 'https://hlsdeland.com/services/fencing/palm-coast',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
-    images: [{ url: 'https://hlsdeland.com/photos/fence5.jpeg' }],
+    images: [{ url: '/photos/fence5.jpeg' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fence Company Palm Coast FL | Hoag Land Services',
     description:
       'Top-rated fence company in Palm Coast, FL. Wood, vinyl & aluminum fencing installed by a licensed, insured team. 5.0 stars. Free on-site estimates.',
-    images: ['https://hlsdeland.com/photos/fence5.jpeg'],
+    images: ['/photos/fence5.jpeg'],
   },
   robots: {
     index: true,
@@ -89,9 +89,9 @@ const data: LocationPageData = {
   title: 'Fence Company Palm Coast FL | Hoag Land Services',
   metaDescription:
     'Top-rated fence company in Palm Coast, FL. Wood, vinyl & aluminum fencing installed by a licensed, insured team. 5.0 stars. Free on-site estimates.',
-  ogImage: 'https://hlsdeland.com/photos/fence5.jpeg',
+  ogImage: '/photos/fence5.jpeg',
 
-  heroImage: 'https://hlsdeland.com/photos/fence5.jpeg',
+  heroImage: '/photos/fence5.jpeg',
   h1: 'Fence Company in Palm Coast, FL \u2014 Built on Hard Work',
   subheadline:
     'From Belle Terre subdivisions to canal-front properties along the F and C Sections, Palm Coast homeowners count on Hoag Land Services for fencing that stands up to Flagler County weather. Licensed, insured, and ready to walk your property.',
@@ -189,8 +189,8 @@ const data: LocationPageData = {
       '@type': 'FenceContractor',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/fence5.jpeg',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/fence5.jpeg',
       description:
         'Hoag Land Services is a top-rated fence company in Palm Coast, FL offering wood, vinyl, and aluminum fence installation with full fence-line clearing for residential and commercial properties in Flagler County.',
       telephone: '+1-386-561-0003',
@@ -304,7 +304,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/fence5.jpeg',
+        url: '/photos/fence5.jpeg',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

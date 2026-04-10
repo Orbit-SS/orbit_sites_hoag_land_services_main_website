@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     url: 'https://hlsdeland.com/services/tree-services/palm-coast',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
-    images: [{ url: 'https://hlsdeland.com/photos/tree5.JPEG' }],
+    images: [{ url: '/photos/tree5.JPEG' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tree Service Palm Coast FL | Hoag Land Services',
     description:
       'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
-    images: ['https://hlsdeland.com/photos/tree5.JPEG'],
+    images: ['/photos/tree5.JPEG'],
   },
   robots: {
     index: true,
@@ -86,9 +86,9 @@ const data: LocationPageData = {
   title: 'Tree Service Palm Coast FL | Hoag Land Services',
   metaDescription:
     'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
-  ogImage: 'https://hlsdeland.com/photos/tree5.JPEG',
+  ogImage: '/photos/tree5.JPEG',
 
-  heroImage: 'https://hlsdeland.com/photos/tree5.JPEG',
+  heroImage: '/photos/tree5.JPEG',
   h1: 'Tree Service in Palm Coast, FL \u2014 ISA Certified Arborist',
   subheadline:
     'Palm Coast properties carry thousands of mature live oaks, slash pines, and palms shaped by decades of coastal storms. When those trees need expert care or safe removal, Flagler County homeowners trust the ISA Certified Arborist team at Hoag Land Services.',
@@ -186,8 +186,8 @@ const data: LocationPageData = {
       '@type': 'TreeService',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/tree5.JPEG',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/tree5.JPEG',
       description:
         'Hoag Land Services is an ISA Certified Arborist tree service in Palm Coast, FL providing tree removal, tree trimming, palm pruning, and storm damage cleanup throughout Flagler County.',
       telephone: '+1-386-561-0003',
@@ -301,7 +301,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/tree5.JPEG',
+        url: '/photos/tree5.JPEG',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://hlsdeland.com/photos/site7.JPG',
+        url: '/photos/site7.JPG',
         width: 1200,
         height: 630,
         alt: 'Land clearing and site work in DeLand FL by Hoag Land Services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Land Clearing DeLand FL | Hoag Land Services',
     description:
       'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-    images: ['https://hlsdeland.com/photos/site7.JPG'],
+    images: ['/photos/site7.JPG'],
   },
   robots: {
     index: true,
@@ -67,10 +67,10 @@ const data: LocationPageData = {
   title: 'Land Clearing DeLand FL | Hoag Land Services',
   metaDescription:
     'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-  ogImage: 'https://hlsdeland.com/photos/site7.JPG',
+  ogImage: '/photos/site7.JPG',
 
   // Hero
-  heroImage: 'https://hlsdeland.com/photos/site7.JPG',
+  heroImage: '/photos/site7.JPG',
   h1: 'Land Clearing in DeLand, FL \u2014 Built on Hard Work',
   subheadline:
     'DeLand is growing, and new construction starts with a clean site. Whether you are developing a single residential lot off Plymouth Avenue or clearing acreage west of town, we bring the equipment and experience to get your land build-ready.',
@@ -205,8 +205,8 @@ const data: LocationPageData = {
       '@id': 'https://hlsdeland.com/services/site-work/deland#business',
       name: 'Hoag Land Services',
       url: 'https://hlsdeland.com',
-      logo: 'https://hlsdeland.com/photos/HLSlogo-nobackground.png',
-      image: 'https://hlsdeland.com/photos/site7.JPG',
+      logo: '/photos/HLSlogo-nobackground.png',
+      image: '/photos/site7.JPG',
       description:
         'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing, earthworks, excavation, grading, and erosion control for residential and commercial properties.',
       telephone: '+1-386-561-0003',
@@ -371,7 +371,7 @@ const data: LocationPageData = {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: 'https://hlsdeland.com/photos/site7.JPG',
+        url: '/photos/site7.JPG',
       },
       dateModified: '2026-04-10T00:00:00-04:00',
       inLanguage: 'en-US',
