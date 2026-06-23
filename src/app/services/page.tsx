@@ -1,16 +1,44 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   FULL_SERVICES,
   IMAGES,
   PHONE,
   PHONE_HREF,
-  EMAIL,
-  CERTS,
   REVIEW_STATS,
   EST_YEAR,
 } from '@/shared/constants'
+
+export const metadata: Metadata = {
+  title: 'Land Clearing, Tree Service & Fencing',
+  description:
+    'Explore Hoag Land Services: land clearing, site work, ISA Certified Arborist tree services, and fencing for DeLand, Volusia County, and Central Florida.',
+  alternates: { canonical: 'https://www.hlsdeland.com/services' },
+  openGraph: {
+    type: 'website',
+    title: 'Land Clearing, Tree Service & Fencing',
+    description:
+      'Land clearing, site work, ISA Certified Arborist tree services, and fencing for DeLand, Volusia County, and Central Florida.',
+    url: 'https://www.hlsdeland.com/services',
+    siteName: 'Hoag Land Services',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/photos/site4.PNG',
+        width: 1200,
+        height: 630,
+        alt: 'Hoag Land Services equipment and land services work',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Land Clearing, Tree Service & Fencing',
+    description:
+      'Land clearing, site work, ISA Certified Arborist tree services, and fencing for DeLand, Volusia County, and Central Florida.',
+    images: ['/photos/site4.PNG'],
+  },
+}
 
 const services = [
   {

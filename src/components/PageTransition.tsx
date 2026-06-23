@@ -11,17 +11,20 @@ export default function PageTransition({ children }: { children: React.ReactNode
   useEffect(() => {
     // If path changed, reset and animate in
     if (prevPath.current !== pathname) {
-      setIsVisible(false)
-      // Small delay to allow the opacity-0 to register before animating in
+      const resetTimer = setTimeout(() => setIsVisible(false), 0)
       const timer = setTimeout(() => {
         setIsVisible(true)
         window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
       }, 50)
       prevPath.current = pathname
-      return () => clearTimeout(timer)
+      return () => {
+        clearTimeout(resetTimer)
+        clearTimeout(timer)
+      }
     } else {
       // Initial load
-      setIsVisible(true)
+      const timer = setTimeout(() => setIsVisible(true), 0)
+      return () => clearTimeout(timer)
     }
   }, [pathname])
 
