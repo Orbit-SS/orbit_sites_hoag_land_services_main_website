@@ -141,6 +141,7 @@ function FAQAccordion({ q, a }: { q: string; a: string }) {
 
 function ContactForm({ location, zipCode, serviceCategory }: { location: string; zipCode: string; serviceCategory: string }) {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'sent'>('idle')
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -154,10 +155,34 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError('')
     setFormState('sending')
-    // Simulate submission
-    await new Promise(r => setTimeout(r, 800))
-    setFormState('sent')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          service: form.service,
+          propertyLocation: `${location}${form.zip ? `, ${form.zip}` : ''}`,
+          message: form.message,
+          source: window.location.href,
+          company: '',
+        }),
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || 'Unable to send your estimate request. Please call us instead.')
+      }
+
+      setFormState('sent')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unable to send your estimate request. Please call us instead.')
+      setFormState('idle')
+    }
   }
 
   if (formState === 'sent') {
@@ -174,6 +199,11 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
 
   return (
     <form onSubmit={handleSubmit} className="bg-[#141614] rounded-lg p-6 sm:p-8 space-y-4">
+      {error && (
+        <div className="rounded border border-red-400/40 bg-red-950/30 px-4 py-3 text-sm text-red-100">
+          {error} You can also call us directly at {PHONE}.
+        </div>
+      )}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="loc-name" className="block text-sm text-gray-400 mb-1">Name</label>

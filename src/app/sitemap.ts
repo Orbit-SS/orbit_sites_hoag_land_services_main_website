@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { ALL_LOCATIONS, SERVICE_CATEGORIES, type ServiceCategory } from '@/data/locations'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://hlsdeland.com'
+  const baseUrl = 'https://www.hlsdeland.com'
   const now = new Date().toISOString()
 
   // Core pages

@@ -23,6 +23,7 @@ export default function ContactPage() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const updateField = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -30,11 +31,30 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    setError('')
     setSubmitting(true)
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 800))
-    setSubmitted(true)
-    setSubmitting(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          source: window.location.href,
+          company: '',
+        }),
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || 'Unable to send your message. Please call us instead.')
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unable to send your message. Please call us instead.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -110,6 +130,11 @@ export default function ContactPage() {
                   Send Us a Message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {error && (
+                    <div className="rounded border border-red-400/40 bg-red-950/30 px-4 py-3 text-sm text-red-100">
+                      {error} You can also call us directly at {PHONE}.
+                    </div>
+                  )}
                   <div className="grid sm:grid-cols-2 gap-5">
                     {/* Name */}
                     <div>

@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   description:
     'ISA Certified Arborist tree service in DeLand, FL. Tree removal, trimming, stump grinding and storm cleanup. 5.0 stars, 33 reviews. Free estimates.',
   alternates: {
-    canonical: 'https://hlsdeland.com/services/tree-services/deland',
+    canonical: 'https://www.hlsdeland.com/services/tree-services/deland',
   },
   openGraph: {
     type: 'website',
     title: 'Tree Service DeLand FL | Hoag Land Services',
     description:
       'ISA Certified Arborist tree service in DeLand, FL. Tree removal, trimming, stump grinding and storm cleanup. 5.0 stars, 33 reviews. Free estimates.',
-    url: 'https://hlsdeland.com/services/tree-services/deland',
+    url: 'https://www.hlsdeland.com/services/tree-services/deland',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [
@@ -54,7 +54,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32720', '32724'],
-  canonicalUrl: 'https://hlsdeland.com/services/tree-services/deland',
+  canonicalUrl: 'https://www.hlsdeland.com/services/tree-services/deland',
   primaryKeyword: 'tree service deland fl',
   secondaryKeywords: [
     'tree removal deland',
@@ -204,7 +204,7 @@ const data: LocationPageData = {
       '@context': 'https://schema.org',
       '@type': 'TreeService',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/tree8.jpeg',
       description:
@@ -275,19 +275,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Tree Services',
-          item: 'https://hlsdeland.com/services/tree-services',
+          item: 'https://www.hlsdeland.com/services/tree-services',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'DeLand',
-          item: 'https://hlsdeland.com/services/tree-services/deland',
+          item: 'https://www.hlsdeland.com/services/tree-services/deland',
         },
       ],
     },
@@ -359,11 +359,11 @@ const data: LocationPageData = {
       name: 'Tree Service DeLand FL | Hoag Land Services',
       description:
         'ISA Certified Arborist tree service in DeLand, FL. Tree removal, trimming, stump grinding and storm cleanup. 5.0 stars, 33 reviews. Free estimates.',
-      url: 'https://hlsdeland.com/services/tree-services/deland',
+      url: 'https://www.hlsdeland.com/services/tree-services/deland',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'TreeService',

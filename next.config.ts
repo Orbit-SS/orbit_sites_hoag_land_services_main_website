@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: 'hlsdeland.com',
         pathname: '/photos/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.hlsdeland.com',
+        pathname: '/photos/**',
+      },
     ],
   },
 

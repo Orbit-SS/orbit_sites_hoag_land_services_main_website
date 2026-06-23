@@ -23,7 +23,11 @@ import {
 // HAND-CRAFTED LOCAL CONTEXT (from Tier 1 agent builds)
 // ──────────────────────────────────────────────────────
 
-const HAND_CRAFTED_CONTEXT: Record<string, string> = {}
+const HAND_CRAFTED_CONTEXT: Record<string, string> = {
+  'port-orange-tree': `<p>Port Orange tree work has a different risk profile than inland DeLand jobs. Properties in the 32127, 32128, and 32129 zip codes include riverfront lots near the Halifax River, established neighborhoods with mature live oaks and palms, and larger properties around the Spruce Creek corridor. Salt air, sandy soil, tight side yards, and seasonal storm exposure all affect how trees should be trimmed, removed, or assessed before hurricane season.</p>
+<p>Hoag Land Services provides ISA Certified Arborist tree care for Port Orange homeowners, property managers, and commercial properties that need more than basic cutting. We handle tree removal, structural pruning, palm pruning, stump grinding, hazardous tree evaluation, and storm cleanup with equipment suited to residential access and Central Florida tree species. Tyler Hoag is also Tree Risk Assessment Qualified, which matters when a leaning oak, split trunk, or root issue could threaten a roof, driveway, pool enclosure, or neighboring property.</p>
+<p>Volusia County and local municipal rules may apply to protected trees, removals, and work near environmentally sensitive areas. We walk the property before quoting, explain what we see, and recommend the safest practical path. If your Port Orange property has overhanging limbs, deadwood, storm-damaged trees, palms that need pruning, or stumps left behind from prior removals, call Hoag Land Services for a free estimate.</p>`,
+}
 
 // These will be populated by reading the existing page files.
 // For now, the generator produces template-based content for all locations.
@@ -271,7 +275,7 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
     '@context': 'https://schema.org',
     '@type': service === 'tree' ? ['LocalBusiness', 'TreeService'] : service === 'fence' ? ['LocalBusiness', 'FenceContractor'] : ['LocalBusiness', 'GeneralContractor'],
     name: COMPANY,
-    url: 'https://hlsdeland.com',
+    url: 'https://www.hlsdeland.com',
     logo: '/photos/HLSlogo-nobackground.png',
     image: heroImage,
     description: `${SERVICE_CATEGORIES[service].name} in ${loc.name}, ${loc.stateAbbr} by ${COMPANY}. ISA Certified Arborist (FL-9491A). Licensed and insured. ${REVIEW_STATS.stars} stars on Google.`,
@@ -311,8 +315,8 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://hlsdeland.com' },
-      { '@type': 'ListItem', position: 2, name: SERVICE_CATEGORIES[service].name, item: `https://hlsdeland.com/services/${SERVICE_CATEGORIES[service].slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.hlsdeland.com' },
+      { '@type': 'ListItem', position: 2, name: SERVICE_CATEGORIES[service].name, item: `https://www.hlsdeland.com/services/${SERVICE_CATEGORIES[service].slug}` },
       { '@type': 'ListItem', position: 3, name: loc.name, item: url },
     ],
   }
@@ -333,7 +337,7 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
     name: title,
     description: metaDesc,
     url,
-    isPartOf: { '@type': 'WebSite', url: 'https://hlsdeland.com', name: COMPANY },
+    isPartOf: { '@type': 'WebSite', url: 'https://www.hlsdeland.com', name: COMPANY },
     about: { '@type': 'LocalBusiness', name: COMPANY },
     primaryImageOfPage: { '@type': 'ImageObject', url: heroImage },
     dateModified: new Date().toISOString().split('T')[0],
@@ -350,11 +354,11 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
 export function generateLocationPageData(loc: Location, service: ServiceCategory): LocationPageData {
   const cat = SERVICE_CATEGORIES[service]
   const heroImage = cat.heroImages[Math.abs(hashCode(loc.slug)) % cat.heroImages.length]
-  const canonicalUrl = `https://hlsdeland.com/services/${cat.slug}/${loc.slug}`
+  const canonicalUrl = `https://www.hlsdeland.com/services/${cat.slug}/${loc.slug}`
 
   // Title: max 60 chars
   const serviceLabel = service === 'tree' ? 'Tree Service' : service === 'site' ? 'Land Clearing' : 'Fence Company'
-  const title = `${serviceLabel} ${loc.name} ${loc.stateAbbr} | ${COMPANY}`
+  const title = `${serviceLabel} ${loc.name} ${loc.stateAbbr}`
 
   // Meta description: 140-155 chars
   const metaDesc = generateMetaDescription(loc, service, serviceLabel)

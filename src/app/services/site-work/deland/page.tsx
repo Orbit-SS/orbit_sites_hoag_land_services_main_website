@@ -3,18 +3,18 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Land Clearing DeLand FL | Hoag Land Services',
+  title: { absolute: 'Land Clearing DeLand FL | Hoag Land Services' },
   description:
     'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
   alternates: {
-    canonical: 'https://hlsdeland.com/services/site-work/deland',
+    canonical: 'https://www.hlsdeland.com/services/site-work/deland',
   },
   openGraph: {
     type: 'website',
     title: 'Land Clearing DeLand FL | Hoag Land Services',
     description:
       'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-    url: 'https://hlsdeland.com/services/site-work/deland',
+    url: 'https://www.hlsdeland.com/services/site-work/deland',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [
@@ -54,10 +54,12 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32720', '32724'],
-  canonicalUrl: 'https://hlsdeland.com/services/site-work/deland',
+  canonicalUrl: 'https://www.hlsdeland.com/services/site-work/deland',
   primaryKeyword: 'land clearing deland fl',
   secondaryKeywords: [
     'deland forestry mulching',
+    'brush clearing deland fl',
+    'bush hogging deland fl',
     'stump grinding deland',
     'lot clearing deland',
     'land preparation deland',
@@ -92,6 +94,11 @@ const data: LocationPageData = {
       name: 'Forestry Mulching',
       desc: 'Efficient brush and undergrowth removal using mulching equipment that processes vegetation in place. Ideal for DeLand properties with dense palmetto, Brazilian pepper, or overgrown fence lines that need clearing without full excavation.',
       href: '/services/site-work/environmental-services',
+    },
+    {
+      name: 'Brush Clearing & Bush-Hog-Style Mowing',
+      desc: 'Overgrown DeLand lots, pasture edges, and fence lines often need brush clearing before grading, fencing, or maintenance can begin. We cut, mulch, and open access through thick vegetation with the right equipment for sandy Central Florida ground.',
+      href: '/services/site-work/overgrown-land-clearing',
     },
     {
       name: 'Earthworks & Excavation',
@@ -171,6 +178,10 @@ const data: LocationPageData = {
       a: 'Forestry mulching uses a specialized machine to grind standing brush, small trees, and undergrowth into mulch in a single pass. It is ideal for clearing fence lines, removing invasive vegetation like Brazilian pepper, or managing overgrown parcels where full excavation is unnecessary. The mulch stays on site and helps with erosion control.',
     },
     {
+      q: 'Do you offer brush clearing or bush hogging in DeLand?',
+      a: 'Yes. We clear overgrown brush, palmetto, saplings, fence lines, and pasture edges around DeLand using mowing, mulching, and clearing equipment matched to the property. If the land also needs grading, stump grinding, or drainage work, we can include that in the same site-work estimate.',
+    },
+    {
       q: 'Can you clear land for a new home site in DeLand?',
       a: 'Yes. We regularly prepare residential lots for new construction throughout DeLand, including vegetation removal, stump grinding, rough grading, and building pad preparation. We work with homeowners and builders to deliver a clean, level surface ready for your foundation contractor.',
     },
@@ -202,9 +213,9 @@ const data: LocationPageData = {
     localBusiness: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': 'https://hlsdeland.com/services/site-work/deland#business',
+      '@id': 'https://www.hlsdeland.com/services/site-work/deland#business',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/site7.JPG',
       description:
@@ -275,19 +286,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Site Services',
-          item: 'https://hlsdeland.com/services/site-work',
+          item: 'https://www.hlsdeland.com/services/site-work',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'DeLand',
-          item: 'https://hlsdeland.com/services/site-work/deland',
+          item: 'https://www.hlsdeland.com/services/site-work/deland',
         },
       ],
     },
@@ -317,6 +328,14 @@ const data: LocationPageData = {
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'Forestry mulching uses a specialized machine to grind standing brush, small trees, and undergrowth into mulch in a single pass. It is ideal for clearing fence lines, removing invasive vegetation like Brazilian pepper, or managing overgrown parcels where full excavation is unnecessary. The mulch stays on site and helps with erosion control.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do you offer brush clearing or bush hogging in DeLand?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. We clear overgrown brush, palmetto, saplings, fence lines, and pasture edges around DeLand using mowing, mulching, and clearing equipment matched to the property. If the land also needs grading, stump grinding, or drainage work, we can include that in the same site-work estimate.',
           },
         },
         {
@@ -359,11 +378,11 @@ const data: LocationPageData = {
       name: 'Land Clearing DeLand FL | Hoag Land Services',
       description:
         'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-      url: 'https://hlsdeland.com/services/site-work/deland',
+      url: 'https://www.hlsdeland.com/services/site-work/deland',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

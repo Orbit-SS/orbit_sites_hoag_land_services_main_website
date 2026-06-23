@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.hlsdeland.com'),
   title: {
     template: '%s | Hoag Land Services',
     default: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
     description:
       'Professional land clearing, tree services, and fencing for residential & commercial properties in Central Florida. ISA Certified Arborist. Licensed & Insured.',
-    url: 'https://hlsdeland.com',
+    url: 'https://www.hlsdeland.com',
     images: [
       {
         url: '/photos/site7.JPG',
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     images: ['/photos/site7.JPG'],
   },
   alternates: {
-    canonical: 'https://hlsdeland.com',
+    canonical: 'https://www.hlsdeland.com',
   },
 }
 
@@ -64,10 +65,10 @@ export const metadata: Metadata = {
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://hlsdeland.com/#organization',
+  '@id': 'https://www.hlsdeland.com/#organization',
   name: 'Hoag Land Services',
   legalName: 'Hoag Land Services, LLC',
-  url: 'https://hlsdeland.com',
+  url: 'https://www.hlsdeland.com',
   logo: '/photos/HLSlogo-nobackground.png',
   image: '/photos/site7.JPG',
   description:
