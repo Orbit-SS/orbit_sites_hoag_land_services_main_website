@@ -114,7 +114,7 @@ export default function Page() {
               ))}
             </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white mb-6">
-              Wrong Tree in the Wrong Place? We'll Make It Right.
+              Wrong Tree in the Wrong Place? We&apos;ll Make It Right.
             </h1>
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               Some trees outgrow their space. Others never belonged there. Our ISA Certified Arborist removes the problem and replaces it with the right tree in the right spot — built to last.

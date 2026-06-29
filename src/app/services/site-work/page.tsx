@@ -350,6 +350,94 @@ export default function SiteWorkPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
+          DELAND LAND CLEARING PATH
+          ═══════════════════════════════════════════ */}
+      <section className="bg-[#0d0f0d] py-16 px-4 border-y border-[#4a7c59]/10">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
+          <div>
+            <p className="text-[#c2a878] font-display uppercase tracking-[0.2em] text-sm mb-3">
+              DeLand and Volusia County
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold uppercase mb-5">
+              Land Clearing for DeLand Lots, Acreage, and Build Sites
+            </h2>
+            <p className="text-gray-300 leading-relaxed mb-5">
+              DeLand property owners often call us when overgrown brush, palmetto,
+              saplings, stumps, or poor drainage are holding up the next phase of a
+              project. We clear residential lots, open fence lines, mulch thick
+              vegetation, grind stumps, and grade sandy Central Florida ground so
+              the site is easier to build, fence, maintain, or access.
+            </p>
+            <p className="text-gray-400 leading-relaxed text-sm">
+              Tyler walks DeLand properties before quoting, including 32720 and
+              32724 addresses around DeLeon Springs, Spring Garden, downtown
+              DeLand, and the US-17 corridor. That site walk keeps estimates tied
+              to real vegetation density, equipment access, soil, drainage, and
+              debris-handling needs.
+            </p>
+          </div>
+
+          <div className="bg-[#141614] border border-white/5 p-6 md:p-8">
+            <h3 className="font-display text-2xl font-bold uppercase mb-5">
+              Start With the Right DeLand Service
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                {
+                  title: 'DeLand Site Work',
+                  desc: 'Local land clearing, grading, drainage, and site prep.',
+                  href: '/services/site-work/deland',
+                },
+                {
+                  title: 'Land Clearing',
+                  desc: 'Full clearing for lots, acreage, and construction access.',
+                  href: '/services/site-work/land-clearing',
+                },
+                {
+                  title: 'Brush Clearing',
+                  desc: 'Overgrown lots, fence lines, pasture edges, and thick undergrowth.',
+                  href: '/services/site-work/overgrown-land-clearing',
+                },
+                {
+                  title: 'Forestry Mulching',
+                  desc: 'Vegetation reduction with less hauling and ground disturbance.',
+                  href: '/services/site-work/environmental-services',
+                },
+              ].map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="group block bg-[#1a1c1a] border border-[#4a7c59]/10 hover:border-[#4a7c59]/40 p-5 transition-colors"
+                >
+                  <span className="font-display text-lg uppercase text-[#c2a878] group-hover:text-white transition-colors">
+                    {item.title}
+                  </span>
+                  <p className="text-gray-400 text-sm leading-relaxed mt-2">
+                    {item.desc}
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-[#4a7c59] hover:bg-[#3d6a4b] text-white font-display uppercase font-bold tracking-wider px-6 py-3 transition-colors"
+              >
+                Request a DeLand Estimate
+              </Link>
+              <a
+                href={PHONE_HREF}
+                className="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-[#c2a878] text-white font-display uppercase font-bold tracking-wider px-6 py-3 transition-colors"
+              >
+                <PhoneIcon />
+                {PHONE}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           3. SERVICES DETAIL SECTION
           ═══════════════════════════════════════════ */}
       <section className="bg-[#1a1c1a] py-20 px-4">

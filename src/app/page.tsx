@@ -219,6 +219,62 @@ function ServicesOverview() {
             </Link>
           ))}
         </div>
+
+        <div className="mt-10 grid lg:grid-cols-[1.25fr_0.75fr] gap-6 items-stretch">
+          <div className="bg-[#141614] border border-[#4a7c59]/20 rounded-xl p-6 md:p-8">
+            <p className="text-[#c2a878] text-xs uppercase tracking-[0.25em] mb-3 font-semibold">
+              DeLand Land Clearing
+            </p>
+            <h3 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-wider text-white mb-4">
+              Clearing a Lot, Fence Line, or Build Site in DeLand?
+            </h3>
+            <p className="text-white/60 leading-relaxed mb-6">
+              Hoag Land Services handles land clearing, brush clearing, forestry
+              mulching, stump grinding, grading, and drainage work for DeLand
+              properties in the 32720 and 32724 zip codes. If your next step is a
+              home pad, driveway, fence line, pasture edge, or usable acreage,
+              Tyler walks the site before quoting so your free estimate reflects
+              the real access, vegetation, and soil conditions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/services/site-work/deland"
+                className="inline-flex items-center justify-center bg-[#4a7c59] hover:bg-[#3d6a4a] text-white px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-wider transition-colors"
+              >
+                View DeLand Site Work
+              </Link>
+              <a
+                href={PHONE_HREF}
+                className="inline-flex items-center justify-center border border-white/20 hover:border-white/40 text-white px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-wider transition-all"
+              >
+                Call for an Estimate
+              </a>
+            </div>
+          </div>
+          <div className="bg-[#0d0f0d] border border-white/5 rounded-xl p-6 md:p-8">
+            <p className="text-[#c2a878] text-xs uppercase tracking-[0.25em] mb-4 font-semibold">
+              Common Requests
+            </p>
+            <div className="space-y-3">
+              {[
+                ['Brush clearing', '/services/site-work/overgrown-land-clearing'],
+                ['Forestry mulching', '/services/site-work/environmental-services'],
+                ['Land clearing services', '/services/site-work/land-clearing'],
+                ['Grading and drainage', '/services/site-work/drainage-grading'],
+                ['Site preparation', '/services/site-work/land-preparation'],
+              ].map(([label, href]) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="flex items-center justify-between gap-3 text-white/70 hover:text-[#c2a878] transition-colors text-sm"
+                >
+                  <span>{label}</span>
+                  <span aria-hidden="true">-&gt;</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
