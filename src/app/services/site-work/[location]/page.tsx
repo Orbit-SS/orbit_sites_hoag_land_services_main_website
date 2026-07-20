@@ -4,7 +4,7 @@ import LocationPage from '@/components/LocationPage'
 import { ALL_LOCATIONS, getLocation, isStaticServiceSlug } from '@/data/locations'
 import { generateLocationPageData } from '@/data/location-content'
 
-const SERVICE: 'site' = 'site'
+const SERVICE = 'site' as const
 
 type Props = {
   params: Promise<{ location: string }>

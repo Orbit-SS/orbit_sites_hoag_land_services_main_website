@@ -28,7 +28,8 @@ export default function Navigation() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMobileOpen(false)
+    const timer = window.setTimeout(() => setMobileOpen(false), 0)
+    return () => window.clearTimeout(timer)
   }, [pathname])
 
   const isActive = (href: string) =>

@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   description:
     'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
   alternates: {
-    canonical: 'https://hlsdeland.com/services/site-work/deland',
+    canonical: 'https://www.hlsdeland.com/services/site-work/deland',
   },
   openGraph: {
     type: 'website',
     title: 'Land Clearing DeLand FL | Hoag Land Services',
     description:
       'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-    url: 'https://hlsdeland.com/services/site-work/deland',
+    url: 'https://www.hlsdeland.com/services/site-work/deland',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [
@@ -54,7 +54,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32720', '32724'],
-  canonicalUrl: 'https://hlsdeland.com/services/site-work/deland',
+  canonicalUrl: 'https://www.hlsdeland.com/services/site-work/deland',
   primaryKeyword: 'land clearing deland fl',
   secondaryKeywords: [
     'deland forestry mulching',
@@ -202,9 +202,9 @@ const data: LocationPageData = {
     localBusiness: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': 'https://hlsdeland.com/services/site-work/deland#business',
+      '@id': 'https://www.hlsdeland.com/services/site-work/deland#business',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/site7.JPG',
       description:
@@ -275,19 +275,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Site Services',
-          item: 'https://hlsdeland.com/services/site-work',
+          item: 'https://www.hlsdeland.com/services/site-work',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'DeLand',
-          item: 'https://hlsdeland.com/services/site-work/deland',
+          item: 'https://www.hlsdeland.com/services/site-work/deland',
         },
       ],
     },
@@ -359,11 +359,11 @@ const data: LocationPageData = {
       name: 'Land Clearing DeLand FL | Hoag Land Services',
       description:
         'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-      url: 'https://hlsdeland.com/services/site-work/deland',
+      url: 'https://www.hlsdeland.com/services/site-work/deland',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

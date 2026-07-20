@@ -5,24 +5,25 @@ import { useEffect, useState, useRef } from 'react'
 
 export default function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const prevPath = useRef(pathname)
 
   useEffect(() => {
     // If path changed, reset and animate in
     if (prevPath.current !== pathname) {
-      setIsVisible(false)
-      // Small delay to allow the opacity-0 to register before animating in
-      const timer = setTimeout(() => {
+      const resetTimer = window.setTimeout(() => setIsVisible(false), 0)
+      const showTimer = window.setTimeout(() => {
         setIsVisible(true)
         window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
       }, 50)
       prevPath.current = pathname
-      return () => clearTimeout(timer)
-    } else {
-      // Initial load
-      setIsVisible(true)
+      return () => {
+        window.clearTimeout(resetTimer)
+        window.clearTimeout(showTimer)
+      }
     }
+
+    return undefined
   }, [pathname])
 
   return (

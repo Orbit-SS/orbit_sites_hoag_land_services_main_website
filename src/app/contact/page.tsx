@@ -2,12 +2,12 @@
 
 import { useState, FormEvent } from 'react'
 import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 import {
   PHONE,
   PHONE_HREF,
   EMAIL,
   LOCATION,
-  SERVICE_AREA,
   CONTACT_CONTENT,
   IMAGES,
 } from '@/shared/constants'
@@ -20,9 +20,11 @@ export default function ContactPage() {
     service: '',
     propertyLocation: '',
     message: '',
+    company: '',
   })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const updateField = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -30,11 +32,40 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    setError('')
     setSubmitting(true)
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 800))
-    setSubmitted(true)
-    setSubmitting(false)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          source: window.location.href,
+        }),
+      })
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        throw new Error(
+          data.error || 'Unable to send your request. Please call us instead.'
+        )
+      }
+
+      trackEvent('generate_lead', {
+        lead_type: 'contact_form',
+        service: formData.service,
+        page_location: window.location.href,
+      })
+      setSubmitted(true)
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : 'Unable to send your request. Please call us instead.'
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -110,6 +141,30 @@ export default function ContactPage() {
                   Send Us a Message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {error && (
+                    <div
+                      role="alert"
+                      className="rounded border border-red-400/40 bg-red-950/30 px-4 py-3 text-sm text-red-100"
+                    >
+                      {error}{' '}
+                      <a className="font-semibold underline" href={PHONE_HREF}>
+                        Call {PHONE}
+                      </a>
+                      .
+                    </div>
+                  )}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="company">Company website</label>
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.company}
+                      onChange={(e) => updateField('company', e.target.value)}
+                    />
+                  </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     {/* Name */}
                     <div>

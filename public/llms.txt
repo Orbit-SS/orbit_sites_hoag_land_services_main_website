@@ -12,34 +12,34 @@ Hoag Land Services (HLS) is a Central Florida land services company owned and op
 
 ## Services
 
-- [Tree Services](https://hlsdeland.com/services/tree-services): Tree removal, tree trimming, palm pruning, tree installation, stump grinding, and emergency storm cleanup by ISA Certified Arborist
-- [Site Work / Land Clearing](https://hlsdeland.com/services/site-work): Land clearing, earthworks and excavation, grading, erosion control, environmental services, forestry mulching, driveways, and drainage
-- [Fencing Services](https://hlsdeland.com/services/fencing): Wood fencing, vinyl fencing, aluminum fencing, farm and ranch fencing for residential and commercial properties
+- [Tree Services](https://www.hlsdeland.com/services/tree-services): Tree removal, tree trimming, palm pruning, tree installation, stump grinding, and emergency storm cleanup by ISA Certified Arborist
+- [Site Work / Land Clearing](https://www.hlsdeland.com/services/site-work): Land clearing, earthworks and excavation, grading, erosion control, environmental services, forestry mulching, driveways, and drainage
+- [Fencing Services](https://www.hlsdeland.com/services/fencing): Wood fencing, vinyl fencing, aluminum fencing, farm and ranch fencing for residential and commercial properties
 
 ## Key Pages
 
-- [Home](https://hlsdeland.com/): Company overview and service summary
-- [About](https://hlsdeland.com/about): Company history, owner background, certifications
-- [Service Areas](https://hlsdeland.com/service-areas): All 123 service locations across 9 Central Florida counties
-- [Portfolio](https://hlsdeland.com/portfolio): Project photos for site work, tree services, and fencing
-- [Contact](https://hlsdeland.com/contact): Request a free estimate
-- [Sitemap](https://hlsdeland.com/sitemap.xml): Full XML sitemap with 397 URLs
+- [Home](https://www.hlsdeland.com/): Company overview and service summary
+- [About](https://www.hlsdeland.com/about): Company history, owner background, certifications
+- [Service Areas](https://www.hlsdeland.com/service-areas): All 123 service locations across 9 Central Florida counties
+- [Portfolio](https://www.hlsdeland.com/portfolio): Project photos for site work, tree services, and fencing
+- [Contact](https://www.hlsdeland.com/contact): Request a free estimate
+- [Sitemap](https://www.hlsdeland.com/sitemap.xml): Full XML sitemap with 397 URLs
 
 ## Service Area Coverage
 
-- [DeLand Tree Services](https://hlsdeland.com/services/tree-services/deland): Primary service area - Volusia County
-- [Daytona Beach Tree Services](https://hlsdeland.com/services/tree-services/daytona-beach): Major metro - Volusia County
-- [Palm Coast Tree Services](https://hlsdeland.com/services/tree-services/palm-coast): Flagler County hub
-- [Orlando Tree Services](https://hlsdeland.com/services/tree-services/orlando): Orange County metro
-- [Sanford Tree Services](https://hlsdeland.com/services/tree-services/sanford): Seminole County hub
-- [Ocala Tree Services](https://hlsdeland.com/services/tree-services/ocala): Marion County hub
-- [Deltona Tree Services](https://hlsdeland.com/services/tree-services/deltona): Volusia County major city
+- [DeLand Tree Services](https://www.hlsdeland.com/services/tree-services/deland): Primary service area - Volusia County
+- [Daytona Beach Tree Services](https://www.hlsdeland.com/services/tree-services/daytona-beach): Major metro - Volusia County
+- [Palm Coast Tree Services](https://www.hlsdeland.com/services/tree-services/palm-coast): Flagler County hub
+- [Orlando Tree Services](https://www.hlsdeland.com/services/tree-services/orlando): Orange County metro
+- [Sanford Tree Services](https://www.hlsdeland.com/services/tree-services/sanford): Seminole County hub
+- [Ocala Tree Services](https://www.hlsdeland.com/services/tree-services/ocala): Marion County hub
+- [Deltona Tree Services](https://www.hlsdeland.com/services/tree-services/deltona): Volusia County major city
 
 ## Optional
 
-- [Tree Removal](https://hlsdeland.com/services/tree-services/tree-removal): Dedicated tree removal service page
-- [Tree Trimming](https://hlsdeland.com/services/tree-services/tree-trimming): Dedicated tree trimming service page
-- [Land Clearing](https://hlsdeland.com/services/site-work/land-clearing): Dedicated land clearing service page
-- [Vinyl Fencing](https://hlsdeland.com/services/fencing/vinyl-fencing): Dedicated vinyl fencing service page
-- [Wood Fencing](https://hlsdeland.com/services/fencing/wood-fencing): Dedicated wood fencing service page
-- [Aluminum Fencing](https://hlsdeland.com/services/fencing/aluminum-fencing): Dedicated aluminum fencing service page
+- [Tree Removal](https://www.hlsdeland.com/services/tree-services/tree-removal): Dedicated tree removal service page
+- [Tree Trimming](https://www.hlsdeland.com/services/tree-services/tree-trimming): Dedicated tree trimming service page
+- [Land Clearing](https://www.hlsdeland.com/services/site-work/land-clearing): Dedicated land clearing service page
+- [Vinyl Fencing](https://www.hlsdeland.com/services/fencing/vinyl-fencing): Dedicated vinyl fencing service page
+- [Wood Fencing](https://www.hlsdeland.com/services/fencing/wood-fencing): Dedicated wood fencing service page
+- [Aluminum Fencing](https://www.hlsdeland.com/services/fencing/aluminum-fencing): Dedicated aluminum fencing service page

@@ -55,6 +55,6 @@ export default function robots(): MetadataRoute.Robots {
       // ── Catch-all: allow everything ─────────────────────────
       { userAgent: '*', allow: '/' },
     ],
-    sitemap: 'https://hlsdeland.com/sitemap.xml',
+    sitemap: 'https://www.hlsdeland.com/sitemap.xml',
   }
 }

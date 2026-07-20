@@ -271,7 +271,7 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
     '@context': 'https://schema.org',
     '@type': service === 'tree' ? ['LocalBusiness', 'TreeService'] : service === 'fence' ? ['LocalBusiness', 'FenceContractor'] : ['LocalBusiness', 'GeneralContractor'],
     name: COMPANY,
-    url: 'https://hlsdeland.com',
+    url: 'https://www.hlsdeland.com',
     logo: '/photos/HLSlogo-nobackground.png',
     image: heroImage,
     description: `${SERVICE_CATEGORIES[service].name} in ${loc.name}, ${loc.stateAbbr} by ${COMPANY}. ISA Certified Arborist (FL-9491A). Licensed and insured. ${REVIEW_STATS.stars} stars on Google.`,
@@ -311,8 +311,8 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://hlsdeland.com' },
-      { '@type': 'ListItem', position: 2, name: SERVICE_CATEGORIES[service].name, item: `https://hlsdeland.com/services/${SERVICE_CATEGORIES[service].slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.hlsdeland.com' },
+      { '@type': 'ListItem', position: 2, name: SERVICE_CATEGORIES[service].name, item: `https://www.hlsdeland.com/services/${SERVICE_CATEGORIES[service].slug}` },
       { '@type': 'ListItem', position: 3, name: loc.name, item: url },
     ],
   }
@@ -333,7 +333,7 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
     name: title,
     description: metaDesc,
     url,
-    isPartOf: { '@type': 'WebSite', url: 'https://hlsdeland.com', name: COMPANY },
+    isPartOf: { '@type': 'WebSite', url: 'https://www.hlsdeland.com', name: COMPANY },
     about: { '@type': 'LocalBusiness', name: COMPANY },
     primaryImageOfPage: { '@type': 'ImageObject', url: heroImage },
     dateModified: new Date().toISOString().split('T')[0],
@@ -350,7 +350,7 @@ function generateSchema(loc: Location, service: ServiceCategory, title: string, 
 export function generateLocationPageData(loc: Location, service: ServiceCategory): LocationPageData {
   const cat = SERVICE_CATEGORIES[service]
   const heroImage = cat.heroImages[Math.abs(hashCode(loc.slug)) % cat.heroImages.length]
-  const canonicalUrl = `https://hlsdeland.com/services/${cat.slug}/${loc.slug}`
+  const canonicalUrl = `https://www.hlsdeland.com/services/${cat.slug}/${loc.slug}`
 
   // Title: max 60 chars
   const serviceLabel = service === 'tree' ? 'Tree Service' : service === 'site' ? 'Land Clearing' : 'Fence Company'

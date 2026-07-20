@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 import type { LocationPageData } from '@/types/location'
 import {
   PHONE,
@@ -141,6 +142,7 @@ function FAQAccordion({ q, a }: { q: string; a: string }) {
 
 function ContactForm({ location, zipCode, serviceCategory }: { location: string; zipCode: string; serviceCategory: string }) {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'sent'>('idle')
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -148,16 +150,52 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
     service: serviceCategory,
     zip: zipCode,
     message: '',
+    company: '',
   })
 
   const serviceOptions = ['Site Services', 'Tree Services', 'Fencing Services']
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError('')
     setFormState('sending')
-    // Simulate submission
-    await new Promise(r => setTimeout(r, 800))
-    setFormState('sent')
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          service: form.service,
+          propertyLocation: form.zip,
+          message: form.message,
+          company: form.company,
+          source: window.location.href,
+        }),
+      })
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        throw new Error(
+          data.error || 'Unable to send your request. Please call us instead.'
+        )
+      }
+
+      trackEvent('generate_lead', {
+        lead_type: 'location_form',
+        service: form.service,
+        page_location: window.location.href,
+      })
+      setFormState('sent')
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : 'Unable to send your request. Please call us instead.'
+      )
+      setFormState('idle')
+    }
   }
 
   if (formState === 'sent') {
@@ -174,6 +212,30 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
 
   return (
     <form onSubmit={handleSubmit} className="bg-[#141614] rounded-lg p-6 sm:p-8 space-y-4">
+      {error && (
+        <div
+          role="alert"
+          className="rounded border border-red-400/40 bg-red-950/30 px-4 py-3 text-sm text-red-100"
+        >
+          {error}{' '}
+          <a className="font-semibold underline" href={PHONE_HREF}>
+            Call {PHONE}
+          </a>
+          .
+        </div>
+      )}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="loc-company">Company website</label>
+        <input
+          id="loc-company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.company}
+          onChange={e => setForm({ ...form, company: e.target.value })}
+        />
+      </div>
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="loc-name" className="block text-sm text-gray-400 mb-1">Name</label>
@@ -239,6 +301,7 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
         <textarea
           id="loc-message"
           rows={3}
+          required
           value={form.message}
           onChange={e => setForm({ ...form, message: e.target.value })}
           className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59] resize-none"

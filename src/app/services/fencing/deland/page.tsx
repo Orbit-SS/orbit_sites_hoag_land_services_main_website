@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   description:
     'Trusted fence company in DeLand, FL. Wood, vinyl, and aluminum fence installation for homes and properties. 5.0 stars on Google. Call for a free estimate.',
   alternates: {
-    canonical: 'https://hlsdeland.com/services/fencing/deland',
+    canonical: 'https://www.hlsdeland.com/services/fencing/deland',
   },
   openGraph: {
     type: 'website',
     title: 'Fence Company DeLand FL | Hoag Land Services',
     description:
       'Trusted fence company in DeLand, FL. Wood, vinyl, and aluminum fence installation for homes and properties. 5.0 stars on Google. Call for a free estimate.',
-    url: 'https://hlsdeland.com/services/fencing/deland',
+    url: 'https://www.hlsdeland.com/services/fencing/deland',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [
@@ -54,7 +54,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32720', '32724'],
-  canonicalUrl: 'https://hlsdeland.com/services/fencing/deland',
+  canonicalUrl: 'https://www.hlsdeland.com/services/fencing/deland',
   primaryKeyword: 'fence company deland fl',
   secondaryKeywords: [
     'deland fence company',
@@ -202,9 +202,9 @@ const data: LocationPageData = {
     localBusiness: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': 'https://hlsdeland.com/services/fencing/deland#business',
+      '@id': 'https://www.hlsdeland.com/services/fencing/deland#business',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/fence6.jpeg',
       description:
@@ -275,19 +275,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Fencing Services',
-          item: 'https://hlsdeland.com/services/fencing',
+          item: 'https://www.hlsdeland.com/services/fencing',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'DeLand',
-          item: 'https://hlsdeland.com/services/fencing/deland',
+          item: 'https://www.hlsdeland.com/services/fencing/deland',
         },
       ],
     },
@@ -359,11 +359,11 @@ const data: LocationPageData = {
       name: 'Fence Company DeLand FL | Hoag Land Services',
       description:
         'Trusted fence company in DeLand, FL. Wood, vinyl, and aluminum fence installation for homes and properties. 5.0 stars on Google. Call for a free estimate.',
-      url: 'https://hlsdeland.com/services/fencing/deland',
+      url: 'https://www.hlsdeland.com/services/fencing/deland',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

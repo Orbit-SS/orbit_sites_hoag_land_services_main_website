@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Service Areas | Hoag Land Services',
   description:
     'Hoag Land Services provides tree services, land clearing, and fencing across 9 Florida counties and 123 communities. Explore the interactive map to find your area.',
-  alternates: { canonical: 'https://hlsdeland.com/service-areas' },
+  alternates: { canonical: 'https://www.hlsdeland.com/service-areas' },
   robots: {
     index: true,
     follow: true,

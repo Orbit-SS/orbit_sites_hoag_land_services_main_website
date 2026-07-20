@@ -1,15 +1,23 @@
 import type { Metadata } from 'next'
 import { Inter, Oswald } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackButton from '@/components/BackButton'
+import LeadTracking from '@/components/LeadTracking'
 import PageTransition from '@/components/PageTransition'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
+const configuredMeasurementId =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-L55DS1N9GQ'
+const GA_MEASUREMENT_ID = /^G-[A-Z0-9]+$/.test(configuredMeasurementId)
+  ? configuredMeasurementId
+  : 'G-L55DS1N9GQ'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.hlsdeland.com'),
   title: {
     template: '%s | Hoag Land Services',
     default: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
@@ -38,7 +46,7 @@ export const metadata: Metadata = {
     title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
     description:
       'Professional land clearing, tree services, and fencing for residential & commercial properties in Central Florida. ISA Certified Arborist. Licensed & Insured.',
-    url: 'https://hlsdeland.com',
+    url: 'https://www.hlsdeland.com',
     images: [
       {
         url: '/photos/site7.JPG',
@@ -56,7 +64,7 @@ export const metadata: Metadata = {
     images: ['/photos/site7.JPG'],
   },
   alternates: {
-    canonical: 'https://hlsdeland.com',
+    canonical: 'https://www.hlsdeland.com',
   },
 }
 
@@ -64,10 +72,10 @@ export const metadata: Metadata = {
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://hlsdeland.com/#organization',
+  '@id': 'https://www.hlsdeland.com/#organization',
   name: 'Hoag Land Services',
   legalName: 'Hoag Land Services, LLC',
-  url: 'https://hlsdeland.com',
+  url: 'https://www.hlsdeland.com',
   logo: '/photos/HLSlogo-nobackground.png',
   image: '/photos/site7.JPG',
   description:
@@ -128,6 +136,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
+        <LeadTracking />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || gtag;
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: true });
+          `}
+        </Script>
       </body>
     </html>
   )
