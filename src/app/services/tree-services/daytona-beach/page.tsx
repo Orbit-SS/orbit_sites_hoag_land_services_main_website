@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Tree Service Daytona Beach FL | Hoag Land Services',
+  title: { absolute: 'Tree Service Daytona Beach FL | Hoag Land Services' },
   description:
     'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
   alternates: {

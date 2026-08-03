@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Tree Service DeLand FL | Hoag Land Services',
+  title: { absolute: 'Tree Service DeLand FL | Hoag Land Services' },
   description:
     'ISA Certified Arborist tree service in DeLand, FL. Tree removal, trimming, stump grinding and storm cleanup. 5.0 stars, 33 reviews. Free estimates.',
   alternates: {
