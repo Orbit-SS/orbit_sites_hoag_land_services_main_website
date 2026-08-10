@@ -11,7 +11,7 @@ import {
 import ServiceAreasMap from '@/components/ServiceAreasMap'
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Hoag Land Services',
+  title: { absolute: 'Service Areas | Hoag Land Services' },
   description:
     'Hoag Land Services provides tree services, land clearing, and fencing across 9 Florida counties and 123 communities. Explore the interactive map to find your area.',
   alternates: { canonical: 'https://hlsdeland.com/service-areas' },

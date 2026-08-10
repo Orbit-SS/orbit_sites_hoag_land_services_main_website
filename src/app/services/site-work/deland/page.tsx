@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Land Clearing DeLand FL | Hoag Land Services',
+  title: { absolute: 'Land Clearing DeLand FL | Hoag Land Services' },
   description:
     'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
   alternates: {

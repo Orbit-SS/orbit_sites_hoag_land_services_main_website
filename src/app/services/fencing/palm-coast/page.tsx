@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fence Company Palm Coast FL | Hoag Land Services',
+  title: { absolute: 'Fence Company Palm Coast FL | Hoag Land Services' },
   description:
     'Top-rated fence company in Palm Coast, FL. Wood, vinyl & aluminum fencing installed by a licensed, insured team. 5.0 stars. Free on-site estimates.',
   alternates: { canonical: 'https://hlsdeland.com/services/fencing/palm-coast' },

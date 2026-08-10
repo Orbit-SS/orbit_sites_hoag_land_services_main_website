@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Land Clearing Palm Coast FL | Hoag Land Services',
+  title: { absolute: 'Land Clearing Palm Coast FL | Hoag Land Services' },
   description:
     'Professional land clearing in Palm Coast, FL. Forestry mulching, lot clearing & grading by a licensed team. 5.0 stars. Free estimates available.',
   alternates: { canonical: 'https://hlsdeland.com/services/site-work/palm-coast' },

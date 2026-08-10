@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fence Company Daytona Beach FL | Hoag Land Services',
+  title: { absolute: 'Fence Company Daytona Beach FL | Hoag Land Services' },
   description:
     'Trusted fence contractor in Daytona Beach, FL. Wood, vinyl, and aluminum fence installation. 5.0 stars on Google, licensed and insured. Free estimates available.',
   alternates: {

@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Land Clearing Daytona Beach FL | Hoag Land Services',
+  title: { absolute: 'Land Clearing Daytona Beach FL | Hoag Land Services' },
   description:
     'Professional land clearing and site work in Daytona Beach, FL. Lot clearing, forestry mulching, grading, and excavation. Licensed, insured, and 5.0-star rated.',
   alternates: {

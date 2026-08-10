@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fence Company DeLand FL | Hoag Land Services',
+  title: { absolute: 'Fence Company DeLand FL | Hoag Land Services' },
   description:
     'Trusted fence company in DeLand, FL. Wood, vinyl, and aluminum fence installation for homes and properties. 5.0 stars on Google. Call for a free estimate.',
   alternates: {

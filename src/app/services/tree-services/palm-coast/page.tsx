@@ -3,7 +3,7 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Tree Service Palm Coast FL | Hoag Land Services',
+  title: { absolute: 'Tree Service Palm Coast FL | Hoag Land Services' },
   description:
     'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
   alternates: { canonical: 'https://hlsdeland.com/services/tree-services/palm-coast' },
