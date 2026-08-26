@@ -127,3 +127,19 @@ The `hoag-site` Vercel project was repointed from Orbit-SS to
 See `MIGRATION-PLAN.md` for the consolidation plan. Orbit-SS is the intended
 source of truth, which means everything in this repo — including the MCP server
 and public API — has to survive the migration into it.
+
+### Migration completed 2026-08-15
+
+Orbit-SS is now the source of truth and the deploy source. `main` here carries the
+current production tree; the April history is preserved as its parent. Vercel's
+`hoag-site` project is git-linked to this repo, `main` branch, so **a push to main
+is a production release** — there is no staging gate.
+
+`Oscaredgeiv/StormSiteDesigns` has been archived read-only so nobody deploys from
+it by accident. Spencer's five branches remain here untouched, with matching
+`pre-migration-*` tags. Their work is already present in this tree in equivalent
+or better form, so most can likely be closed rather than merged — his call.
+
+One thing to know: `NEXT_PUBLIC_MAPBOX_TOKEN` now lives on the Vercel project
+rather than in source. It is a Mapbox publishable token, so it ships in the client
+bundle regardless; protect it with URL restrictions in the Mapbox dashboard.
