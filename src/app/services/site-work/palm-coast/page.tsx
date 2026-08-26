@@ -3,16 +3,16 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Land Clearing Palm Coast FL | Hoag Land Services',
+  title: { absolute: 'Land Clearing Palm Coast FL | Hoag Land Services' },
   description:
     'Professional land clearing in Palm Coast, FL. Forestry mulching, lot clearing & grading by a licensed team. 5.0 stars. Free estimates available.',
-  alternates: { canonical: 'https://hlsdeland.com/services/site-work/palm-coast' },
+  alternates: { canonical: 'https://www.hlsdeland.com/services/site-work/palm-coast' },
   openGraph: {
     type: 'website',
     title: 'Land Clearing Palm Coast FL | Hoag Land Services',
     description:
       'Professional land clearing in Palm Coast, FL. Forestry mulching, lot clearing & grading by a licensed team. 5.0 stars. Free estimates available.',
-    url: 'https://hlsdeland.com/services/site-work/palm-coast',
+    url: 'https://www.hlsdeland.com/services/site-work/palm-coast',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [{ url: '/photos/site3.jpeg' }],
@@ -75,7 +75,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32137', '32164'],
-  canonicalUrl: 'https://hlsdeland.com/services/site-work/palm-coast',
+  canonicalUrl: 'https://www.hlsdeland.com/services/site-work/palm-coast',
   primaryKeyword: 'land clearing palm coast fl',
   secondaryKeywords: [
     'lot clearing palm coast',
@@ -157,7 +157,7 @@ const data: LocationPageData = {
     },
     {
       title: 'Licensed & Insured',
-      desc: 'Hoag Land Services carries full liability insurance and is HomeAdvisor Screened & Approved. Our 5.0-star Google rating across 33 reviews reflects the honest pricing and reliable work Flagler County property owners expect.',
+      desc: 'Hoag Land Services carries full liability insurance and is HomeAdvisor Screened & Approved. Our 5.0-star Google rating across 40 reviews reflects the honest pricing and reliable work Flagler County property owners expect.',
     },
     {
       title: 'Pre-Platted Lot Specialists',
@@ -185,7 +185,7 @@ const data: LocationPageData = {
       '@context': 'https://schema.org',
       '@type': 'GeneralContractor',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/site3.jpeg',
       description:
@@ -208,12 +208,6 @@ const data: LocationPageData = {
         '@type': 'City',
         name: 'Palm Coast',
         sameAs: 'https://en.wikipedia.org/wiki/Palm_Coast,_Florida',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '33',
-        bestRating: '5',
       },
       review: [
         {
@@ -255,19 +249,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Site Work',
-          item: 'https://hlsdeland.com/services/site-work',
+          item: 'https://www.hlsdeland.com/services/site-work',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Palm Coast',
-          item: 'https://hlsdeland.com/services/site-work/palm-coast',
+          item: 'https://www.hlsdeland.com/services/site-work/palm-coast',
         },
       ],
     },
@@ -289,11 +283,11 @@ const data: LocationPageData = {
       name: 'Land Clearing Palm Coast FL | Hoag Land Services',
       description:
         'Professional land clearing in Palm Coast, FL. Forestry mulching, lot clearing & grading by a licensed team. 5.0 stars. Free estimates available.',
-      url: 'https://hlsdeland.com/services/site-work/palm-coast',
+      url: 'https://www.hlsdeland.com/services/site-work/palm-coast',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

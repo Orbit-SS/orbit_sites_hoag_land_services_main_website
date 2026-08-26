@@ -3,18 +3,18 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Land Clearing DeLand FL | Hoag Land Services',
+  title: 'Land Clearing DeLand FL',
   description:
     'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
   alternates: {
-    canonical: 'https://hlsdeland.com/services/site-work/deland',
+    canonical: 'https://www.hlsdeland.com/services/site-work/deland',
   },
   openGraph: {
     type: 'website',
-    title: 'Land Clearing DeLand FL | Hoag Land Services',
+    title: 'Land Clearing DeLand FL',
     description:
       'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-    url: 'https://hlsdeland.com/services/site-work/deland',
+    url: 'https://www.hlsdeland.com/services/site-work/deland',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Land Clearing DeLand FL | Hoag Land Services',
+    title: 'Land Clearing DeLand FL',
     description:
       'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
     images: ['/photos/site7.JPG'],
@@ -54,7 +54,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32720', '32724'],
-  canonicalUrl: 'https://hlsdeland.com/services/site-work/deland',
+  canonicalUrl: 'https://www.hlsdeland.com/services/site-work/deland',
   primaryKeyword: 'land clearing deland fl',
   secondaryKeywords: [
     'deland forestry mulching',
@@ -64,14 +64,14 @@ const data: LocationPageData = {
   ],
 
   // Meta
-  title: 'Land Clearing DeLand FL | Hoag Land Services',
+  title: 'Land Clearing DeLand FL',
   metaDescription:
     'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
   ogImage: '/photos/site7.JPG',
 
   // Hero
   heroImage: '/photos/site7.JPG',
-  h1: 'Land Clearing in DeLand, FL \u2014 Built on Hard Work',
+  h1: 'Land Clearing in DeLand, FL: Built on Hard Work',
   subheadline:
     'DeLand is growing, and new construction starts with a clean site. Whether you are developing a single residential lot off Plymouth Avenue or clearing acreage west of town, we bring the equipment and experience to get your land build-ready.',
   ctaText: 'Call for a Free Estimate',
@@ -129,6 +129,10 @@ const data: LocationPageData = {
       title: 'We Get the Work Done',
       desc: 'Once approved, we mobilize equipment and complete the clearing, grading, or excavation work on schedule. We leave the site clean and ready for your next phase, whether that is construction, fencing, or landscaping.',
     },
+    {
+      title: 'We Leave Your Site Build-Ready',
+      desc: 'Cleanup, grade verification, and a final walk so you can hand the site to your foundation contractor, fence installer, or builder with confidence. We do not consider a DeLand job done until the property is ready for the next phase.',
+    },
   ],
 
   // Differentiators
@@ -139,7 +143,7 @@ const data: LocationPageData = {
     },
     {
       title: 'Honest, Walk-the-Site Estimates',
-      desc: 'We do not quote land clearing from a desk. Tyler walks every property before giving a number, so your estimate reflects actual conditions\u2014vegetation density, access, soil, and obstacles. That is why we maintain a 5.0 Google rating across 33 reviews.',
+      desc: 'We do not quote land clearing from a desk. Tyler walks every property before giving a number, so your estimate reflects actual conditions\u2014vegetation density, access, soil, and obstacles. That is why we maintain a 5.0 Google rating across 40 reviews.',
     },
     {
       title: 'Licensed and Insured',
@@ -186,7 +190,94 @@ const data: LocationPageData = {
       q: 'Do you handle stump grinding as a standalone service in DeLand?',
       a: 'Yes. We offer stump grinding independently of full clearing. Whether you have a single stump from a previously removed tree or a dozen stumps left from a past clearing job, we grind them below grade so you can reclaim the space for landscaping, construction, or fencing.',
     },
+    {
+      q: 'How quickly can you start a DeLand land clearing project?',
+      a: 'Lead time depends on season and project size. Residential lots typically start within 2 to 4 weeks of estimate acceptance. Emergency or storm-related work is faster. We give you a realistic start date during the site walk, not a sales pitch.',
+    },
+    {
+      q: 'What is the difference between forestry mulching and full land clearing in DeLand?',
+      a: 'Forestry mulching grinds brush, undergrowth, and small trees into mulch in place. It is fast, cheap, and leaves the mulch as ground cover. Full clearing removes everything (vegetation, stumps, debris) and leaves a clean surface ready for grading. We help you pick the right approach during the site walk.',
+    },
+    {
+      q: 'Do you handle commercial land clearing in DeLand and Volusia County?',
+      a: 'Yes. We work with builders, developers, and general contractors on commercial pads, access roads, and multi-acre clearing throughout DeLand, DeLeon Springs, and Volusia County. We can work from your engineering documents and coordinate with your project schedule.',
+    },
   ],
+
+  // What's Included in DeLand Land Clearing (feature checklist above FAQ)
+  whatsIncluded: {
+    eyebrow: 'DeLand Land Clearing Scope',
+    heading: "What's Included in DeLand Land Clearing",
+    intro:
+      'Every DeLand land clearing job is scoped on the property, but here is the standard scope we run. Add or subtract anything you do not need.',
+    items: [
+      {
+        title: 'Vegetation Removal',
+        desc: 'Brush, palmettos, Brazilian pepper, and dense undergrowth cleared with the right machine for your terrain.',
+        href: '/services/site-work/land-clearing',
+      },
+      {
+        title: 'Tree Removal',
+        desc: 'Live oaks, pines, palms, and hardwoods. Protected-species handling and Volusia permit coordination when needed.',
+        href: '/services/tree-services/tree-removal',
+      },
+      {
+        title: 'Stump Grinding',
+        desc: 'Stumps ground below grade so you can reclaim the space for landscaping, building pads, or fencing.',
+      },
+      {
+        title: 'Rough Grading',
+        desc: "Building pad prep, driveway prep, and surface leveling on DeLand's sandy uplands.",
+        href: '/services/site-work/earthworks-excavation',
+      },
+      {
+        title: 'Drainage Prep',
+        desc: 'Swale grading and silt-fence installation per Volusia County stormwater requirements.',
+        href: '/services/site-work/drainage-grading',
+      },
+      {
+        title: 'Debris Management',
+        desc: 'Mulched on site, hauled off, or stockpiled per your call. Job site clean before we leave.',
+        href: '/services/site-work/environmental-services',
+      },
+    ],
+  },
+
+  // Recent Projects (photo evidence block, renders above FAQ)
+  recentProjects: {
+    eyebrow: 'Real DeLand-Area Projects',
+    heading: 'Recent DeLand & Central Florida Land Clearing Projects',
+    intro:
+      'A snapshot of jobs we have actually run. Real properties, real equipment, real crews on site.',
+    items: [
+      {
+        image: '/photos/hoag/land-clearing-lake-shore-deland-fl.jpeg',
+        alt: 'Hoag Land Services excavator and Kubota tractor clearing a lakeshore parcel near DeLand FL',
+        title: 'Lakeshore Land Clearing',
+        desc: 'Full excavator clearing on a wooded lakeshore parcel. Pines and undergrowth removed, terrain graded flat for the next phase.',
+        location: 'DeLand area',
+        service: 'Land Clearing',
+        imagePos: 'center 40%',
+      },
+      {
+        image: '/photos/hoag/tree-protection-zone-arborist-central-fl.jpeg',
+        alt: 'ISA Certified Arborist tree protection zone on a Central Florida job site',
+        title: 'Tree Protection Zone Setup',
+        desc: 'Protected-species handling on an active site. Tyler is an ISA Certified Arborist, so trees Volusia County requires you to preserve stay preserved.',
+        location: 'Central Florida',
+        service: 'ISA Arborist',
+      },
+      {
+        image: '/photos/hoag/demolition-excavator-central-fl.jpg',
+        alt: 'SANY mini excavator biting into broken concrete on a Central Florida demolition and site prep job under a live oak canopy',
+        title: 'Structure Demolition + Site Prep',
+        desc: 'Small structure demolition with concrete debris cleared under a live-oak canopy. Site left graded and ready to build.',
+        location: 'Central Florida',
+        service: 'Demolition',
+        imagePos: 'center 65%',
+      },
+    ],
+  },
 
   // Nearby locations
   nearbyLocations: [
@@ -202,9 +293,9 @@ const data: LocationPageData = {
     localBusiness: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': 'https://hlsdeland.com/services/site-work/deland#business',
+      '@id': 'https://www.hlsdeland.com/services/site-work/deland#business',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/site7.JPG',
       description:
@@ -227,13 +318,6 @@ const data: LocationPageData = {
         '@type': 'City',
         name: 'DeLand',
         '@id': 'https://en.wikipedia.org/wiki/DeLand,_Florida',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '33',
-        bestRating: '5',
-        worstRating: '1',
       },
       review: [
         {
@@ -275,19 +359,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Site Services',
-          item: 'https://hlsdeland.com/services/site-work',
+          item: 'https://www.hlsdeland.com/services/site-work',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'DeLand',
-          item: 'https://hlsdeland.com/services/site-work/deland',
+          item: 'https://www.hlsdeland.com/services/site-work/deland',
         },
       ],
     },
@@ -351,19 +435,43 @@ const data: LocationPageData = {
             text: 'Yes. We offer stump grinding independently of full clearing. Whether you have a single stump from a previously removed tree or a dozen stumps left from a past clearing job, we grind them below grade so you can reclaim the space for landscaping, construction, or fencing.',
           },
         },
+        {
+          '@type': 'Question',
+          name: 'How quickly can you start a DeLand land clearing project?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Lead time depends on season and project size. Residential lots typically start within 2 to 4 weeks of estimate acceptance. Emergency or storm-related work is faster. We give you a realistic start date during the site walk, not a sales pitch.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the difference between forestry mulching and full land clearing in DeLand?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Forestry mulching grinds brush, undergrowth, and small trees into mulch in place. It is fast, cheap, and leaves the mulch as ground cover. Full clearing removes everything (vegetation, stumps, debris) and leaves a clean surface ready for grading. We help you pick the right approach during the site walk.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do you handle commercial land clearing in DeLand and Volusia County?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. We work with builders, developers, and general contractors on commercial pads, access roads, and multi-acre clearing throughout DeLand, DeLeon Springs, and Volusia County. We can work from your engineering documents and coordinate with your project schedule.',
+          },
+        },
       ],
     },
     webPage: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Land Clearing DeLand FL | Hoag Land Services',
+      name: 'Land Clearing DeLand FL',
       description:
         'Professional land clearing and site work in DeLand, FL. Forestry mulching, stump grinding, lot clearing and grading. Licensed and insured. Free estimates.',
-      url: 'https://hlsdeland.com/services/site-work/deland',
+      url: 'https://www.hlsdeland.com/services/site-work/deland',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',
@@ -373,8 +481,67 @@ const data: LocationPageData = {
         '@type': 'ImageObject',
         url: '/photos/site7.JPG',
       },
-      dateModified: '2026-04-10T00:00:00-04:00',
+      dateModified: '2026-07-21T00:00:00-04:00',
       inLanguage: 'en-US',
+    },
+    service: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      '@id': 'https://www.hlsdeland.com/services/site-work/deland#service',
+      serviceType: 'Land Clearing',
+      name: 'Land Clearing in DeLand, FL',
+      description:
+        'Land clearing, forestry mulching, stump grinding, lot clearing, rough grading, and drainage prep for residential and commercial properties in DeLand, FL.',
+      provider: {
+        '@type': 'LocalBusiness',
+        '@id': 'https://www.hlsdeland.com/services/site-work/deland#business',
+      },
+      areaServed: {
+        '@type': 'City',
+        name: 'DeLand',
+        '@id': 'https://en.wikipedia.org/wiki/DeLand,_Florida',
+        containedInPlace: { '@type': 'State', name: 'Florida' },
+      },
+      url: 'https://www.hlsdeland.com/services/site-work/deland',
+      image: 'https://www.hlsdeland.com/photos/site7.JPG',
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+    },
+    howTo: {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: 'How DeLand Land Clearing Works with Hoag Land Services',
+      description:
+        'Step-by-step process Hoag Land Services follows on a DeLand land clearing project.',
+      step: [
+        {
+          '@type': 'HowToStep',
+          position: 1,
+          name: 'Call or Send a Request',
+          text: 'Reach us by phone or through our contact form. Tell us about your DeLand property: the acreage, what is on it now, and what you are planning to do with it.',
+        },
+        {
+          '@type': 'HowToStep',
+          position: 2,
+          name: 'We Walk Your Property',
+          text: 'We visit your DeLand property to evaluate terrain, vegetation density, access points, and obstacles. You get an honest estimate based on what we actually see, not a guess from a satellite image.',
+        },
+        {
+          '@type': 'HowToStep',
+          position: 3,
+          name: 'We Get the Work Done',
+          text: 'Once approved, we mobilize equipment and complete the clearing, grading, or excavation work on schedule. We leave the site clean and ready for your next phase.',
+        },
+        {
+          '@type': 'HowToStep',
+          position: 4,
+          name: 'We Leave Your Site Build-Ready',
+          text: 'Cleanup, grade verification, and a final walk so you can hand the site to your foundation contractor, fence installer, or builder with confidence.',
+        },
+      ],
     },
   },
 }

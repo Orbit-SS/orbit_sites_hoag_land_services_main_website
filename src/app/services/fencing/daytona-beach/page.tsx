@@ -3,18 +3,18 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fence Company Daytona Beach FL | Hoag Land Services',
+  title: { absolute: 'Fence Company Daytona Beach FL | Hoag Land Services' },
   description:
     'Trusted fence contractor in Daytona Beach, FL. Wood, vinyl, and aluminum fence installation. 5.0 stars on Google, licensed and insured. Free estimates available.',
   alternates: {
-    canonical: 'https://hlsdeland.com/services/fencing/daytona-beach',
+    canonical: 'https://www.hlsdeland.com/services/fencing/daytona-beach',
   },
   openGraph: {
     type: 'website',
     title: 'Fence Company Daytona Beach FL | Hoag Land Services',
     description:
       'Trusted fence contractor in Daytona Beach, FL. Wood, vinyl, and aluminum fence installation. 5.0 stars on Google, licensed and insured. Free estimates available.',
-    url: 'https://hlsdeland.com/services/fencing/daytona-beach',
+    url: 'https://www.hlsdeland.com/services/fencing/daytona-beach',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [
@@ -54,7 +54,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32114', '32117', '32118', '32119', '32124'],
-  canonicalUrl: 'https://hlsdeland.com/services/fencing/daytona-beach',
+  canonicalUrl: 'https://www.hlsdeland.com/services/fencing/daytona-beach',
   primaryKeyword: 'fence company daytona beach',
   secondaryKeywords: [
     'daytona beach fence companies',
@@ -142,7 +142,7 @@ const data: LocationPageData = {
     },
     {
       title: 'Licensed & Fully Insured',
-      desc: 'Hoag Land Services is licensed and insured with HomeAdvisor Screened & Approved status. Our 5.0-star Google rating across 33 reviews reflects the quality and reliability our clients expect.',
+      desc: 'Hoag Land Services is licensed and insured with HomeAdvisor Screened & Approved status. Our 5.0-star Google rating across 40 reviews reflects the quality and reliability our clients expect.',
     },
     {
       title: 'Daytona Beach Property Knowledge',
@@ -207,7 +207,7 @@ const data: LocationPageData = {
       '@context': 'https://schema.org',
       '@type': 'FenceContractor',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/fence3.jpeg',
       description:
@@ -230,13 +230,6 @@ const data: LocationPageData = {
         '@type': 'City',
         name: 'Daytona Beach',
         sameAs: 'https://en.wikipedia.org/wiki/Daytona_Beach,_Florida',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '33',
-        bestRating: '5',
-        worstRating: '1',
       },
       review: [
         {
@@ -278,19 +271,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Fencing Services',
-          item: 'https://hlsdeland.com/services/fencing',
+          item: 'https://www.hlsdeland.com/services/fencing',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Daytona Beach',
-          item: 'https://hlsdeland.com/services/fencing/daytona-beach',
+          item: 'https://www.hlsdeland.com/services/fencing/daytona-beach',
         },
       ],
     },
@@ -362,11 +355,11 @@ const data: LocationPageData = {
       name: 'Fence Company Daytona Beach FL | Hoag Land Services',
       description:
         'Trusted fence contractor in Daytona Beach, FL. Wood, vinyl, and aluminum fence installation. 5.0 stars on Google, licensed and insured. Free estimates available.',
-      url: 'https://hlsdeland.com/services/fencing/daytona-beach',
+      url: 'https://www.hlsdeland.com/services/fencing/daytona-beach',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

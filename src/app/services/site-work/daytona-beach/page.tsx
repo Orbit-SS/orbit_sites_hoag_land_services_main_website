@@ -3,18 +3,18 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Land Clearing Daytona Beach FL | Hoag Land Services',
+  title: { absolute: 'Land Clearing Daytona Beach FL | Hoag Land Services' },
   description:
     'Professional land clearing and site work in Daytona Beach, FL. Lot clearing, forestry mulching, grading, and excavation. Licensed, insured, and 5.0-star rated.',
   alternates: {
-    canonical: 'https://hlsdeland.com/services/site-work/daytona-beach',
+    canonical: 'https://www.hlsdeland.com/services/site-work/daytona-beach',
   },
   openGraph: {
     type: 'website',
     title: 'Land Clearing Daytona Beach FL | Hoag Land Services',
     description:
       'Professional land clearing and site work in Daytona Beach, FL. Lot clearing, forestry mulching, grading, and excavation. Licensed, insured, and 5.0-star rated.',
-    url: 'https://hlsdeland.com/services/site-work/daytona-beach',
+    url: 'https://www.hlsdeland.com/services/site-work/daytona-beach',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [
@@ -54,7 +54,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32114', '32117', '32118', '32119', '32124'],
-  canonicalUrl: 'https://hlsdeland.com/services/site-work/daytona-beach',
+  canonicalUrl: 'https://www.hlsdeland.com/services/site-work/daytona-beach',
   primaryKeyword: 'land clearing daytona beach',
   secondaryKeywords: [
     'lot clearing daytona beach',
@@ -201,9 +201,9 @@ const data: LocationPageData = {
     localBusiness: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': 'https://hlsdeland.com/#business',
+      '@id': 'https://www.hlsdeland.com/#business',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/site10.JPG',
       description:
@@ -226,13 +226,6 @@ const data: LocationPageData = {
         '@type': 'City',
         name: 'Daytona Beach',
         sameAs: 'https://en.wikipedia.org/wiki/Daytona_Beach,_Florida',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '33',
-        bestRating: '5',
-        worstRating: '1',
       },
       review: [
         {
@@ -274,19 +267,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Site Services',
-          item: 'https://hlsdeland.com/services/site-work',
+          item: 'https://www.hlsdeland.com/services/site-work',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Daytona Beach',
-          item: 'https://hlsdeland.com/services/site-work/daytona-beach',
+          item: 'https://www.hlsdeland.com/services/site-work/daytona-beach',
         },
       ],
     },
@@ -350,11 +343,11 @@ const data: LocationPageData = {
       name: 'Land Clearing Daytona Beach FL | Hoag Land Services',
       description:
         'Professional land clearing and site work in Daytona Beach, FL. Lot clearing, forestry mulching, grading, and excavation. Licensed, insured, and 5.0-star rated.',
-      url: 'https://hlsdeland.com/services/site-work/daytona-beach',
+      url: 'https://www.hlsdeland.com/services/site-work/daytona-beach',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

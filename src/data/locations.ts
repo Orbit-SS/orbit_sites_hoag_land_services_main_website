@@ -27,6 +27,55 @@ export interface Location {
 
 export type ServiceCategory = 'tree' | 'site' | 'fence'
 
+/**
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * SERVICE CATEGORY CONFIG
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *
+ * Single source of truth for top-level service categories. Read by:
+ *   • Navigation, Footer (UI menus)
+ *   • Sitemap (src/app/sitemap.ts)
+ *   • Location pages (dynamic [location] routes)
+ *   • Content generator (src/data/location-content.ts)
+ *
+ * ─────────────────────────────────────────────────────────────────────────
+ * HOW TO ADD A NEW SERVICE CATEGORY (e.g. stump-grinding, forestry-mulching)
+ * ─────────────────────────────────────────────────────────────────────────
+ *
+ *   1. Add a new key to the `ServiceCategory` type union above (e.g. 'stump').
+ *
+ *   2. Add a new entry below with:
+ *        - name        — display name ("Stump Grinding")
+ *        - slug        — URL slug ("stump-grinding")
+ *        - tagline     — one-line description
+ *        - heroImages  — 3-5 local `/photos/*` paths
+ *        - services    — array of sub-services with href = `/services/{slug}/{subslug}`
+ *
+ *   3. Add the static sub-service slugs to `STATIC_SERVICE_SLUGS` (below) so the
+ *      dynamic [location] route knows which slugs are NOT cities.
+ *
+ *   4. Create the static folder structure (copy from an existing category):
+ *        src/app/services/{slug}/page.tsx          (hub)
+ *        src/app/services/{slug}/PageClient.tsx
+ *        src/app/services/{slug}/[location]/page.tsx   (dynamic city route)
+ *        src/app/services/{slug}/{subslug}/page.tsx    (one per sub-service)
+ *
+ *   5. Add per-character content branches in `src/data/location-content.ts`:
+ *        - extend `generateLocalContext()` with a new helper like
+ *          `generateStumpContext(loc, county, zips)`
+ *        - extend `generateFAQs()` with the new category's FAQ bank
+ *        - extend `generateDifferentiators()` / `getLocalDifferentiator()` / `generateSubheadline()`
+ *
+ *   6. Add per-category metadata patterns to the title/H1 rotation in
+ *      `generateLocationPageData()` (already keyed by ServiceCategory).
+ *
+ *   7. Build and verify the sitemap picks up the new routes:
+ *        npm run build
+ *        → open /sitemap.xml
+ *
+ * That's it. The Navigation/Footer/sitemap auto-pick up everything from this
+ * config — no manual menu edits required if you also add a footer link entry.
+ */
 export const SERVICE_CATEGORIES: Record<ServiceCategory, {
   name: string
   slug: string
@@ -72,6 +121,9 @@ export const SERVICE_CATEGORIES: Record<ServiceCategory, {
       { name: 'Drainage & Grading', desc: 'Proper site drainage and grading to protect your property from standing water and erosion issues.', href: '/services/site-work/drainage-grading' },
       { name: 'Erosion Control', desc: 'Installation and maintenance of silt fences, swales, and culverts to meet county and state environmental requirements.', href: '/services/site-work/erosion-control' },
       { name: 'Land Preparation', desc: 'Complete lot preparation for new construction, including clearing, grading, and utility access.', href: '/services/site-work/land-preparation' },
+      { name: 'Bush Hogging & Brush Mowing', desc: 'Bush hogging, brush mowing, and field mowing for overgrown lots, pastures, fence lines, and acreage too rough for a lawn mower.', href: '/services/site-work/bush-hogging-brush-mowing' },
+      { name: 'Flooding & Drainage', desc: 'Drainage solutions and flood mitigation for Central Florida properties — swales, French drains, culverts, regrading.', href: '/services/site-work/flooding-drainage' },
+      { name: 'Demolition', desc: 'Mobile home teardowns, concrete slab and driveway removal, barns, pool decks, and post-storm structure demolition. Debris hauled off.', href: '/services/site-work/demolition' },
     ],
   },
   fence: {
@@ -108,7 +160,8 @@ export const STATIC_SERVICE_SLUGS: Record<ServiceCategory, string[]> = {
   site: [
     'land-clearing', 'land-preparation', 'earthworks-excavation', 'drainage-grading',
     'erosion-control', 'invasive-vegetation-removal', 'overgrown-land-clearing',
-    'environmental-services',
+    'environmental-services', 'bush-hogging-brush-mowing', 'flooding-drainage',
+    'demolition',
   ],
   fence: [
     'wood-fencing', 'vinyl-fencing', 'aluminum-fencing', 'privacy-fencing',
@@ -129,10 +182,10 @@ export const LOCATIONS: Location[] = [
   { slug: 'deleon-springs', name: 'DeLeon Springs', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32130'], priority: 'high', character: 'rural', popBracket: 'small', nearby: ['deland', 'pierson', 'barberville', 'seville', 'lake-helen'] },
   { slug: 'orange-city', name: 'Orange City', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32763', '32774'], priority: 'high', character: 'suburban', popBracket: 'medium', nearby: ['deland', 'deltona', 'debary', 'lake-helen', 'enterprise'] },
   { slug: 'deltona', name: 'Deltona', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32725', '32738', '32739'], priority: 'high', character: 'suburban', popBracket: 'large', nearby: ['orange-city', 'debary', 'deland', 'enterprise', 'sanford'] },
-  { slug: 'lake-helen', name: 'Lake Helen', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32744'], priority: 'medium', character: 'rural', popBracket: 'small', nearby: ['deland', 'orange-city', 'cassadaga', 'deleon-springs', 'deltona'] },
-  { slug: 'pierson', name: 'Pierson', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32180'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'barberville', 'seville', 'deland', 'crescent-city'] },
-  { slug: 'barberville', name: 'Barberville', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32105'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'pierson', 'seville', 'astor', 'deland'] },
-  { slug: 'seville', name: 'Seville', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32190'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['pierson', 'deleon-springs', 'barberville', 'deland', 'crescent-city'] },
+  { slug: 'lake-helen', name: 'Lake Helen', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32744'], priority: 'high', character: 'rural', popBracket: 'small', nearby: ['deland', 'orange-city', 'cassadaga', 'deleon-springs', 'deltona'] },
+  { slug: 'pierson', name: 'Pierson', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32180'], priority: 'high', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'barberville', 'seville', 'deland', 'crescent-city'] },
+  { slug: 'barberville', name: 'Barberville', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32105'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'pierson', 'seville', 'astor', 'deland'] },
+  { slug: 'seville', name: 'Seville', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32190'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['pierson', 'deleon-springs', 'barberville', 'deland', 'crescent-city'] },
   { slug: 'daytona-beach', name: 'Daytona Beach', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32114', '32117', '32118', '32119', '32124'], priority: 'high', character: 'coastal', popBracket: 'large', nearby: ['ormond-beach', 'south-daytona', 'port-orange', 'holly-hill', 'deland'] },
   { slug: 'ormond-beach', name: 'Ormond Beach', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32174', '32176'], priority: 'high', character: 'coastal', popBracket: 'medium', nearby: ['daytona-beach', 'holly-hill', 'palm-coast', 'flagler-beach', 'deland'] },
   { slug: 'port-orange', name: 'Port Orange', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32127', '32128', '32129'], priority: 'high', character: 'suburban', popBracket: 'large', nearby: ['daytona-beach', 'south-daytona', 'new-smyrna-beach', 'edgewater', 'deland'] },
@@ -190,10 +243,10 @@ export const LOCATIONS: Location[] = [
   { slug: 'tavares', name: 'Tavares', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32778'], priority: 'medium', character: 'suburban', popBracket: 'medium', nearby: ['mount-dora', 'eustis', 'leesburg', 'apopka', 'deland'] },
   { slug: 'leesburg', name: 'Leesburg', stateAbbr: 'FL', county: 'Lake', zipCodes: ['34748', '34788'], priority: 'medium', character: 'suburban', popBracket: 'medium', nearby: ['tavares', 'eustis', 'the-villages', 'mount-dora', 'deland'] },
   { slug: 'clermont', name: 'Clermont', stateAbbr: 'FL', county: 'Lake', zipCodes: ['34711', '34714'], priority: 'medium', character: 'suburban', popBracket: 'large', nearby: ['winter-garden', 'leesburg', 'tavares', 'apopka', 'deland'] },
-  { slug: 'umatilla', name: 'Umatilla', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32784'], priority: 'low', character: 'rural', popBracket: 'small', nearby: ['eustis', 'mount-dora', 'astor', 'altoona', 'deland'] },
-  { slug: 'astor', name: 'Astor', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32102'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'barberville', 'umatilla', 'paisley', 'deland'] },
+  { slug: 'umatilla', name: 'Umatilla', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32784'], priority: 'medium', character: 'rural', popBracket: 'small', nearby: ['eustis', 'mount-dora', 'astor', 'altoona', 'deland'] },
+  { slug: 'astor', name: 'Astor', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32102'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'barberville', 'umatilla', 'paisley', 'deland'] },
   { slug: 'paisley', name: 'Paisley', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32767'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['astor', 'umatilla', 'altoona', 'deleon-springs', 'deland'] },
-  { slug: 'altoona', name: 'Altoona', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32702'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['umatilla', 'paisley', 'eustis', 'astor', 'deland'] },
+  { slug: 'altoona', name: 'Altoona', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32702'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['umatilla', 'paisley', 'eustis', 'astor', 'deland'] },
   { slug: 'sorrento', name: 'Sorrento', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32776'], priority: 'low', character: 'rural', popBracket: 'small', nearby: ['mount-dora', 'apopka', 'sanford', 'eustis', 'deland'] },
   { slug: 'the-villages', name: 'The Villages', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32159', '32162', '32163'], priority: 'medium', character: 'suburban', popBracket: 'large', nearby: ['leesburg', 'tavares', 'ocala', 'eustis', 'deland'] },
   { slug: 'lady-lake', name: 'Lady Lake', stateAbbr: 'FL', county: 'Lake', zipCodes: ['32159'], priority: 'low', character: 'suburban', popBracket: 'medium', nearby: ['the-villages', 'leesburg', 'tavares', 'ocala', 'deland'] },
@@ -208,10 +261,10 @@ export const LOCATIONS: Location[] = [
   // ═══════════════════════════════════════
   { slug: 'palatka', name: 'Palatka', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32177'], priority: 'medium', character: 'suburban', popBracket: 'small', nearby: ['east-palatka', 'crescent-city', 'san-mateo', 'satsuma', 'deland'] },
   { slug: 'east-palatka', name: 'East Palatka', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32131'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['palatka', 'san-mateo', 'hastings', 'crescent-city', 'deland'] },
-  { slug: 'crescent-city', name: 'Crescent City', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32112'], priority: 'low', character: 'rural', popBracket: 'small', nearby: ['palatka', 'pierson', 'seville', 'welaka', 'deland'] },
+  { slug: 'crescent-city', name: 'Crescent City', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32112'], priority: 'medium', character: 'rural', popBracket: 'small', nearby: ['palatka', 'pierson', 'seville', 'welaka', 'deland'] },
   { slug: 'san-mateo', name: 'San Mateo', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32187'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['palatka', 'east-palatka', 'hastings', 'bunnell', 'deland'] },
   { slug: 'welaka', name: 'Welaka', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32193'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['crescent-city', 'palatka', 'satsuma', 'pierson', 'deland'] },
-  { slug: 'pomona-park', name: 'Pomona Park', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32181'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['crescent-city', 'palatka', 'welaka', 'pierson', 'deland'] },
+  { slug: 'pomona-park', name: 'Pomona Park', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32181'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['crescent-city', 'palatka', 'welaka', 'pierson', 'deland'] },
   { slug: 'satsuma', name: 'Satsuma', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32189'], priority: 'low', character: 'rural', popBracket: 'tiny', nearby: ['palatka', 'welaka', 'crescent-city', 'east-palatka', 'deland'] },
   { slug: 'interlachen', name: 'Interlachen', stateAbbr: 'FL', county: 'Putnam', zipCodes: ['32148'], priority: 'low', character: 'rural', popBracket: 'small', nearby: ['palatka', 'crescent-city', 'eustis', 'umatilla', 'deland'] },
   // ═══════════════════════════════════════

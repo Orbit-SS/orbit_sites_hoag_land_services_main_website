@@ -71,6 +71,31 @@ export interface LocationPageData {
   // Local area context - 175+ words, unique per page
   localContext: string
 
+  // Optional "What's Included" feature checklist (renders between localContext and FAQ)
+  whatsIncluded?: {
+    eyebrow?: string
+    heading?: string
+    intro?: string
+    items: Array<{ title: string; desc: string; href?: string }>
+  }
+
+  // Optional "Recent Projects" photo evidence block (renders between whatsIncluded and FAQ)
+  recentProjects?: {
+    eyebrow?: string
+    heading?: string
+    intro?: string
+    items: Array<{
+      image: string
+      alt: string
+      title: string
+      desc: string
+      location?: string
+      service?: string
+      /** CSS object-position override for the image (e.g. 'center bottom') */
+      imagePos?: string
+    }>
+  }
+
   // FAQ - 5-7 items, at least 2 naming the location
   faqs: FAQItem[]
 
@@ -83,5 +108,7 @@ export interface LocationPageData {
     breadcrumbs: Record<string, unknown>
     faqPage: Record<string, unknown>
     webPage: Record<string, unknown>
+    service?: Record<string, unknown>
+    howTo?: Record<string, unknown>
   }
 }

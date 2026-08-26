@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { sendGAEvent } from '@next/third-parties/google'
 import type { LocationPageData } from '@/types/location'
 import {
   PHONE,
@@ -140,7 +141,8 @@ function FAQAccordion({ q, a }: { q: string; a: string }) {
 /* ── Contact Form ── */
 
 function ContactForm({ location, zipCode, serviceCategory }: { location: string; zipCode: string; serviceCategory: string }) {
-  const [formState, setFormState] = useState<'idle' | 'sending' | 'sent'>('idle')
+  const [formState, setFormState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState<string>('')
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -149,15 +151,67 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
     zip: zipCode,
     message: '',
   })
+  const startedRef = useRef(false)
 
   const serviceOptions = ['Site Services', 'Tree Services', 'Fencing Services']
+  const FORM_TYPE = 'location_estimate'
+  const sourcePage = typeof window !== 'undefined' ? window.location.pathname : ''
+  const eventContext = {
+    form_type: FORM_TYPE,
+    form_page: sourcePage,
+    source_page: sourcePage,
+    content_group: serviceCategory,
+    location: location,
+  }
+
+  const trackStart = () => {
+    if (startedRef.current) return
+    startedRef.current = true
+    sendGAEvent('event', 'form_start', eventContext)
+  }
+
+  // form_start must mean "typed something", not "focus landed here". React's
+  // onFocus bubbles, so wiring it on the <form> counted anyone tabbing past.
+  const updateField = (field: keyof typeof form, value: string) => {
+    trackStart()
+    setForm(prev => ({ ...prev, [field]: value }))
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormState('sending')
-    // Simulate submission
-    await new Promise(r => setTimeout(r, 800))
-    setFormState('sent')
+    setErrorMsg('')
+    sendGAEvent('event', 'form_submit', eventContext)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          propertyLocation: form.zip,
+          message: form.message || `Estimate request from ${location} ${serviceCategory} page.`,
+          sourcePage,
+          locationContext: `${location} - ${serviceCategory}`,
+        }),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        sendGAEvent('event', 'form_error', eventContext)
+        setErrorMsg(body?.error || 'Something went wrong. Please call us instead.')
+        setFormState('error')
+        return
+      }
+      sendGAEvent('event', 'generate_lead', eventContext)
+      setFormState('sent')
+    } catch (err) {
+      console.error('[LocationPage form error]', err)
+      sendGAEvent('event', 'form_error', eventContext)
+      setErrorMsg('Could not reach our server. Please call us instead.')
+      setFormState('error')
+    }
   }
 
   if (formState === 'sent') {
@@ -182,7 +236,7 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
             type="text"
             required
             value={form.name}
-            onChange={e => setForm({ ...form, name: e.target.value })}
+            onChange={e => updateField('name', e.target.value)}
             className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59]"
           />
         </div>
@@ -193,7 +247,7 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
             type="tel"
             required
             value={form.phone}
-            onChange={e => setForm({ ...form, phone: e.target.value })}
+            onChange={e => updateField('phone', e.target.value)}
             className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59]"
           />
         </div>
@@ -205,7 +259,7 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
           type="email"
           required
           value={form.email}
-          onChange={e => setForm({ ...form, email: e.target.value })}
+          onChange={e => updateField('email', e.target.value)}
           className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59]"
         />
       </div>
@@ -215,7 +269,7 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
           <select
             id="loc-service"
             value={form.service}
-            onChange={e => setForm({ ...form, service: e.target.value })}
+            onChange={e => updateField('service', e.target.value)}
             className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59]"
           >
             {serviceOptions.map(s => (
@@ -229,7 +283,7 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
             id="loc-zip"
             type="text"
             value={form.zip}
-            onChange={e => setForm({ ...form, zip: e.target.value })}
+            onChange={e => updateField('zip', e.target.value)}
             className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59]"
           />
         </div>
@@ -240,17 +294,22 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
           id="loc-message"
           rows={3}
           value={form.message}
-          onChange={e => setForm({ ...form, message: e.target.value })}
+          onChange={e => updateField('message', e.target.value)}
           className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59] resize-none"
         />
       </div>
       <button
         type="submit"
         disabled={formState === 'sending'}
-        className="w-full bg-[#4a7c59] hover:bg-[#3d6b4a] text-white font-display font-bold uppercase tracking-wide py-4 rounded transition-colors duration-200 min-h-[48px]"
+        className="w-full bg-[#4a7c59] hover:bg-[#3d6b4a] text-white font-display font-bold uppercase tracking-wide py-4 rounded transition-colors duration-200 min-h-[48px] disabled:opacity-60"
       >
         {formState === 'sending' ? 'Sending...' : 'Get Your Free Estimate'}
       </button>
+      {formState === 'error' && (
+        <p className="text-sm text-red-400 mt-2 text-center" role="alert">
+          {errorMsg || 'Something went wrong. Please call us instead.'}
+        </p>
+      )}
     </form>
   )
 }
@@ -315,6 +374,18 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(data.schema.webPage) }}
       />
+      {data.schema.service && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data.schema.service) }}
+        />
+      )}
+      {data.schema.howTo && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data.schema.howTo) }}
+        />
+      )}
 
       {/* ════════ SECTION 1 — HERO ════════ */}
       <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
@@ -515,6 +586,92 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
           />
         </div>
       </section>
+
+      {/* ════════ SECTION 8B — WHAT'S INCLUDED (optional) ════════ */}
+      {data.whatsIncluded && (
+        <section className="bg-[#141614] py-16 sm:py-20 border-t border-white/5">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            {data.whatsIncluded.eyebrow && (
+              <p className="text-[#c2a878] font-display uppercase tracking-[0.2em] text-sm mb-3 text-center">
+                {data.whatsIncluded.eyebrow}
+              </p>
+            )}
+            <h2 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-center mb-4">
+              {data.whatsIncluded.heading ?? `What's Included in ${data.serviceCategoryName} in ${data.location}`}
+            </h2>
+            {data.whatsIncluded.intro && (
+              <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10">
+                {data.whatsIncluded.intro}
+              </p>
+            )}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {data.whatsIncluded.items.map((item) => {
+                const inner = (
+                  <div className="flex gap-3 items-start bg-[#1a1c1a] p-5 border border-white/5 hover:border-[#4a7c59]/40 transition-all h-full">
+                    <svg className="w-5 h-5 text-[#4a7c59] mt-1 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <div>
+                      <h3 className="font-display font-bold uppercase text-base mb-1">{item.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                )
+                return item.href ? (
+                  <Link key={item.title} href={item.href} className="group">{inner}</Link>
+                ) : (
+                  <div key={item.title}>{inner}</div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ════════ SECTION 8C — RECENT PROJECTS (optional photo evidence) ════════ */}
+      {data.recentProjects && data.recentProjects.items.length > 0 && (
+        <section className="bg-[#0d0f0d] py-16 sm:py-20 border-t border-white/5">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            {data.recentProjects.eyebrow && (
+              <p className="text-[#c2a878] font-display uppercase tracking-[0.2em] text-sm mb-3 text-center">
+                {data.recentProjects.eyebrow}
+              </p>
+            )}
+            <h2 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-center mb-4">
+              {data.recentProjects.heading ?? `Recent ${data.serviceCategoryName} Projects in ${data.location}`}
+            </h2>
+            {data.recentProjects.intro && (
+              <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10">
+                {data.recentProjects.intro}
+              </p>
+            )}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {data.recentProjects.items.map((p) => (
+                <figure key={p.title} className="bg-[#141614] border border-white/5 overflow-hidden rounded-sm">
+                  <div className="aspect-[4/3] overflow-hidden bg-[#0d0f0d]">
+                    <img
+                      src={p.image}
+                      alt={p.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                      style={p.imagePos ? { objectPosition: p.imagePos } : undefined}
+                    />
+                  </div>
+                  <figcaption className="p-4">
+                    {(p.location || p.service) && (
+                      <p className="text-[#4a7c59] font-display uppercase tracking-[0.14em] text-[0.68rem] mb-1.5">
+                        {[p.location, p.service].filter(Boolean).join(' · ')}
+                      </p>
+                    )}
+                    <h3 className="font-display font-bold uppercase text-base mb-1.5 leading-tight">{p.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{p.desc}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ════════ SECTION 9 — FAQ ════════ */}
       <section className="bg-[#0d0f0d] py-16 sm:py-20">

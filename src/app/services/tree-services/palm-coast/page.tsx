@@ -3,16 +3,16 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Tree Service Palm Coast FL | Hoag Land Services',
+  title: { absolute: 'Tree Service Palm Coast FL | Hoag Land Services' },
   description:
     'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
-  alternates: { canonical: 'https://hlsdeland.com/services/tree-services/palm-coast' },
+  alternates: { canonical: 'https://www.hlsdeland.com/services/tree-services/palm-coast' },
   openGraph: {
     type: 'website',
     title: 'Tree Service Palm Coast FL | Hoag Land Services',
     description:
       'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
-    url: 'https://hlsdeland.com/services/tree-services/palm-coast',
+    url: 'https://www.hlsdeland.com/services/tree-services/palm-coast',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [{ url: '/photos/tree5.JPEG' }],
@@ -75,7 +75,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32137', '32164'],
-  canonicalUrl: 'https://hlsdeland.com/services/tree-services/palm-coast',
+  canonicalUrl: 'https://www.hlsdeland.com/services/tree-services/palm-coast',
   primaryKeyword: 'tree service palm coast fl',
   secondaryKeywords: [
     'tree removal palm coast',
@@ -157,7 +157,7 @@ const data: LocationPageData = {
     },
     {
       title: 'Licensed & Insured',
-      desc: 'Hoag Land Services carries full liability insurance and holds HomeAdvisor Screened & Approved status. You are protected from start to finish, and our 5.0-star Google rating across 33 reviews reflects the care we bring to every job.',
+      desc: 'Hoag Land Services carries full liability insurance and holds HomeAdvisor Screened & Approved status. You are protected from start to finish, and our 5.0-star Google rating across 40 reviews reflects the care we bring to every job.',
     },
     {
       title: 'Flagler County Storm Experience',
@@ -185,7 +185,7 @@ const data: LocationPageData = {
       '@context': 'https://schema.org',
       '@type': 'TreeService',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/tree5.JPEG',
       description:
@@ -208,12 +208,6 @@ const data: LocationPageData = {
         '@type': 'City',
         name: 'Palm Coast',
         sameAs: 'https://en.wikipedia.org/wiki/Palm_Coast,_Florida',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '33',
-        bestRating: '5',
       },
       review: [
         {
@@ -255,19 +249,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Tree Services',
-          item: 'https://hlsdeland.com/services/tree-services',
+          item: 'https://www.hlsdeland.com/services/tree-services',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Palm Coast',
-          item: 'https://hlsdeland.com/services/tree-services/palm-coast',
+          item: 'https://www.hlsdeland.com/services/tree-services/palm-coast',
         },
       ],
     },
@@ -289,11 +283,11 @@ const data: LocationPageData = {
       name: 'Tree Service Palm Coast FL | Hoag Land Services',
       description:
         'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
-      url: 'https://hlsdeland.com/services/tree-services/palm-coast',
+      url: 'https://www.hlsdeland.com/services/tree-services/palm-coast',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

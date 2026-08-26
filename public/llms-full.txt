@@ -102,13 +102,13 @@ Port St. John
 
 ## Key URLs
 
-- Home: https://hlsdeland.com/
-- About: https://hlsdeland.com/about
-- Services: https://hlsdeland.com/services
-- Tree Services: https://hlsdeland.com/services/tree-services
-- Site Work: https://hlsdeland.com/services/site-work
-- Fencing: https://hlsdeland.com/services/fencing
-- Service Areas: https://hlsdeland.com/service-areas
-- Portfolio: https://hlsdeland.com/portfolio
-- Contact: https://hlsdeland.com/contact
-- Sitemap: https://hlsdeland.com/sitemap.xml
+- Home: https://www.hlsdeland.com/
+- About: https://www.hlsdeland.com/about
+- Services: https://www.hlsdeland.com/services
+- Tree Services: https://www.hlsdeland.com/services/tree-services
+- Site Work: https://www.hlsdeland.com/services/site-work
+- Fencing: https://www.hlsdeland.com/services/fencing
+- Service Areas: https://www.hlsdeland.com/service-areas
+- Portfolio: https://www.hlsdeland.com/portfolio
+- Contact: https://www.hlsdeland.com/contact
+- Sitemap: https://www.hlsdeland.com/sitemap.xml

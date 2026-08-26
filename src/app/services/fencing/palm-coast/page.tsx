@@ -3,16 +3,16 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fence Company Palm Coast FL | Hoag Land Services',
+  title: { absolute: 'Fence Company Palm Coast FL | Hoag Land Services' },
   description:
     'Top-rated fence company in Palm Coast, FL. Wood, vinyl & aluminum fencing installed by a licensed, insured team. 5.0 stars. Free on-site estimates.',
-  alternates: { canonical: 'https://hlsdeland.com/services/fencing/palm-coast' },
+  alternates: { canonical: 'https://www.hlsdeland.com/services/fencing/palm-coast' },
   openGraph: {
     type: 'website',
     title: 'Fence Company Palm Coast FL | Hoag Land Services',
     description:
       'Top-rated fence company in Palm Coast, FL. Wood, vinyl & aluminum fencing installed by a licensed, insured team. 5.0 stars. Free on-site estimates.',
-    url: 'https://hlsdeland.com/services/fencing/palm-coast',
+    url: 'https://www.hlsdeland.com/services/fencing/palm-coast',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
     images: [{ url: '/photos/fence5.jpeg' }],
@@ -75,7 +75,7 @@ const data: LocationPageData = {
   state: 'Florida',
   stateAbbr: 'FL',
   zipCodes: ['32137', '32164'],
-  canonicalUrl: 'https://hlsdeland.com/services/fencing/palm-coast',
+  canonicalUrl: 'https://www.hlsdeland.com/services/fencing/palm-coast',
   primaryKeyword: 'fence company palm coast fl',
   secondaryKeywords: [
     'fence companies palm coast',
@@ -188,7 +188,7 @@ const data: LocationPageData = {
       '@context': 'https://schema.org',
       '@type': 'FenceContractor',
       name: 'Hoag Land Services',
-      url: 'https://hlsdeland.com',
+      url: 'https://www.hlsdeland.com',
       logo: '/photos/HLSlogo-nobackground.png',
       image: '/photos/fence5.jpeg',
       description:
@@ -211,12 +211,6 @@ const data: LocationPageData = {
         '@type': 'City',
         name: 'Palm Coast',
         sameAs: 'https://en.wikipedia.org/wiki/Palm_Coast,_Florida',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '33',
-        bestRating: '5',
       },
       review: [
         {
@@ -258,19 +252,19 @@ const data: LocationPageData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://hlsdeland.com',
+          item: 'https://www.hlsdeland.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Fencing Services',
-          item: 'https://hlsdeland.com/services/fencing',
+          item: 'https://www.hlsdeland.com/services/fencing',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Palm Coast',
-          item: 'https://hlsdeland.com/services/fencing/palm-coast',
+          item: 'https://www.hlsdeland.com/services/fencing/palm-coast',
         },
       ],
     },
@@ -292,11 +286,11 @@ const data: LocationPageData = {
       name: 'Fence Company Palm Coast FL | Hoag Land Services',
       description:
         'Top-rated fence company in Palm Coast, FL. Wood, vinyl & aluminum fencing installed by a licensed, insured team. 5.0 stars. Free on-site estimates.',
-      url: 'https://hlsdeland.com/services/fencing/palm-coast',
+      url: 'https://www.hlsdeland.com/services/fencing/palm-coast',
       isPartOf: {
         '@type': 'WebSite',
         name: 'Hoag Land Services',
-        url: 'https://hlsdeland.com',
+        url: 'https://www.hlsdeland.com',
       },
       about: {
         '@type': 'LocalBusiness',

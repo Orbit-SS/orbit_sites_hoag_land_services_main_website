@@ -12,34 +12,53 @@ Hoag Land Services (HLS) is a Central Florida land services company owned and op
 
 ## Services
 
-- [Tree Services](https://hlsdeland.com/services/tree-services): Tree removal, tree trimming, palm pruning, tree installation, stump grinding, and emergency storm cleanup by ISA Certified Arborist
-- [Site Work / Land Clearing](https://hlsdeland.com/services/site-work): Land clearing, earthworks and excavation, grading, erosion control, environmental services, forestry mulching, driveways, and drainage
-- [Fencing Services](https://hlsdeland.com/services/fencing): Wood fencing, vinyl fencing, aluminum fencing, farm and ranch fencing for residential and commercial properties
+- [Tree Services](https://www.hlsdeland.com/services/tree-services): Tree removal, tree trimming, palm pruning, tree installation, stump grinding, and emergency storm cleanup by ISA Certified Arborist
+- [Site Work / Land Clearing](https://www.hlsdeland.com/services/site-work): Land clearing, earthworks and excavation, grading, erosion control, environmental services, forestry mulching, driveways, and drainage
+- [Fencing Services](https://www.hlsdeland.com/services/fencing): Wood fencing, vinyl fencing, aluminum fencing, farm and ranch fencing for residential and commercial properties
 
 ## Key Pages
 
-- [Home](https://hlsdeland.com/): Company overview and service summary
-- [About](https://hlsdeland.com/about): Company history, owner background, certifications
-- [Service Areas](https://hlsdeland.com/service-areas): All 123 service locations across 9 Central Florida counties
-- [Portfolio](https://hlsdeland.com/portfolio): Project photos for site work, tree services, and fencing
-- [Contact](https://hlsdeland.com/contact): Request a free estimate
-- [Sitemap](https://hlsdeland.com/sitemap.xml): Full XML sitemap with 397 URLs
+- [Home](https://www.hlsdeland.com/): Company overview and service summary
+- [About](https://www.hlsdeland.com/about): Company history, owner background, certifications
+- [Service Areas](https://www.hlsdeland.com/service-areas): All 123 service locations across 9 Central Florida counties
+- [Portfolio](https://www.hlsdeland.com/portfolio): Project photos for site work, tree services, and fencing
+- [Contact](https://www.hlsdeland.com/contact): Request a free estimate
+- [Sitemap](https://www.hlsdeland.com/sitemap.xml): Full XML sitemap with 397 URLs
 
 ## Service Area Coverage
 
-- [DeLand Tree Services](https://hlsdeland.com/services/tree-services/deland): Primary service area - Volusia County
-- [Daytona Beach Tree Services](https://hlsdeland.com/services/tree-services/daytona-beach): Major metro - Volusia County
-- [Palm Coast Tree Services](https://hlsdeland.com/services/tree-services/palm-coast): Flagler County hub
-- [Orlando Tree Services](https://hlsdeland.com/services/tree-services/orlando): Orange County metro
-- [Sanford Tree Services](https://hlsdeland.com/services/tree-services/sanford): Seminole County hub
-- [Ocala Tree Services](https://hlsdeland.com/services/tree-services/ocala): Marion County hub
-- [Deltona Tree Services](https://hlsdeland.com/services/tree-services/deltona): Volusia County major city
+- [DeLand Tree Services](https://www.hlsdeland.com/services/tree-services/deland): Primary service area - Volusia County
+- [Daytona Beach Tree Services](https://www.hlsdeland.com/services/tree-services/daytona-beach): Major metro - Volusia County
+- [Palm Coast Tree Services](https://www.hlsdeland.com/services/tree-services/palm-coast): Flagler County hub
+- [Orlando Tree Services](https://www.hlsdeland.com/services/tree-services/orlando): Orange County metro
+- [Sanford Tree Services](https://www.hlsdeland.com/services/tree-services/sanford): Seminole County hub
+- [Ocala Tree Services](https://www.hlsdeland.com/services/tree-services/ocala): Marion County hub
+- [Deltona Tree Services](https://www.hlsdeland.com/services/tree-services/deltona): Volusia County major city
 
 ## Optional
 
-- [Tree Removal](https://hlsdeland.com/services/tree-services/tree-removal): Dedicated tree removal service page
-- [Tree Trimming](https://hlsdeland.com/services/tree-services/tree-trimming): Dedicated tree trimming service page
-- [Land Clearing](https://hlsdeland.com/services/site-work/land-clearing): Dedicated land clearing service page
-- [Vinyl Fencing](https://hlsdeland.com/services/fencing/vinyl-fencing): Dedicated vinyl fencing service page
-- [Wood Fencing](https://hlsdeland.com/services/fencing/wood-fencing): Dedicated wood fencing service page
-- [Aluminum Fencing](https://hlsdeland.com/services/fencing/aluminum-fencing): Dedicated aluminum fencing service page
+- [Tree Removal](https://www.hlsdeland.com/services/tree-services/tree-removal): Dedicated tree removal service page
+- [Tree Trimming](https://www.hlsdeland.com/services/tree-services/tree-trimming): Dedicated tree trimming service page
+- [Land Clearing](https://www.hlsdeland.com/services/site-work/land-clearing): Dedicated land clearing service page
+- [Vinyl Fencing](https://www.hlsdeland.com/services/fencing/vinyl-fencing): Dedicated vinyl fencing service page
+- [Wood Fencing](https://www.hlsdeland.com/services/fencing/wood-fencing): Dedicated wood fencing service page
+- [Aluminum Fencing](https://www.hlsdeland.com/services/fencing/aluminum-fencing): Dedicated aluminum fencing service page
+
+## Agent Interfaces
+
+Machine-readable surfaces on this origin. All are public, read-only, and require
+no authentication or registration. See https://www.hlsdeland.com/auth.md
+
+- [Markdown for any page](https://www.hlsdeland.com/): Send `Accept: text/markdown` to any page URL and it returns markdown instead of HTML. Response carries `x-markdown-tokens` so you can budget before reading.
+- [MCP server](https://www.hlsdeland.com/api/mcp): Streamable HTTP transport. Tools for services, service-area lookup by city or ZIP, contact details, reviews, and page markdown.
+- [MCP server card](https://www.hlsdeland.com/.well-known/mcp/server-card.json): Server metadata and tool list.
+- [Public read API](https://www.hlsdeland.com/api/v1/services): JSON endpoints under `/api/v1` — company, services, service-areas, reviews, health.
+- [OpenAPI description](https://www.hlsdeland.com/openapi.json): OpenAPI 3.1 for the read API.
+- [API catalog](https://www.hlsdeland.com/.well-known/api-catalog): RFC 9727 linkset.
+- [Agent skills](https://www.hlsdeland.com/.well-known/agent-skills/index.json): How to request an estimate, match a job to a service line, check coverage, and handle storm damage.
+- [Capability manifest](https://www.hlsdeland.com/.well-known/ai-catalog.json): ARD manifest of everything above.
+
+Note for agents: do not POST to `/api/contact`, `/api/join` or `/api/approve`.
+They are internal handlers for the on-page forms, they email a real person, and
+they reject automated submissions. Hand people the form at
+https://www.hlsdeland.com/contact or the phone number (386) 561-0003 instead.

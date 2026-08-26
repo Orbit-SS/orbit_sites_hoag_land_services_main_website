@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Join', href: '/join' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -26,9 +27,11 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change. Deferred so the state update never
+  // lands during render, and cleaned up if the route changes again first.
   useEffect(() => {
-    setMobileOpen(false)
+    const timer = window.setTimeout(() => setMobileOpen(false), 0)
+    return () => window.clearTimeout(timer)
   }, [pathname])
 
   const isActive = (href: string) =>

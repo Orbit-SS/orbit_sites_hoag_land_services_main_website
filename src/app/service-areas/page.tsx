@@ -8,13 +8,18 @@ import {
   REVIEW_STATS,
   EST_YEAR,
 } from '@/shared/constants'
-import ServiceAreasMap from '@/components/ServiceAreasMap'
+import ServiceAreasMapLoader from '@/components/ServiceAreasMapLoader'
+import { breadcrumbSchema, webPageSchema, jsonLd } from '@/lib/schema'
+
+const TITLE = 'Service Areas: 9 Florida Counties, 123 Communities'
+const DESCRIPTION =
+  'Tree service, land clearing, and fencing across 9 Central Florida counties and 123 communities. Find your area on the map.'
+const PAGE_URL = '/service-areas'
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Hoag Land Services',
-  description:
-    'Hoag Land Services provides tree services, land clearing, and fencing across 9 Florida counties and 123 communities. Explore the interactive map to find your area.',
-  alternates: { canonical: 'https://hlsdeland.com/service-areas' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `https://www.hlsdeland.com${PAGE_URL}` },
   robots: {
     index: true,
     follow: true,
@@ -40,12 +45,23 @@ function getLocationsByCounty() {
 
 const serviceKeys: ServiceCategory[] = ['tree', 'site', 'fence']
 
+// Page-level schema. This page was missed in the earlier schema sweep and was
+// inheriting only the layout's Organization node.
+const schemas = [
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Service Areas', url: PAGE_URL },
+  ]),
+  webPageSchema({ name: TITLE, description: DESCRIPTION, url: PAGE_URL }),
+]
+
 export default function ServiceAreasPage() {
   const { grouped, countyOrder } = getLocationsByCounty()
   const totalLocations = ALL_LOCATIONS.length
 
   return (
     <div className="min-h-screen bg-[#1a1c1a] text-white font-sans">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schemas) }} />
       {/* Breadcrumb */}
       <nav className="bg-[#0d0f0d] py-3 px-4">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm text-gray-500">
@@ -82,7 +98,7 @@ export default function ServiceAreasPage() {
       {/* Interactive Map Section */}
       <section className="bg-[#1a1c1a] py-10 sm:py-14 px-4">
         <div className="max-w-7xl mx-auto">
-          <ServiceAreasMap locations={ALL_LOCATIONS} />
+          <ServiceAreasMapLoader locations={ALL_LOCATIONS} />
         </div>
       </section>
 

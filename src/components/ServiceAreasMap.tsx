@@ -121,11 +121,39 @@ export default function ServiceAreasMap({ locations }: { locations: Location[] }
     if (!mapContainer.current || mapRef.current) return
 
     const loadMapbox = async () => {
+      // Load Mapbox CSS via <link> tag (dynamic CSS imports break in Next.js production builds)
+      if (!document.getElementById('mapbox-gl-css')) {
+        const link = document.createElement('link')
+        link.id = 'mapbox-gl-css'
+        link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.11.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
+
       const mapboxgl = (await import('mapbox-gl')).default
-      await import('mapbox-gl/dist/mapbox-gl.css')
       mapboxglRef.current = mapboxgl
 
-      mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
+      // Token comes from NEXT_PUBLIC_MAPBOX_TOKEN. It was hardcoded here, which
+
+      // tripped GitHub push protection. This is a Mapbox publishable (pk.) token,
+
+      // so it is public by design and ships in the client bundle either way --
+
+      // but it does not belong in source. Protect it with URL restrictions in the
+
+      // Mapbox dashboard rather than by hiding it.
+
+      const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+
+      if (!mapboxToken) {
+
+        console.warn('NEXT_PUBLIC_MAPBOX_TOKEN is not set; skipping map render.')
+
+        return
+
+      }
+
+      mapboxgl.accessToken = mapboxToken
 
       const map = new mapboxgl.Map({
         container: mapContainer.current!,

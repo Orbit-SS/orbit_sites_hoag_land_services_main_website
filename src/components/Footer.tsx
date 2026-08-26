@@ -19,6 +19,8 @@ const QUICK_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Reviews', href: '/reviews' },
+  { label: 'Join Our Team', href: '/join' },
   { label: 'Contact', href: '/contact' },
 ]
 
