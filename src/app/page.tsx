@@ -7,7 +7,7 @@ const PAGE_URL = '/'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
+    absolute: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in Central Florida',
   },
   description:
     'Land clearing, tree service & fencing in DeLand & Central Florida. ISA Certified Arborist, licensed & insured. Free estimates — call today to book your project.',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Hoag Land Services',
-    title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
+    title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in Central Florida',
     description:
       'Land clearing, tree service & fencing in DeLand & Central Florida. ISA Certified Arborist, licensed & insured. Free estimates — call today to book your project.',
     url: `${SITE_URL}/`,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
+    title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in Central Florida',
     description:
       'Land clearing, tree service & fencing in DeLand & Central Florida. ISA Certified Arborist, licensed & insured. Free estimates — call today.',
     images: ['/team-crew.JPEG'],
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
 const schemas = [
   webPageSchema({
-    name: 'Hoag Land Services — Land Clearing, Tree Service & Fencing in DeLand, FL',
+    name: 'Hoag Land Services — Land Clearing, Tree Service & Fencing in Central Florida',
     description:
       'Family-owned, ISA Certified land clearing, tree service, and fencing for residential & commercial properties across DeLand, DeLeon Springs & Central Florida.',
     url: '/',

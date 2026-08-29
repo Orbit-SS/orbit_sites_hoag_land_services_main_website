@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     template: '%s | Hoag Land Services',
-    default: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in DeLand, FL',
+    // Retuned away from the exact 'land clearing deland fl' phrase. The
+    // homepage was outranking /services/site-work/deland for that query, which
+    // is the page that should own it. Brand plus the three service lines,
+    // regional rather than city-specific.
+    default: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in Central Florida',
   },
   description:
     'Professional land clearing, tree services, and fencing for residential & commercial properties in DeLand, DeLeon Springs & Central Florida. ISA Certified Arborist. Licensed & Insured. Est. 2017.',

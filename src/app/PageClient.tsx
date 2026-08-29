@@ -333,6 +333,81 @@ function ReviewsSection() {
   )
 }
 
+/* ─── Service areas ─── */
+/**
+ * The homepage previously carried no link at all to the city landing pages,
+ * while its own title competed for "land clearing deland fl" -- the query the
+ * DeLand page should own. Search Console showed the homepage ranking for it
+ * instead of the location page, which is the classic signature of the location
+ * page being untrusted rather than unindexed.
+ *
+ * Anchors are exact-match and descriptive ("Land Clearing in DeLand") rather
+ * than "learn more", so the anchor text tells Google what the target page is
+ * about.
+ */
+const AREA_LINKS = [
+  { city: 'DeLand', href: '/services/site-work/deland', label: 'Land Clearing in DeLand' },
+  { city: 'DeLand', href: '/services/tree-services/deland', label: 'Tree Service in DeLand' },
+  { city: 'DeLeon Springs', href: '/services/site-work/deleon-springs', label: 'Land Clearing in DeLeon Springs' },
+  { city: 'Deltona', href: '/services/site-work/deltona', label: 'Site Work in Deltona' },
+  { city: 'Orange City', href: '/services/tree-services/orange-city', label: 'Tree Service in Orange City' },
+  { city: 'Lake Helen', href: '/services/site-work/lake-helen', label: 'Land Clearing in Lake Helen' },
+  { city: 'Port Orange', href: '/services/tree-services/port-orange', label: 'Tree Service in Port Orange' },
+  { city: 'Daytona Beach', href: '/services/site-work/daytona-beach', label: 'Land Clearing in Daytona Beach' },
+  { city: 'Ormond Beach', href: '/services/tree-services/ormond-beach', label: 'Tree Service in Ormond Beach' },
+  { city: 'Palm Coast', href: '/services/fencing/palm-coast', label: 'Fencing in Palm Coast' },
+  { city: 'Sanford', href: '/services/site-work/sanford', label: 'Site Work in Sanford' },
+  { city: 'Pierson', href: '/services/site-work/pierson', label: 'Land Clearing in Pierson' },
+]
+
+function ServiceAreasSection() {
+  return (
+    <section className="bg-[#1a1c1a] py-20 md:py-24 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <p className="text-[#c2a878] text-sm uppercase tracking-[0.3em] mb-3 font-semibold">
+            Where We Work
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold uppercase tracking-wider text-white mb-4">
+            Serving Central Florida
+          </h2>
+          <p className="text-white/50 max-w-2xl mx-auto">
+            Nine counties and over a hundred communities. A few of the areas we
+            work in most:
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {AREA_LINKS.map(a => (
+            <Link
+              key={a.href}
+              href={a.href}
+              className="group flex items-center justify-between bg-[#141614] border border-white/5 hover:border-[#4a7c59]/50 px-5 py-4 rounded-lg transition-colors"
+            >
+              <span className="text-white/80 group-hover:text-white transition-colors">
+                {a.label}
+              </span>
+              <svg className="w-4 h-4 text-[#4a7c59] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-8">
+          <Link
+            href="/service-areas"
+            className="inline-flex items-center gap-2 text-[#c2a878] hover:text-white font-semibold uppercase tracking-wider text-sm transition-colors"
+          >
+            View all service areas
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─── CTA ─── */
 function CTASection() {
   return (
@@ -398,6 +473,7 @@ export default function HomePage() {
       <ServicesOverview />
       <AboutTeaser />
       <ReviewsSection />
+      <ServiceAreasSection />
       <CTASection />
       <StickyMobileCTA />
     </>
