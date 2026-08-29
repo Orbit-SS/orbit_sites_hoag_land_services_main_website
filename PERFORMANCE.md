@@ -112,28 +112,31 @@ under the same simulated throttling: Moto G Power, 150ms RTT, 1,638 kbps, 4x CPU
 
 | URL | Perf before | Perf after | LCP before | LCP after |
 |---|---|---|---|---|
-| `/` | 68 | **79** | 61.2s | **4.8s** |
-| `/portfolio` | 67 | **78** | 153.3s | **4.9s** |
-| `/services/tree-services` | — | **97** | — | **2.5s** |
-| `/services/tree-services/deland` | — | **95** | — | **2.9s** |
+| `/` | 68 | **96** | 61.2s | **2.5s** |
+| `/portfolio` | 67 | **64** | 153.3s | **6.4s** |
 
-Homepage total transfer: 19,397 KiB -> **778 KiB**. CLS is 0.00 on all four.
+Homepage: FCP 0.9s, TBT 60ms, CLS 0, Speed Index 3.3s.
+Portfolio: FCP 3.0s, TBT 210ms, CLS 0, Speed Index 5.4s.
+
+Measured on pagespeed.web.dev, the same tool that produced Karl's baseline, so
+these are directly comparable with no adjustment.
+
+**The portfolio result is the finding here.** LCP fell from 153.3s to 6.4s, yet
+the score did not move (67 -> 64). Image weight was not the only thing wrong
+with that page. LCP 6.4s is still in Google's "poor" band (>4s) and TBT is 3.5x
+the homepage. It needs its own diagnosis rather than more of the same fix.
 
 The LCP element on `/` is now an `<img data-nimg="fill">`, which is the direct
 confirmation the hero is being served through the optimizer rather than raw.
 
-**One caveat on the comparison.** Karl's run came from Google's PSI
-infrastructure; this one ran locally. Lighthouse simulates network throttling
-(Lantern) so that part normalises, but the 4x CPU multiplier is relative to the
-host machine. The order of magnitude is solid; treat the last digit as
-approximate.
+**A note on local Lighthouse.** A local `npx lighthouse` run of the same page
+scored 79, not 96. Lighthouse's 4x CPU throttle is relative to the host machine,
+so a local run on a slower CPU reads pessimistically. For any number quoted to
+Karl or the client, use pagespeed.web.dev, not a local run.
 
-**What the numbers still say to do.** The two pages that did not reach the 90s
-are the two with large hero photography, and in both the LCP element is an
-image. `/portfolio` is now the heaviest page on the site at 1,336 KiB. Google's
-"good" threshold for LCP is 2.5s, so `/` at 4.8s is still rated
-needs-improvement. The service pages, which carry less imagery, already sit at
-97 and 95.
+**What the numbers still say to do.** The homepage is done: 96, LCP 2.5s, which
+is exactly Google's "good" threshold. `/portfolio` is the outstanding problem and
+the image work did not solve it.
 
 ## Still open
 

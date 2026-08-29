@@ -159,16 +159,17 @@ covers only the Jun 23 branch; the other four are still only on their branch ref
 
 ## Closed item — like-for-like re-measurement (2026-08-29)
 
-The PSI anonymous API stayed rate-limited (HTTP 429), so this was captured with
-the Lighthouse CLI instead. Same engine PSI runs, same default mobile preset
-Karl's baseline used, so the comparison holds. Full table in `PERFORMANCE.md`.
+The PSI *API* stayed rate-limited (HTTP 429), but pagespeed.web.dev itself is not
+subject to that quota. Measured there — the same tool that produced Karl's
+baseline. Full table in `PERFORMANCE.md`.
 
 | URL | Perf before | Perf after | LCP before | LCP after |
 |---|---|---|---|---|
-| `/` | 68 | **79** | 61.2s | **4.8s** |
-| `/portfolio` | 67 | **78** | 153.3s | **4.9s** |
+| `/` | 68 | **96** | 61.2s | **2.5s** |
+| `/portfolio` | 67 | **64** | 153.3s | **6.4s** |
 
-Homepage transfer 19,397 KiB -> 778 KiB. Desktop scores 100 with LCP 0.8s.
+The homepage is fixed. **`/portfolio` is not** — LCP fell 24x and the score still
+did not move, so something other than image weight is holding that page down.
 
 **On Karl's crawler-timeout theory (05.6):** the delivery half is now settled —
 a page that took 61s under throttled mobile takes 4.8s, so "the crawler never
@@ -178,10 +179,9 @@ not another measurement here. If it does move, the agent-readiness work was
 blocked rather than wasted. If it does not, the theory was wrong and the score
 is driven by something else.
 
-**Reproduce:**
-```
-npx lighthouse@12 https://www.hlsdeland.com/ --only-categories=performance   --chrome-flags="--headless=new" --output=json --output-path=./lh-mobile.json
-```
-Add `--preset=desktop` for the desktop figure. On Windows the run ends with an
-`EPERM` on Chrome's temp directory; that is cleanup only and the report is
-already written.
+**Reproduce:** open
+`https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.hlsdeland.com%2F&form_factor=mobile`
+
+Use the website, not the API and not a local `npx lighthouse` run. The API is
+quota-limited, and a local run scored the same page 79 against the site's 96
+because Lighthouse's CPU throttle is relative to the host machine.
