@@ -172,3 +172,50 @@ LCP move (6.4s -> 3.8s) is the part worth trusting.
 
 - **~90 remaining `<img>` tags**, as above.
 - **CSP promotion** from report-only to enforcing.
+
+
+## Final state, 2026-08-29 evening
+
+Measured on pagespeed.web.dev, mobile, the same tool as Karl's baseline.
+
+| Page | Perf | A11y | Best Practices | SEO |
+|---|---|---|---|---|
+| `/` | **97** | **100** | 100 | 92 |
+| `/portfolio` | **97** | **100** | 100 | 100 |
+| `/services` | 80 | **100** | 100 | 100 |
+| `/about` | 79 | **100** | 100 | 100 |
+
+Karl's Aug 28 baseline for comparison: `/` 68, `/portfolio` 67.
+
+### The single biggest win was not an image
+
+Lighthouse named the LCP element on `/portfolio` as the 48x48 **navigation
+logo**, lazy-loaded, with a **Load Delay of 4,023ms**. `next/image` lazy-loads
+unless told otherwise, and that logo is above the fold on every page of the
+site, so every page paid four seconds of dead time waiting on a 2KB image.
+Adding `priority` took `/portfolio` from 68 to 97.
+
+Correcting the record: `/portfolio` went 67 -> 64 -> 89 -> 68 -> 68 -> 97
+across the day. The 89 was reported here as a win and it was not — that run
+recorded FCP 0.9s under Slow 4G, which is not plausible. The honest range
+before the logo fix was 64-68.
+
+### How to find this class of problem
+
+`npx lighthouse <url> --only-categories=accessibility` (or performance) writes
+JSON that names the failing selector, both colours, and the LCP phase
+breakdown. Scraping the pagespeed.web.dev UI does not give you any of that.
+Three separate bugs this session were only identifiable from that JSON:
+
+- the `opacity-70` filter counts (element opacity, not colour alpha)
+- the logo alt duplicating the brand name beside it
+- the lazy-loaded nav logo as LCP element
+
+### The one deliberate failure
+
+`robots-txt is not valid` — Lighthouse does not recognise `Content-Signal:`.
+That directive is intentional; it declares `search=yes, ai-input=yes,
+ai-train=no` across all 26 user-agent groups. RFC 9309 requires parsers to
+ignore unrecognised lines, so it is harmless to real crawlers, and the
+Lighthouse SEO score is a checklist rather than a ranking signal. Removing it
+would buy 8 points on `/` by giving up a real AI-training preference.
