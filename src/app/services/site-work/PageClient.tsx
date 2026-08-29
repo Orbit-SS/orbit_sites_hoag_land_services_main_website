@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import Link from 'next/link'
 import {
@@ -247,10 +248,13 @@ export default function SiteWorkPage() {
           1. HERO SECTION
           ═══════════════════════════════════════════ */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
-        <img
+        <Image
           src={IMAGES.site1}
           alt="Professional land clearing and site work in DeLand Florida"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 md:py-28">
@@ -404,11 +408,13 @@ export default function SiteWorkPage() {
               >
                 {/* Image */}
                 <div className="md:w-1/2">
-                  <div className="relative overflow-hidden">
-                    <img
+                  <div className="relative h-64 md:h-80 overflow-hidden">
+                    <Image
                       src={SERVICE_IMAGES[i]}
                       alt={`${item.name} by Hoag Land Services in Central Florida`}
-                      className="w-full h-64 md:h-80 object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
                     />
                     <div className="absolute top-4 left-4 bg-[#4a7c59] px-3 py-1">
                       <span className="font-display text-sm font-bold uppercase tracking-wider">
@@ -620,11 +626,13 @@ export default function SiteWorkPage() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
             {galleryImages.map((img, i) => (
-              <div key={i} className="aspect-square overflow-hidden">
-                <img
+              <div key={i} className="relative aspect-square overflow-hidden">
+                <Image
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 17vw"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
                   style={img.pos ? { objectPosition: img.pos } : undefined}
                 />
               </div>
@@ -667,10 +675,12 @@ export default function SiteWorkPage() {
           9. FINAL CTA SECTION
           ═══════════════════════════════════════════ */}
       <section className="relative py-24 px-4 overflow-hidden">
-        <img
+        <Image
           src={IMAGES.site8}
           alt="HLS crew operating heavy equipment on a land clearing job"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/75" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
