@@ -50,11 +50,16 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 shrink-0">
+              {/* priority, because this sits above the fold on every page and
+                  next/image lazy-loads by default. Lighthouse measured it as
+                  the LCP element on /portfolio with 4,022ms of Load Delay —
+                  four seconds of nothing, waiting on a 2KB logo. */}
               <Image
                 src={IMAGES.logo}
                 alt={COMPANY}
                 width={48}
                 height={48}
+                priority
                 className="w-10 h-10 md:w-12 md:h-12 object-contain"
               />
               {/* aria-hidden, not alt="" on the image: this span is hidden below
