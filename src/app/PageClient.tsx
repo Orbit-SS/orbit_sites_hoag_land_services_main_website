@@ -258,16 +258,16 @@ function AboutTeaser() {
             <p className="text-white/60 leading-relaxed mb-8">
               {ABOUT.paragraphs[0]}
             </p>
-            {/* aria-label, not a copy change: "Learn More" on its own is not a
-                descriptive link name out of context, which is how a screen
-                reader user hears it when tabbing a link list. The button keeps
-                its visual text. */}
+            {/* sr-only rather than aria-label: Lighthouse's link-text audit
+                reads the link's text CONTENT, not its accessible name, so an
+                aria-label does not satisfy it. A visually hidden span extends
+                the text for both the audit and a screen reader while the
+                button still reads "Learn More" on screen. */}
             <Link
               href="/about"
-              aria-label="Learn more about Hoag Land Services"
               className="inline-flex items-center gap-2 border-2 border-[#4a7c59] text-[#5d9c70] hover:bg-[#4a7c59] hover:text-white px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-wider transition-all duration-200"
             >
-              Learn More
+              Learn More<span className="sr-only"> about Hoag Land Services</span>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
