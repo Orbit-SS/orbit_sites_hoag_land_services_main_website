@@ -50,16 +50,25 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 shrink-0">
-              {/* priority, because this sits above the fold on every page and
-                  next/image lazy-loads by default. Lighthouse measured it as
-                  the LCP element on /portfolio with 4,022ms of Load Delay —
-                  four seconds of nothing, waiting on a 2KB logo. */}
+              {/* This logo is above the fold on every page and next/image
+                  lazy-loads by default, so it needs to be told to load early.
+                  It does NOT get `preload` (formerly `priority`).
+                  node_modules/next/dist/docs/.../image.md says not to preload
+                  "when you have multiple images that could be considered the
+                  LCP element depending on the viewport" — which is exactly this
+                  site: a preloaded hero AND a preloaded logo compete, and the
+                  logo still measured 1,423-1,549ms of Load Delay on /about and
+                  /services because a preload queues the fetch without raising
+                  its priority. The docs' own recommendation for this case is
+                  loading="eager" or fetchPriority="high". At 2KB it costs
+                  nothing to give it both. */}
               <Image
                 src={IMAGES.logo}
                 alt={COMPANY}
                 width={48}
                 height={48}
-                priority
+                loading="eager"
+                fetchPriority="high"
                 className="w-10 h-10 md:w-12 md:h-12 object-contain"
               />
               {/* aria-hidden, not alt="" on the image: this span is hidden below
