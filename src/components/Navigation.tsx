@@ -57,7 +57,14 @@ export default function Navigation() {
                 height={48}
                 className="w-10 h-10 md:w-12 md:h-12 object-contain"
               />
-              <span className="hidden sm:block font-display text-lg uppercase tracking-wider text-white font-bold">
+              {/* aria-hidden, not alt="" on the image: this span is hidden below
+                  sm, so blanking the alt would leave the link with no
+                  accessible name at all on mobile. The alt carries the name;
+                  "HLS" is a visual abbreviation of the same thing. */}
+              <span
+                aria-hidden="true"
+                className="hidden sm:block font-display text-lg uppercase tracking-wider text-white font-bold"
+              >
                 HLS
               </span>
             </Link>

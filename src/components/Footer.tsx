@@ -53,9 +53,12 @@ export default function Footer() {
           {/* Column 1: Logo + Company */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-4">
+              {/* Decorative: the span beside it already says the company name,
+                  so alt text here would make a screen reader announce the name
+                  twice for one link. */}
               <Image
                 src={IMAGES.logo}
-                alt={COMPANY}
+                alt=""
                 width={48}
                 height={48}
                 className="w-12 h-12 object-contain"
