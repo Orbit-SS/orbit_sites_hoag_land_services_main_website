@@ -7,7 +7,7 @@ const PAGE_URL = '/services/site-work/earthworks-excavation'
 const TITLE = 'Earthworks & Excavation Services in Central Florida'
 const DESCRIPTION =
   'Soil removal, grading, building pads, roads, ponds, and right-of-ways. Professional excavation and earthworks in DeLand & Central Florida.'
-const OG_IMAGE = '/photos/site4.PNG'
+const OG_IMAGE = '/photos/site4.jpeg'
 
 export const metadata: Metadata = {
   title: TITLE,

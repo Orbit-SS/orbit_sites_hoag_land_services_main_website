@@ -7,7 +7,7 @@ const PAGE_URL = '/services/site-work/land-preparation'
 const TITLE = 'Site Prep & Land Preparation in DeLand, FL'
 const DESCRIPTION =
   'Site prep and land preparation for new construction in DeLand and Central Florida — clearing, grading, drainage, and access prep. Free estimates.'
-const OG_IMAGE = '/photos/site5.PNG'
+const OG_IMAGE = '/photos/site5.jpeg'
 
 export const metadata: Metadata = {
   title: TITLE,

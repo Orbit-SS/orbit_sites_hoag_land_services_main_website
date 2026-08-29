@@ -30,8 +30,8 @@ export const IMAGES = {
   site1: '/photos/site1.JPEG',
   site2: '/photos/site2.jpeg',
   site3: '/photos/site3.jpeg',
-  site4: '/photos/site4.PNG',
-  site5: '/photos/site5.PNG',
+  site4: '/photos/site4.jpeg',
+  site5: '/photos/site5.jpeg',
   site6: '/photos/site6.JPG',
   site7: '/photos/site7.JPG',
   site8: '/photos/site8.JPG',
@@ -58,7 +58,7 @@ export const IMAGES = {
   tree10: '/photos/tree10.jpeg',
   tree11: '/photos/tree11.jpeg',
   tree12: '/photos/tree12.JPG',
-  tree13: '/photos/tree13.png',
+  tree13: '/photos/tree13.jpeg',
   tree14: '/photos/tree14.JPEG',
   tree15: '/photos/tree15.JPEG',
   tree16: '/photos/tree16.jpeg',
@@ -76,7 +76,7 @@ export const IMAGES = {
   fence8: '/photos/fence8.jpeg',
   fence9: '/photos/fence9.jpeg',
   fence10: '/photos/fence10.JPEG',
-  fence11: '/photos/fence11.png',
+  fence11: '/photos/fence11.jpeg',
   fence12: '/photos/fence12.jpg',
 }
 
