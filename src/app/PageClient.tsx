@@ -258,8 +258,13 @@ function AboutTeaser() {
             <p className="text-white/60 leading-relaxed mb-8">
               {ABOUT.paragraphs[0]}
             </p>
+            {/* aria-label, not a copy change: "Learn More" on its own is not a
+                descriptive link name out of context, which is how a screen
+                reader user hears it when tabbing a link list. The button keeps
+                its visual text. */}
             <Link
               href="/about"
+              aria-label="Learn more about Hoag Land Services"
               className="inline-flex items-center gap-2 border-2 border-[#4a7c59] text-[#5d9c70] hover:bg-[#4a7c59] hover:text-white px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-wider transition-all duration-200"
             >
               Learn More
@@ -322,7 +327,7 @@ function ReviewsSection() {
                 </div>
                 <div>
                   <p className="text-white text-sm font-semibold">{review.name}</p>
-                  <p className="text-white/40 text-xs">{review.source} Review</p>
+                  <p className="text-white/60 text-xs">{review.source} Review</p>
                 </div>
               </div>
             </div>
