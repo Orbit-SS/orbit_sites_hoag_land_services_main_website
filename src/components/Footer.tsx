@@ -83,6 +83,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-sm text-white/50 hover:text-[#5d9c70] transition-colors duration-200"
                   >
                     {link.label}
@@ -102,6 +103,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-sm text-white/50 hover:text-[#5d9c70] transition-colors duration-200"
                   >
                     {link.label}
@@ -121,6 +123,7 @@ export default function Footer() {
                 <li key={loc.slug}>
                   <Link
                     href={`/services/tree-services/${loc.slug}`}
+                    prefetch={false}
                     className="text-sm text-white/50 hover:text-[#5d9c70] transition-colors duration-200"
                   >
                     {loc.label}
@@ -128,8 +131,17 @@ export default function Footer() {
                 </li>
               ))}
               <li>
+              {/* prefetch={false}: the footer renders 22 links on every page
+                  and Next prefetches each one that enters the viewport, which
+                  on /services meant 32 route prefetches competing with the CSS
+                  and fonts that first paint depends on. Footer links are
+                  navigational rather than conversion paths, so the cost of a
+                  slightly slower client-side nav is worth the contention saved.
+                  Note this also disables hover prefetch, which is why it is not
+                  applied to the CTAs. */}
                 <Link
                   href="/service-areas"
+                  prefetch={false}
                   className="text-sm text-[#5d9c70] hover:text-[#5a9c6d] font-semibold transition-colors duration-200"
                 >
                   View All Areas &rarr;
