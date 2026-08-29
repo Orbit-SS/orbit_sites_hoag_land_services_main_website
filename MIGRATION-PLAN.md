@@ -157,22 +157,31 @@ covers only the Jun 23 branch; the other four are still only on their branch ref
 
 ---
 
-## Open item — PSI re-run (added 2026-08-29)
+## Closed item — like-for-like re-measurement (2026-08-29)
 
-PageSpeed Insights' anonymous API hit its daily quota before a like-for-like
-re-run against Karl's baseline could be captured. Worth running once the quota
-resets.
+The PSI anonymous API stayed rate-limited (HTTP 429), so this was captured with
+the Lighthouse CLI instead. Same engine PSI runs, same default mobile preset
+Karl's baseline used, so the comparison holds. Full table in `PERFORMANCE.md`.
 
-Same four URLs, mobile and desktop, logged against his Aug 28 numbers:
-`/`, `/portfolio`, `/services/tree-services`, `/services/tree-services/deland`.
+| URL | Perf before | Perf after | LCP before | LCP after |
+|---|---|---|---|---|
+| `/` | 68 | **79** | 61.2s | **4.8s** |
+| `/portfolio` | 67 | **78** | 153.3s | **4.9s** |
 
-Baseline to beat: mobile LCP 61.2s home / 153.3s portfolio, mobile Performance
-68/67, homepage transfer 19,397 KiB.
+Homepage transfer 19,397 KiB -> 778 KiB. Desktop scores 100 with LCP 0.8s.
 
-After the re-encode the homepage image payload measured 2.26 MB in a real
-browser (down from 18.4 MB), LCP 820ms — but that was unthrottled desktop and is
-**not comparable** to his throttled Moto G Power emulation. Only a matching PSI
-run gives a defensible delta.
+**On Karl's crawler-timeout theory (05.6):** the delivery half is now settled —
+a page that took 61s under throttled mobile takes 4.8s, so "the crawler never
+finishes loading" no longer holds as an explanation. Whether AI Visibility moves
+off 14/100 as a result is the open half, and it needs a re-score in a few weeks,
+not another measurement here. If it does move, the agent-readiness work was
+blocked rather than wasted. If it does not, the theory was wrong and the score
+is driven by something else.
 
-This is also the cleanest test of his theory that AI Visibility sits at 14/100
-because LLM crawlers time out on a slow page.
+**Reproduce:**
+```
+npx lighthouse@12 https://www.hlsdeland.com/ --only-categories=performance   --chrome-flags="--headless=new" --output=json --output-path=./lh-mobile.json
+```
+Add `--preset=desktop` for the desktop figure. On Windows the run ends with an
+`EPERM` on Chrome's temp directory; that is cleanup only and the report is
+already written.

@@ -105,11 +105,37 @@ array for that reason.
 `scripts/sync-llms-review-count.mjs` runs on `prebuild` and keeps them in step.
 `REVIEW_STATS` is the single source of truth.
 
+## Measured result (2026-08-29)
+
+Like-for-like against Karl's Aug 28 baseline. Both sides are Lighthouse mobile
+under the same simulated throttling: Moto G Power, 150ms RTT, 1,638 kbps, 4x CPU.
+
+| URL | Perf before | Perf after | LCP before | LCP after |
+|---|---|---|---|---|
+| `/` | 68 | **79** | 61.2s | **4.8s** |
+| `/portfolio` | 67 | **78** | 153.3s | **4.9s** |
+| `/services/tree-services` | — | **97** | — | **2.5s** |
+| `/services/tree-services/deland` | — | **95** | — | **2.9s** |
+
+Homepage total transfer: 19,397 KiB -> **778 KiB**. CLS is 0.00 on all four.
+
+The LCP element on `/` is now an `<img data-nimg="fill">`, which is the direct
+confirmation the hero is being served through the optimizer rather than raw.
+
+**One caveat on the comparison.** Karl's run came from Google's PSI
+infrastructure; this one ran locally. Lighthouse simulates network throttling
+(Lantern) so that part normalises, but the 4x CPU multiplier is relative to the
+host machine. The order of magnitude is solid; treat the last digit as
+approximate.
+
+**What the numbers still say to do.** The two pages that did not reach the 90s
+are the two with large hero photography, and in both the LCP element is an
+image. `/portfolio` is now the heaviest page on the site at 1,336 KiB. Google's
+"good" threshold for LCP is 2.5s, so `/` at 4.8s is still rated
+needs-improvement. The service pages, which carry less imagery, already sit at
+97 and 95.
+
 ## Still open
 
-- **PSI re-run** against the Aug 28 baseline (mobile LCP 61.2s home / 153.3s
-  portfolio, homepage transfer 19,397 KiB). The anonymous API hit its daily
-  quota. A matching run is the only defensible LCP delta, and the cleanest test
-  of the theory that AI crawlers were timing out on a slow page.
 - **~90 remaining `<img>` tags**, as above.
 - **CSP promotion** from report-only to enforcing.
