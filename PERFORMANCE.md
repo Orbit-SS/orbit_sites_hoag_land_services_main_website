@@ -134,9 +134,39 @@ scored 79, not 96. Lighthouse's 4x CPU throttle is relative to the host machine,
 so a local run on a slower CPU reads pessimistically. For any number quoted to
 Karl or the client, use pagespeed.web.dev, not a local run.
 
-**What the numbers still say to do.** The homepage is done: 96, LCP 2.5s, which
-is exactly Google's "good" threshold. `/portfolio` is the outstanding problem and
-the image work did not solve it.
+## After converting the last raw <img> tags (2026-08-29, later same day)
+
+The portfolio puzzle resolved itself once the cause was found. React 19 hoists
+every `<img src>` into a `<link rel="preload" as="image">`, so each remaining raw
+tag was fetching its full-size original at HIGH priority, ahead of the page's own
+CSS and fonts. 29 built pages were doing this. That is why LCP stayed broken on
+exactly the pages nobody had converted.
+
+| URL | Karl Aug 28 | Mid-day | After | LCP after |
+|---|---|---|---|---|
+| `/` | 68 | 96 | 96 | 2.5s |
+| `/services` | — | 68 | **81** | 10.9s -> **4.4s** |
+| `/portfolio` | 67 | 64 | **89** | 153.3s -> **3.8s** |
+| `/about` | — | — | **72** | 5.0s |
+
+Image payload, measured in-browser at the same viewport on both sides:
+
+| Page | Before | After |
+|---|---|---|
+| `/about` | 21,132 KiB | **229 KiB** |
+| `/services` | 1,813 KiB | **451 KiB** |
+
+`/about` was the worst page on the site and nobody had looked at it. Its three
+photos live at `/public/` root, not `/public/photos/`, so `reencode-photo-library`
+had never walked them. **The source files are still 5-9 MB each** — delivery is
+fixed so visitors never see them, but 21.6 MB still sits in the repo.
+
+PSI's "Improve image delivery" note on `/services` fell from 1,441 KiB to 52 KiB.
+
+**Caveat on `/portfolio`.** Its mid-day 64 and its post-push 89 are two runs of a
+tool with real run-to-run variance, and the page itself was already converted
+before either. Some of that jump is the shared-chunk change, some is noise. The
+LCP move (6.4s -> 3.8s) is the part worth trusting.
 
 ## Still open
 
