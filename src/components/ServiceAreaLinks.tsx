@@ -52,7 +52,7 @@ export default function ServiceAreaLinks({ service }: { service: ServiceCategory
                     <span key={loc.slug}>
                       <Link
                         href={`/services/${cat.slug}/${loc.slug}`}
-                        className="text-sm text-gray-400 hover:text-[#579269] transition-colors"
+                        className="text-sm text-gray-400 hover:text-[#5d9c70] transition-colors"
                       >
                         {loc.name}
                       </Link>
@@ -70,7 +70,7 @@ export default function ServiceAreaLinks({ service }: { service: ServiceCategory
         <div className="text-center mt-10">
           <Link
             href="/service-areas"
-            className="text-[#579269] hover:text-[#5a9c6d] font-display font-bold uppercase tracking-wider text-sm transition-colors"
+            className="text-[#5d9c70] hover:text-[#5a9c6d] font-display font-bold uppercase tracking-wider text-sm transition-colors"
           >
             View All Service Areas &rarr;
           </Link>

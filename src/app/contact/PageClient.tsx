@@ -121,7 +121,7 @@ export default function ContactPage() {
             <div className="max-w-xl mx-auto text-center py-16">
               <div className="w-20 h-20 rounded-full bg-[#4a7c59]/20 flex items-center justify-center mx-auto mb-6">
                 <svg
-                  className="w-10 h-10 text-[#579269]"
+                  className="w-10 h-10 text-[#5d9c70]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -166,7 +166,7 @@ export default function ContactPage() {
                     {/* Name */}
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
-                        Name <span className="text-[#579269]">*</span>
+                        Name <span className="text-[#5d9c70]">*</span>
                       </label>
                       <input
                         type="text"
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     {/* Email */}
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
-                        Email <span className="text-[#579269]">*</span>
+                        Email <span className="text-[#5d9c70]">*</span>
                       </label>
                       <input
                         type="email"
@@ -210,7 +210,7 @@ export default function ContactPage() {
                     {/* Service */}
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
-                        Service Needed <span className="text-[#579269]">*</span>
+                        Service Needed <span className="text-[#5d9c70]">*</span>
                       </label>
                       <select
                         required
@@ -250,7 +250,7 @@ export default function ContactPage() {
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
                       How Can We Help?{' '}
-                      <span className="text-[#579269]">*</span>
+                      <span className="text-[#5d9c70]">*</span>
                     </label>
                     <textarea
                       required
@@ -292,7 +292,7 @@ export default function ContactPage() {
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded bg-[#4a7c59]/15 flex items-center justify-center shrink-0">
                       <svg
-                        className="w-5 h-5 text-[#579269]"
+                        className="w-5 h-5 text-[#5d9c70]"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -311,7 +311,7 @@ export default function ContactPage() {
                       </p>
                       <a
                         href={PHONE_HREF}
-                        className="text-white hover:text-[#579269] transition-colors font-medium"
+                        className="text-white hover:text-[#5d9c70] transition-colors font-medium"
                       >
                         {PHONE}
                       </a>
@@ -322,7 +322,7 @@ export default function ContactPage() {
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded bg-[#4a7c59]/15 flex items-center justify-center shrink-0">
                       <svg
-                        className="w-5 h-5 text-[#579269]"
+                        className="w-5 h-5 text-[#5d9c70]"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -341,7 +341,7 @@ export default function ContactPage() {
                       </p>
                       <a
                         href={`mailto:${EMAIL}`}
-                        className="text-white hover:text-[#579269] transition-colors font-medium"
+                        className="text-white hover:text-[#5d9c70] transition-colors font-medium"
                       >
                         {EMAIL}
                       </a>
@@ -352,7 +352,7 @@ export default function ContactPage() {
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded bg-[#4a7c59]/15 flex items-center justify-center shrink-0">
                       <svg
-                        className="w-5 h-5 text-[#579269]"
+                        className="w-5 h-5 text-[#5d9c70]"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -391,7 +391,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href={PHONE_HREF}
-                      className="inline-flex items-center gap-2 px-6 py-3 border border-[#4a7c59] text-[#579269] hover:bg-[#4a7c59] hover:text-white font-bold uppercase tracking-wider text-xs rounded transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-[#4a7c59] text-[#5d9c70] hover:bg-[#4a7c59] hover:text-white font-bold uppercase tracking-wider text-xs rounded transition-all duration-300"
                     >
                       <svg
                         className="w-4 h-4"

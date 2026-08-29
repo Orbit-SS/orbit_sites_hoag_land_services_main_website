@@ -63,15 +63,15 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#4a7c59]/15 border border-[#4a7c59]/30 text-sm text-gray-200">
-                  <svg className="w-4 h-4 text-[#579269]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <svg className="w-4 h-4 text-[#5d9c70]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   Est. 2017
                 </span>
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#4a7c59]/15 border border-[#4a7c59]/30 text-sm text-gray-200">
-                  <svg className="w-4 h-4 text-[#579269]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <svg className="w-4 h-4 text-[#5d9c70]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   ISA Certified Arborist
                 </span>
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#4a7c59]/15 border border-[#4a7c59]/30 text-sm text-gray-200">
-                  <svg className="w-4 h-4 text-[#579269]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <svg className="w-4 h-4 text-[#5d9c70]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   Licensed & Insured
                 </span>
               </div>
@@ -136,7 +136,7 @@ export default function AboutPage() {
           <div className="mt-16 grid sm:grid-cols-2 gap-4">
             {CERTS.map((cert, i) => (
               <div key={i} className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-[#579269] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-[#5d9c70] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 <span className="text-gray-300">{cert}</span>
@@ -172,7 +172,7 @@ export default function AboutPage() {
               <h2 className="font-display text-3xl md:text-4xl font-bold uppercase mb-2">
                 {OWNER}
               </h2>
-              <p className="text-[#579269] font-semibold text-lg mb-6">
+              <p className="text-[#5d9c70] font-semibold text-lg mb-6">
                 CEO / Founder
               </p>
               <p className="text-gray-300 leading-relaxed text-base md:text-lg mb-4">
@@ -187,7 +187,7 @@ export default function AboutPage() {
                 {['ISA Certified Arborist', 'TRAQ Qualified', `Est. ${EST_YEAR}`].map((badge) => (
                   <span
                     key={badge}
-                    className="px-4 py-2 bg-[#4a7c59]/15 border border-[#4a7c59]/40 rounded text-sm text-[#579269] font-semibold uppercase tracking-wide"
+                    className="px-4 py-2 bg-[#4a7c59]/15 border border-[#4a7c59]/40 rounded text-sm text-[#5d9c70] font-semibold uppercase tracking-wide"
                   >
                     {badge}
                   </span>
@@ -223,7 +223,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-12 flex items-center justify-center gap-2 text-gray-400">
-            <svg className="w-5 h-5 text-[#579269]" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-5 h-5 text-[#5d9c70]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
             </svg>
             <span>Based in {LOCATION}</span>
@@ -247,11 +247,11 @@ export default function AboutPage() {
             Request a Walkthrough
           </Link>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-400 text-sm">
-            <a href={PHONE_HREF} className="hover:text-[#579269] transition-colors">
+            <a href={PHONE_HREF} className="hover:text-[#5d9c70] transition-colors">
               {PHONE}
             </a>
             <span className="hidden sm:inline">|</span>
-            <a href={`mailto:${EMAIL}`} className="hover:text-[#579269] transition-colors">
+            <a href={`mailto:${EMAIL}`} className="hover:text-[#5d9c70] transition-colors">
               {EMAIL}
             </a>
           </div>

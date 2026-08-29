@@ -170,7 +170,7 @@ export default function Navigation() {
               href={link.href}
               className={`block px-4 py-3 rounded-lg text-sm font-medium uppercase tracking-wider transition-colors duration-200 ${
                 isActive(link.href)
-                  ? 'bg-[#4a7c59]/20 text-[#579269]'
+                  ? 'bg-[#4a7c59]/20 text-[#5d9c70]'
                   : 'text-white/70 hover:text-white hover:bg-white/5'
               }`}
             >

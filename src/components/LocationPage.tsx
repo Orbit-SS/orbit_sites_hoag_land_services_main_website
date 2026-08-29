@@ -51,7 +51,7 @@ function Stars({ count = 5 }: { count?: number }) {
 function ChevronDown({ open }: { open: boolean }) {
   return (
     <svg
-      className={`w-5 h-5 text-[#579269] transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+      className={`w-5 h-5 text-[#5d9c70] transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -71,7 +71,7 @@ function PhoneIcon() {
 
 function ShieldIcon() {
   return (
-    <svg className="w-6 h-6 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
     </svg>
   )
@@ -79,7 +79,7 @@ function ShieldIcon() {
 
 function ClockIcon() {
   return (
-    <svg className="w-6 h-6 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   )
@@ -87,7 +87,7 @@ function ClockIcon() {
 
 function AwardIcon() {
   return (
-    <svg className="w-6 h-6 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
     </svg>
   )
@@ -95,7 +95,7 @@ function AwardIcon() {
 
 function MapPinIcon() {
   return (
-    <svg className="w-6 h-6 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>
@@ -104,7 +104,7 @@ function MapPinIcon() {
 
 function GreenCheck() {
   return (
-    <svg className="w-6 h-6 text-[#579269] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+    <svg className="w-6 h-6 text-[#5d9c70] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
     </svg>
   )
@@ -113,7 +113,7 @@ function GreenCheck() {
 function StepNumber({ n }: { n: number }) {
   return (
     <div className="w-14 h-14 rounded-full border-2 border-[#4a7c59] flex items-center justify-center shrink-0">
-      <span className="font-display text-xl font-bold text-[#579269]">{n}</span>
+      <span className="font-display text-xl font-bold text-[#5d9c70]">{n}</span>
     </div>
   )
 }
@@ -325,7 +325,7 @@ function ReviewerAvatar({ name }: { name: string }) {
   return (
     <div className="flex flex-col items-center gap-1">
       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#4a7c59]/30 border border-[#4a7c59]/50 flex items-center justify-center">
-        <span className="text-xs sm:text-sm font-bold text-[#579269]">{initials}</span>
+        <span className="text-xs sm:text-sm font-bold text-[#5d9c70]">{initials}</span>
       </div>
       <span className="text-[10px] sm:text-xs text-gray-400">{name.split(' ')[0]}</span>
     </div>
@@ -479,7 +479,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
                 href={svc.href}
                 className="bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors group"
               >
-                <h3 className="font-display text-lg font-bold uppercase mb-2 group-hover:text-[#579269] transition-colors">
+                <h3 className="font-display text-lg font-bold uppercase mb-2 group-hover:text-[#5d9c70] transition-colors">
                   {svc.name}
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{svc.desc}</p>
@@ -565,7 +565,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
               href="https://www.google.com/search?q=Hoag+Land+Services+reviews"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#579269] hover:text-[#5a9c6d] font-semibold text-sm transition-colors"
+              className="text-[#5d9c70] hover:text-[#5a9c6d] font-semibold text-sm transition-colors"
             >
               Read all {REVIEW_STATS.count} reviews on Google &rarr;
             </a>
@@ -608,7 +608,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
               {data.whatsIncluded.items.map((item) => {
                 const inner = (
                   <div className="flex gap-3 items-start bg-[#1a1c1a] p-5 border border-white/5 hover:border-[#4a7c59]/40 transition-all h-full">
-                    <svg className="w-5 h-5 text-[#579269] mt-1 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-[#5d9c70] mt-1 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <div>
@@ -660,7 +660,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
                   </div>
                   <figcaption className="p-4">
                     {(p.location || p.service) && (
-                      <p className="text-[#579269] font-display uppercase tracking-[0.14em] text-[0.68rem] mb-1.5">
+                      <p className="text-[#5d9c70] font-display uppercase tracking-[0.14em] text-[0.68rem] mb-1.5">
                         {[p.location, p.service].filter(Boolean).join(' · ')}
                       </p>
                     )}
@@ -704,7 +704,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
           <div className="text-center mb-8">
             <a
               href={PHONE_HREF}
-              className="inline-flex items-center gap-3 text-2xl sm:text-3xl font-display font-bold text-[#579269] hover:text-[#5a9c6d] transition-colors"
+              className="inline-flex items-center gap-3 text-2xl sm:text-3xl font-display font-bold text-[#5d9c70] hover:text-[#5a9c6d] transition-colors"
             >
               <PhoneIcon />
               {PHONE}
@@ -763,7 +763,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
                   <Link
                     key={loc.name}
                     href={loc.href}
-                    className="text-gray-400 hover:text-[#579269] transition-colors text-xs"
+                    className="text-gray-400 hover:text-[#5d9c70] transition-colors text-xs"
                   >
                     {loc.name}
                   </Link>

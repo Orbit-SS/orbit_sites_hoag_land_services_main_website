@@ -588,7 +588,7 @@ function CityAccordion({ location }: { location: Location }) {
               <Link
                 key={key}
                 href={`/services/${cat.slug}/${location.slug}`}
-                className="flex items-center gap-2 text-xs bg-[#4a7c59]/8 hover:bg-[#4a7c59]/15 text-[#579269] hover:text-[#5a9c6d] rounded px-3 py-2 transition-colors"
+                className="flex items-center gap-2 text-xs bg-[#4a7c59]/8 hover:bg-[#4a7c59]/15 text-[#5d9c70] hover:text-[#5a9c6d] rounded px-3 py-2 transition-colors"
               >
                 <ServiceIcon service={key} />
                 {cat.name}

@@ -117,7 +117,7 @@ export default function ServicesPage() {
                 <p className="text-[#c2a878] font-display uppercase tracking-widest text-sm mb-2">
                   {String(idx + 1).padStart(2, '0')}
                 </p>
-                <h2 className="font-display text-3xl md:text-4xl font-bold uppercase mb-3 group-hover:text-[#579269] transition-colors">
+                <h2 className="font-display text-3xl md:text-4xl font-bold uppercase mb-3 group-hover:text-[#5d9c70] transition-colors">
                   {svc.name}
                 </h2>
                 <p className="text-[#c2a878] text-lg mb-4">{svc.tagline}</p>
@@ -127,7 +127,7 @@ export default function ServicesPage() {
                 <div className="space-y-2 mb-8">
                   {svc.items.map((item) => (
                     <div key={item.name} className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-[#579269] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 text-[#5d9c70] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       <span className="text-gray-300 text-sm">{item.name}</span>
@@ -135,7 +135,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
 
-                <span className="inline-flex items-center gap-2 text-[#579269] font-semibold uppercase tracking-wider text-sm group-hover:gap-3 transition-all">
+                <span className="inline-flex items-center gap-2 text-[#5d9c70] font-semibold uppercase tracking-wider text-sm group-hover:gap-3 transition-all">
                   {svc.cta}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

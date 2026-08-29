@@ -138,7 +138,7 @@ export default function Page() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center py-24">
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             {CERTS.slice(0, 3).map((c) => (
-              <span key={c} className="text-xs font-sans bg-[#4a7c59]/20 text-[#579269] border border-[#4a7c59]/30 px-3 py-1 rounded-full">{c}</span>
+              <span key={c} className="text-xs font-sans bg-[#4a7c59]/20 text-[#5d9c70] border border-[#4a7c59]/30 px-3 py-1 rounded-full">{c}</span>
             ))}
           </div>
           <h1 className="font-display text-4xl md:text-6xl uppercase tracking-tight text-white mb-6">
@@ -211,7 +211,7 @@ export default function Page() {
                   </div>
                 ) : (
                   <div className="w-full h-64 bg-[#1a1c1a] border border-white/5 rounded flex items-center justify-center">
-                    <span className="font-display text-6xl text-[#579269]/30 uppercase">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="font-display text-6xl text-[#5d9c70]/30 uppercase">{String(idx + 1).padStart(2, '0')}</span>
                   </div>
                 )}
                 <div>
@@ -219,7 +219,7 @@ export default function Page() {
                   <p className="font-sans text-gray-300 leading-relaxed">
                     {sub.desc}
                     {sub.linkLandClearing && (
-                      <> For raw-land jobs without a structure to remove, see our <Link href="/services/site-work/land-clearing" className="text-[#579269] hover:underline">Land Clearing page</Link>.</>
+                      <> For raw-land jobs without a structure to remove, see our <Link href="/services/site-work/land-clearing" className="text-[#5d9c70] hover:underline">Land Clearing page</Link>.</>
                     )}
                   </p>
                 </div>
@@ -238,7 +238,7 @@ export default function Page() {
           <div className="grid md:grid-cols-4 gap-6">
             {STEPS.map((s) => (
               <div key={s.num} className="text-center">
-                <div className="font-display text-5xl text-[#579269] mb-3">{s.num}</div>
+                <div className="font-display text-5xl text-[#5d9c70] mb-3">{s.num}</div>
                 <h3 className="font-display text-xl uppercase text-white mb-2">{s.title}</h3>
                 <p className="font-sans text-gray-400 text-sm leading-relaxed">{s.desc}</p>
               </div>
@@ -324,7 +324,7 @@ export default function Page() {
                   className="w-full flex items-center justify-between p-5 text-left"
                 >
                   <span className="font-display uppercase text-white text-base pr-4">{f.q}</span>
-                  <span className="font-display text-[#579269] text-2xl leading-none">{openFaq === i ? '−' : '+'}</span>
+                  <span className="font-display text-[#5d9c70] text-2xl leading-none">{openFaq === i ? '−' : '+'}</span>
                 </button>
                 {openFaq === i && (
                   <div className="px-5 pb-5">

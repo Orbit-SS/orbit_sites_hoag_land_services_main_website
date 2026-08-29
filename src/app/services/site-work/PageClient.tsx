@@ -39,7 +39,7 @@ function StarIcon() {
 function ChevronDown({ open }: { open: boolean }) {
   return (
     <svg
-      className={`w-5 h-5 text-[#579269] transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+      className={`w-5 h-5 text-[#5d9c70] transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -61,7 +61,7 @@ function PhoneIcon() {
 
 function OvergrownIcon() {
   return (
-    <svg className="w-8 h-8 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-8 h-8 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
     </svg>
   )
@@ -69,7 +69,7 @@ function OvergrownIcon() {
 
 function DrainageIcon() {
   return (
-    <svg className="w-8 h-8 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-8 h-8 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
     </svg>
   )
@@ -77,7 +77,7 @@ function DrainageIcon() {
 
 function BuildIcon() {
   return (
-    <svg className="w-8 h-8 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-8 h-8 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
     </svg>
   )
@@ -85,7 +85,7 @@ function BuildIcon() {
 
 function InvasiveIcon() {
   return (
-    <svg className="w-8 h-8 text-[#579269]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-8 h-8 text-[#5d9c70]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
     </svg>
   )
@@ -96,7 +96,7 @@ function InvasiveIcon() {
 function StepNumber({ n }: { n: number }) {
   return (
     <div className="w-14 h-14 rounded-full border-2 border-[#4a7c59] flex items-center justify-center shrink-0">
-      <span className="font-display text-xl font-bold text-[#579269]">{n}</span>
+      <span className="font-display text-xl font-bold text-[#5d9c70]">{n}</span>
     </div>
   )
 }
@@ -105,7 +105,7 @@ function StepNumber({ n }: { n: number }) {
 
 function GreenCheck() {
   return (
-    <svg className="w-6 h-6 text-[#579269] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+    <svg className="w-6 h-6 text-[#5d9c70] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
     </svg>
   )
@@ -331,9 +331,9 @@ export default function SiteWorkPage() {
               <Link key={i} href={p.href} className="group flex gap-5 bg-[#1a1c1a] p-6 rounded-sm border border-white/5 hover:border-[#4a7c59]/40 transition-all duration-300">
                 <div className="shrink-0">{p.icon}</div>
                 <div>
-                  <h3 className="font-display text-lg font-bold uppercase mb-2 group-hover:text-[#579269] transition-colors">{p.title}</h3>
+                  <h3 className="font-display text-lg font-bold uppercase mb-2 group-hover:text-[#5d9c70] transition-colors">{p.title}</h3>
                   <p className="text-gray-400 leading-relaxed text-sm mb-3">{p.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-[#579269] text-xs font-semibold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="inline-flex items-center gap-1 text-[#5d9c70] text-xs font-semibold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                     Learn More
                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -380,7 +380,7 @@ export default function SiteWorkPage() {
               { name: 'Flooding & Drainage Fixes', href: '/services/site-work/flooding-drainage', tag: 'Standing water, post-storm fixes' },
             ].map((s) => (
               <Link key={s.name} href={s.href} className="group bg-[#141614] p-5 border border-white/5 hover:border-[#4a7c59]/40 transition-all">
-                <h3 className="font-display font-bold uppercase mb-1 group-hover:text-[#579269] transition-colors">{s.name}</h3>
+                <h3 className="font-display font-bold uppercase mb-1 group-hover:text-[#5d9c70] transition-colors">{s.name}</h3>
                 <p className="text-gray-400 text-sm">{s.tag}</p>
               </Link>
             ))}
@@ -433,7 +433,7 @@ export default function SiteWorkPage() {
                   </p>
                   <Link
                     href={SERVICE_SLUGS[i]}
-                    className="inline-flex items-center gap-2 text-[#579269] font-semibold uppercase tracking-wider text-sm hover:gap-3 transition-all"
+                    className="inline-flex items-center gap-2 text-[#5d9c70] font-semibold uppercase tracking-wider text-sm hover:gap-3 transition-all"
                   >
                     Learn More About {item.name}
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -663,7 +663,7 @@ export default function SiteWorkPage() {
             <p className="text-gray-400 mb-4">Have a question that isn&rsquo;t listed here?</p>
             <a
               href={PHONE_HREF}
-              className="text-[#579269] font-display font-bold uppercase hover:text-[#c2a878] transition-colors"
+              className="text-[#5d9c70] font-display font-bold uppercase hover:text-[#c2a878] transition-colors"
             >
               Call us at {PHONE}
             </a>

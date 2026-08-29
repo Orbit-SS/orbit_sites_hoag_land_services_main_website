@@ -98,7 +98,7 @@ export default function Page() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center py-24">
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             {CERTS.slice(0, 3).map((c) => (
-              <span key={c} className="text-xs font-sans bg-[#4a7c59]/20 text-[#579269] border border-[#4a7c59]/30 px-3 py-1 rounded-full">{c}</span>
+              <span key={c} className="text-xs font-sans bg-[#4a7c59]/20 text-[#5d9c70] border border-[#4a7c59]/30 px-3 py-1 rounded-full">{c}</span>
             ))}
           </div>
           <h1 className="font-display text-4xl md:text-6xl uppercase tracking-tight text-white mb-6">
@@ -212,7 +212,7 @@ export default function Page() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {STEPS.map((s) => (
               <div key={s.num} className="text-center">
-                <div className="text-5xl font-display text-[#579269]/30 mb-2">{s.num}</div>
+                <div className="text-5xl font-display text-[#5d9c70]/30 mb-2">{s.num}</div>
                 <h3 className="font-display text-xl uppercase text-[#c2a878] mb-2">{s.title}</h3>
                 <p className="font-sans text-gray-400 text-sm">{s.desc}</p>
               </div>
@@ -287,7 +287,7 @@ export default function Page() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/service-areas" className="font-sans text-sm text-[#579269] hover:text-[#c2a878] transition-colors">
+            <Link href="/service-areas" className="font-sans text-sm text-[#5d9c70] hover:text-[#c2a878] transition-colors">
               Don&apos;t see your town? See full service area &rarr;
             </Link>
           </div>
@@ -308,7 +308,7 @@ export default function Page() {
                   className="w-full flex items-center justify-between p-5 text-left bg-[#1a1c1a] hover:bg-[#1a1c1a]/80 transition-colors"
                 >
                   <span className="font-sans font-medium text-white pr-4">{f.q}</span>
-                  <span className="text-[#579269] text-xl shrink-0">{openFaq === i ? '−' : '+'}</span>
+                  <span className="text-[#5d9c70] text-xl shrink-0">{openFaq === i ? '−' : '+'}</span>
                 </button>
                 {openFaq === i && (
                   <div className="p-5 bg-[#141614] border-t border-[#4a7c59]/10">

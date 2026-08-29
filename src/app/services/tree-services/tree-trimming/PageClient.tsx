@@ -33,7 +33,7 @@ function StarIcon() {
 
 function ChevronDown({ open }: { open: boolean }) {
   return (
-    <svg className={`w-5 h-5 text-[#579269] transition-transform duration-300 ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className={`w-5 h-5 text-[#5d9c70] transition-transform duration-300 ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
     </svg>
   )
@@ -50,7 +50,7 @@ function PhoneIcon() {
 function StepNumber({ n }: { n: number }) {
   return (
     <div className="w-14 h-14 rounded-full border-2 border-[#4a7c59] flex items-center justify-center shrink-0">
-      <span className="font-display text-xl font-bold text-[#579269]">{n}</span>
+      <span className="font-display text-xl font-bold text-[#5d9c70]">{n}</span>
     </div>
   )
 }
@@ -106,7 +106,7 @@ export default function Page() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
               {CERTS.slice(0, 2).map((cert) => (
-                <span key={cert} className="text-xs bg-[#4a7c59]/20 text-[#579269] border border-[#4a7c59]/30 px-3 py-1 rounded-full">{cert}</span>
+                <span key={cert} className="text-xs bg-[#4a7c59]/20 text-[#5d9c70] border border-[#4a7c59]/30 px-3 py-1 rounded-full">{cert}</span>
               ))}
             </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white mb-6">
@@ -144,7 +144,7 @@ export default function Page() {
             {PAIN_POINTS.map((p) => (
               <div key={p.title} className="bg-[#1a1c1a] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors">
                 <div className="w-12 h-12 rounded-full bg-[#4a7c59]/10 flex items-center justify-center mb-4">
-                  <span className="font-display text-xl font-bold text-[#579269]">{p.icon}</span>
+                  <span className="font-display text-xl font-bold text-[#5d9c70]">{p.icon}</span>
                 </div>
                 <h3 className="font-display text-lg font-bold uppercase text-white mb-2">{p.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{p.desc}</p>
@@ -168,7 +168,7 @@ export default function Page() {
               <ul className="space-y-3">
                 {SERVICES_LIST.map((s) => (
                   <li key={s} className="flex items-start gap-3">
-                    <span className="text-[#579269] mt-1 shrink-0">&#10003;</span>
+                    <span className="text-[#5d9c70] mt-1 shrink-0">&#10003;</span>
                     <span className="text-gray-300">{s}</span>
                   </li>
                 ))}
@@ -236,7 +236,7 @@ export default function Page() {
                 <p className="text-gray-300 text-sm mb-4 leading-relaxed italic">&ldquo;{r.text}&rdquo;</p>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-[#4a7c59]/20 flex items-center justify-center">
-                    <span className="text-[#579269] text-sm font-bold">{r.name[0]}</span>
+                    <span className="text-[#5d9c70] text-sm font-bold">{r.name[0]}</span>
                   </div>
                   <div>
                     <p className="text-white text-sm font-semibold">{r.name}</p>
@@ -307,15 +307,15 @@ export default function Page() {
           </h2>
           <div className="grid sm:grid-cols-3 gap-6">
             <Link href="/services/tree-services/tree-removal" className="group bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors text-center">
-              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#579269] transition-colors">Tree Removal</h3>
+              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Tree Removal</h3>
               <p className="text-gray-400 text-sm">Safe, certified arborist-led removal for any size tree.</p>
             </Link>
             <Link href="/services/tree-services/palm-pruning" className="group bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors text-center">
-              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#579269] transition-colors">Palm Pruning</h3>
+              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Palm Pruning</h3>
               <p className="text-gray-400 text-sm">Frond removal, fruit clusters, and sprout cleanup.</p>
             </Link>
             <Link href="/services/tree-services/tree-installation" className="group bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors text-center">
-              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#579269] transition-colors">Tree Installation</h3>
+              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Tree Installation</h3>
               <p className="text-gray-400 text-sm">Palms, hardwoods, and evergreens professionally planted.</p>
             </Link>
           </div>
