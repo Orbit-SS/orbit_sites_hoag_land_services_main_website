@@ -96,11 +96,11 @@ function Hero() {
               <span className="text-white font-bold text-sm sm:text-base">{REVIEW_STATS.stars}</span>
               <span className="text-white/60 text-xs sm:text-sm">({REVIEW_STATS.count} Google Reviews)</span>
             </div>
-            <span className="hidden sm:inline text-white/20">|</span>
+            <span className="hidden sm:inline text-white/20" aria-hidden="true">|</span>
             <span className="text-white/70 text-xs sm:text-sm font-medium">ISA Certified Arborist</span>
-            <span className="hidden sm:inline text-white/20">|</span>
+            <span className="hidden sm:inline text-white/20" aria-hidden="true">|</span>
             <span className="text-white/70 text-xs sm:text-sm font-medium">Licensed &amp; Insured</span>
-            <span className="hidden sm:inline text-white/20">|</span>
+            <span className="hidden sm:inline text-white/20" aria-hidden="true">|</span>
             <span className="text-white/70 text-xs sm:text-sm font-medium">Est. {EST_YEAR}</span>
           </div>
         </div>

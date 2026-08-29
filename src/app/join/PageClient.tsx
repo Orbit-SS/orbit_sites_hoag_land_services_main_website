@@ -318,7 +318,7 @@ export default function JoinPage() {
       {/* ── CONTACT FALLBACK ── */}
       <section className="bg-[#1a1c1a] py-12">
         <div className="max-w-xl mx-auto px-6 text-center">
-          <p className="text-white/30 text-sm mb-4">
+          <p className="text-white/50 text-sm mb-4">
             Questions? Reach us directly.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -328,7 +328,7 @@ export default function JoinPage() {
             >
               {PHONE}
             </a>
-            <span className="hidden sm:inline text-white/20">|</span>
+            <span className="hidden sm:inline text-white/20" aria-hidden="true">|</span>
             <a
               href={`mailto:${EMAIL}`}
               className="text-[#c2a878] hover:text-white text-sm font-semibold tracking-wider transition-colors"

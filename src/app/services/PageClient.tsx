@@ -81,11 +81,11 @@ export default function ServicesPage() {
             </div>
             <span className="text-white/70 text-sm">{REVIEW_STATS.stars} Stars ({REVIEW_STATS.count} Reviews)</span>
           </div>
-          <span className="text-white/20 hidden sm:inline">|</span>
+          <span className="text-white/20 hidden sm:inline" aria-hidden="true">|</span>
           <span className="text-white/70 text-sm">ISA Certified Arborist</span>
-          <span className="text-white/20 hidden sm:inline">|</span>
+          <span className="text-white/20 hidden sm:inline" aria-hidden="true">|</span>
           <span className="text-white/70 text-sm">Licensed &amp; Insured</span>
-          <span className="text-white/20 hidden sm:inline">|</span>
+          <span className="text-white/20 hidden sm:inline" aria-hidden="true">|</span>
           <span className="text-white/70 text-sm">Est. {EST_YEAR}</span>
         </div>
       </section>

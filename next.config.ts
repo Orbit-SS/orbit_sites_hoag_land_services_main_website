@@ -58,15 +58,18 @@ const nextConfig: NextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          // CSP starts REPORT-ONLY on purpose. A wrong directive would silently
-          // break GA4, the Mapbox service-areas map, or the image CDN on a live
-          // client site. Watch the console for violations, then promote to
-          // Content-Security-Policy once it reports clean.
+          // Promoted from report-only to ENFORCING on 2026-08-29, after walking
+          // the main templates in a browser and collecting zero violations:
+          // /service-areas (Mapbox GL, the riskiest), / with GA4 and a full
+          // scroll, /contact (form), and /portfolio including a filter click.
           //
           // 'unsafe-inline' covers Next's inline hydration scripts and the
           // JSON-LD blocks; 'unsafe-eval' and worker-src blob: are Mapbox GL.
+          //
+          // If something does break, the one-word revert is back to
+          // Content-Security-Policy-Report-Only.
           {
-            key: 'Content-Security-Policy-Report-Only',
+            key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",

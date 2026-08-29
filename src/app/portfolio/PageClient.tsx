@@ -122,7 +122,7 @@ export default function PortfolioPage() {
 
           {/* Count indicator */}
           <div className="text-center mt-10">
-            <p className="text-white/30 text-sm">
+            <p className="text-white/50 text-sm">
               Showing {filtered.length} of {allImages.length} projects
             </p>
           </div>
