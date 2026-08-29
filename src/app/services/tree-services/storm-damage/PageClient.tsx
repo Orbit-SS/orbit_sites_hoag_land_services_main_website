@@ -13,6 +13,7 @@ import {
   EST_YEAR,
 } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import SpecialtyAreaLinks from '@/components/SpecialtyAreaLinks'
 
 /* ─────────────────────────────────────────────
    STORM DAMAGE — Pain-Point Landing Page
@@ -297,6 +298,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <SpecialtyAreaLinks service="tree" specialty="Storm Damage Cleanup" />
     </div>
   )
 }

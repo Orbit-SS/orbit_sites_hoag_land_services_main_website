@@ -13,6 +13,7 @@ import {
   EST_YEAR,
 } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import SpecialtyAreaLinks from '@/components/SpecialtyAreaLinks'
 
 /* ─────────────────────────────────────────────
    OVERGROWN TREES — Pain-Point Landing Page
@@ -296,6 +297,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <SpecialtyAreaLinks service="tree" specialty="Overgrown Tree Trimming" />
     </div>
   )
 }

@@ -15,6 +15,7 @@ import {
   FULL_SERVICES,
 } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import SpecialtyAreaLinks from '@/components/SpecialtyAreaLinks'
 
 /* ─────────────────────────────────────────────
    WOOD FENCING LANDING PAGE — Ironclad Theme
@@ -352,6 +353,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <SpecialtyAreaLinks service="fence" specialty="Wood Fencing" />
     </main>
   )
 }

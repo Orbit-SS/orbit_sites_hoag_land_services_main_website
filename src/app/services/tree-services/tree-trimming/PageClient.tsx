@@ -15,6 +15,7 @@ import {
   FULL_SERVICES,
 } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import SpecialtyAreaLinks from '@/components/SpecialtyAreaLinks'
 
 /* ─────────────────────────────────────────────
    TREE TRIMMING LANDING PAGE — Ironclad Theme
@@ -302,6 +303,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <SpecialtyAreaLinks service="tree" specialty="Tree Trimming" />
     </div>
   )
 }

@@ -13,6 +13,7 @@ import {
   EST_YEAR,
 } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import SpecialtyAreaLinks from '@/components/SpecialtyAreaLinks'
 
 /* ─────────────────────────────────────────────
    LIVESTOCK CONTAINMENT LANDING PAGE — Ironclad Theme
@@ -329,6 +330,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <SpecialtyAreaLinks service="fence" specialty="Livestock Fencing" />
     </main>
   )
 }
