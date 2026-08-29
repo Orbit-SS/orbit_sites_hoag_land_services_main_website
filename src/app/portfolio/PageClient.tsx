@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import Link from 'next/link'
 import { FULL_GALLERY, IMAGES, PHONE, PHONE_HREF } from '@/shared/constants'
@@ -41,10 +42,13 @@ export default function PortfolioPage() {
       {/* ── HERO ── */}
       <section className="relative h-[40vh] min-h-[320px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={IMAGES.site8}
             alt="HLS crew clearing a multi-acre Central Florida property"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -94,11 +98,12 @@ export default function PortfolioPage() {
                 key={`${img.src}-${idx}`}
                 className="group relative aspect-[4/3] rounded-lg overflow-hidden bg-[#0d0f0d]"
               >
-                <img
+                <Image
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-end">

@@ -39,10 +39,13 @@ function Hero() {
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src={IMAGES.site1}
           alt="HLS crew clearing a wooded Central Florida lot"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0d0f0d]/80 via-[#0d0f0d]/60 to-[#1a1c1a]" />
       </div>
@@ -197,10 +200,12 @@ function ServicesOverview() {
               className="group relative rounded-xl overflow-hidden bg-[#141614] border border-white/5 hover:border-[#4a7c59]/30 transition-all duration-300"
             >
               <div className="relative h-56 overflow-hidden">
-                <img
+                <Image
                   src={card.image}
                   alt={`${card.name} by ${COMPANY} — ${card.desc}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#141614] to-transparent" />
               </div>
@@ -231,11 +236,13 @@ function AboutTeaser() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <div className="relative rounded-xl overflow-hidden">
-            <img
+          <div className="relative h-80 md:h-[420px] rounded-xl overflow-hidden">
+            <Image
               src={IMAGES.og}
               alt={`${COMPANY} crew on a Central Florida jobsite`}
-              className="w-full h-80 md:h-[420px] object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#141614]/40 to-transparent" />
           </div>
