@@ -54,6 +54,33 @@ const nextConfig: NextConfig = {
               '<>; rel="alternate"; type="text/markdown"',
             ].join(', '),
           },
+          // Security headers. The three below are enforcing and carry no risk.
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // CSP starts REPORT-ONLY on purpose. A wrong directive would silently
+          // break GA4, the Mapbox service-areas map, or the image CDN on a live
+          // client site. Watch the console for violations, then promote to
+          // Content-Security-Policy once it reports clean.
+          //
+          // 'unsafe-inline' covers Next's inline hydration scripts and the
+          // JSON-LD blocks; 'unsafe-eval' and worker-src blob: are Mapbox GL.
+          {
+            key: 'Content-Security-Policy-Report-Only',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: blob:",
+              "font-src 'self' data:",
+              "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://api.mapbox.com https://events.mapbox.com",
+              "worker-src 'self' blob:",
+              "frame-ancestors 'self'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "object-src 'none'",
+            ].join('; '),
+          },
         ],
       },
     ]
