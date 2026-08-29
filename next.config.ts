@@ -70,7 +70,9 @@ const nextConfig: NextConfig = {
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
-              "style-src 'self' 'unsafe-inline'",
+              // Mapbox GL loads its stylesheet from api.mapbox.com. Report-only
+              // caught this on /service-areas; without it the map renders unstyled.
+              "style-src 'self' 'unsafe-inline' https://api.mapbox.com",
               "img-src 'self' data: blob:",
               "font-src 'self' data:",
               "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://api.mapbox.com https://events.mapbox.com",
