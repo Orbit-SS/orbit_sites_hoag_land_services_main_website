@@ -1,4 +1,6 @@
 'use client'
+
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { IMAGES, PHONE, PHONE_HREF, COMPANY, REVIEWS, REVIEW_STATS, CERTS, EST_YEAR } from '@/shared/constants'
@@ -166,9 +168,33 @@ export default function Page() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <img src={IMAGES.site11} alt="Drainage and flooding solutions on a Central Florida property" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site6} alt="Driveway grading and drainage work in progress" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site8} alt="Heavy equipment regrading a flooded property" className="rounded w-full h-48 object-cover col-span-2" />
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site11}
+                  alt="Drainage and flooding solutions on a Central Florida property"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site6}
+                  alt="Driveway grading and drainage work in progress"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 col-span-2 overflow-hidden">
+                <Image
+                  src={IMAGES.site8}
+                  alt="Heavy equipment regrading a flooded property"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

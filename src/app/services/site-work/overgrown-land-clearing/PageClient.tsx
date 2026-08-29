@@ -1,4 +1,6 @@
 'use client'
+
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { IMAGES, PHONE, PHONE_HREF, COMPANY, REVIEWS, REVIEW_STATS, CERTS, EST_YEAR } from '@/shared/constants'
@@ -137,9 +139,33 @@ export default function Page() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <img src={IMAGES.site7} alt="Overgrown land before clearing" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site8} alt="Heavy equipment on overgrown lot" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site10} alt="Cleared property result" className="rounded w-full h-48 object-cover col-span-2" />
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site7}
+                  alt="Overgrown land before clearing"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site8}
+                  alt="Heavy equipment on overgrown lot"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 col-span-2 overflow-hidden">
+                <Image
+                  src={IMAGES.site10}
+                  alt="Cleared property result"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

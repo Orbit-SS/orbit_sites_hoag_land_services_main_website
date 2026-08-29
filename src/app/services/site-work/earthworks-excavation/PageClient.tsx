@@ -1,4 +1,6 @@
 'use client'
+
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { IMAGES, PHONE, PHONE_HREF, EMAIL, COMPANY, REVIEWS, REVIEW_STATS, CERTS, EST_YEAR, FULL_SERVICES } from '@/shared/constants'
@@ -135,9 +137,33 @@ export default function Page() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <img src={IMAGES.site9} alt="Excavator shaping a building pad in Central Florida" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site12} alt="Site grading and soil leveling on a residential lot" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site4} alt="Heavy earthworks equipment preparing a construction pad" className="rounded w-full h-48 object-cover col-span-2" />
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site9}
+                  alt="Excavator shaping a building pad in Central Florida"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site12}
+                  alt="Site grading and soil leveling on a residential lot"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 col-span-2 overflow-hidden">
+                <Image
+                  src={IMAGES.site4}
+                  alt="Heavy earthworks equipment preparing a construction pad"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -154,7 +180,15 @@ export default function Page() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {[IMAGES.site4, IMAGES.site9, IMAGES.site12].map((src, i) => (
-              <img key={i} src={src} alt={`Earthworks and excavation project in Central Florida — example ${i + 1}`} className="rounded w-full h-48 object-cover hover:opacity-90 transition-opacity" />
+              <div key={i} className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={src}
+                  alt={`Earthworks and excavation project in Central Florida — example ${i + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover hover:opacity-90 transition-opacity"
+                />
+              </div>
             ))}
           </div>
         </div>

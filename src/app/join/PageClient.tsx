@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import { useState, useRef, FormEvent } from 'react'
 import Link from 'next/link'
 import { sendGAEvent } from '@next/third-parties/google'
@@ -82,10 +84,12 @@ export default function JoinPage() {
       <section className="relative h-[36vh] min-h-[280px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-[#0d0f0d]" />
         <div className="absolute inset-0 opacity-15">
-          <img
+          <Image
             src={IMAGES.site10}
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
         </div>
         <div className="relative z-10 text-center px-6">

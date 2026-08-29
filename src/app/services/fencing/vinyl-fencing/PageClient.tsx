@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import { useState } from 'react'
 import Link from 'next/link'
 import {
@@ -191,8 +193,24 @@ export default function Page() {
               </ul>
             </div>
             <div className="grid grid-cols-1 gap-4">
-              <img src={IMAGES.fence7} alt="Vinyl privacy fence installation" className="rounded-lg w-full h-56 object-cover" />
-              <img src={IMAGES.fence8} alt="Vinyl fence project in Central Florida" className="rounded-lg w-full h-56 object-cover" />
+              <div className="relative rounded-lg w-full h-56 overflow-hidden">
+                <Image
+                  src={IMAGES.fence7}
+                  alt="Vinyl privacy fence installation"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded-lg w-full h-56 overflow-hidden">
+                <Image
+                  src={IMAGES.fence8}
+                  alt="Vinyl fence project in Central Florida"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -335,14 +353,30 @@ export default function Page() {
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <Link href="/services/fencing/wood-fencing" className="group bg-[#141614] border border-white/5 rounded-lg overflow-hidden hover:border-[#4a7c59]/40 transition-colors">
-              <img src={IMAGES.fence5} alt="Wood fence installation" className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="relative w-full h-40">
+                <Image
+                  src={IMAGES.fence5}
+                  alt="Wood fence installation"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold uppercase text-white mb-1">Wood Fencing</h3>
                 <p className="text-gray-400 text-sm">Affordable board, privacy, and horse fencing for Florida properties.</p>
               </div>
             </Link>
             <Link href="/services/fencing/aluminum-fencing" className="group bg-[#141614] border border-white/5 rounded-lg overflow-hidden hover:border-[#4a7c59]/40 transition-colors">
-              <img src={IMAGES.fence1} alt="Aluminum fence installation" className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="relative w-full h-40">
+                <Image
+                  src={IMAGES.fence1}
+                  alt="Aluminum fence installation"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold uppercase text-white mb-1">Aluminum Fencing</h3>
                 <p className="text-gray-400 text-sm">Elegant, rust-free fencing for pools, estates, and communities.</p>

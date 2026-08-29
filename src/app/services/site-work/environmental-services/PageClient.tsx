@@ -1,4 +1,6 @@
 'use client'
+
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { IMAGES, PHONE, PHONE_HREF, EMAIL, COMPANY, REVIEWS, REVIEW_STATS, CERTS, EST_YEAR, FULL_SERVICES } from '@/shared/constants'
@@ -135,9 +137,33 @@ export default function Page() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <img src={IMAGES.site5} alt="Forestry mulching" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site15} alt="Environmental services" className="rounded w-full h-48 object-cover" />
-              <img src={IMAGES.site15} alt="Completed forestry project" className="rounded w-full h-48 object-cover col-span-2" />
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site5}
+                  alt="Forestry mulching"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.site15}
+                  alt="Environmental services"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 col-span-2 overflow-hidden">
+                <Image
+                  src={IMAGES.site15}
+                  alt="Completed forestry project"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -154,7 +180,15 @@ export default function Page() {
           </p>
           <div className="grid grid-cols-2 gap-3">
             {[IMAGES.site5, IMAGES.site15].map((src, i) => (
-              <img key={i} src={src} alt={`Environmental project ${i + 1}`} className="rounded w-full h-56 object-cover hover:opacity-90 transition-opacity" />
+              <div key={i} className="relative rounded w-full h-56 overflow-hidden">
+                <Image
+                  src={src}
+                  alt={`Environmental project ${i + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover hover:opacity-90 transition-opacity"
+                />
+              </div>
             ))}
           </div>
         </div>

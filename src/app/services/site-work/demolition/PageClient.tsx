@@ -1,4 +1,6 @@
 'use client'
+
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { PHONE, PHONE_HREF, COMPANY, REVIEWS, REVIEW_STATS, CERTS, EST_YEAR } from '@/shared/constants'
@@ -197,12 +199,16 @@ export default function Page() {
             {SUBSERVICES.map((sub, idx) => (
               <div key={sub.id} id={sub.id} className={`grid md:grid-cols-2 gap-8 items-center ${idx % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}>
                 {sub.image ? (
-                  <img
-                    src={sub.image}
-                    alt={`${sub.title} by Hoag Land Services in Central Florida`}
-                    className="w-full h-64 object-cover rounded"
-                    style={{ objectPosition: 'center 60%' }}
-                  />
+                  <div className="relative w-full h-64 rounded overflow-hidden">
+                    <Image
+                      src={sub.image}
+                      alt={`${sub.title} by Hoag Land Services in Central Florida`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                      style={{ objectPosition: 'center 60%' }}
+                    />
+                  </div>
                 ) : (
                   <div className="w-full h-64 bg-[#1a1c1a] border border-white/5 rounded flex items-center justify-center">
                     <span className="font-display text-6xl text-[#4a7c59]/30 uppercase">{String(idx + 1).padStart(2, '0')}</span>

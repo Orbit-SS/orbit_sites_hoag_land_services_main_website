@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import { useState } from 'react'
 import Link from 'next/link'
 import {
@@ -190,9 +192,33 @@ export default function Page() {
               </ul>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src="/photos/hoag/privacy-fence-lake-house-volusia.jpeg" alt="Fresh wood privacy fence installed at a Volusia County lake house by Hoag Land Services" className="rounded-lg w-full h-48 object-cover" />
-              <img src="/photos/hoag/privacy-fence-dog-pen-deland.jpeg" alt="Custom wood privacy fence enclosing a DeLand backyard dog area" className="rounded-lg w-full h-48 object-cover" />
-              <img src={IMAGES.fence5} alt="Completed privacy fence project" className="rounded-lg w-full h-48 object-cover col-span-2" />
+              <div className="relative rounded-lg w-full h-48 overflow-hidden">
+                <Image
+                  src="/photos/hoag/privacy-fence-lake-house-volusia.jpeg"
+                  alt="Fresh wood privacy fence installed at a Volusia County lake house by Hoag Land Services"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded-lg w-full h-48 overflow-hidden">
+                <Image
+                  src="/photos/hoag/privacy-fence-dog-pen-deland.jpeg"
+                  alt="Custom wood privacy fence enclosing a DeLand backyard dog area"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded-lg w-full h-48 col-span-2 overflow-hidden">
+                <Image
+                  src={IMAGES.fence5}
+                  alt="Completed privacy fence project"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -308,21 +334,45 @@ export default function Page() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <Link href="/services/fencing/wood-fencing" className="group bg-[#141614] border border-white/5 rounded-lg overflow-hidden hover:border-[#4a7c59]/40 transition-colors">
-              <img src={IMAGES.fence3} alt="Wood fence installation" className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="relative w-full h-40">
+                <Image
+                  src={IMAGES.fence3}
+                  alt="Wood fence installation"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold uppercase text-white mb-1">Wood Fencing</h3>
                 <p className="text-gray-400 text-sm">Board, privacy, barbed wire, and horse fence built for Florida.</p>
               </div>
             </Link>
             <Link href="/services/fencing/vinyl-fencing" className="group bg-[#141614] border border-white/5 rounded-lg overflow-hidden hover:border-[#4a7c59]/40 transition-colors">
-              <img src={IMAGES.fence7} alt="Vinyl fence installation" className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="relative w-full h-40">
+                <Image
+                  src={IMAGES.fence7}
+                  alt="Vinyl fence installation"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold uppercase text-white mb-1">Vinyl Fencing</h3>
                 <p className="text-gray-400 text-sm">Zero maintenance privacy and picket fencing that never needs painting.</p>
               </div>
             </Link>
             <Link href="/services/fencing/fence-replacement" className="group bg-[#141614] border border-white/5 rounded-lg overflow-hidden hover:border-[#4a7c59]/40 transition-colors">
-              <img src={IMAGES.fence6} alt="Fence replacement" className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="relative w-full h-40">
+                <Image
+                  src={IMAGES.fence6}
+                  alt="Fence replacement"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold uppercase text-white mb-1">Fence Replacement</h3>
                 <p className="text-gray-400 text-sm">Old fence falling apart? We remove it and build a better one.</p>

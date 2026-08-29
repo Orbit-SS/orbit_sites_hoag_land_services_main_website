@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import Link from 'next/link'
 import {
   ABOUT,
@@ -78,9 +80,14 @@ export default function AboutPage() {
             {/* Right: family photo — full, never cropped */}
             <div className="order-1 md:order-2">
               <div className="relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-[#4a7c59]/20 bg-[#0d0f0d]">
-                <img
+                {/* Intrinsic width/height, not `fill` — this one must never be
+                    cropped, so it keeps its own aspect ratio. */}
+                <Image
                   src="/team-family.JPEG"
                   alt="The Hoag family and crew under a Central Florida oak"
+                  width={3255}
+                  height={4883}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto block"
                 />
               </div>
@@ -114,11 +121,13 @@ export default function AboutPage() {
             </div>
 
             {/* Right: photo */}
-            <div className="relative">
-              <img
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
+              <Image
                 src="/team-log.JPEG"
                 alt="HLS team carrying a log — built on hard work"
-                className="w-full rounded-lg shadow-2xl object-cover aspect-[4/3]"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
           </div>
@@ -143,11 +152,15 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-[300px_1fr] gap-12 items-center">
             {/* Photo */}
             <div className="relative mx-auto md:mx-0">
-              <img
-                src="/team-crew.JPEG"
-                alt={`${OWNER} (center) with the HLS crew`}
-                className="w-64 h-64 md:w-[300px] md:h-[300px] rounded-lg object-cover object-top shadow-2xl"
-              />
+              <div className="relative w-64 h-64 md:w-[300px] md:h-[300px] rounded-lg overflow-hidden shadow-2xl">
+                <Image
+                  src="/team-crew.JPEG"
+                  alt={`${OWNER} (center) with the HLS crew`}
+                  fill
+                  sizes="300px"
+                  className="object-cover object-top"
+                />
+              </div>
               <div className="absolute inset-0 rounded-lg ring-2 ring-[#4a7c59]/30" />
             </div>
 

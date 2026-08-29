@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import { useState } from 'react'
 import Link from 'next/link'
 import {
@@ -173,8 +175,24 @@ export default function Page() {
               </ul>
             </div>
             <div className="space-y-4">
-              <img src={IMAGES.tree5} alt="Professional tree trimming in Central Florida" className="rounded-lg w-full h-72 object-cover" />
-              <img src={IMAGES.tree3} alt="Certified arborist pruning work" className="rounded-lg w-full h-48 object-cover" />
+              <div className="relative rounded-lg w-full h-72 overflow-hidden">
+                <Image
+                  src={IMAGES.tree5}
+                  alt="Professional tree trimming in Central Florida"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded-lg w-full h-48 overflow-hidden">
+                <Image
+                  src={IMAGES.tree3}
+                  alt="Certified arborist pruning work"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

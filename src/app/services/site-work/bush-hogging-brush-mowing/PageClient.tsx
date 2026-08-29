@@ -1,4 +1,6 @@
 'use client'
+
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { IMAGES, PHONE, PHONE_HREF, COMPANY, REVIEWS, REVIEW_STATS, CERTS, EST_YEAR } from '@/shared/constants'
@@ -251,9 +253,33 @@ export default function Page() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <img src="/photos/hoag/hay-field-mowing-central-florida.jpeg" alt="Hoag Land Services bush hogging a Central Florida hay field" className="rounded w-full h-48 object-cover" />
-              <img src="/photos/hoag/right-of-way-mowing-pipeline-fl.jpeg" alt="Brush mowing along a Central Florida right-of-way and pipeline corridor" className="rounded w-full h-48 object-cover" />
-              <img src="/photos/hoag/bush-hogging-deland-fl.jpeg" alt="Skid steer with brush cutter clearing an overgrown DeLand lot: before and after in one frame" className="rounded w-full h-48 object-cover col-span-2" />
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src="/photos/hoag/hay-field-mowing-central-florida.jpeg"
+                  alt="Hoag Land Services bush hogging a Central Florida hay field"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 overflow-hidden">
+                <Image
+                  src="/photos/hoag/right-of-way-mowing-pipeline-fl.jpeg"
+                  alt="Brush mowing along a Central Florida right-of-way and pipeline corridor"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative rounded w-full h-48 col-span-2 overflow-hidden">
+                <Image
+                  src="/photos/hoag/bush-hogging-deland-fl.jpeg"
+                  alt="Skid steer with brush cutter clearing an overgrown DeLand lot: before and after in one frame"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -271,12 +297,16 @@ export default function Page() {
           <div className="space-y-16">
             {SUBSERVICES.map((sub, idx) => (
               <div key={sub.id} id={sub.id} className={`grid md:grid-cols-2 gap-8 items-center ${idx % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}>
-                <img
-                  src={sub.image}
-                  alt={sub.imageAlt ?? `${sub.title} on Central Florida property`}
-                  className="w-full h-64 object-cover rounded"
-                  style={sub.imagePos ? { objectPosition: sub.imagePos } : undefined}
-                />
+                <div className="relative w-full h-64 rounded overflow-hidden">
+                  <Image
+                    src={sub.image}
+                    alt={sub.imageAlt ?? `${sub.title} on Central Florida property`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                    style={sub.imagePos ? { objectPosition: sub.imagePos } : undefined}
+                  />
+                </div>
                 <div>
                   <h3 className="font-display text-2xl uppercase text-[#c2a878] mb-3">{sub.title}</h3>
                   <p className="font-sans text-gray-300 leading-relaxed">

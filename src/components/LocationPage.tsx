@@ -648,12 +648,13 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {data.recentProjects.items.map((p) => (
                 <figure key={p.title} className="bg-[#141614] border border-white/5 overflow-hidden rounded-sm">
-                  <div className="aspect-[4/3] overflow-hidden bg-[#0d0f0d]">
-                    <img
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[#0d0f0d]">
+                    <Image
                       src={p.image}
                       alt={p.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
                       style={p.imagePos ? { objectPosition: p.imagePos } : undefined}
                     />
                   </div>

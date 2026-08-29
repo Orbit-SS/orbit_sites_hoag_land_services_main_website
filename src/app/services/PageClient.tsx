@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import Link from 'next/link'
 import {
   FULL_SERVICES,
@@ -44,10 +46,13 @@ export default function ServicesPage() {
 
       {/* ── Hero ── */}
       <section className="relative h-[50vh] min-h-[340px] flex items-center justify-center overflow-hidden">
-        <img
+        <Image
           src={IMAGES.site4}
           alt="Heavy equipment on a Hoag Land Services jobsite"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#1a1c1a]" />
         <div className="relative z-10 text-center px-4">
@@ -95,11 +100,14 @@ export default function ServicesPage() {
               className="group grid md:grid-cols-2 gap-8 items-center"
             >
               {/* Image — alternates left/right */}
-              <div className={`relative overflow-hidden rounded-xl ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
-                <img
+              {/* aspect ratio lives on the wrapper — `fill` needs a sized parent */}
+              <div className={`relative aspect-[16/10] overflow-hidden rounded-xl ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                <Image
                   src={svc.image}
                   alt={`${svc.name} by Hoag Land Services — ${svc.tagline}`}
-                  className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
