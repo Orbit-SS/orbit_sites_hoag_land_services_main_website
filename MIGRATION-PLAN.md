@@ -154,3 +154,25 @@ Do not proceed with any consolidation until Spencer has been contacted. The
 question is no longer "is he active" but "what is he working on, and which of
 these five branches are live." Preservation tag `pre-migration-spencer-2026-06-23`
 covers only the Jun 23 branch; the other four are still only on their branch refs.
+
+---
+
+## Open item — PSI re-run (added 2026-08-29)
+
+PageSpeed Insights' anonymous API hit its daily quota before a like-for-like
+re-run against Karl's baseline could be captured. Worth running once the quota
+resets.
+
+Same four URLs, mobile and desktop, logged against his Aug 28 numbers:
+`/`, `/portfolio`, `/services/tree-services`, `/services/tree-services/deland`.
+
+Baseline to beat: mobile LCP 61.2s home / 153.3s portfolio, mobile Performance
+68/67, homepage transfer 19,397 KiB.
+
+After the re-encode the homepage image payload measured 2.26 MB in a real
+browser (down from 18.4 MB), LCP 820ms — but that was unthrottled desktop and is
+**not comparable** to his throttled Moto G Power emulation. Only a matching PSI
+run gives a defensible delta.
+
+This is also the cleanest test of his theory that AI Visibility sits at 14/100
+because LLM crawlers time out on a slow page.
