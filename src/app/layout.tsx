@@ -130,6 +130,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {/* llms.txt discovery — emerging standard for AI crawler site comprehension */}
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site description" />
+        {/* TDM Reservation Protocol, meta transport. Carries the same
+            no-training preference as /.well-known/tdmrep.json and the
+            tdm-reservation response header. Replaces the Content-Signal
+            robots.txt directive — see src/app/robots.txt/route.ts. */}
+        <meta name="tdm-reservation" content="1" />
       </head>
       <body className="min-h-screen bg-[#1a1c1a] text-white">
         <Navigation />

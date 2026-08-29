@@ -55,6 +55,12 @@ const nextConfig: NextConfig = {
             ].join(', '),
           },
           // Security headers. The three below are enforcing and carry no risk.
+          // TDM Reservation Protocol. This is the header transport of the
+          // no-training preference that used to be `Content-Signal: ...
+          // ai-train=no` in robots.txt — moved because Lighthouse fails the
+          // robots-txt audit on any directive outside its seven-item safelist.
+          // See src/app/robots.txt/route.ts.
+          { key: 'tdm-reservation', value: '1' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
