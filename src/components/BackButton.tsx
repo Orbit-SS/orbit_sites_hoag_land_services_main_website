@@ -37,7 +37,7 @@ export default function BackButton() {
         className="group flex items-center gap-2 bg-[#1a1c1a]/90 backdrop-blur-md border border-white/10 hover:border-[#4a7c59]/50 text-white px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 hover:bg-[#1a1c1a]"
       >
         <svg
-          className="w-4 h-4 text-[#4a7c59] group-hover:-translate-x-0.5 transition-transform"
+          className="w-4 h-4 text-[#579269] group-hover:-translate-x-0.5 transition-transform"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

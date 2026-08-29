@@ -131,7 +131,7 @@ export default function ServiceAreasPage() {
                     <span key={loc.slug}>
                       <Link
                         href={`/services/tree-services/${loc.slug}`}
-                        className="text-sm text-gray-400 hover:text-[#4a7c59] transition-colors"
+                        className="text-sm text-gray-400 hover:text-[#579269] transition-colors"
                       >
                         {loc.name}
                       </Link>
