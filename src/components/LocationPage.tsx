@@ -327,7 +327,7 @@ function ReviewerAvatar({ name }: { name: string }) {
       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#4a7c59]/30 border border-[#4a7c59]/50 flex items-center justify-center">
         <span className="text-xs sm:text-sm font-bold text-[#4a7c59]">{initials}</span>
       </div>
-      <span className="text-[10px] sm:text-xs text-gray-500">{name.split(' ')[0]}</span>
+      <span className="text-[10px] sm:text-xs text-gray-400">{name.split(' ')[0]}</span>
     </div>
   )
 }
@@ -437,7 +437,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
           </a>
 
           {/* Trust micro-copy */}
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="text-sm text-gray-400 mt-4">
             ISA Certified Arborist FL-9491A &middot; Est. {EST_YEAR} &middot; Licensed &amp; Insured
           </p>
         </div>
@@ -551,7 +551,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
                   <ReviewerAvatar name={review.name} />
                   <div>
                     <p className="font-semibold text-sm">{review.name}</p>
-                    <p className="text-xs text-gray-500">{review.source}</p>
+                    <p className="text-xs text-gray-400">{review.source}</p>
                   </div>
                 </div>
                 <Stars count={review.rating} />
@@ -718,7 +718,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
           />
 
           {/* Trust restatement */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6 text-xs text-gray-500">
+          <div className="flex flex-wrap justify-center gap-4 mt-6 text-xs text-gray-400">
             <span>ISA Certified Arborist FL-9491A</span>
             <span>&middot;</span>
             <span>{REVIEW_STATS.stars} Stars ({REVIEW_STATS.count} Reviews)</span>
@@ -755,7 +755,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
             {/* Nearby locations */}
             <div>
               <p className="font-display font-bold uppercase text-[#c2a878] mb-2">Nearby Areas</p>
-              <p className="text-gray-500 text-xs mb-2">
+              <p className="text-gray-400 text-xs mb-2">
                 Proudly serving {data.location} and surrounding areas
               </p>
               <div className="flex flex-wrap gap-x-3 gap-y-1">
@@ -786,7 +786,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
             </div>
           </div>
 
-          <p className="text-center text-gray-600 text-xs mt-8">
+          <p className="text-center text-gray-400 text-xs mt-8">
             &copy; {currentYear} {COMPANY_LLC}. All rights reserved.
           </p>
         </div>

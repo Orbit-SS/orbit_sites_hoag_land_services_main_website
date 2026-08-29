@@ -64,7 +64,7 @@ export default function ServiceAreasPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schemas) }} />
       {/* Breadcrumb */}
       <nav className="bg-[#0d0f0d] py-3 px-4">
-        <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm text-gray-500">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm text-gray-400">
           <Link href="/" className="hover:text-[#c2a878] transition-colors">Home</Link>
           <span>/</span>
           <span className="text-[#c2a878]">Service Areas</span>
@@ -85,7 +85,7 @@ export default function ServiceAreasPage() {
             land clearing, and fencing across {countyOrder.length} Florida counties. Click a pin
             to explore your area.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
             <span>ISA Certified Arborist FL-9491A</span>
             <span>&middot;</span>
             <span>{REVIEW_STATS.stars} Stars ({REVIEW_STATS.count} Reviews)</span>
@@ -108,7 +108,7 @@ export default function ServiceAreasPage() {
           <h2 className="font-display text-2xl sm:text-3xl font-bold uppercase text-center mb-3">
             All Service Areas
           </h2>
-          <p className="text-gray-500 text-center text-sm mb-10">
+          <p className="text-gray-400 text-center text-sm mb-10">
             Browse all {totalLocations} communities we serve, grouped by county.
           </p>
 
@@ -122,7 +122,7 @@ export default function ServiceAreasPage() {
               <div key={county} className="mb-8">
                 <h3 className="font-display text-lg font-bold uppercase text-[#c2a878] mb-3 border-b border-white/10 pb-2">
                   {county} County
-                  <span className="text-sm font-normal text-gray-600 ml-2">
+                  <span className="text-sm font-normal text-gray-400 ml-2">
                     ({locations.length})
                   </span>
                 </h3>
@@ -136,7 +136,7 @@ export default function ServiceAreasPage() {
                         {loc.name}
                       </Link>
                       {i < locations.length - 1 && (
-                        <span className="text-gray-600 mx-1">&middot;</span>
+                        <span className="text-gray-400 mx-1">&middot;</span>
                       )}
                     </span>
                   ))}

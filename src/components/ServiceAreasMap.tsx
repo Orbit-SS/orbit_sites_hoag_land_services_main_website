@@ -432,13 +432,13 @@ export default function ServiceAreasMap({ locations }: { locations: Location[] }
               <div className="absolute inset-0 flex items-center justify-center bg-[#0d0f0d]">
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-8 h-8 border-2 border-[#4a7c59] border-t-transparent rounded-full animate-spin" />
-                  <span className="text-sm text-gray-500">Loading map&hellip;</span>
+                  <span className="text-sm text-gray-400">Loading map&hellip;</span>
                 </div>
               </div>
             )}
           </div>
           {/* Map legend */}
-          <div className="flex items-center gap-5 mt-3 px-1 text-xs text-gray-500">
+          <div className="flex items-center gap-5 mt-3 px-1 text-xs text-gray-400">
             <span className="flex items-center gap-1.5">
               <span className="w-3 h-3 rounded-full bg-[#4a7c59] border-2 border-white inline-block" />
               County
@@ -472,17 +472,17 @@ export default function ServiceAreasMap({ locations }: { locations: Location[] }
                     <span className="block font-display text-2xl font-bold text-[#c2a878]">
                       {countyKeys.length}
                     </span>
-                    <span className="text-xs text-gray-500 uppercase tracking-wide">Counties</span>
+                    <span className="text-xs text-gray-400 uppercase tracking-wide">Counties</span>
                   </div>
                   <div className="bg-[#1a1c1a] rounded-lg p-4 text-center">
                     <span className="block font-display text-2xl font-bold text-[#c2a878]">
                       {locations.length}
                     </span>
-                    <span className="text-xs text-gray-500 uppercase tracking-wide">Areas</span>
+                    <span className="text-xs text-gray-400 uppercase tracking-wide">Areas</span>
                   </div>
                   <div className="bg-[#1a1c1a] rounded-lg p-4 text-center">
                     <span className="block font-display text-2xl font-bold text-[#c2a878]">3</span>
-                    <span className="text-xs text-gray-500 uppercase tracking-wide">Services</span>
+                    <span className="text-xs text-gray-400 uppercase tracking-wide">Services</span>
                   </div>
                 </div>
 
@@ -500,7 +500,7 @@ export default function ServiceAreasMap({ locations }: { locations: Location[] }
                       className="flex items-center gap-2 bg-[#1a1c1a] hover:bg-[#4a7c59]/10 border border-white/5 hover:border-[#4a7c59]/30 rounded-lg px-3 py-2 text-sm text-gray-300 hover:text-white transition-all duration-200"
                     >
                       {county}
-                      <span className="text-xs text-gray-600 bg-white/5 px-1.5 py-0.5 rounded">
+                      <span className="text-xs text-gray-400 bg-white/5 px-1.5 py-0.5 rounded">
                         {mapData.counties[county].locations.length}
                       </span>
                     </button>
@@ -523,14 +523,14 @@ export default function ServiceAreasMap({ locations }: { locations: Location[] }
                       }
                       history.replaceState(null, '', location.pathname)
                     }}
-                    className="text-sm text-gray-500 hover:text-[#c2a878] transition-colors flex items-center gap-1"
+                    className="text-sm text-gray-400 hover:text-[#c2a878] transition-colors flex items-center gap-1"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                     All Counties
                   </button>
-                  <span className="text-xs text-gray-600 bg-white/5 px-2 py-1 rounded">
+                  <span className="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded">
                     {activeData.locations.length} {activeData.locations.length === 1 ? 'area' : 'areas'}
                   </span>
                 </div>
@@ -569,10 +569,10 @@ function CityAccordion({ location }: { location: Location }) {
       >
         <div>
           <span className="text-sm font-semibold text-white">{location.name}</span>
-          <span className="text-xs text-gray-600 ml-2">{location.zipCodes.slice(0, 2).join(', ')}</span>
+          <span className="text-xs text-gray-400 ml-2">{location.zipCodes.slice(0, 2).join(', ')}</span>
         </div>
         <svg
-          className={`w-3 h-3 text-gray-500 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+          className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
           viewBox="0 0 12 8"
           fill="none"
         >

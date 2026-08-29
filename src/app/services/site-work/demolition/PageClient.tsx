@@ -304,7 +304,7 @@ export default function Page() {
               </Link>
             ))}
           </div>
-          <p className="text-center text-gray-500 text-sm mt-8">
+          <p className="text-center text-gray-400 text-sm mt-8">
             Don&rsquo;t see your town? <Link href="/service-areas" className="text-[#c2a878] hover:text-white underline">See our full service area &rarr;</Link>
           </p>
         </div>

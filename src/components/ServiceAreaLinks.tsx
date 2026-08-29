@@ -57,7 +57,7 @@ export default function ServiceAreaLinks({ service }: { service: ServiceCategory
                         {loc.name}
                       </Link>
                       {i < locs.length - 1 && (
-                        <span className="text-gray-600 mx-1">&middot;</span>
+                        <span className="text-gray-400 mx-1">&middot;</span>
                       )}
                     </span>
                   ))}

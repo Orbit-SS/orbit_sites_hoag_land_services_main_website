@@ -238,7 +238,7 @@ export default function Page() {
                   </div>
                   <div>
                     <p className="text-white text-sm font-semibold">{r.name}</p>
-                    <p className="text-gray-500 text-xs">{r.source} Review</p>
+                    <p className="text-gray-400 text-xs">{r.source} Review</p>
                   </div>
                 </div>
               </div>
@@ -291,7 +291,7 @@ export default function Page() {
               <PhoneIcon /> {PHONE}
             </a>
           </div>
-          <p className="text-gray-500 text-sm mt-6">Serving DeLand, DeLeon Springs &amp; Central Florida since {EST_YEAR}</p>
+          <p className="text-gray-400 text-sm mt-6">Serving DeLand, DeLeon Springs &amp; Central Florida since {EST_YEAR}</p>
         </div>
       </section>
 

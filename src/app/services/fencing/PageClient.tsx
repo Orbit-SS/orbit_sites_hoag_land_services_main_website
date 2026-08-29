@@ -382,7 +382,7 @@ export default function Page() {
             ].map((s) => (
               <Link key={s.name} href={s.href} className="group bg-[#141614] p-5 border border-white/5 hover:border-[#4a7c59]/40 transition-all">
                 <h3 className="font-display font-bold uppercase mb-1 group-hover:text-[#4a7c59] transition-colors">{s.name}</h3>
-                <p className="text-gray-500 text-sm">{s.tag}</p>
+                <p className="text-gray-400 text-sm">{s.tag}</p>
               </Link>
             ))}
           </div>
@@ -677,7 +677,7 @@ export default function Page() {
                   </div>
                   <div>
                     <p className="font-bold text-sm">{r.name}</p>
-                    <p className="text-gray-500 text-xs">{r.source} Review</p>
+                    <p className="text-gray-400 text-xs">{r.source} Review</p>
                   </div>
                 </div>
               </div>
@@ -758,7 +758,7 @@ export default function Page() {
             </a>
           </div>
 
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             Or email us at{' '}
             <a href={`mailto:${EMAIL}`} className="text-[#c2a878] hover:underline">
               {EMAIL}

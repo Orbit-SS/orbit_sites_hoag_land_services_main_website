@@ -381,7 +381,7 @@ export default function SiteWorkPage() {
             ].map((s) => (
               <Link key={s.name} href={s.href} className="group bg-[#141614] p-5 border border-white/5 hover:border-[#4a7c59]/40 transition-all">
                 <h3 className="font-display font-bold uppercase mb-1 group-hover:text-[#4a7c59] transition-colors">{s.name}</h3>
-                <p className="text-gray-500 text-sm">{s.tag}</p>
+                <p className="text-gray-400 text-sm">{s.tag}</p>
               </Link>
             ))}
           </div>
@@ -607,7 +607,7 @@ export default function SiteWorkPage() {
                   </div>
                   <div>
                     <p className="font-bold text-sm">{r.name}</p>
-                    <p className="text-gray-500 text-xs">{r.source} Review</p>
+                    <p className="text-gray-400 text-xs">{r.source} Review</p>
                   </div>
                 </div>
               </div>
@@ -727,7 +727,7 @@ export default function SiteWorkPage() {
           ═══════════════════════════════════════════ */}
       <section className="bg-[#0d0f0d] py-10 px-4 border-t border-white/5">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-500 text-sm mb-3 font-display uppercase tracking-widest">
+          <p className="text-gray-400 text-sm mb-3 font-display uppercase tracking-widest">
             Other Services
           </p>
           <div className="flex justify-center gap-6">
@@ -737,7 +737,7 @@ export default function SiteWorkPage() {
             >
               Tree Services
             </Link>
-            <span className="text-gray-600">|</span>
+            <span className="text-gray-400">|</span>
             <Link
               href="/services/fencing"
               className="text-[#c2a878] hover:text-white font-display font-bold uppercase tracking-wider transition-colors"

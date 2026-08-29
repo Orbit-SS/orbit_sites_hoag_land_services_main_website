@@ -287,7 +287,7 @@ export default function Page() {
                 </div>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4">&ldquo;{review.text}&rdquo;</p>
                 <p className="text-[#c2a878] font-bold text-sm">{review.name}</p>
-                <p className="text-gray-500 text-xs">{review.source} Review</p>
+                <p className="text-gray-400 text-xs">{review.source} Review</p>
               </div>
             ))}
           </div>
@@ -338,7 +338,7 @@ export default function Page() {
               <PhoneIcon /> {PHONE}
             </a>
           </div>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             Or email us directly at{' '}
             <a href={`mailto:${EMAIL}`} className="text-[#c2a878] hover:underline">{EMAIL}</a>
           </p>

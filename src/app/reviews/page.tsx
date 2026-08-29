@@ -167,7 +167,7 @@ export default function ReviewsPage() {
                     >
                       <span itemProp="name">{r.name}</span>
                     </p>
-                    <p className="font-sans text-xs text-gray-500 mt-1">
+                    <p className="font-sans text-xs text-gray-400 mt-1">
                       Verified {r.source} Review
                     </p>
                   </footer>
@@ -202,7 +202,7 @@ export default function ReviewsPage() {
               ].map((t) => (
                 <div key={t.label}>
                   <p className="font-display text-3xl uppercase text-[#c2a878] mb-1">{t.value}</p>
-                  <p className="font-sans text-xs text-gray-500 uppercase tracking-widest">{t.label}</p>
+                  <p className="font-sans text-xs text-gray-400 uppercase tracking-widest">{t.label}</p>
                 </div>
               ))}
             </div>

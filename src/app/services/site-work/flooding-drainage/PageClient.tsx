@@ -259,7 +259,7 @@ export default function Page() {
                   ))}
                 </div>
                 <p className="font-sans text-gray-300 text-sm italic mb-4">&ldquo;{r.text}&rdquo;</p>
-                <p className="font-sans text-sm text-gray-500">{r.name} &middot; {r.source}</p>
+                <p className="font-sans text-sm text-gray-400">{r.name} &middot; {r.source}</p>
               </div>
             ))}
           </div>
