@@ -21,6 +21,8 @@ import {
   INSTAGRAM,
   FULL_SERVICES,
 } from '@/shared/constants'
+import { Honeypot } from '@/components/Honeypot'
+import { HONEYPOT_NAME } from '@/lib/antispam'
 
 /* ─────────────────────────────────────────────
    LOCATION PAGE TEMPLATE — Ironclad Theme
@@ -152,6 +154,10 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
     message: '',
   })
   const startedRef = useRef(false)
+  // Anti-spam: the honeypot only a bot fills, and when this form first rendered
+  // so the route can reject an instant submit.
+  const [honeypot, setHoneypot] = useState('')
+  const renderedAt = useRef(Date.now())
 
   const serviceOptions = ['Site Services', 'Tree Services', 'Fencing Services']
   const FORM_TYPE = 'location_estimate'
@@ -195,6 +201,8 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
           message: form.message || `Estimate request from ${location} ${serviceCategory} page.`,
           sourcePage,
           locationContext: `${location} - ${serviceCategory}`,
+          [HONEYPOT_NAME]: honeypot,
+          _elapsedMs: Date.now() - renderedAt.current,
         }),
       })
       if (!res.ok) {
@@ -228,6 +236,7 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
 
   return (
     <form onSubmit={handleSubmit} className="bg-[#141614] rounded-lg p-6 sm:p-8 space-y-4">
+      <Honeypot value={honeypot} onChange={setHoneypot} />
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="loc-name" className="block text-sm text-gray-400 mb-1">Name</label>

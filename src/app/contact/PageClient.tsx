@@ -15,6 +15,8 @@ import {
   IMAGES,
 } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import { Honeypot } from '@/components/Honeypot'
+import { HONEYPOT_NAME } from '@/lib/antispam'
 
 const FORM_TYPE = 'contact_main'
 const FORM_PAGE = '/contact'
@@ -31,6 +33,10 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const startedRef = useRef(false)
+  // Anti-spam: the honeypot only a bot fills, and when this form first rendered
+  // so the route can reject an instant submit.
+  const [honeypot, setHoneypot] = useState('')
+  const renderedAt = useRef(Date.now())
 
   const updateField = (field: string, value: string) => {
     if (!startedRef.current) {
@@ -61,7 +67,11 @@ export default function ContactPage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          [HONEYPOT_NAME]: honeypot,
+          _elapsedMs: Date.now() - renderedAt.current,
+        }),
       })
 
       if (!res.ok) throw new Error('Failed to send')
@@ -162,6 +172,7 @@ export default function ContactPage() {
                   Send Us a Message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  <Honeypot value={honeypot} onChange={setHoneypot} />
                   <div className="grid sm:grid-cols-2 gap-5">
                     {/* Name */}
                     <div>

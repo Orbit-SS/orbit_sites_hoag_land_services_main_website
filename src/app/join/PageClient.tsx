@@ -7,6 +7,8 @@ import Link from 'next/link'
 import { sendGAEvent } from '@next/third-parties/google'
 import { HIRING, PHONE, PHONE_HREF, EMAIL, IMAGES } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import { Honeypot } from '@/components/Honeypot'
+import { HONEYPOT_NAME } from '@/lib/antispam'
 
 const FORM_TYPE = 'careers_application'
 const FORM_PAGE = '/join'
@@ -22,6 +24,10 @@ export default function JoinPage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const startedRef = useRef(false)
+  // Anti-spam: the honeypot only a bot fills, and when this form first rendered
+  // so the route can reject an instant submit.
+  const [honeypot, setHoneypot] = useState('')
+  const renderedAt = useRef(Date.now())
 
   const updateField = (field: string, value: string) => {
     if (!startedRef.current) {
@@ -52,7 +58,11 @@ export default function JoinPage() {
       const res = await fetch('/api/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          [HONEYPOT_NAME]: honeypot,
+          _elapsedMs: Date.now() - renderedAt.current,
+        }),
       })
 
       if (!res.ok) throw new Error('Failed to send')
@@ -209,6 +219,7 @@ export default function JoinPage() {
                 Apply Now
               </h2>
               <form onSubmit={handleSubmit} className="space-y-5">
+                <Honeypot value={honeypot} onChange={setHoneypot} />
                 <div className="grid sm:grid-cols-2 gap-5">
                   {/* Name */}
                   <div>

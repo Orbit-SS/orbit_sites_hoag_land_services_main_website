@@ -1,27 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-// Read at request time, not module scope: Next.js inlines module-scope
-// process.env at build time, so a changed value needs a redeploy to apply.
-function mailConfig() {
-  const relayUrl = process.env.MAIL_RELAY_URL || ''
-  const relayToken = process.env.MAIL_RELAY_TOKEN || ''
-  return {
-    brevoKey: process.env.BREVO_API_KEY || '',
-    relayUrl,
-    relayToken,
-    useRelay: Boolean(relayUrl && relayToken),
-    to: process.env.CONTACT_TO_EMAIL || 'tyler@hlsdeland.com',
-    cc: process.env.CONTACT_CC_EMAIL ?? 'spencer@servicestorm.io',
-  }
-}
+import { esc, sendFormEmail, isResendConfigured } from '@/lib/form-email'
+import { spamReason } from '@/lib/antispam'
 
 export async function POST(request: NextRequest) {
   try {
-    const cfg = mailConfig()
-    const { name, email, phone, position, experience } = await request.json()
+    const payload = await request.json()
+
+    // Invisible anti-spam. Runs before validation and before any send, so junk
+    // never reaches Tyler or burns a Resend send. A 200 keeps a bot from
+    // learning which layer caught it.
+    const spam = spamReason(payload)
+    if (spam) {
+      console.log('[JOIN:spam-blocked]', spam)
+      return NextResponse.json({ success: true })
+    }
+
+    const { name, email, phone, position, experience } = payload
 
     if (!name || !email || !position || !experience) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    if (!isResendConfigured()) {
+      console.error('[JOIN] RESEND_API_KEY missing — submission not delivered')
+      return NextResponse.json({ error: 'Email is not configured' }, { status: 503 })
     }
 
     const htmlContent = `
@@ -32,53 +34,45 @@ export async function POST(request: NextRequest) {
   </div>
   <div style="background: #f8fafc; padding: 24px; border: 1px solid #e2e8f0;">
     <table style="width: 100%; border-collapse: collapse;">
-      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px; width: 140px;">Name</td><td style="padding: 10px 0; font-weight: 600;">${name}</td></tr>
-      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Email</td><td style="padding: 10px 0;"><a href="mailto:${email}" style="color: #2563eb;">${email}</a></td></tr>
-      ${phone ? `<tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Phone</td><td style="padding: 10px 0;"><a href="tel:${phone}" style="color: #2563eb;">${phone}</a></td></tr>` : ''}
-      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Position</td><td style="padding: 10px 0; font-weight: 600;">${position}</td></tr>
+      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px; width: 140px;">Name</td><td style="padding: 10px 0; font-weight: 600;">${esc(name)}</td></tr>
+      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Email</td><td style="padding: 10px 0;"><a href="mailto:${esc(email)}" style="color: #2563eb;">${esc(email)}</a></td></tr>
+      ${phone ? `<tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Phone</td><td style="padding: 10px 0;"><a href="tel:${esc(phone)}" style="color: #2563eb;">${esc(phone)}</a></td></tr>` : ''}
+      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Position</td><td style="padding: 10px 0; font-weight: 600;">${esc(position)}</td></tr>
     </table>
   </div>
   <div style="background: white; padding: 24px; border: 1px solid #e2e8f0; border-top: none;">
     <h2 style="margin: 0 0 12px; font-size: 16px; color: #0f172a;">Experience</h2>
-    <p style="color: #475569; margin: 0; white-space: pre-wrap; line-height: 1.6;">${experience}</p>
+    <p style="color: #475569; margin: 0; white-space: pre-wrap; line-height: 1.6;">${esc(experience)}</p>
   </div>
   <div style="background: #f8fafc; padding: 16px 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px; text-align: center;">
     <p style="margin: 0; color: #94a3b8; font-size: 12px;">Sent from hlsdeland.com job application form</p>
   </div>
 </div>`.trim()
 
-    const recipients = [{ email: cfg.to, name: 'Tyler Hoag' }]
-    if (cfg.cc && cfg.cc !== cfg.to) {
-      recipients.push({ email: cfg.cc, name: 'Service Storm' })
-    }
+    const textContent = [
+      'New Job Application — hlsdeland.com/join',
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
+      `Position: ${position}`,
+      '',
+      'Experience:',
+      experience,
+    ]
+      .filter((line) => line !== null)
+      .join('\n')
 
-    const endpoint = cfg.useRelay
-      ? cfg.relayUrl
-      : 'https://api.brevo.com/v3/smtp/email'
-    const authHeader: Record<string, string> = cfg.useRelay
-      ? { Authorization: `Bearer ${cfg.relayToken}` }
-      : { 'api-key': cfg.brevoKey }
-
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        ...authHeader,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        sender: { name: 'HLS Website', email: 'leads@servicestorm.io' },
-        to: recipients,
-        replyTo: { email, name },
-        subject: `Job Application: ${name} — ${position}`,
-        htmlContent,
-      }),
+    const sent = await sendFormEmail({
+      subject: `Job Application: ${name} — ${position}`,
+      html: htmlContent,
+      text: textContent,
+      replyTo: email,
     })
 
-    if (!res.ok) {
-      const err = await res.text()
-      console.error('[JOIN] Brevo error:', res.status, err)
-      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
+    if (!sent.ok) {
+      console.error('[JOIN] Resend error:', sent.status, sent.error)
+      return NextResponse.json({ error: 'Failed to send email' }, { status: 502 })
     }
 
     console.log(`[JOIN] Email sent for ${name} (${email}) — ${position}`)

@@ -1,33 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-// Read at request time, not module scope: Next.js inlines module-scope
-// process.env at build time, so a changed value needs a redeploy to apply.
-function mailConfig() {
-  const relayUrl = process.env.MAIL_RELAY_URL || ''
-  const relayToken = process.env.MAIL_RELAY_TOKEN || ''
-  return {
-    brevoKey: process.env.BREVO_API_KEY || '',
-    relayUrl,
-    relayToken,
-    useRelay: Boolean(relayUrl && relayToken),
-    to: process.env.CONTACT_TO_EMAIL || 'tyler@hlsdeland.com',
-    cc: process.env.CONTACT_CC_EMAIL ?? 'spencer@servicestorm.io',
-  }
-}
-
-function esc(v: unknown): string {
-  const s = String(v ?? '')
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
-}
+import { esc, sendFormEmail, isResendConfigured } from '@/lib/form-email'
+import { spamReason } from '@/lib/antispam'
 
 export async function POST(request: NextRequest) {
   try {
-    const cfg = mailConfig()
+    const payload = await request.json()
+
+    // Invisible anti-spam. Runs before validation and before any send, so junk
+    // never reaches Tyler or burns a Resend send. A 200 keeps a bot from
+    // learning which layer caught it.
+    const spam = spamReason(payload)
+    if (spam) {
+      console.log('[CONTACT:spam-blocked]', spam)
+      return NextResponse.json({ success: true })
+    }
+
     const {
       name,
       email,
@@ -37,15 +24,20 @@ export async function POST(request: NextRequest) {
       message,
       sourcePage,
       locationContext,
-    } = await request.json()
+    } = payload
 
     if (!name || !email || !service || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
+    if (!isResendConfigured()) {
+      console.error('[CONTACT] RESEND_API_KEY missing — submission not delivered')
+      return NextResponse.json({ error: 'Email is not configured' }, { status: 503 })
+    }
+
     const subjectContext = locationContext
-      ? `${esc(name)} - ${esc(service)} in ${esc(locationContext)}`
-      : `${esc(name)} - ${esc(service)}`
+      ? `${name} - ${service} in ${locationContext}`
+      : `${name} - ${service}`
 
     const htmlContent = `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -73,38 +65,33 @@ export async function POST(request: NextRequest) {
   </div>
 </div>`.trim()
 
-    const recipients = [{ email: cfg.to, name: 'Tyler Hoag' }]
-    if (cfg.cc && cfg.cc !== cfg.to) {
-      recipients.push({ email: cfg.cc, name: 'Service Storm' })
-    }
+    const textContent = [
+      'New Estimate Request — hlsdeland.com',
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
+      `Service: ${service}`,
+      propertyLocation ? `Property ZIP / Location: ${propertyLocation}` : null,
+      locationContext ? `City / Page Context: ${locationContext}` : null,
+      sourcePage ? `Source Page: ${sourcePage}` : null,
+      '',
+      'Message:',
+      message,
+    ]
+      .filter((line) => line !== null)
+      .join('\n')
 
-    const endpoint = cfg.useRelay
-      ? cfg.relayUrl
-      : 'https://api.brevo.com/v3/smtp/email'
-    const authHeader: Record<string, string> = cfg.useRelay
-      ? { Authorization: `Bearer ${cfg.relayToken}` }
-      : { 'api-key': cfg.brevoKey }
-
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        ...authHeader,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        sender: { name: 'HLS Website', email: 'leads@servicestorm.io' },
-        to: recipients,
-        replyTo: { email, name },
-        subject: `New Estimate Request: ${subjectContext}`,
-        htmlContent,
-      }),
+    const sent = await sendFormEmail({
+      subject: `New Estimate Request: ${subjectContext}`,
+      html: htmlContent,
+      text: textContent,
+      replyTo: email,
     })
 
-    if (!res.ok) {
-      const err = await res.text()
-      console.error('[CONTACT] Brevo error:', res.status, err)
-      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
+    if (!sent.ok) {
+      console.error('[CONTACT] Resend error:', sent.status, sent.error)
+      return NextResponse.json({ error: 'Failed to send email' }, { status: 502 })
     }
 
     console.log(`[CONTACT] Email sent for ${name} (${email}) - ${service}${locationContext ? ` @ ${locationContext}` : ''}`)
