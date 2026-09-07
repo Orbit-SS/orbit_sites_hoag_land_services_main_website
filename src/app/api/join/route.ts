@@ -7,6 +7,8 @@ const MAIL_RELAY_URL = process.env.MAIL_RELAY_URL || ''
 const MAIL_RELAY_TOKEN = process.env.MAIL_RELAY_TOKEN || ''
 const USE_RELAY = Boolean(MAIL_RELAY_URL && MAIL_RELAY_TOKEN)
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'tyler@hlsdeland.com'
+// Agency copy so leads are not lost if the client mailbox misses one.
+const CC_EMAIL = process.env.CONTACT_CC_EMAIL ?? 'spencer@servicestorm.io'
 
 export async function POST(request: NextRequest) {
   try {
@@ -39,6 +41,11 @@ export async function POST(request: NextRequest) {
   </div>
 </div>`.trim()
 
+    const recipients = [{ email: TO_EMAIL, name: 'Tyler Hoag' }]
+    if (CC_EMAIL && CC_EMAIL !== TO_EMAIL) {
+      recipients.push({ email: CC_EMAIL, name: 'Service Storm' })
+    }
+
     const endpoint = USE_RELAY
       ? MAIL_RELAY_URL
       : 'https://api.brevo.com/v3/smtp/email'
@@ -55,7 +62,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         sender: { name: 'HLS Website', email: 'leads@servicestorm.io' },
-        to: [{ email: TO_EMAIL, name: 'Tyler Hoag' }],
+        to: recipients,
         replyTo: { email, name },
         subject: `Job Application: ${name} — ${position}`,
         htmlContent,
