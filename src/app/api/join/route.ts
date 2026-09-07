@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { esc, sendFormEmail, isResendConfigured } from '@/lib/form-email'
+import { sendFormEmail, isResendConfigured } from '@/lib/form-email'
+import { renderBrandedEmail, type Field } from '@/lib/email-template'
 import { spamReason } from '@/lib/antispam'
 
 export async function POST(request: NextRequest) {
@@ -26,31 +27,36 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Email is not configured' }, { status: 503 })
     }
 
-    const htmlContent = `
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">
-  <div style="background: #1a1c1a; color: white; padding: 24px; border-radius: 12px 12px 0 0;">
-    <h1 style="margin: 0; font-size: 22px; color: #c2a878;">New Job Application</h1>
-    <p style="margin: 8px 0 0; color: #9ca3af; font-size: 14px;">hlsdeland.com/join</p>
-  </div>
-  <div style="background: #f8fafc; padding: 24px; border: 1px solid #e2e8f0;">
-    <table style="width: 100%; border-collapse: collapse;">
-      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px; width: 140px;">Name</td><td style="padding: 10px 0; font-weight: 600;">${esc(name)}</td></tr>
-      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Email</td><td style="padding: 10px 0;"><a href="mailto:${esc(email)}" style="color: #2563eb;">${esc(email)}</a></td></tr>
-      ${phone ? `<tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Phone</td><td style="padding: 10px 0;"><a href="tel:${esc(phone)}" style="color: #2563eb;">${esc(phone)}</a></td></tr>` : ''}
-      <tr><td style="padding: 10px 0; color: #64748b; font-size: 14px;">Position</td><td style="padding: 10px 0; font-weight: 600;">${esc(position)}</td></tr>
-    </table>
-  </div>
-  <div style="background: white; padding: 24px; border: 1px solid #e2e8f0; border-top: none;">
-    <h2 style="margin: 0 0 12px; font-size: 16px; color: #0f172a;">Experience</h2>
-    <p style="color: #475569; margin: 0; white-space: pre-wrap; line-height: 1.6;">${esc(experience)}</p>
-  </div>
-  <div style="background: #f8fafc; padding: 16px 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px; text-align: center;">
-    <p style="margin: 0; color: #94a3b8; font-size: 12px;">Sent from hlsdeland.com job application form</p>
-  </div>
-</div>`.trim()
+    const telHref = `tel:${String(phone ?? '').replace(/[^\d+]/g, '')}`
+
+    const fields: Field[] = [
+      { label: 'Name', value: name },
+      { label: 'Email', value: email, href: `mailto:${email}` },
+      { label: 'Phone', value: phone, href: telHref },
+      { label: 'Position', value: position },
+    ]
+
+    const actions = [
+      ...(phone ? [{ label: `Call ${String(name).trim().split(/\s+/)[0]}`, href: telHref }] : []),
+      {
+        label: 'Reply by Email',
+        href: `mailto:${email}?subject=${encodeURIComponent(`Your application — ${position}`)}`,
+      },
+    ]
+
+    const htmlContent = renderBrandedEmail({
+      eyebrow: 'hlsdeland.com/join',
+      title: 'New Job Application',
+      preheader: `${name} — ${position}${phone ? ` · ${phone}` : ''}`,
+      fields,
+      body: { label: 'Experience', text: experience },
+      actions,
+      footerNote:
+        'Submitted through the job application form on hlsdeland.com. Replying to this email goes straight to the applicant.',
+    })
 
     const textContent = [
-      'New Job Application — hlsdeland.com/join',
+      'NEW JOB APPLICATION — hlsdeland.com/join',
       '',
       `Name: ${name}`,
       `Email: ${email}`,
@@ -59,6 +65,10 @@ export async function POST(request: NextRequest) {
       '',
       'Experience:',
       experience,
+      '',
+      '—',
+      'Hoag Land Services, LLC · DeLeon Springs, FL 32130',
+      '(386) 561-0003 · hlsdeland.com',
     ]
       .filter((line) => line !== null)
       .join('\n')
