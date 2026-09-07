@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sendFormEmail, isResendConfigured } from '@/lib/form-email'
 import { renderBrandedEmail, type Field } from '@/lib/email-template'
 import { spamReason } from '@/lib/antispam'
+import { notifyBlockedSubmission } from '@/lib/spam-notice'
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,6 +14,10 @@ export async function POST(request: NextRequest) {
     const spam = spamReason(payload)
     if (spam) {
       console.log('[CONTACT:spam-blocked]', spam)
+      // Copy to the tracking alias so a false positive is visible. Awaited so
+      // the serverless instance is not frozen mid-send, but never allowed to
+      // change the response a bot sees.
+      await notifyBlockedSubmission({ reason: spam, formName: 'Estimate Request', payload })
       return NextResponse.json({ success: true })
     }
 

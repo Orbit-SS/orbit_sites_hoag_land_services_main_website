@@ -80,12 +80,15 @@ export async function sendFormEmail(opts: {
   text: string
   /** Submitter's address, so a reply from Tyler reaches the customer. */
   replyTo?: string
+  /** Recipient override. Used by the blocked-submission notice, which goes to
+   *  the tracking alias only — never to the client. */
+  to?: string[]
 }): Promise<FormEmailResult> {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) return { ok: false, status: 0, error: 'RESEND_API_KEY not set' }
 
-  const to = getNotifyRecipients()
-  const cc = getCcRecipients(to)
+  const to = opts.to ?? getNotifyRecipients()
+  const cc = opts.to ? [] : getCcRecipients(to)
 
   const body: Record<string, unknown> = {
     from: fromAddress(),
