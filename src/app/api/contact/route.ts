@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const BREVO_API_KEY = process.env.BREVO_API_KEY || ''
-// Vercel egress IPs are dynamic and the Brevo account is IP-allowlisted,
-// so when these are set we send via the InterServer relay (allowlisted IP).
-const MAIL_RELAY_URL = process.env.MAIL_RELAY_URL || ''
-const MAIL_RELAY_TOKEN = process.env.MAIL_RELAY_TOKEN || ''
-const USE_RELAY = Boolean(MAIL_RELAY_URL && MAIL_RELAY_TOKEN)
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'tyler@hlsdeland.com'
-// Agency copy so leads are not lost if the client mailbox misses one.
-const CC_EMAIL = process.env.CONTACT_CC_EMAIL ?? 'spencer@servicestorm.io'
+// Read at request time, not module scope: Next.js inlines module-scope
+// process.env at build time, so a changed value needs a redeploy to apply.
+function mailConfig() {
+  const relayUrl = process.env.MAIL_RELAY_URL || ''
+  const relayToken = process.env.MAIL_RELAY_TOKEN || ''
+  return {
+    brevoKey: process.env.BREVO_API_KEY || '',
+    relayUrl,
+    relayToken,
+    useRelay: Boolean(relayUrl && relayToken),
+    to: process.env.CONTACT_TO_EMAIL || 'tyler@hlsdeland.com',
+    cc: process.env.CONTACT_CC_EMAIL ?? 'spencer@servicestorm.io',
+  }
+}
 
 function esc(v: unknown): string {
   const s = String(v ?? '')
@@ -22,6 +27,7 @@ function esc(v: unknown): string {
 
 export async function POST(request: NextRequest) {
   try {
+    const cfg = mailConfig()
     const {
       name,
       email,
@@ -67,17 +73,17 @@ export async function POST(request: NextRequest) {
   </div>
 </div>`.trim()
 
-    const recipients = [{ email: TO_EMAIL, name: 'Tyler Hoag' }]
-    if (CC_EMAIL && CC_EMAIL !== TO_EMAIL) {
-      recipients.push({ email: CC_EMAIL, name: 'Service Storm' })
+    const recipients = [{ email: cfg.to, name: 'Tyler Hoag' }]
+    if (cfg.cc && cfg.cc !== cfg.to) {
+      recipients.push({ email: cfg.cc, name: 'Service Storm' })
     }
 
-    const endpoint = USE_RELAY
-      ? MAIL_RELAY_URL
+    const endpoint = cfg.useRelay
+      ? cfg.relayUrl
       : 'https://api.brevo.com/v3/smtp/email'
-    const authHeader: Record<string, string> = USE_RELAY
-      ? { Authorization: `Bearer ${MAIL_RELAY_TOKEN}` }
-      : { 'api-key': BREVO_API_KEY }
+    const authHeader: Record<string, string> = cfg.useRelay
+      ? { Authorization: `Bearer ${cfg.relayToken}` }
+      : { 'api-key': cfg.brevoKey }
 
     const res = await fetch(endpoint, {
       method: 'POST',
