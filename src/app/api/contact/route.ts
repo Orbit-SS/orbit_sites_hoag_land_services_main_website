@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
     const endpoint = USE_RELAY
       ? MAIL_RELAY_URL
       : 'https://api.brevo.com/v3/smtp/email'
-    const authHeader = USE_RELAY
+    const authHeader: Record<string, string> = USE_RELAY
       ? { Authorization: `Bearer ${MAIL_RELAY_TOKEN}` }
       : { 'api-key': BREVO_API_KEY }
 
