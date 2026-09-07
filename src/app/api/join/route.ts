@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY || ''
+// Vercel egress IPs are dynamic and the Brevo account is IP-allowlisted,
+// so when these are set we send via the InterServer relay (allowlisted IP).
+const MAIL_RELAY_URL = process.env.MAIL_RELAY_URL || ''
+const MAIL_RELAY_TOKEN = process.env.MAIL_RELAY_TOKEN || ''
+const USE_RELAY = Boolean(MAIL_RELAY_URL && MAIL_RELAY_TOKEN)
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'tyler@hlsdeland.com'
 
 export async function POST(request: NextRequest) {
@@ -34,10 +39,17 @@ export async function POST(request: NextRequest) {
   </div>
 </div>`.trim()
 
-    const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+    const endpoint = USE_RELAY
+      ? MAIL_RELAY_URL
+      : 'https://api.brevo.com/v3/smtp/email'
+    const authHeader = USE_RELAY
+      ? { Authorization: `Bearer ${MAIL_RELAY_TOKEN}` }
+      : { 'api-key': BREVO_API_KEY }
+
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: {
-        'api-key': BREVO_API_KEY,
+        ...authHeader,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
