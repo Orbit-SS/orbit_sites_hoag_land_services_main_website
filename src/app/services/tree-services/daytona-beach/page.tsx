@@ -3,17 +3,21 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Tree Service Daytona Beach FL | Hoag Land Services' },
+  // ~760 impr/quarter across 'tree service', 'tree removal' and 'tree trimming'
+  // + daytona beach, all at position 8.7-11.2 with one click. The old title
+  // only said 'Tree Service'; this one names all three so the snippet matches
+  // whichever the searcher typed.
+  title: { absolute: 'Tree Service Daytona Beach | Removal, Trimming, ISA Arborist' },
   description:
-    'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
+    'Tree removal, trimming and palm pruning in Daytona Beach, FL by an ISA Certified Arborist. Beachside and mainland, permits handled. 5.0 stars, 40 reviews. Free on-site estimates.',
   alternates: {
     canonical: 'https://www.hlsdeland.com/services/tree-services/daytona-beach',
   },
   openGraph: {
     type: 'website',
-    title: 'Tree Service Daytona Beach FL | Hoag Land Services',
+    title: 'Tree Service Daytona Beach | Removal, Trimming, ISA Arborist',
     description:
-      'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
+      'Tree removal, trimming and palm pruning in Daytona Beach, FL by an ISA Certified Arborist. Beachside and mainland, permits handled. 5.0 stars, 40 reviews. Free on-site estimates.',
     url: 'https://www.hlsdeland.com/services/tree-services/daytona-beach',
     siteName: 'Hoag Land Services',
     locale: 'en_US',
@@ -28,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tree Service Daytona Beach FL | Hoag Land Services',
+    title: 'Tree Service Daytona Beach | Removal, Trimming, ISA Arborist',
     description:
-      'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
+      'Tree removal, trimming and palm pruning in Daytona Beach, FL by an ISA Certified Arborist. Beachside and mainland, permits handled. 5.0 stars, 40 reviews. Free on-site estimates.',
     images: ['/photos/tree2.jpeg'],
   },
   robots: {
@@ -63,9 +67,9 @@ const data: LocationPageData = {
   ],
 
   // Meta
-  title: 'Tree Service Daytona Beach FL | Hoag Land Services',
+  title: 'Tree Service Daytona Beach | Removal, Trimming, ISA Arborist',
   metaDescription:
-    'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
+    'Tree removal, trimming and palm pruning in Daytona Beach, FL by an ISA Certified Arborist. Beachside and mainland, permits handled. 5.0 stars, 40 reviews. Free on-site estimates.',
   ogImage: '/photos/tree2.jpeg',
 
   // Hero
@@ -352,9 +356,9 @@ const data: LocationPageData = {
     webPage: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Tree Service Daytona Beach FL | Hoag Land Services',
+      name: 'Tree Service Daytona Beach | Removal, Trimming, ISA Arborist',
       description:
-        'ISA Certified Arborist serving Daytona Beach, FL. Tree removal, trimming, and palm pruning. 5.0 stars, licensed and insured. Call for a free estimate today.',
+        'Tree removal, trimming and palm pruning in Daytona Beach, FL by an ISA Certified Arborist. Beachside and mainland, permits handled. 5.0 stars, 40 reviews. Free on-site estimates.',
       url: 'https://www.hlsdeland.com/services/tree-services/daytona-beach',
       isPartOf: {
         '@type': 'WebSite',

@@ -116,7 +116,7 @@ export const SERVICE_CATEGORIES: Record<ServiceCategory, {
     ],
     services: [
       { name: 'Land Clearing', desc: 'From single residential lots to hundreds of acres of commercial or agricultural land. Complete vegetation and debris removal.', href: '/services/site-work/land-clearing' },
-      { name: 'Forestry Mulching', desc: 'Environmentally responsible clearing that mulches vegetation in place, reducing erosion and returning nutrients to the soil.', href: '/services/site-work/environmental-services' },
+      { name: 'Forestry Mulching', desc: 'Brush, palmetto and small trees ground in place. No burning, no hauling, no stripped topsoil.', href: '/services/site-work/forestry-mulching' },
       { name: 'Earthworks & Excavation', desc: 'Soil removal and replacement, grading, building pads, roads, ponds, and right of ways for your development project.', href: '/services/site-work/earthworks-excavation' },
       { name: 'Drainage & Grading', desc: 'Proper site drainage and grading to protect your property from standing water and erosion issues.', href: '/services/site-work/drainage-grading' },
       { name: 'Erosion Control', desc: 'Installation and maintenance of silt fences, swales, and culverts to meet county and state environmental requirements.', href: '/services/site-work/erosion-control' },
@@ -158,7 +158,7 @@ export const STATIC_SERVICE_SLUGS: Record<ServiceCategory, string[]> = {
     'storm-damage', 'dangerous-trees', 'overgrown-trees', 'wrong-tree-wrong-place',
   ],
   site: [
-    'land-clearing', 'land-preparation', 'earthworks-excavation', 'drainage-grading',
+    'land-clearing', 'forestry-mulching', 'land-preparation', 'earthworks-excavation', 'drainage-grading',
     'erosion-control', 'invasive-vegetation-removal', 'overgrown-land-clearing',
     'environmental-services', 'bush-hogging-brush-mowing', 'flooding-drainage',
     'demolition',

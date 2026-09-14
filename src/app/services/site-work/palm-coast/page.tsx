@@ -107,7 +107,7 @@ const data: LocationPageData = {
     {
       name: 'Forestry Mulching',
       desc: 'Grinding standing vegetation into mulch that stays on-site, protecting Palm Coast\'s sandy soils from erosion while suppressing regrowth. Faster and more affordable than traditional clearing with no burning or hauling required.',
-      href: '/services/site-work/environmental-services',
+      href: '/services/site-work/forestry-mulching',
     },
     {
       name: 'Earthworks & Excavation',

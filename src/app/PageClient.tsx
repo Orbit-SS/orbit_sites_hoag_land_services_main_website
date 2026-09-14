@@ -358,7 +358,9 @@ const AREA_LINKS = [
   { city: 'Orange City', href: '/services/tree-services/orange-city', label: 'Tree Service in Orange City' },
   { city: 'Lake Helen', href: '/services/site-work/lake-helen', label: 'Land Clearing in Lake Helen' },
   { city: 'Port Orange', href: '/services/tree-services/port-orange', label: 'Tree Service in Port Orange' },
-  { city: 'Daytona Beach', href: '/services/site-work/daytona-beach', label: 'Land Clearing in Daytona Beach' },
+  // Tree is the Daytona demand (2,968 impr/quarter on the tree page; the
+  // site-work town page is not in the top 25). Anchor points at the page that ranks.
+  { city: 'Daytona Beach', href: '/services/tree-services/daytona-beach', label: 'Tree Service in Daytona Beach' },
   { city: 'Ormond Beach', href: '/services/tree-services/ormond-beach', label: 'Tree Service in Ormond Beach' },
   { city: 'Palm Coast', href: '/services/fencing/palm-coast', label: 'Fencing in Palm Coast' },
   { city: 'Sanford', href: '/services/site-work/sanford', label: 'Site Work in Sanford' },

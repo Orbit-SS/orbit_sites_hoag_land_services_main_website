@@ -156,6 +156,7 @@ const SERVICE_IMAGES = [IMAGES.site4, IMAGES.site7, IMAGES.site9, IMAGES.site10,
 
 const SERVICE_SLUGS = [
   '/services/site-work/land-clearing',
+  '/services/site-work/forestry-mulching',
   '/services/site-work/earthworks-excavation',
   '/services/site-work/erosion-control',
   '/services/site-work/environmental-services',
@@ -373,6 +374,7 @@ export default function SiteWorkPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { name: 'Land Clearing', href: '/services/site-work/land-clearing', tag: 'Vegetation, brush, trees, stumps' },
+              { name: 'Forestry Mulching', href: '/services/site-work/forestry-mulching', tag: 'Palmetto, underbrush, lot thinning' },
               { name: 'Earthworks & Excavation', href: '/services/site-work/earthworks-excavation', tag: 'Pads, ponds, driveways, roads' },
               { name: 'Drainage & Grading', href: '/services/site-work/drainage-grading', tag: 'Swales, culverts, French drains, regrading' },
               { name: 'Erosion Control', href: '/services/site-work/erosion-control', tag: 'Silt fence, swales, stormwater compliance' },

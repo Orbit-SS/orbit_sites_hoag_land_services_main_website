@@ -91,7 +91,7 @@ const data: LocationPageData = {
     {
       name: 'Forestry Mulching',
       desc: 'Efficient brush and undergrowth removal using mulching equipment that processes vegetation in place. Ideal for DeLand properties with dense palmetto, Brazilian pepper, or overgrown fence lines that need clearing without full excavation.',
-      href: '/services/site-work/environmental-services',
+      href: '/services/site-work/forestry-mulching',
     },
     {
       name: 'Earthworks & Excavation',
