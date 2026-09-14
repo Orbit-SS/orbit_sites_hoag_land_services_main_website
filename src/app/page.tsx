@@ -7,16 +7,19 @@ const PAGE_URL = '/'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in Central Florida',
+    // Ranks position 3 for 'land clearing deland' at 1.5% CTR: the searcher
+    // typed DeLand, the title said Central Florida and led with the brand.
+    // Echo the search, town in, brand last.
+    absolute: 'Land Clearing & Tree Service in DeLand, FL | Hoag Land Services',
   },
   description:
-    'Land clearing, tree service & fencing in DeLand & Central Florida. ISA Certified Arborist, licensed & insured. Free estimates — call today to book your project.',
+    'Land clearing, tree removal and site work in DeLand, FL and across Volusia County. ISA Certified Arborist, licensed & insured, 5.0 stars. Free on-site estimates — call (386) 561-0003.',
   alternates: { canonical: `${SITE_URL}/` },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'Hoag Land Services',
-    title: 'Hoag Land Services | Land Clearing, Tree Service & Fencing in Central Florida',
+    title: 'Land Clearing & Tree Service in DeLand, FL | Hoag Land Services',
     description:
       'Land clearing, tree service & fencing in DeLand & Central Florida. ISA Certified Arborist, licensed & insured. Free estimates — call today to book your project.',
     url: `${SITE_URL}/`,

@@ -25,6 +25,7 @@ const QUICK_LINKS = [
 ]
 
 const SERVICE_LINKS = [
+  { label: 'Land Clearing', href: '/services/site-work/land-clearing' },
   { label: 'Site Services', href: '/services/site-work' },
   { label: 'Tree Services', href: '/services/tree-services' },
   { label: 'Fencing Services', href: '/services/fencing' },

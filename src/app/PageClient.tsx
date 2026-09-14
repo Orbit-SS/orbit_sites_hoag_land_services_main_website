@@ -351,7 +351,7 @@ function ReviewsSection() {
  * about.
  */
 const AREA_LINKS = [
-  { city: 'DeLand', href: '/services/site-work/deland', label: 'Land Clearing in DeLand' },
+  { city: 'DeLand', href: '/services/site-work/land-clearing', label: 'Land Clearing in DeLand' },
   { city: 'DeLand', href: '/services/tree-services/deland', label: 'Tree Service in DeLand' },
   { city: 'DeLeon Springs', href: '/services/site-work/deleon-springs', label: 'Land Clearing in DeLeon Springs' },
   { city: 'Deltona', href: '/services/site-work/deltona', label: 'Site Work in Deltona' },

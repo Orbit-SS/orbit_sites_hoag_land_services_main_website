@@ -8,6 +8,9 @@ import { IMAGES, PHONE, PHONE_HREF, COMPANY } from '@/shared/constants'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
+  // The company's lead service and its #1 search term. It had no nav entry,
+  // so the page that answers 'land clearing deland' was orphaned.
+  { label: 'Land Clearing', href: '/services/site-work/land-clearing' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Service Areas', href: '/service-areas' },

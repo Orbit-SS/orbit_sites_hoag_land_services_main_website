@@ -171,6 +171,30 @@ export default function ContactPage() {
                 >
                   Send Us a Message
                 </h2>
+                {/* 85% of people who started this form never sent it (GA4, 90d to
+                    2026-09-13: 124 form_start, 19 form_submit). Email and a free-text
+                    message were required; phone was optional. A land-clearing customer
+                    wants a callback, and Tyler wants to call — so phone is now the
+                    second field and required, email and message are optional, and the
+                    number sits above the form for anyone who'd rather just dial. */}
+                <p className="text-white/50 text-sm mb-6">
+                  Prefer to talk?{' '}
+                  <a
+                    href={PHONE_HREF}
+                    className="text-[#5d9c70] font-semibold hover:text-[#7ab88a] transition-colors"
+                    onClick={() =>
+                      sendGAEvent('event', 'phone_click', {
+                        form_type: FORM_TYPE,
+                        form_page: FORM_PAGE,
+                        source_page: FORM_PAGE,
+                      })
+                    }
+                  >
+                    Call {PHONE}
+                  </a>{' '}
+                  and we&apos;ll set up a free on-site estimate.
+                </p>
+
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <Honeypot value={honeypot} onChange={setHoneypot} />
                   <div className="grid sm:grid-cols-2 gap-5">
@@ -182,42 +206,32 @@ export default function ContactPage() {
                       <input
                         type="text"
                         required
+                        autoComplete="name"
                         value={formData.name}
                         onChange={(e) => updateField('name', e.target.value)}
                         placeholder="Your full name"
                         className="w-full bg-[#1a1c1a] border border-white/10 rounded px-4 py-3 text-white placeholder-white/25 focus:outline-none focus:border-[#4a7c59] transition-colors text-sm"
                       />
                     </div>
-                    {/* Email */}
+                    {/* Phone */}
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
-                        Email <span className="text-[#5d9c70]">*</span>
+                        Phone <span className="text-[#5d9c70]">*</span>
                       </label>
                       <input
-                        type="email"
+                        type="tel"
                         required
-                        value={formData.email}
-                        onChange={(e) => updateField('email', e.target.value)}
-                        placeholder="you@example.com"
+                        autoComplete="tel"
+                        inputMode="tel"
+                        value={formData.phone}
+                        onChange={(e) => updateField('phone', e.target.value)}
+                        placeholder="(386) 555-0100"
                         className="w-full bg-[#1a1c1a] border border-white/10 rounded px-4 py-3 text-white placeholder-white/25 focus:outline-none focus:border-[#4a7c59] transition-colors text-sm"
                       />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-5">
-                    {/* Phone */}
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
-                        Phone
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.phone}
-                        onChange={(e) => updateField('phone', e.target.value)}
-                        placeholder="(xxx) xxx-xxxx"
-                        className="w-full bg-[#1a1c1a] border border-white/10 rounded px-4 py-3 text-white placeholder-white/25 focus:outline-none focus:border-[#4a7c59] transition-colors text-sm"
-                      />
-                    </div>
                     {/* Service */}
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
@@ -239,12 +253,26 @@ export default function ContactPage() {
                         ))}
                       </select>
                     </div>
+                    {/* Email — optional */}
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
+                        Email <span className="text-white/30 normal-case tracking-normal font-normal">(optional)</span>
+                      </label>
+                      <input
+                        type="email"
+                        autoComplete="email"
+                        value={formData.email}
+                        onChange={(e) => updateField('email', e.target.value)}
+                        placeholder="you@example.com"
+                        className="w-full bg-[#1a1c1a] border border-white/10 rounded px-4 py-3 text-white placeholder-white/25 focus:outline-none focus:border-[#4a7c59] transition-colors text-sm"
+                      />
+                    </div>
                   </div>
 
                   {/* Property Location */}
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
-                      Property Location
+                      Property Location <span className="text-white/30 normal-case tracking-normal font-normal">(optional)</span>
                     </label>
                     <input
                       type="text"
@@ -257,18 +285,16 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  {/* Message */}
+                  {/* Message — optional */}
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#c2a878] mb-2 font-semibold">
-                      How Can We Help?{' '}
-                      <span className="text-[#5d9c70]">*</span>
+                      Tell Us About the Job <span className="text-white/30 normal-case tracking-normal font-normal">(optional)</span>
                     </label>
                     <textarea
-                      required
-                      rows={5}
+                      rows={4}
                       value={formData.message}
                       onChange={(e) => updateField('message', e.target.value)}
-                      placeholder="Tell us about your project..."
+                      placeholder="Roughly how much land, what's on it, and when you'd like to start"
                       className="w-full bg-[#1a1c1a] border border-white/10 rounded px-4 py-3 text-white placeholder-white/25 focus:outline-none focus:border-[#4a7c59] transition-colors text-sm resize-none"
                     />
                   </div>

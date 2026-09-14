@@ -32,8 +32,15 @@ export async function POST(request: NextRequest) {
       locationContext,
     } = payload
 
-    if (!name || !email || !service || !message) {
+    // Phone is the required contact channel now; email and message are
+    // optional. Mirrors the form (see contact/PageClient.tsx for the why).
+    if (!name || !phone || !service) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+    // An email, when given, still has to be shaped like one: it becomes the
+    // Reply-To header, and a malformed value would be injected into outbound mail.
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+      return NextResponse.json({ error: 'Please enter a valid email address' }, { status: 400 })
     }
 
     if (!isResendConfigured()) {
@@ -61,10 +68,14 @@ export async function POST(request: NextRequest) {
     // different conversation than one answered tomorrow.
     const actions = [
       ...(phone ? [{ label: `Call ${String(name).trim().split(/\s+/)[0]}`, href: telHref }] : []),
-      {
-        label: 'Reply by Email',
-        href: `mailto:${email}?subject=${encodeURIComponent(`Re: your ${service} estimate request`)}`,
-      },
+      ...(email
+        ? [
+            {
+              label: 'Reply by Email',
+              href: `mailto:${email}?subject=${encodeURIComponent(`Re: your ${service} estimate request`)}`,
+            },
+          ]
+        : []),
     ]
 
     const htmlContent = renderBrandedEmail({
@@ -72,10 +83,11 @@ export async function POST(request: NextRequest) {
       title: 'New Estimate Request',
       preheader: `${name} — ${service}${locationContext ? ` in ${locationContext}` : ''}${phone ? ` · ${phone}` : ''}`,
       fields,
-      body: { label: 'Message', text: message },
+      body: message ? { label: 'Message', text: message } : undefined,
       actions,
-      footerNote:
-        'Submitted through the estimate request form on hlsdeland.com. Replying to this email goes straight to the customer.',
+      footerNote: email
+        ? 'Submitted through the estimate request form on hlsdeland.com. Replying to this email goes straight to the customer.'
+        : 'Submitted through the estimate request form on hlsdeland.com. No email was given — call the number above.',
     })
 
     const textContent = [
@@ -89,8 +101,8 @@ export async function POST(request: NextRequest) {
       locationContext ? `City / Page: ${locationContext}` : null,
       sourcePage ? `Source Page: https://www.hlsdeland.com${sourcePage}` : null,
       '',
-      'Message:',
-      message,
+      message ? 'Message:' : null,
+      message || null,
       '',
       '—',
       'Hoag Land Services, LLC · DeLeon Springs, FL 32130',
@@ -103,7 +115,7 @@ export async function POST(request: NextRequest) {
       subject: `New Estimate Request: ${subjectContext}`,
       html: htmlContent,
       text: textContent,
-      replyTo: email,
+      replyTo: email || undefined,
     })
 
     if (!sent.ok) {

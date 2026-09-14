@@ -262,11 +262,11 @@ function ContactForm({ location, zipCode, serviceCategory }: { location: string;
         </div>
       </div>
       <div>
-        <label htmlFor="loc-email" className="block text-sm text-gray-400 mb-1">Email</label>
+        <label htmlFor="loc-email" className="block text-sm text-gray-400 mb-1">Email <span className="text-gray-600">(optional)</span></label>
         <input
           id="loc-email"
           type="email"
-          required
+          autoComplete="email"
           value={form.email}
           onChange={e => updateField('email', e.target.value)}
           className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59]"
@@ -787,6 +787,7 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
                 <Link href="/" className="block text-gray-400 hover:text-white transition-colors text-xs">Home</Link>
                 <Link href="/services" className="block text-gray-400 hover:text-white transition-colors text-xs">All Services</Link>
                 <Link href="/services/tree-services" className="block text-gray-400 hover:text-white transition-colors text-xs">Tree Services</Link>
+                <Link href="/services/site-work/land-clearing" className="block text-gray-400 hover:text-white transition-colors text-xs">Land Clearing</Link>
                 <Link href="/services/site-work" className="block text-gray-400 hover:text-white transition-colors text-xs">Site Services</Link>
                 <Link href="/services/fencing" className="block text-gray-400 hover:text-white transition-colors text-xs">Fencing</Link>
                 <Link href="/portfolio" className="block text-gray-400 hover:text-white transition-colors text-xs">Portfolio</Link>
