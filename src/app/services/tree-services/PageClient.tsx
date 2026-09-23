@@ -375,6 +375,7 @@ export default function TreeServicesPage() {
               { name: 'Storm Damage Cleanup', href: '/services/tree-services/storm-damage', tag: 'Post-hurricane emergency response' },
               { name: 'Dangerous Tree Assessment', href: '/services/tree-services/dangerous-trees', tag: 'ISA TRAQ evaluation, insurance-ready' },
               { name: 'Tree Installation', href: '/services/tree-services/tree-installation', tag: 'Right tree, right place, salt-tolerant' },
+              { name: 'Certified Arborist', href: '/services/tree-services/certified-arborist', tag: 'ISA FL-9491A, written risk reports' },
             ].map((s) => (
               <Link key={s.name} href={s.href} className="group bg-[#141614] p-5 border border-white/5 hover:border-[#4a7c59]/40 transition-all">
                 <h3 className="font-display font-bold uppercase mb-1 group-hover:text-[#5d9c70] transition-colors">{s.name}</h3>

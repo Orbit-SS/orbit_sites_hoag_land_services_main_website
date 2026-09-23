@@ -101,6 +101,7 @@ export const SERVICE_CATEGORIES: Record<ServiceCategory, {
       { name: 'Tree Installation', desc: 'Palms, hardwoods, evergreens. Installation of the right tree in the right place for Central Florida soil and climate.', href: '/services/tree-services/tree-installation' },
       { name: 'Storm Damage Cleanup', desc: 'Leaning trees, split trunks, and uprooted root plates require a certified professional. We respond as soon as conditions safely allow.', href: '/services/tree-services/storm-damage' },
       { name: 'Dangerous Tree Assessment', desc: 'ISA Tree Risk Assessment Qualified (TRAQ) evaluation of hazardous trees threatening your property, structures, or family.', href: '/services/tree-services/dangerous-trees' },
+      { name: 'Certified Arborist Services', desc: 'ISA Certified Arborist (FL-9491A) assessments and written tree risk reports for HOA review, insurance claims, and removal permits.', href: '/services/tree-services/certified-arborist' },
     ],
   },
   site: {
@@ -156,6 +157,7 @@ export const STATIC_SERVICE_SLUGS: Record<ServiceCategory, string[]> = {
   tree: [
     'tree-removal', 'tree-trimming', 'palm-pruning', 'tree-installation',
     'storm-damage', 'dangerous-trees', 'overgrown-trees', 'wrong-tree-wrong-place',
+    'certified-arborist',
   ],
   site: [
     'land-clearing', 'forestry-mulching', 'land-preparation', 'earthworks-excavation', 'drainage-grading',
@@ -223,7 +225,10 @@ export const LOCATIONS: Location[] = [
   { slug: 'casselberry', name: 'Casselberry', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32707', '32730'], priority: 'medium', character: 'suburban', popBracket: 'medium', nearby: ['winter-springs', 'altamonte-springs', 'longwood', 'fern-park', 'sanford'] },
   { slug: 'geneva', name: 'Geneva', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32732'], priority: 'low', character: 'rural', popBracket: 'small', nearby: ['oviedo', 'chuluota', 'sanford', 'osteen', 'deland'] },
   { slug: 'chuluota', name: 'Chuluota', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32766'], priority: 'low', character: 'rural', popBracket: 'small', nearby: ['oviedo', 'geneva', 'winter-springs', 'sanford', 'deland'] },
-  { slug: 'heathrow', name: 'Heathrow', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32746'], priority: 'low', character: 'suburban', popBracket: 'small', nearby: ['lake-mary', 'sanford', 'longwood', 'altamonte-springs', 'deland'] },
+  // Client-requested target (Tyler Hoag, 2026-09-23): affluent Seminole County
+  // community, tree work specifically. 'high' puts it in the specialty-page link
+  // block, which 'low' excluded it from entirely.
+  { slug: 'heathrow', name: 'Heathrow', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32746'], priority: 'high', character: 'suburban', popBracket: 'small', nearby: ['lake-mary', 'sanford', 'longwood', 'altamonte-springs', 'deland'] },
   { slug: 'fern-park', name: 'Fern Park', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32730'], priority: 'low', character: 'suburban', popBracket: 'small', nearby: ['casselberry', 'altamonte-springs', 'winter-springs', 'maitland', 'sanford'] },
   // ═══════════════════════════════════════
   // ORANGE COUNTY (Northern portion)

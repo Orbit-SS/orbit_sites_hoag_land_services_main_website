@@ -23,10 +23,22 @@ import {
 // HAND-CRAFTED LOCAL CONTEXT (from Tier 1 agent builds)
 // ──────────────────────────────────────────────────────
 
-const HAND_CRAFTED_CONTEXT: Record<string, string> = {}
+const HAND_CRAFTED_CONTEXT: Record<string, string> = {
+  // Heathrow, Seminole County — requested by Tyler Hoag on 2026-09-23 as a
+  // target market for tree work. The generated copy gave it the generic
+  // suburban opener; a gated, HOA-governed community with forty-year-old
+  // canopy needs its own. Key format is `${slug}-${service}`.
+  'heathrow-tree': [
+    "<p>Heathrow is a gated, master-planned community in unincorporated Seminole County, built out from the late eighties onward around the country club and golf course off Lake Mary Boulevard. That build history matters more than most people realise: the live oaks, laurel oaks, and southern magnolias planted through those first phases are now thirty-five to forty years old. Live oaks are just hitting their stride. Laurel oaks are not — they tend to start hollowing at the trunk and shedding structural limbs right around this age, often while the canopy above still looks perfectly green.</p>",
+    "<p>Tree work in Heathrow comes with a second layer most properties don&rsquo;t have. Removals and major pruning generally need architectural review from your HOA before anything starts, and Seminole County&rsquo;s arbor ordinance covers unincorporated areas like Heathrow — trees above certain trunk diameters need a county permit to come down. We&rsquo;ll tell you at the estimate which of the two applies to your job, and we handle the paperwork rather than handing you a form. Our crew carries current certificates of insurance for gate and management-company files, and we schedule around guardhouse access instead of turning up and hoping.</p>",
+    "<p>What we do here: tree removal, crown reduction and structural pruning on mature oaks hanging over roofs and pool cages, palm pruning, storm-damage response, stump grinding, and — the one worth asking about before you need it — a written tree risk assessment. Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified, which means the report you get for your HOA, your insurer, or your permit application is signed by someone qualified to write it. On Heathrow lots that usually decides the question: is this tree a real hazard, or does it just look like one.</p>",
+    "<p>We work clean because we have to. Paver drives, irrigation heads, landscape lighting, and mature understory plantings don&rsquo;t forgive a crew that treats a lot like an open field. Mats down, drop zones planned, debris hauled, the place left the way we found it minus the problem. If you&rsquo;ve got an oak leaning toward the house, a laurel oak you&rsquo;re quietly worried about, or an HOA letter asking for an arborist&rsquo;s opinion, call us for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+}
 
-// These will be populated by reading the existing page files.
-// For now, the generator produces template-based content for all locations.
+// Anything not keyed above falls through to the generator below, which
+// produces template-based content from the location's county, zips, and
+// character bucket.
 
 // ──────────────────────────────────────────────────────
 // CONTENT GENERATION

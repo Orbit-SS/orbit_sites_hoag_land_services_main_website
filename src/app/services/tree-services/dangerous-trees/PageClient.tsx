@@ -308,9 +308,9 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Tree Removal</h3>
               <p className="text-gray-400 text-sm">Safe, professional tree removal by certified arborist.</p>
             </Link>
-            <Link href="/services/tree-services/wrong-tree-wrong-place" className="group bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors text-center">
-              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Wrong Tree, Wrong Place</h3>
-              <p className="text-gray-400 text-sm">Remove problem trees and replace with the right species.</p>
+            <Link href="/services/tree-services/certified-arborist" className="group bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors text-center">
+              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Certified Arborist</h3>
+              <p className="text-gray-400 text-sm">Written tree risk assessments for HOAs, insurers, and permits.</p>
             </Link>
           </div>
         </div>
