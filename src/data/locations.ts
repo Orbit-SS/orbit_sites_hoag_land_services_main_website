@@ -217,7 +217,7 @@ export const LOCATIONS: Location[] = [
   // SEMINOLE COUNTY
   // ═══════════════════════════════════════
   { slug: 'sanford', name: 'Sanford', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32771', '32773'], priority: 'high', character: 'suburban', popBracket: 'large', nearby: ['debary', 'deltona', 'lake-mary', 'longwood', 'deland'] },
-  { slug: 'lake-mary', name: 'Lake Mary', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32746'], priority: 'medium', character: 'suburban', popBracket: 'medium', nearby: ['sanford', 'longwood', 'altamonte-springs', 'heathrow', 'deland'] },
+  { slug: 'lake-mary', name: 'Lake Mary', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32746'], priority: 'high', character: 'suburban', popBracket: 'medium', nearby: ['sanford', 'longwood', 'altamonte-springs', 'heathrow', 'deland'] },
   { slug: 'longwood', name: 'Longwood', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32750', '32779'], priority: 'medium', character: 'suburban', popBracket: 'medium', nearby: ['lake-mary', 'altamonte-springs', 'winter-springs', 'casselberry', 'sanford'] },
   { slug: 'altamonte-springs', name: 'Altamonte Springs', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32701', '32714'], priority: 'medium', character: 'suburban', popBracket: 'medium', nearby: ['longwood', 'casselberry', 'maitland', 'winter-springs', 'lake-mary'] },
   { slug: 'winter-springs', name: 'Winter Springs', stateAbbr: 'FL', county: 'Seminole', zipCodes: ['32708'], priority: 'medium', character: 'suburban', popBracket: 'medium', nearby: ['oviedo', 'casselberry', 'longwood', 'altamonte-springs', 'sanford'] },

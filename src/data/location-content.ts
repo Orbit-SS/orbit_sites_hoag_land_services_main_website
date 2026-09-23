@@ -34,6 +34,37 @@ const HAND_CRAFTED_CONTEXT: Record<string, string> = {
     "<p>What we do here: tree removal, crown reduction and structural pruning on mature oaks hanging over roofs and pool cages, palm pruning, storm-damage response, stump grinding, and — the one worth asking about before you need it — a written tree risk assessment. Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified, which means the report you get for your HOA, your insurer, or your permit application is signed by someone qualified to write it. On Heathrow lots that usually decides the question: is this tree a real hazard, or does it just look like one.</p>",
     "<p>We work clean because we have to. Paver drives, irrigation heads, landscape lighting, and mature understory plantings don&rsquo;t forgive a crew that treats a lot like an open field. Mats down, drop zones planned, debris hauled, the place left the way we found it minus the problem. If you&rsquo;ve got an oak leaning toward the house, a laurel oak you&rsquo;re quietly worried about, or an HOA letter asking for an arborist&rsquo;s opinion, call us for an honest read and a no-pressure estimate.</p>",
   ].join('\n'),
+
+  // Sanford, Seminole County. 1,132 impressions over 90 days at position 22.1,
+  // the worst impressions-to-rank ratio on the site, and templated copy was
+  // part of why. The historic district and the city's own arbor ordinance are
+  // the two things a Sanford homeowner is actually trying to find out.
+  'sanford-tree': [
+    "<p>Sanford is the Seminole County seat, sitting on the south shore of Lake Monroe where the St. Johns River widens out. The old part of town is the part that generates most of our calls: the historic district off First Street and Sanford Avenue, where 1880s to 1920s homes sit on narrow lots under live oaks and camphor trees that were mature long before their current owners bought the place. Big canopy, small setbacks, brick streets, and utility lines threaded through all of it.</p>",
+    "<p>Two things make Sanford tree work different from the county around it. The first is that Sanford is an incorporated city, so the city&rsquo;s own arbor ordinance applies rather than Seminole County&rsquo;s, with its own thresholds and its own forms. The second is the historic district, where work on a property can bring preservation review into the conversation alongside the tree permit. We check both against your specific address before we quote, not after.</p>",
+    "<p>North of downtown, Lake Monroe gives storms a clean run at the tree line, and the older oaks near the waterfront take the brunt of it. South and west, out along Rinehart Road and SR 46, the newer subdivisions have the opposite problem: street trees and yard plantings put in at buildout, now large enough to reach roofs and drive lines, and never structurally pruned in their lives.</p>",
+    "<p>We handle the full range here: tree removal, crown reduction and structural pruning, palm pruning, storm response, stump grinding, and written tree risk assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified). If you have an oak over the house you are unsure about, a camphor dropping limbs, or a city form you are trying to work out how to fill in, call us for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  // Lake Mary, Seminole County. Incorporated, so the city ordinance governs
+  // rather than the county's. Worth publishing: it is the thing homeowners
+  // get wrong, and it keeps this page distinct from the Heathrow one.
+  'lake-mary-tree': [
+    "<p>Lake Mary grew up fast between the eighties and the mid-2000s, and its trees grew with it. The subdivisions off Lake Mary Boulevard, Rinehart Road and Country Club Road were planted out at buildout with live oaks, laurel oaks, sand pines, crepe myrtles and sabal palms. Thirty-odd years later those plantings are full-sized trees sitting a good deal closer to roofs, drives and pool cages than anyone pictured at the time.</p>",
+    "<p>The laurel oaks are the ones worth watching. They went in heavily through those years because they establish fast, and they start failing structurally at roughly the age the oldest Lake Mary plantings have now reached: hollowing at the trunk, shedding major limbs, often while the crown above still looks entirely healthy. A trained eye can tell the difference. A glance from the driveway cannot.</p>",
+    "<p>One practical thing people here get wrong: Lake Mary is an incorporated city, so tree removal falls under the city&rsquo;s arbor ordinance rather than Seminole County&rsquo;s. Heathrow, a few minutes up the road, is unincorporated and follows the county instead. Different rules, different thresholds, and an HOA architectural review usually sits in front of both. We work out which applies to your address during the estimate and handle the filing.</p>",
+    "<p>What we do in Lake Mary: tree removal, crown reduction and structural pruning, palm pruning, storm-damage response, stump grinding, and written tree risk assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified), which is the document an HOA board, an insurer, or a permit reviewer will actually accept. Licensed, insured, and careful with irrigation, lighting and pavers.</p>",
+  ].join('\n'),
+}
+
+const HAND_CRAFTED_TITLE: Record<string, string> = {
+  // Sanford carried 1,132 impressions over 90 days at position 22.1 while its
+  // title read "Sanford, FL Tree Service & Storm Cleanup". The demand behind
+  // those impressions is removal, trimming and arborist work. "arborist
+  // sanford" alone sits at position 15.5. The title now names what people
+  // actually type.
+  'sanford-tree': 'Sanford Tree Removal, Trimming & Arborist',
+  'lake-mary-tree': 'Lake Mary Tree Removal, Trimming & Arborist',
 }
 
 // Anything not keyed above falls through to the generator below, which
@@ -428,7 +459,10 @@ export function generateLocationPageData(loc: Location, service: ServiceCategory
       `${loc.name}, FL Fence Contractor — Privacy & Boundary`,
     ],
   }
-  const title = titlePatterns[service][titleVariant]
+  // A hand-crafted title beats the rotation where Search Console shows the
+  // generated one is aimed at the wrong intent. Same slug-service key.
+  // The root layout appends " | Hoag Land Services", so keep these short.
+  const title = HAND_CRAFTED_TITLE[`${loc.slug}-${service}`] ?? titlePatterns[service][titleVariant]
 
   // Meta description: 140-155 chars
   const metaDesc = generateMetaDescription(loc, service, serviceLabel)

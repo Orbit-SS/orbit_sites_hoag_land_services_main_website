@@ -21,9 +21,10 @@ import { ALL_LOCATIONS, SERVICE_CATEGORIES, type ServiceCategory } from '@/data/
 export default function SpecialtyAreaLinks({
   service,
   specialty,
-  // 15 'high' cities + the first 'medium'. Was 14, which exactly matched the
-  // high count — promoting a city to 'high' would have silently evicted another.
-  limit = 16,
+  // The 16 'high' cities plus the first two 'medium'. This was 14, which
+  // exactly matched the high count at the time, so promoting any city to
+  // 'high' would have silently evicted another one from every specialty page.
+  limit = 18,
 }: {
   service: ServiceCategory
   /** Human name of the specialty, used as anchor text: "Stump Grinding" */
