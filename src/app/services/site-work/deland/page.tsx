@@ -113,6 +113,11 @@ const data: LocationPageData = {
       desc: 'From rough-cleared land to build-ready pads, we handle the final grading, compaction, and surface preparation that DeLand builders and homeowners need before construction begins.',
       href: '/services/site-work/land-preparation',
     },
+    {
+      name: 'Clearing Permits',
+      desc: 'Whether your DeLand lot needs a tree or clearing permit before work starts, and whether the city or Volusia County governs it. Six inch trunk diameter is the usual trigger, and we handle the filing.',
+      href: '/services/site-work/land-clearing-permits',
+    },
   ],
 
   // Process

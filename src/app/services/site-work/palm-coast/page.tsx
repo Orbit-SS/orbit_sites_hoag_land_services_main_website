@@ -129,6 +129,11 @@ const data: LocationPageData = {
       desc: 'Targeted removal of Brazilian pepper, melaleuca, and other invasive species overtaking Palm Coast properties. We use forestry mulching and selective clearing to restore native habitat while preparing your land for use.',
       href: '/services/site-work/invasive-vegetation-removal',
     },
+    {
+      name: 'Clearing Permits',
+      desc: 'Whether your Palm Coast lot needs a clearing or tree removal permit before work starts. Flagler County and the city each set their own thresholds, and we work out which applies to your parcel.',
+      href: '/services/site-work/land-clearing-permits',
+    },
   ],
 
   processSteps: [

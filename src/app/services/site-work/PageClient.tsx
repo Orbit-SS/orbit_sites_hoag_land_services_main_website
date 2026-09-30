@@ -380,6 +380,7 @@ export default function SiteWorkPage() {
               { name: 'Erosion Control', href: '/services/site-work/erosion-control', tag: 'Silt fence, swales, stormwater compliance' },
               { name: 'Bush Hogging & Brush Mowing', href: '/services/site-work/bush-hogging-brush-mowing', tag: 'Pasture, fence line, overgrown acreage' },
               { name: 'Flooding & Drainage Fixes', href: '/services/site-work/flooding-drainage', tag: 'Standing water, post-storm fixes' },
+              { name: 'Clearing Permits', href: '/services/site-work/land-clearing-permits', tag: 'Volusia and Seminole rules, filing handled' },
             ].map((s) => (
               <Link key={s.name} href={s.href} className="group bg-[#141614] p-5 border border-white/5 hover:border-[#4a7c59]/40 transition-all">
                 <h3 className="font-display font-bold uppercase mb-1 group-hover:text-[#5d9c70] transition-colors">{s.name}</h3>

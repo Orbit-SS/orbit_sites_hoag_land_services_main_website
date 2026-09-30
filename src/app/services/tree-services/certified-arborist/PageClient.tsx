@@ -416,9 +416,9 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Tree Trimming</h3>
               <p className="text-gray-400 text-sm">Crown reduction and structural pruning to standard.</p>
             </Link>
-            <Link href="/services/tree-services/tree-removal" className="group bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors text-center">
-              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Tree Removal</h3>
-              <p className="text-gray-400 text-sm">Safe, professional removal when that is the right call.</p>
+            <Link href="/services/site-work/land-clearing-permits" className="group bg-[#141614] border border-white/5 rounded-lg p-6 hover:border-[#4a7c59]/30 transition-colors text-center">
+              <h3 className="font-display text-lg font-bold uppercase text-white mb-2 group-hover:text-[#5d9c70] transition-colors">Clearing Permits</h3>
+              <p className="text-gray-400 text-sm">Whether your lot needs one, and who governs it.</p>
             </Link>
           </div>
         </div>

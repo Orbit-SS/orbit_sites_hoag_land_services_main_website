@@ -111,6 +111,11 @@ const data: LocationPageData = {
       desc: 'Full site preparation for new construction, including clearing, grubbing, grading, and compaction. We get your Daytona Beach building site ready for the foundation crew.',
       href: '/services/site-work/land-preparation',
     },
+    {
+      name: 'Clearing Permits',
+      desc: 'Whether your Daytona Beach parcel needs a clearing or tree permit, and which authority governs it — the city and unincorporated Volusia County run separate rules. We check the address and handle the filing.',
+      href: '/services/site-work/land-clearing-permits',
+    },
   ],
 
   // How it works

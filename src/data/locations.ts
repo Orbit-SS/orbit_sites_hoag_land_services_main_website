@@ -125,6 +125,7 @@ export const SERVICE_CATEGORIES: Record<ServiceCategory, {
       { name: 'Bush Hogging & Brush Mowing', desc: 'Bush hogging, brush mowing, and field mowing for overgrown lots, pastures, fence lines, and acreage too rough for a lawn mower.', href: '/services/site-work/bush-hogging-brush-mowing' },
       { name: 'Flooding & Drainage', desc: 'Drainage solutions and flood mitigation for Central Florida properties — swales, French drains, culverts, regrading.', href: '/services/site-work/flooding-drainage' },
       { name: 'Demolition', desc: 'Mobile home teardowns, concrete slab and driveway removal, barns, pool decks, and post-storm structure demolition. Debris hauled off.', href: '/services/site-work/demolition' },
+      { name: 'Clearing Permits', desc: 'Whether your lot needs a tree or clearing permit before work starts, which authority governs it, and the filing handled for you. Six inch trunk diameter is the usual trigger.', href: '/services/site-work/land-clearing-permits' },
     ],
   },
   fence: {
@@ -163,6 +164,7 @@ export const STATIC_SERVICE_SLUGS: Record<ServiceCategory, string[]> = {
     'land-clearing', 'forestry-mulching', 'land-preparation', 'earthworks-excavation', 'drainage-grading',
     'erosion-control', 'invasive-vegetation-removal', 'overgrown-land-clearing',
     'environmental-services', 'bush-hogging-brush-mowing', 'flooding-drainage',
+    'land-clearing-permits',
     'demolition',
   ],
   fence: [
