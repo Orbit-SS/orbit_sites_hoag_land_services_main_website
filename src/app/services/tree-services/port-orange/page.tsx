@@ -109,6 +109,11 @@ const data: LocationPageData = {
       desc: 'The right tree in the right place. We install palms, hardwoods, and salt-tolerant species suited to Port Orange soil and coastal exposure, whether near the Halifax River or further inland off Williamson Boulevard.',
       href: '/services/tree-services/tree-installation',
     },
+    {
+      name: 'Certified Arborist Assessment',
+      desc: 'Written tree risk assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified) for Port Orange properties. Mature canopy over roofs and pool cages evaluated for real failure risk, with a report for your HOA or your insurer.',
+      href: '/services/tree-services/certified-arborist',
+    },
   ],
 
   processSteps: [

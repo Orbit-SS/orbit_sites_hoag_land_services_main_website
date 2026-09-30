@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { IMAGES, PHONE, PHONE_HREF, EMAIL, COMPANY, REVIEWS, REVIEW_STATS, CERTS, EST_YEAR, FULL_SERVICES } from '@/shared/constants'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import SpecialtyAreaLinks from '@/components/SpecialtyAreaLinks'
+import EstimateForm from '@/components/EstimateForm'
 
 const FAQS = [
   {
@@ -67,15 +68,15 @@ export default function Page() {
             ))}
           </div>
           <h1 className="font-display text-4xl md:text-6xl uppercase tracking-tight text-white mb-6">
-            Professional Land Clearing in Central Florida
+            Land Clearing in DeLand, FL
           </h1>
           <p className="font-sans text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-            From single residential lots to hundred-acre commercial parcels — cleared, grubbed, and ready for what&apos;s next.
+            Single residential lots to hundred-acre parcels, cleared and grubbed across DeLand, DeLeon Springs, Pierson and the rest of Volusia County. Based in DeLeon Springs, ten minutes from downtown DeLand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="inline-block bg-[#4a7c59] hover:bg-[#3d6a4a] text-white font-display uppercase tracking-wide px-8 py-4 text-lg transition-colors">
+            <a href="#estimate" className="inline-block bg-[#4a7c59] hover:bg-[#3d6a4a] text-white font-display uppercase tracking-wide px-8 py-4 text-lg transition-colors">
               Get My Land Clearing Estimate
-            </Link>
+            </a>
             <a href={PHONE_HREF} className="inline-block border-2 border-[#c2a878] text-[#c2a878] hover:bg-[#c2a878] hover:text-[#0d0f0d] font-display uppercase tracking-wide px-8 py-4 text-lg transition-colors">
               Call {PHONE}
             </a>
@@ -120,13 +121,13 @@ export default function Page() {
                 Complete Land Clearing Services
               </h2>
               <p className="font-sans text-gray-300 leading-relaxed mb-4">
-                {COMPANY} provides full-service land clearing for residential lots, commercial development sites, agricultural parcels, and everything in between. Our crew operates heavy equipment including excavators, track loaders, brush cutters, forestry mulchers, and stump grinders to handle any terrain and vegetation type found in Central Florida.
+                {COMPANY} clears land across DeLand and Volusia County: residential lots off SR 44 and US 17-92, agricultural parcels out toward Spring Garden and Barberville, and commercial sites for builders who have bought in DeLand and need the ground ready. Excavators, track loaders, brush cutters, forestry mulchers and stump grinders, all of it run by our own crew.
               </p>
               <p className="font-sans text-gray-300 leading-relaxed mb-4">
-                For residential projects, we carefully clear lots while preserving trees you want to keep, removing stumps below grade, and leaving a clean surface ready for building. For commercial parcels, we clear hundreds of acres efficiently with equipment staged on-site and a crew that works until the job is done.
+                DeLand ground has its own character. Sandy, well-drained soil across most of the city, saw palmetto and scrub oak that comes back hard if it is mowed rather than grubbed, and low ground toward the St. Johns where the wetland line matters. We clear to the line you want, keep the trees you want kept, and take stumps out below grade so you are not fighting regrowth next season.
               </p>
               <p className="font-sans text-gray-300 leading-relaxed mb-6">
-                Every project includes debris removal and site cleanup. We do not leave piles behind. When we are finished, your land is grubbed, level, and ready for the next contractor to step in.
+                Every DeLand job includes debris removal and cleanup. We do not leave burn piles or windrows behind. When we are finished the lot is grubbed, level, and ready for the surveyor, the pad, or the next contractor.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {['Residential Lots', 'Commercial Parcels', 'Brush & Undergrowth', 'Tree & Stump Removal', 'Debris Hauling', 'Selective Clearing'].map((s) => (
@@ -312,6 +313,48 @@ export default function Page() {
         </div>
       </section>
 
+      {/* DeLand specifics + on-page estimate form */}
+      <section id="estimate" className="bg-[#141614] py-20 border-t border-[#4a7c59]/10 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl uppercase text-white mb-6">
+                Clearing Land in DeLand: What to Expect
+              </h2>
+              <p className="font-sans text-gray-300 leading-relaxed mb-4">
+                <strong className="text-white">Permits come first.</strong> Volusia County and the City of DeLand each run their own rules on clearing and tree removal, and which set applies depends on whether your parcel sits inside the city limits or in the unincorporated county. Protected species, specimen trees and anything near a wetland line add conditions on top. We work out what your address needs during the site walk and tell you plainly, before a machine moves.
+              </p>
+              <p className="font-sans text-gray-300 leading-relaxed mb-4">
+                <strong className="text-white">Mulch in place, or haul it off.</strong> On a lot of DeLand parcels, forestry mulching is the cheaper and tidier answer: vegetation is ground where it stands and left as a mat that holds the sand down until you build. Where you need bare ground for a pad or a pond, we grub and haul instead. We will tell you which one your project actually wants.
+              </p>
+              <p className="font-sans text-gray-300 leading-relaxed mb-4">
+                <strong className="text-white">Out-of-town builders.</strong> A good share of our DeLand site work is for builders who have bought here and do not know anyone local. If that is you, we handle the clearing, the grubbing and the silt fence, and put an ISA Certified Arborist on the tree side so the permit file is clean.
+              </p>
+              <p className="font-sans text-gray-300 leading-relaxed">
+                We are in DeLand, DeLeon Springs, Orange City, Lake Helen, Pierson, Seville and Barberville most weeks, and travel further across Volusia, Flagler, Seminole and Lake counties for the right job.{' '}
+                <Link href="/services/site-work/forestry-mulching" className="text-[#5d9c70] hover:text-[#7ab88a] underline">Forestry mulching</Link>{' '}and{' '}
+                <Link href="/services/tree-services/certified-arborist" className="text-[#5d9c70] hover:text-[#7ab88a] underline">certified arborist assessments</Link>{' '}are both in house.
+              </p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl uppercase text-white mb-2">
+                Get a DeLand Land Clearing Estimate
+              </h2>
+              <p className="font-sans text-gray-400 text-sm mb-5">
+                A phone number is all we need to get back to you. We will walk the property and give you a straight figure.
+              </p>
+              <EstimateForm
+                defaultService="Site Services"
+                formType="land_clearing_estimate"
+                context="Land Clearing - DeLand"
+                idPrefix="lc"
+                sentMessage="We will be in touch shortly to arrange a walk of the property."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="bg-[#4a7c59] py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -319,12 +362,12 @@ export default function Page() {
             Ready to Clear Your Land?
           </h2>
           <p className="font-sans text-white/80 mb-8 max-w-xl mx-auto">
-            Tell us about your property and we will walk it, give you a straight estimate, and get your land cleared on schedule.
+            Tell us about your DeLand property and we will walk it, give you a straight estimate, and get your land cleared on schedule.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="inline-block bg-white text-[#0d0f0d] hover:bg-gray-100 font-display uppercase tracking-wide px-8 py-4 text-lg transition-colors">
+            <a href="#estimate" className="inline-block bg-white text-[#0d0f0d] hover:bg-gray-100 font-display uppercase tracking-wide px-8 py-4 text-lg transition-colors">
               Get My Land Clearing Estimate
-            </Link>
+            </a>
             <a href={PHONE_HREF} className="inline-block border-2 border-white text-white hover:bg-white hover:text-[#0d0f0d] font-display uppercase tracking-wide px-8 py-4 text-lg transition-colors">
               Call {PHONE}
             </a>

@@ -4,9 +4,13 @@ import { serviceSchema, faqSchema, breadcrumbSchema, webPageSchema, jsonLd } fro
 import PageClient from './PageClient'
 
 const PAGE_URL = '/services/site-work/land-clearing'
-const TITLE = 'Land Clearing in DeLand, FL — From Single Lots to Hundreds of Acres'
+// Was 'Land Clearing in DeLand, FL — From Single Lots to Hundreds of Acres',
+// which ran past 85 characters once the layout appended the brand, so results
+// cut it off. Google is also still sending these searches to /services/site-work
+// and the homepage rather than here, so the title has to earn the swap.
+const TITLE = 'Land Clearing in DeLand, FL — Lots & Acreage'
 const DESCRIPTION =
-  'Professional land clearing for residential, commercial, and agricultural property in DeLand and Central Florida. Free estimates. Licensed & insured.'
+  'Land clearing in DeLand and Volusia County — residential lots, acreage and commercial site prep. Grubbed, hauled and left level. Free on-site estimates.'
 const OG_IMAGE = '/photos/site1.JPEG'
 
 export const metadata: Metadata = {

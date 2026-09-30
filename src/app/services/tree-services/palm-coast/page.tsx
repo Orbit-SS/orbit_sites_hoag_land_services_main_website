@@ -129,6 +129,11 @@ const data: LocationPageData = {
       desc: 'TRAQ-qualified risk assessments for trees showing signs of structural failure, root damage, or storm stress. We evaluate the hazard and recommend the safest course of action for your Palm Coast property.',
       href: '/services/tree-services/dangerous-trees',
     },
+    {
+      name: 'Certified Arborist Assessment',
+      desc: 'Written tree risk assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified) for Palm Coast properties. Flagler County removal permits and HOA architectural review both start with a qualified opinion, and this is it.',
+      href: '/services/tree-services/certified-arborist',
+    },
   ],
 
   processSteps: [

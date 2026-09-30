@@ -116,6 +116,11 @@ const data: LocationPageData = {
       desc: 'ISA Tree Risk Assessment Qualified (TRAQ) evaluations for trees showing signs of structural failure, root damage, or decline. Protect your Daytona Beach property before a problem becomes an emergency.',
       href: '/services/tree-services/dangerous-trees',
     },
+    {
+      name: 'Certified Arborist Assessment',
+      desc: 'Written tree risk assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified) for Daytona Beach properties. Salt-stressed coastal oaks and palms judged on structure rather than appearance, with a report your insurer or permit reviewer will accept.',
+      href: '/services/tree-services/certified-arborist',
+    },
   ],
 
   // How it works
