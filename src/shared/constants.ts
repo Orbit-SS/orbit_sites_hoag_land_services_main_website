@@ -19,7 +19,22 @@ export const CERTS = [
   'HomeAdvisor Screened & Approved',
 ]
 
-// Google review stats
+// Google review stats.
+//
+// THIS IS A MANUAL FIGURE AND IT DOES NOT UPDATE ITSELF. It is read in 83 places
+// across the site, including every town page, the schema.org LocalBusiness block
+// and the review strip, so one edit here moves all of them. There is no sync:
+// pulling the live count needs a Google Places API key, which this project does
+// not have.
+//
+// Tyler said on 2026-10-01 that he was sending out review cards. If that works,
+// this number goes stale and the site will keep claiming the old one while his
+// real count climbs, which undersells him in the exact place it matters.
+//
+// Check the profile and update this whenever the count has moved:
+//   https://www.google.com/maps/search/Hoag+Land+Services+DeLand+FL
+//
+// verified: 2026-08-28 (count), 2026-08-28 (stars)
 export const REVIEW_STATS = { stars: 5.0, count: 40 }
 
 // All 51 confirmed photos from hlsdeland.com
