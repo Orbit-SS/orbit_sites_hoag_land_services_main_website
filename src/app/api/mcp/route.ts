@@ -53,7 +53,7 @@ const TOOLS: Tool[] = [
     name: 'check_service_area',
     title: 'Check service area',
     description:
-      'Check whether Hoag Land Services covers a Central Florida city, and get the per-service page URLs for it. Accepts a city name, a city slug, or a ZIP code. A negative answer is not a refusal — it returns guidance to send the enquiry in rather than turning the person away.',
+      'Check whether Hoag Land Services covers a Central Florida city, and get the per-service page URLs for it. Accepts a city name, a city slug, or a ZIP code. A negative answer is not a refusal — it returns guidance to send the inquiry in rather than turning the person away.',
     inputSchema: {
       type: 'object',
       properties: {

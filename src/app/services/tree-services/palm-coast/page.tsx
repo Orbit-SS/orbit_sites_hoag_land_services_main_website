@@ -3,13 +3,13 @@ import type { LocationPageData } from '@/types/location'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Tree Service Palm Coast FL | Hoag Land Services' },
+  title: { absolute: 'Tree Service Palm Coast FL | Removal, Trimming, ISA Arborist' },
   description:
     'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
   alternates: { canonical: 'https://www.hlsdeland.com/services/tree-services/palm-coast' },
   openGraph: {
     type: 'website',
-    title: 'Tree Service Palm Coast FL | Hoag Land Services',
+    title: 'Tree Service Palm Coast FL | Removal, Trimming, ISA Arborist',
     description:
       'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
     url: 'https://www.hlsdeland.com/services/tree-services/palm-coast',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tree Service Palm Coast FL | Hoag Land Services',
+    title: 'Tree Service Palm Coast FL | Removal, Trimming, ISA Arborist',
     description:
       'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
     images: ['/photos/tree5.JPEG'],
@@ -83,7 +83,7 @@ const data: LocationPageData = {
     'arborist palm coast',
   ],
 
-  title: 'Tree Service Palm Coast FL | Hoag Land Services',
+  title: 'Tree Service Palm Coast FL | Removal, Trimming, ISA Arborist',
   metaDescription:
     'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
   ogImage: '/photos/tree5.JPEG',
@@ -285,7 +285,7 @@ const data: LocationPageData = {
     webPage: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Tree Service Palm Coast FL | Hoag Land Services',
+      name: 'Tree Service Palm Coast FL | Removal, Trimming, ISA Arborist',
       description:
         'ISA Certified Arborist serving Palm Coast, FL. Tree removal, trimming & palm pruning. 5.0-star reviews. TRAQ qualified. Call for your free estimate now.',
       url: 'https://www.hlsdeland.com/services/tree-services/palm-coast',

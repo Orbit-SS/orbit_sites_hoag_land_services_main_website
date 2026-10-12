@@ -24,12 +24,42 @@ import {
 // ──────────────────────────────────────────────────────
 
 const HAND_CRAFTED_CONTEXT: Record<string, string> = {
+  // DeLeon Springs, Volusia County — unincorporated, and Hoag's own base. Named
+  // by Tyler as a focus town. Being the local outfit is the whole advantage here,
+  // so the copy leads with it instead of burying it.
+  'deleon-springs-tree': [
+    "<p>DeLeon Springs is where we are based, so this is the one town where you are not hiring somebody who drives in from a county over. It is unincorporated Volusia, strung along US 17 between DeLand and Pierson, with the state park and the spring at its center and large wooded lots running back off the highway on both sides. Live oaks, water oaks, slash pine, and a lot of cabbage palm.</p>",
+    "<p>Because it is unincorporated, Volusia County&rsquo;s rules govern tree removal here rather than a city ordinance, and the trunk-diameter thresholds are what decide whether your job needs a permit. We check your specific parcel before quoting and we handle the paperwork rather than handing you a form to work out. If your lot backs onto wetland or the spring run, there can be a second layer on top of that, and it is better to know before the equipment arrives than after.</p>",
+    "<p>The work here splits two ways. On the residential side it is hazard removals, structural pruning on oaks that have grown over a roof or a drive, palm pruning, and storm cleanup. On the acreage side it is clearing, forestry mulching, and getting a building pad or a pasture ready, which is the other half of what we do. Plenty of DeLeon Springs properties need both, and it is the same crew either way.</p>",
+    "<p>Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified, so if you need a written opinion on whether an oak is actually a hazard or just looks like one, you get a report from somebody qualified to write it. Call for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  // Pierson, Volusia County — incorporated town, and the fern capital. The
+  // agricultural angle is the thing a generated page would never produce, and it
+  // is most of why the calls here are different from DeLand's.
+  'pierson-tree': [
+    "<p>Pierson calls itself the Fern Capital of the World and it has the shade houses to prove it. Leatherleaf fern has been the business here for generations, which means a lot of the land around town is working agricultural ground rather than subdivision lots, and the tree work reflects that: fence lines to clear, windbreaks to manage, oaks and pines along the edges of growing operations, and access tracks that need to stay passable.</p>",
+    "<p>Pierson is an incorporated town sitting inside Volusia County, so there can be town requirements alongside the county&rsquo;s arbor rules depending on where your property sits and what is coming down. We check which applies to your address before we quote. For agricultural parcels the answer is often different from a residential lot on the same road, and that distinction is worth getting right the first time.</p>",
+    "<p>What we handle in Pierson: tree removal and hazard work, structural pruning, palm pruning, storm response, stump grinding, and land clearing and forestry mulching on the larger parcels. We are based in DeLeon Springs, which is the next town south on US 17, so this is a short run for us rather than a trip.</p>",
+    "<p>Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified. If you have a tree you are unsure about, a fence line that has grown in, or ground that needs opening up, call us for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  // Lake Helen, Volusia County — incorporated city, so the city ordinance governs
+  // rather than the county's. Same distinction we already publish for Sanford and
+  // Lake Mary, and it is the thing homeowners get wrong.
+  'lake-helen-tree': [
+    "<p>Lake Helen is a small incorporated city between DeLand and Orange City, and it is one of the most heavily shaded places in west Volusia. The old grid around Euclid and Main sits under live oaks that were mature before most of the houses were built, with narrow lots, short setbacks, and power lines threaded through the canopy. It is pretty, and it is exactly the kind of street where a removal has to be planned rather than just turned up to.</p>",
+    "<p>Because Lake Helen is incorporated, the city&rsquo;s own tree rules apply rather than Volusia County&rsquo;s, with their own thresholds and their own forms. That catches people out, because a neighbor half a mile away on unincorporated land is under a different set entirely. We check your address against the right one before we quote, and we deal with the application rather than leaving it with you.</p>",
+    "<p>Out from the center, toward Cassadaga and the lake itself, the lots get larger and the work changes: clearing, brush and undergrowth, fence lines, and the oaks and pines along property boundaries. We do that side too, with the same crew and the same equipment, which is usually simpler than coordinating two outfits.</p>",
+    "<p>Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified, so a written assessment for your insurer, your city application, or your own peace of mind comes from somebody qualified to sign it. Call us for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+
   // Heathrow, Seminole County — requested by Tyler Hoag on 2026-09-23 as a
   // target market for tree work. The generated copy gave it the generic
   // suburban opener; a gated, HOA-governed community with forty-year-old
   // canopy needs its own. Key format is `${slug}-${service}`.
   'heathrow-tree': [
-    "<p>Heathrow is a gated, master-planned community in unincorporated Seminole County, built out from the late eighties onward around the country club and golf course off Lake Mary Boulevard. That build history matters more than most people realise: the live oaks, laurel oaks, and southern magnolias planted through those first phases are now thirty-five to forty years old. Live oaks are just hitting their stride. Laurel oaks are not — they tend to start hollowing at the trunk and shedding structural limbs right around this age, often while the canopy above still looks perfectly green.</p>",
+    "<p>Heathrow is a gated, master-planned community in unincorporated Seminole County, built out from the late eighties onward around the country club and golf course off Lake Mary Boulevard. That build history matters more than most people realize: the live oaks, laurel oaks, and southern magnolias planted through those first phases are now thirty-five to forty years old. Live oaks are just hitting their stride. Laurel oaks are not — they tend to start hollowing at the trunk and shedding structural limbs right around this age, often while the canopy above still looks perfectly green.</p>",
     "<p>Tree work in Heathrow comes with a second layer most properties don&rsquo;t have. Removals and major pruning generally need architectural review from your HOA before anything starts, and Seminole County&rsquo;s arbor ordinance covers unincorporated areas like Heathrow — trees above certain trunk diameters need a county permit to come down. We&rsquo;ll tell you at the estimate which of the two applies to your job, and we handle the paperwork rather than handing you a form. Our crew carries current certificates of insurance for gate and management-company files, and we schedule around guardhouse access instead of turning up and hoping.</p>",
     "<p>What we do here: tree removal, crown reduction and structural pruning on mature oaks hanging over roofs and pool cages, palm pruning, storm-damage response, stump grinding, and — the one worth asking about before you need it — a written tree risk assessment. Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified, which means the report you get for your HOA, your insurer, or your permit application is signed by someone qualified to write it. On Heathrow lots that usually decides the question: is this tree a real hazard, or does it just look like one.</p>",
     "<p>We work clean because we have to. Paver drives, irrigation heads, landscape lighting, and mature understory plantings don&rsquo;t forgive a crew that treats a lot like an open field. Mats down, drop zones planned, debris hauled, the place left the way we found it minus the problem. If you&rsquo;ve got an oak leaning toward the house, a laurel oak you&rsquo;re quietly worried about, or an HOA letter asking for an arborist&rsquo;s opinion, call us for an honest read and a no-pressure estimate.</p>",
@@ -58,6 +88,16 @@ const HAND_CRAFTED_CONTEXT: Record<string, string> = {
 }
 
 const HAND_CRAFTED_TITLE: Record<string, string> = {
+  // The DeLand and Daytona pages use this shape and Daytona went from no clicks
+  // to five after the change, so new towns get the same treatment: name the town,
+  // then name what we actually do.
+  'deleon-springs-tree': 'Tree Service DeLeon Springs FL | Removal & ISA Arborist',
+  'pierson-tree': 'Tree Service Pierson FL | Removal, Trimming, ISA Arborist',
+  'lake-helen-tree': 'Tree Service Lake Helen FL | Removal, Trimming, Arborist',
+  // Eustis fencing sat at position 5 on "fence services eustis" with 654
+  // impressions and zero clicks. The page said Installation; the search says
+  // Services.
+  'eustis-fence': 'Eustis Fence Services | Installation, Privacy & Boundary',
   // Sanford carried 1,132 impressions over 90 days at position 22.1 while its
   // title read "Sanford, FL Tree Service & Storm Cleanup". The demand behind
   // those impressions is removal, trimming and arborist work. "arborist
@@ -446,11 +486,14 @@ export function generateLocationPageData(loc: Location, service: ServiceCategory
       `Tree Care in ${loc.name}, ${loc.stateAbbr} — ISA Certified Arborist`,
       `${loc.name}, FL Tree Service & Storm Cleanup`,
     ],
+    // Forty of these town pages now rank top-ten and take almost no clicks. The
+    // tree pages that earned clicks all name the services after the town, so
+    // these do the same.
     site: [
-      `Land Clearing in ${loc.name}, ${loc.stateAbbr}`,
-      `${loc.name} Land Clearing & Site Prep`,
-      `Site Work in ${loc.name}, ${loc.stateAbbr} — Forestry Mulching & Grading`,
-      `${loc.name}, FL Excavation & Land Clearing`,
+      `Land Clearing ${loc.name} ${loc.stateAbbr} | Grading & Site Prep`,
+      `${loc.name} Land Clearing | Forestry Mulching & Grading`,
+      `Site Work ${loc.name} ${loc.stateAbbr} | Clearing, Grading, Drainage`,
+      `${loc.name} ${loc.stateAbbr} Land Clearing & Excavation`,
     ],
     fence: [
       `Fence Installation in ${loc.name}, ${loc.stateAbbr}`,

@@ -576,7 +576,10 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
               rel="noopener noreferrer"
               className="text-[#5d9c70] hover:text-[#5a9c6d] font-semibold text-sm transition-colors"
             >
-              Read all {REVIEW_STATS.count} reviews on Google &rarr;
+              {/* Built as one string: JSX drops the space between an expression and
+                  the text after it here, which rendered as "40reviews on Google"
+                  on every location page. */}
+              {`Read all ${REVIEW_STATS.count} reviews on Google `}&rarr;
             </a>
           </p>
         </div>

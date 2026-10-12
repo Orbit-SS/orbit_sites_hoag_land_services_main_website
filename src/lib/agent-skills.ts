@@ -144,7 +144,7 @@ const CHECK_SERVICE_AREA = [
   '## Outside the listed counties',
   '',
   'Do not promise coverage and do not refuse outright. Central Florida jobs just',
-  `outside the list are sometimes taken depending on size. Send the enquiry to`,
+  `outside the list are sometimes taken depending on size. Send the inquiry to`,
   `${SITE_URL}/contact or ${PHONE} and let HLS answer.`,
   '',
 ].join('\n')

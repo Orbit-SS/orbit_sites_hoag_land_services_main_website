@@ -1,7 +1,7 @@
 // Form-notification email via Resend.
 //
 // Both public form routes (/api/contact, /api/join) send through here so the
-// transport, the sender identity and the failure behaviour live in one place.
+// transport, the sender identity and the failure behavior live in one place.
 // The routes keep their own branded HTML — this only carries it.
 //
 // Replaces the previous Brevo integration, which sent from

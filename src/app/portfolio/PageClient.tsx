@@ -80,9 +80,9 @@ export default function PortfolioPage() {
             >
               {cat}
               {/* No opacity-70 here. It compounded with the button's own
-                  text colour and dropped the count to 3.2:1 on the inactive
+                  text color and dropped the count to 3.2:1 on the inactive
                   tabs and 3.28:1 on the active one. Without it the counts
-                  inherit the button colour: 5.19:1 inactive, 4.86:1 active. */}
+                  inherit the button color: 5.19:1 inactive, 4.86:1 active. */}
               <span className="ml-2 text-xs">
                 ({cat === 'All'
                   ? allImages.length

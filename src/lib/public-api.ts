@@ -135,7 +135,7 @@ export function coverageFor(query: string) {
     return {
       query,
       covered: false,
-      note: `No page exists for "${query}". That does not always mean the job cannot be taken — Central Florida work just outside the listed counties is sometimes accepted depending on size. Send the enquiry to ${SITE_URL}/contact or call ${PHONE} rather than refusing.`,
+      note: `No page exists for "${query}". That does not always mean the job cannot be taken — Central Florida work just outside the listed counties is sometimes accepted depending on size. Send the inquiry to ${SITE_URL}/contact or call ${PHONE} rather than refusing.`,
       counties: [...new Set(ALL_LOCATIONS.map(l => l.county))].sort(),
     }
   }

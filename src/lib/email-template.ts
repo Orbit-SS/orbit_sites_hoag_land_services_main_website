@@ -9,7 +9,7 @@
 //   * Tables, not flex/grid. Outlook renders through Word, which has no
 //     support for modern layout.
 //   * Inline styles only, plus bgcolor attributes — Outlook drops background
-//     colours declared in CSS shorthand.
+//     colors declared in CSS shorthand.
 //   * Oswald cannot be webfont-loaded in Gmail or Outlook. The display stack
 //     falls back through Arial Narrow, which keeps the condensed uppercase
 //     character rather than collapsing to something unrelated.

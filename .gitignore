@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Lighthouse reports are scratch output, not source.
 lh-*.json
+
+# local review screenshots
+.shots/
