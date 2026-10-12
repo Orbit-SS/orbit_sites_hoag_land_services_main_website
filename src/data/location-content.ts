@@ -495,11 +495,15 @@ export function generateLocationPageData(loc: Location, service: ServiceCategory
       `Site Work ${loc.name} ${loc.stateAbbr} | Clearing, Grading, Drainage`,
       `${loc.name} ${loc.stateAbbr} Land Clearing & Excavation`,
     ],
+    // Same problem the site-work pages had. Maitland, Ocoee, Umatilla,
+    // Fruitland Park, Montverde and Sorrento all rank page one on fencing and
+    // take zero clicks between them, and two of these four patterns named no
+    // service at all.
     fence: [
-      `Fence Installation in ${loc.name}, ${loc.stateAbbr}`,
-      `${loc.name} Fence Installation — Wood, Vinyl & Aluminum`,
-      `Fencing in ${loc.name}, ${loc.stateAbbr}`,
-      `${loc.name}, FL Fence Contractor — Privacy & Boundary`,
+      `Fence Company ${loc.name} ${loc.stateAbbr} | Privacy, Wood & Vinyl`,
+      `${loc.name} Fence Installation | Wood, Vinyl & Aluminum`,
+      `Fencing ${loc.name} ${loc.stateAbbr} | Privacy, Pool & Boundary`,
+      `${loc.name} ${loc.stateAbbr} Fence Contractor | Install & Repair`,
     ],
   }
   // A hand-crafted title beats the rotation where Search Console shows the
