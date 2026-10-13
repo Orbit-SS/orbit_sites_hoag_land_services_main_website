@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import Link from 'next/link'
 import { sendGAEvent } from '@next/third-parties/google'
@@ -349,6 +350,38 @@ const TRUST_ICONS = [ShieldIcon, ClockIcon, AwardIcon, MapPinIcon, ShieldIcon, C
    MAIN COMPONENT
    ════════════════════════════════════════════ */
 
+/* The mobile call bar.
+   It is rendered through a portal straight into <body>. Declared inline it was
+   position:fixed but laid out ~10,000px down the document, because an ancestor
+   was creating a containing block: a control element appended to <body> on the
+   same page sat correctly at the foot of the viewport while this one did not.
+   The effect was that the bar only appeared if you scrolled to the very bottom,
+   so on a phone there was no persistent way to call or reach the form. */
+function StickyMobileCTA() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return null
+
+  return createPortal(
+    <div className="fixed bottom-0 left-0 right-0 bg-[#0d0f0d]/95 backdrop-blur border-t border-white/10 p-3 flex items-center justify-between gap-3 sm:hidden z-50">
+      <a
+        href={PHONE_HREF}
+        className="flex items-center gap-2 text-white font-display font-bold text-sm"
+      >
+        <PhoneIcon />
+        {PHONE}
+      </a>
+      <a
+        href="#estimate"
+        className="bg-[#4a7c59] text-white font-display font-bold uppercase text-sm px-4 py-2.5 rounded min-h-[48px] flex items-center"
+      >
+        Free Estimate
+      </a>
+    </div>,
+    document.body,
+  )
+}
+
 export default function LocationPage({ data }: { data: LocationPageData }) {
   const currentYear = new Date().getFullYear()
   const yearsSince = currentYear - EST_YEAR
@@ -495,6 +528,41 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ════════ SECTION 3B — ESTIMATE ════════
+          This used to be the last thing on the page. On a phone that put it
+          roughly ten screens down: 8,778px on the DeLand tree page, 9,233px on
+          land clearing. Almost nobody scrolled that far, which is most of why
+          99 form starts turned into 26 submissions. It now sits about three
+          screens in, straight after the services. */}
+      <section id="estimate" className="bg-[#141614] py-16 sm:py-20 border-y border-[#4a7c59]/25 scroll-mt-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-center mb-4">
+            Get a Free Estimate in {data.location}
+          </h2>
+          <p className="text-gray-400 text-center mb-8 max-w-xl mx-auto leading-relaxed">
+            Tell us about your property and we will follow up with an honest,
+            no-pressure estimate. Call us directly or send the details below.
+          </p>
+
+          {/* Phone number */}
+          <div className="text-center mb-8">
+            <a
+              href={PHONE_HREF}
+              className="inline-flex items-center gap-3 text-2xl sm:text-3xl font-display font-bold text-[#5d9c70] hover:text-[#5a9c6d] transition-colors"
+            >
+              <PhoneIcon />
+              {PHONE}
+            </a>
+          </div>
+
+          <ContactForm
+            location={data.location}
+            zipCode={data.zipCodes[0] || ''}
+            serviceCategory={data.serviceCategoryName}
+          />
         </div>
       </section>
 
@@ -701,19 +769,21 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
         </div>
       </section>
 
-      {/* ════════ SECTION 10 — FINAL CTA ════════ */}
-      <section className="bg-[#1a1c1a] py-16 sm:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-center mb-4">
+      {/* ════════ SECTION 10 — CLOSING CTA ════════
+          The form itself now sits near the top of the page. Anyone who has read
+          this far gets the phone and a jump back up to it, rather than a second
+          form competing with the first for the same GA4 events. */}
+      <section className="bg-[#1a1c1a] py-14 sm:py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4">
             Ready to Get Started in {data.location}?
           </h2>
-          <p className="text-gray-400 text-center mb-8 max-w-xl mx-auto leading-relaxed">
-            Tell us about your property and we will follow up with an honest, no-pressure estimate.
-            Call us directly or fill out the form below.
+          <p className="text-gray-400 mb-8 max-w-xl mx-auto leading-relaxed">
+            Call us, or send the details and we will follow up with an honest,
+            no-pressure estimate.
           </p>
 
-          {/* Phone number */}
-          <div className="text-center mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={PHONE_HREF}
               className="inline-flex items-center gap-3 text-2xl sm:text-3xl font-display font-bold text-[#5d9c70] hover:text-[#5a9c6d] transition-colors"
@@ -721,16 +791,15 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
               <PhoneIcon />
               {PHONE}
             </a>
+            <a
+              href="#estimate"
+              className="inline-flex items-center justify-center bg-[#4a7c59] hover:bg-[#5d9c70] text-white font-display font-bold uppercase tracking-wide px-6 py-3 rounded min-h-[48px] transition-colors"
+            >
+              Get a Free Estimate
+            </a>
           </div>
 
-          <ContactForm
-            location={data.location}
-            zipCode={data.zipCodes[0] || ''}
-            serviceCategory={data.serviceCategoryName}
-          />
-
-          {/* Trust restatement */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6 text-xs text-gray-400">
+          <div className="flex flex-wrap justify-center gap-4 mt-8 text-xs text-gray-400">
             <span>ISA Certified Arborist FL-9491A</span>
             <span>&middot;</span>
             <span>{REVIEW_STATS.stars} Stars ({REVIEW_STATS.count} Reviews)</span>
@@ -805,22 +874,8 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
         </div>
       </section>
 
-      {/* ── Sticky Mobile CTA ── */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#0d0f0d]/95 backdrop-blur border-t border-white/10 p-3 flex items-center justify-between gap-3 sm:hidden z-50">
-        <a
-          href={PHONE_HREF}
-          className="flex items-center gap-2 text-white font-display font-bold text-sm"
-        >
-          <PhoneIcon />
-          {PHONE}
-        </a>
-        <a
-          href={PHONE_HREF}
-          className="bg-[#4a7c59] text-white font-display font-bold uppercase text-sm px-4 py-2.5 rounded min-h-[48px] flex items-center"
-        >
-          Call Now
-        </a>
-      </div>
+      {/* ── Sticky Mobile CTA (portalled, see below) ── */}
+      <StickyMobileCTA />
     </>
   )
 }

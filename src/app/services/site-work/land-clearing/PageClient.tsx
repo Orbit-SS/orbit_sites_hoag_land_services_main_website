@@ -171,6 +171,52 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Moved above the gallery on 2026-10-13. It used to sit at the
+          bottom, 9,233px down, which is about eleven screens on a phone.
+          The permits copy and the form belong together, so the whole
+          block moved rather than just the form. */}
+      {/* DeLand specifics + on-page estimate form */}
+      <section id="estimate" className="bg-[#141614] py-20 border-t border-[#4a7c59]/10 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl uppercase text-white mb-6">
+                Clearing Land in DeLand: What to Expect
+              </h2>
+              <p className="font-sans text-gray-300 leading-relaxed mb-4">
+                <strong className="text-white">Permits come first.</strong> Volusia County and the City of DeLand each run their own rules on clearing and tree removal, and which set applies depends on whether your parcel sits inside the city limits or in the unincorporated county. Six inch trunk diameter is the usual trigger, and wetland buffers are never exempt. We work out what your address needs during the site walk and tell you plainly, before a machine moves &mdash; the full picture is on our{' '}<Link href="/services/site-work/land-clearing-permits" className="text-[#5d9c70] hover:text-[#7ab88a] underline">clearing permits page</Link>.
+              </p>
+              <p className="font-sans text-gray-300 leading-relaxed mb-4">
+                <strong className="text-white">Mulch in place, or haul it off.</strong> On a lot of DeLand parcels, forestry mulching is the cheaper and tidier answer: vegetation is ground where it stands and left as a mat that holds the sand down until you build. Where you need bare ground for a pad or a pond, we grub and haul instead. We will tell you which one your project actually wants.
+              </p>
+              <p className="font-sans text-gray-300 leading-relaxed mb-4">
+                <strong className="text-white">Out-of-town builders.</strong> A good share of our DeLand site work is for builders who have bought here and do not know anyone local. If that is you, we handle the clearing, the grubbing and the silt fence, and put an ISA Certified Arborist on the tree side so the permit file is clean.
+              </p>
+              <p className="font-sans text-gray-300 leading-relaxed">
+                We are in DeLand, DeLeon Springs, Orange City, Lake Helen, Pierson, Seville and Barberville most weeks, and travel further across Volusia, Flagler, Seminole and Lake counties for the right job.{' '}
+                <Link href="/services/site-work/forestry-mulching" className="text-[#5d9c70] hover:text-[#7ab88a] underline">Forestry mulching</Link>{' '}and{' '}
+                <Link href="/services/tree-services/certified-arborist" className="text-[#5d9c70] hover:text-[#7ab88a] underline">certified arborist assessments</Link>{' '}are both in house.
+              </p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl uppercase text-white mb-2">
+                Get a DeLand Land Clearing Estimate
+              </h2>
+              <p className="font-sans text-gray-400 text-sm mb-5">
+                A phone number is all we need to get back to you. We will walk the property and give you a straight figure.
+              </p>
+              <EstimateForm
+                defaultService="Site Services"
+                formType="land_clearing_estimate"
+                context="Land Clearing - DeLand"
+                idPrefix="lc"
+                sentMessage="We will be in touch shortly to arrange a walk of the property."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Results Gallery */}
       <section className="bg-[#141614] py-20">
         <div className="max-w-6xl mx-auto px-4">
@@ -313,47 +359,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* DeLand specifics + on-page estimate form */}
-      <section id="estimate" className="bg-[#141614] py-20 border-t border-[#4a7c59]/10 scroll-mt-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="font-display text-3xl md:text-4xl uppercase text-white mb-6">
-                Clearing Land in DeLand: What to Expect
-              </h2>
-              <p className="font-sans text-gray-300 leading-relaxed mb-4">
-                <strong className="text-white">Permits come first.</strong> Volusia County and the City of DeLand each run their own rules on clearing and tree removal, and which set applies depends on whether your parcel sits inside the city limits or in the unincorporated county. Six inch trunk diameter is the usual trigger, and wetland buffers are never exempt. We work out what your address needs during the site walk and tell you plainly, before a machine moves &mdash; the full picture is on our{' '}<Link href="/services/site-work/land-clearing-permits" className="text-[#5d9c70] hover:text-[#7ab88a] underline">clearing permits page</Link>.
-              </p>
-              <p className="font-sans text-gray-300 leading-relaxed mb-4">
-                <strong className="text-white">Mulch in place, or haul it off.</strong> On a lot of DeLand parcels, forestry mulching is the cheaper and tidier answer: vegetation is ground where it stands and left as a mat that holds the sand down until you build. Where you need bare ground for a pad or a pond, we grub and haul instead. We will tell you which one your project actually wants.
-              </p>
-              <p className="font-sans text-gray-300 leading-relaxed mb-4">
-                <strong className="text-white">Out-of-town builders.</strong> A good share of our DeLand site work is for builders who have bought here and do not know anyone local. If that is you, we handle the clearing, the grubbing and the silt fence, and put an ISA Certified Arborist on the tree side so the permit file is clean.
-              </p>
-              <p className="font-sans text-gray-300 leading-relaxed">
-                We are in DeLand, DeLeon Springs, Orange City, Lake Helen, Pierson, Seville and Barberville most weeks, and travel further across Volusia, Flagler, Seminole and Lake counties for the right job.{' '}
-                <Link href="/services/site-work/forestry-mulching" className="text-[#5d9c70] hover:text-[#7ab88a] underline">Forestry mulching</Link>{' '}and{' '}
-                <Link href="/services/tree-services/certified-arborist" className="text-[#5d9c70] hover:text-[#7ab88a] underline">certified arborist assessments</Link>{' '}are both in house.
-              </p>
-            </div>
-            <div>
-              <h2 className="font-display text-2xl uppercase text-white mb-2">
-                Get a DeLand Land Clearing Estimate
-              </h2>
-              <p className="font-sans text-gray-400 text-sm mb-5">
-                A phone number is all we need to get back to you. We will walk the property and give you a straight figure.
-              </p>
-              <EstimateForm
-                defaultService="Site Services"
-                formType="land_clearing_estimate"
-                context="Land Clearing - DeLand"
-                idPrefix="lc"
-                sentMessage="We will be in touch shortly to arrange a walk of the property."
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Final CTA */}
       <section className="bg-[#4a7c59] py-16">
