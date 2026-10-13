@@ -16,7 +16,7 @@ import { HONEYPOT_NAME } from '@/lib/antispam'
  * checks to reject instant submits.
  */
 
-const SERVICE_OPTIONS = ['Site Services', 'Tree Services', 'Fencing Services']
+const SERVICE_OPTIONS: readonly string[] = ['Site Services', 'Tree Services', 'Fencing Services']
 
 function GreenCheck() {
   return (
@@ -39,6 +39,9 @@ export default function EstimateForm({
   idPrefix = 'est',
   /** Copy for the confirmation state. */
   sentMessage = 'We will follow up shortly to talk through your project.',
+  /** Placeholder for the free-text box. The default is land-clearing wording,
+      which reads as a non sequitur to someone asking about a tree or a fence. */
+  messagePlaceholder = 'Acreage, what is on it now, and what you need it ready for.',
 }: {
   defaultService?: string
   defaultZip?: string
@@ -46,7 +49,15 @@ export default function EstimateForm({
   context?: string
   idPrefix?: string
   sentMessage?: string
+  messagePlaceholder?: string
 }) {
+  // A controlled <select> whose value is not one of its options renders as
+  // nothing selected, so any defaultService a page passes has to appear in the
+  // list. The homepage uses "Not sure yet", which is a real answer there.
+  const serviceOptions = SERVICE_OPTIONS.includes(defaultService)
+    ? SERVICE_OPTIONS
+    : [defaultService, ...SERVICE_OPTIONS]
+
   const [formState, setFormState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState<string>('')
   const [form, setForm] = useState({
@@ -180,7 +191,7 @@ export default function EstimateForm({
             onChange={e => updateField('service', e.target.value)}
             className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#4a7c59]"
           >
-            {SERVICE_OPTIONS.map(s => (
+            {serviceOptions.map(s => (
               <option key={s} value={s}>{s}</option>
             ))}
           </select>
@@ -204,7 +215,7 @@ export default function EstimateForm({
         <textarea
           id={`${idPrefix}-message`}
           rows={3}
-          placeholder="Acreage, what is on it now, and what you need it ready for."
+          placeholder={messagePlaceholder}
           value={form.message}
           onChange={e => updateField('message', e.target.value)}
           className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#4a7c59] resize-none"

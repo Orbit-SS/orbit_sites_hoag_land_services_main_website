@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import EstimateForm from '@/components/EstimateForm'
 import {
   IMAGES,
   PHONE,
@@ -472,12 +473,48 @@ function StickyMobileCTA() {
   )
 }
 
+
+/* ─── Estimate form ───
+   The homepage takes 85 of the site's 184 search clicks and had no form on it
+   at all: every path to an enquiry ran through a click to /contact first. On a
+   phone the forms that do exist sit about ten screens down. This puts one just
+   below the services, roughly three screens in. */
+function HomeEstimate() {
+  return (
+    <section id="estimate" className="bg-[#141614] py-16 md:py-24 border-y border-[#4a7c59]/25">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <p className="text-[#c2a878] text-sm uppercase tracking-[0.3em] mb-3 font-semibold">
+            Free Estimate
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold uppercase tracking-wider text-white">
+            Tell Us About The Job
+          </h2>
+          <p className="text-gray-400 mt-4 text-base md:text-lg">
+            Takes a minute. We come out, look at it properly, and give you a
+            number before any work starts.
+          </p>
+        </div>
+        <EstimateForm
+          defaultService="Not sure yet"
+          formType="homepage_estimate"
+          context="Homepage"
+          idPrefix="home"
+          sentMessage="Thanks. We will be in touch shortly to arrange a look at the job."
+          messagePlaceholder="What needs doing, and roughly where on the property."
+        />
+      </div>
+    </section>
+  )
+}
+
 /* ─── Page ─── */
 export default function HomePage() {
   return (
     <>
       <Hero />
       <ServicesOverview />
+      <HomeEstimate />
       <AboutTeaser />
       <ReviewsSection />
       <ServiceAreasSection />
