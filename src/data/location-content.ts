@@ -24,6 +24,63 @@ import {
 // ──────────────────────────────────────────────────────
 
 const HAND_CRAFTED_CONTEXT: Record<string, string> = {
+  'orlando-tree': [
+    "<p>Orlando is the biggest market we cover and the one where the trees are oldest relative to the houses. The established neighborhoods inside the 408 and along the chain of lakes were platted when live oaks and camphors were planted as street trees, and those are now eighty to a hundred years old with canopies spreading over roofs, driveways and power lines that were never planned around them.</p>",
+    "<p>Orlando is an incorporated city, so the city&rsquo;s own arbor rules apply rather than Orange County&rsquo;s, and they are stricter than most people expect. Trees above a certain trunk diameter need a permit before removal, replacement planting can be required as a condition, and a tree that is genuinely dead or dangerous is handled differently from one that is simply inconvenient. We check which case yours is against your address before quoting, and we file the paperwork rather than handing you a form.</p>",
+    "<p>The work splits between two very different jobs here. On older lots it is structural pruning and risk assessment on mature canopy, usually because something is now over a roof or a pool cage. On newer ground toward the edges it is clearing and grading, where a lot needs opening up before anything else happens. We do both with the same crew.</p>",
+    "<p>We are based in DeLeon Springs and we travel for Orlando work, which means we quote it honestly: if the job is small enough that travel makes us the wrong call, we will say so. Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified, so where you need a written opinion for a permit, an insurer or an HOA, it comes from somebody qualified to sign it.</p>",
+  ].join('\n'),
+
+  'deltona-tree': [
+    "<p>Deltona is the largest city in Volusia County and almost all of it went up at once. The subdivisions were cut into sandy pine flatwoods from the sixties onward, and the slash pine, laurel oak and water oak left standing or planted at buildout are now fifty and sixty years old on quarter-acre lots they have long outgrown.</p>",
+    "<p>That history is why the calls here are what they are. Laurel oaks and water oaks are not long-lived trees. They hollow at the trunk and start shedding structural limbs at exactly this age, often while the crown above still looks green and healthy, which is why the first sign of trouble is usually a limb on a roof rather than a dead-looking tree. Slash pine in a cleared lot, left standing without the stand around it, is a different problem: it grew tall and thin for the company it used to have.</p>",
+    "<p>Deltona is incorporated, so the city&rsquo;s tree ordinance governs rather than Volusia County&rsquo;s, and the thresholds and forms are its own. We check your address against the right set before we quote and we deal with the application. Being fifteen miles from base, this is a short run for us, not a trip we price as one.</p>",
+    "<p>We handle removal and hazard work, crown reduction and structural pruning, palm pruning, storm response and stump grinding, and written tree risk assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified). If you have an oak over the house you are not sure about, that assessment is usually what settles it either way.</p>",
+  ].join('\n'),
+
+  'ormond-beach-tree': [
+    "<p>Ormond Beach runs from the Halifax River to the Atlantic, and the tree work changes completely depending on which side of the river you are on. Beachside, everything lives in salt air and wind, and the canopy is lower, tougher and more sculpted by weather. On the mainland, particularly the older streets near the river and along the Loop, there are live oaks with genuine age on them and the arching canopy that goes with it.</p>",
+    "<p>Those older live oaks are the reason to call an arborist rather than a tree cutter. A mature live oak is a long-lived, structurally sound tree that in most cases should be pruned and kept, not removed, and the difference between reducing a limb properly and topping a tree is the difference between another fifty years and a decade of decline. We will tell you when a tree should stay.</p>",
+    "<p>Ormond Beach is incorporated, so the city&rsquo;s own tree rules apply instead of the county&rsquo;s. Coastal and riverfront parcels can carry an extra layer on top of that depending on where the work sits. We check both against your specific address before quoting, which is better found out before the equipment arrives.</p>",
+    "<p>Hurricane exposure here is real and recurring, so a good share of what we do is storm response and the pruning that reduces what storms can take. Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified. Call for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  'new-smyrna-beach-tree': [
+    "<p>New Smyrna Beach is two places as far as trees are concerned. On the barrier island it is salt wind, sandy soil, cabbage palm and sculpted scrub, where the work is mostly palm pruning, storm cleanup and keeping growth off roofs and decks. On the mainland, through the historic streets off Canal and out toward the river, there are large live oaks over narrow lots and older houses.</p>",
+    "<p>The island side rewards maintenance over removal. Wind-pruned coastal canopy is doing a job, and taking too much off a tree that has grown into its exposure usually makes the next storm worse rather than better. The mainland oaks are the opposite question: big, long-lived trees where the right answer is almost always structural pruning and a clear-eyed look at what is actually over the house.</p>",
+    "<p>New Smyrna Beach is an incorporated city, so its tree ordinance applies rather than Volusia County&rsquo;s, with its own thresholds and its own forms. Waterfront and island parcels can bring an additional layer. We check your address against the right set before we quote, and we handle the application.</p>",
+    "<p>We cover removal, crown reduction and structural pruning, palm pruning, storm response, stump grinding, and written assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified). Call for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  'flagler-beach-tree': [
+    "<p>Flagler Beach is a small coastal city on a narrow strip between the Atlantic and the Intracoastal, and almost everything about tree work here follows from that. Salt wind, sandy soil, and lots where the distance from the ocean to the back fence is measured in feet rather than acres. Cabbage palm, live oak that has grown low and wide into the wind, and very little room to drop anything.</p>",
+    "<p>Access is the thing that decides most jobs here. Narrow lots, close neighbors, overhead lines along the older streets and limited room to stage equipment mean the work has to be planned and rigged rather than simply felled. That is not a reason to pay more; it is a reason to use somebody who has done it on this kind of lot before.</p>",
+    "<p>Flagler Beach is incorporated, so the city&rsquo;s own rules apply rather than Flagler County&rsquo;s, and coastal parcels can carry an extra layer depending on where the work sits. We check your address before quoting rather than after.</p>",
+    "<p>Storm exposure here is as direct as it gets on this coast, so storm response and the preventative pruning that limits damage are a large part of what we do. Tyler Hoag is ISA Certified (FL-9491A) and Tree Risk Assessment Qualified. Call for an honest read and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  'maitland-fence': [
+    "<p>Maitland is an established Orange County suburb with mature lots, serious tree canopy and a lot of properties backing onto water or conservation. That combination decides most of the fencing here: posts going into root-heavy ground, lines that have to work around trunks you are not allowed to remove, and rear boundaries where what you can build is not entirely up to you.</p>",
+    "<p>The practical consequence is that the layout matters more than the material. A fence line surveyed around existing canopy, with post positions planned instead of spaced evenly on paper, lasts longer and looks like it belongs. Running a line straight through a root plate damages the tree and eventually the fence.</p>",
+    "<p>We install wood privacy, vinyl, aluminum and chain link, plus gates sized for the access you actually need rather than the standard width. Maitland is incorporated, so the city&rsquo;s own permitting and height rules apply rather than Orange County&rsquo;s, and corner lots and waterfront boundaries have their own constraints. We check before quoting.</p>",
+    "<p>Because we also do tree work and land clearing, a fence line that needs clearing first is one crew and one schedule rather than two. Call for a measured quote and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  'ocoee-fence': [
+    "<p>Ocoee sits on the west side of Orlando and most of its housing stock is newer subdivision ground, which makes for a specific kind of fencing job: rear boundaries shared three ways, HOA rules about material, color and height, and lots where the usable yard is smaller than the plat suggests once easements are accounted for.</p>",
+    "<p>The HOA question is usually the one that decides the job. Many Ocoee communities specify permitted materials and heights, and some require approval before anything goes in. We will tell you at the quote what is likely to apply to your community rather than building something that has to come down.</p>",
+    "<p>We install wood privacy, vinyl, aluminum and chain link, with gate widths set to the access you need for a mower, a trailer or a pool build rather than whatever is standard. Ocoee is incorporated, so city permitting applies rather than Orange County&rsquo;s.</p>",
+    "<p>Because we run tree and land clearing crews as well, a boundary that needs undergrowth or a line of scrub taken out first is handled by the same outfit on the same schedule. Call for a measured quote and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+  'lake-mary-fence': [
+    "<p>Lake Mary fencing is mostly about two things: established subdivisions with HOA requirements, and lots where mature canopy sits exactly where a boundary wants to run. Both are solvable, and both are better dealt with at the quote rather than on install day.</p>",
+    "<p>On the tree side we have an advantage here, because we are arborists as well as fencers. A post line planned around a root plate protects the tree and the fence; cutting through roots to hold a straight line damages both and is the usual reason a panel goes out of true a couple of years later. We survey the line with the trees in mind.</p>",
+    "<p>Lake Mary is an incorporated city, so the city&rsquo;s own permitting, height and setback rules apply rather than Seminole County&rsquo;s. That catches people out, because a neighbor on unincorporated land nearby is working to a different set entirely. We check your address against the right one before quoting.</p>",
+    "<p>We install wood privacy, vinyl, aluminum and chain link, with gates sized for real access. If the line needs clearing first, that is the same crew and the same schedule. Call for a measured quote and a no-pressure estimate.</p>",
+  ].join('\n'),
+
+
   // DeLeon Springs, Volusia County — unincorporated, and Hoag's own base. Named
   // by Tyler as a focus town. Being the local outfit is the whole advantage here,
   // so the copy leads with it instead of burying it.
@@ -88,6 +145,15 @@ const HAND_CRAFTED_CONTEXT: Record<string, string> = {
 }
 
 const HAND_CRAFTED_TITLE: Record<string, string> = {
+  'orlando-tree': 'Tree Service Orlando FL | Removal, Trimming, ISA Arborist',
+  'deltona-tree': 'Tree Service Deltona FL | Removal, Trimming, ISA Arborist',
+  'ormond-beach-tree': 'Tree Service Ormond Beach FL | Removal & ISA Arborist',
+  'new-smyrna-beach-tree': 'Tree Service New Smyrna Beach FL | Removal & Arborist',
+  'flagler-beach-tree': 'Tree Service Flagler Beach FL | Removal & Arborist',
+  'maitland-fence': 'Fence Company Maitland FL | Privacy, Vinyl & Aluminum',
+  'ocoee-fence': 'Fence Company Ocoee FL | Privacy, Vinyl & Aluminum',
+  'lake-mary-fence': 'Lake Mary Fence Company | Privacy, Vinyl & Aluminum',
+
   // The DeLand and Daytona pages use this shape and Daytona went from no clicks
   // to five after the change, so new towns get the same treatment: name the town,
   // then name what we actually do.
