@@ -14,6 +14,10 @@
 //
 // Key format is `${service}:${slug}`. Generated 2026-10-13 from 90 days of Search
 // Console data; re-check before trusting it a year from now.
+// Only town pages belong here. Service pages such as land-clearing-permits
+// are not towns and must never be listed: six of them were caught by the first
+// pass of the generator because it keyed on the third URL segment without
+// checking it was a location.
 export const LOW_VALUE_PAGES: ReadonlySet<string> = new Set([
   'fence:bethune-beach',
   'fence:cassadaga',
@@ -47,17 +51,14 @@ export const LOW_VALUE_PAGES: ReadonlySet<string> = new Set([
   'site:cocoa',
   'site:daytona-beach-shores',
   'site:deleon-springs',
-  'site:demolition',
   'site:dunnellon',
   'site:east-palatka',
   'site:eatonville',
   'site:elkton',
   'site:emporia',
-  'site:environmental-services',
   'site:espanola',
   'site:eustis',
   'site:flagler-beach',
-  'site:forestry-mulching',
   'site:fort-mccoy',
   'site:fruitland',
   'site:fruitland-park',
@@ -72,8 +73,6 @@ export const LOW_VALUE_PAGES: ReadonlySet<string> = new Set([
   'site:howey-in-the-hills',
   'site:lady-lake',
   'site:lake-helen',
-  'site:land-clearing-permits',
-  'site:land-preparation',
   'site:marineland',
   'site:maytown',
   'site:melrose',
@@ -87,7 +86,6 @@ export const LOW_VALUE_PAGES: ReadonlySet<string> = new Set([
   'site:north-deland',
   'site:ocklawaha',
   'site:orlando',
-  'site:overgrown-land-clearing',
   'site:paisley',
   'site:palatka',
   'site:pierson',
