@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { ALL_LOCATIONS, SERVICE_CATEGORIES, STATIC_SERVICE_SLUGS, type ServiceCategory } from '@/data/locations'
+import { isLowValuePage } from '@/data/low-value-pages'
 import { SITE_URL } from '@/shared/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -39,15 +40,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   })
 
-  // Location pages — ALL_LOCATIONS × 3 services
+  // Location pages — ALL_LOCATIONS × 3 services, minus the ones we have asked
+  // Google not to index. A noindexed URL in the sitemap is a contradiction: it
+  // invites a crawl we then refuse, and it inflates the count of pages we are
+  // claiming are worth having.
   const locationPages: MetadataRoute.Sitemap = serviceCategories.flatMap(key => {
     const cat = SERVICE_CATEGORIES[key]
-    return ALL_LOCATIONS.map(loc => ({
-      url: `${baseUrl}/services/${cat.slug}/${loc.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: loc.priority === 'high' ? 0.8 : loc.priority === 'medium' ? 0.6 : 0.5,
-    }))
+    return ALL_LOCATIONS
+      .filter(loc => !isLowValuePage(key, loc.slug))
+      .map(loc => ({
+        url: `${baseUrl}/services/${cat.slug}/${loc.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly' as const,
+        priority: loc.priority === 'high' ? 0.8 : loc.priority === 'medium' ? 0.6 : 0.5,
+      }))
   })
 
   return [...corePages, ...serviceCategoryPages, ...staticServicePages, ...locationPages]

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import LocationPage from '@/components/LocationPage'
 import { ALL_LOCATIONS, getLocation, isStaticServiceSlug } from '@/data/locations'
 import { generateLocationPageData } from '@/data/location-content'
+import { isLowValuePage } from '@/data/low-value-pages'
 
 const SERVICE: 'tree' = 'tree'
 
@@ -23,9 +24,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const data = generateLocationPageData(loc, SERVICE)
 
+  // Pages that have never surfaced in 90 days stay reachable but leave the
+  // index. They are near-duplicates of their siblings, and left indexable they
+  // drag on the pages that do work.
+  const robots = isLowValuePage(SERVICE, slug)
+    ? { index: false, follow: true }
+    : undefined
+
   return {
     title: data.title,
     description: data.metaDescription,
+    robots,
     alternates: { canonical: data.canonicalUrl },
     openGraph: {
       type: 'website',
