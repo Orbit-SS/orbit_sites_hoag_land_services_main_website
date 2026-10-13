@@ -50,3 +50,10 @@ lh-*.json
 
 # local review screenshots
 .shots/
+
+# scratch patch scripts, never part of the site
+*_patch.py
+fix_*.py
+add_*.py
+move_*.py
+shot*.py
