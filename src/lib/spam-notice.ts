@@ -35,7 +35,9 @@ function underRateCap(): boolean {
 }
 
 export function getSpamNoticeRecipients(): string[] {
-  return (process.env.SPAM_NOTIFY_EMAIL ?? '')
+  // Falls back to LEAD_TRACKING_EMAIL so one variable covers both, matching
+  // the AXE Engineering site.
+  return (process.env.SPAM_NOTIFY_EMAIL ?? process.env.LEAD_TRACKING_EMAIL ?? '')
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean)

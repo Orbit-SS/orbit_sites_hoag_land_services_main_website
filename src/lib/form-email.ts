@@ -13,7 +13,10 @@
 //   FORM_FROM_EMAIL     "From:" shown to the recipient. Must be on a domain
 //                       verified in Resend or the send is rejected outright.
 //   FORM_NOTIFY_EMAIL   where leads land. Defaults to Tyler.
-//   CONTACT_CC_EMAIL    agency copy. Defaults to Spencer; set empty to disable.
+//   LEAD_TRACKING_EMAIL Service Storm's lead-tracking recipients, added to the
+//                       To line. Comma-separated. See getLeadTrackingRecipients.
+//   CONTACT_CC_EMAIL    legacy agency copy, kept for compatibility. Prefer
+//                       LEAD_TRACKING_EMAIL; set this empty to disable.
 //   FORM_NOTIFY_OVERRIDE  test escape hatch — see below.
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails'
@@ -41,10 +44,39 @@ export type FormEmailResult =
 export function getNotifyRecipients(): string[] {
   const override = process.env.FORM_NOTIFY_OVERRIDE?.trim()
   const raw = override || process.env.FORM_NOTIFY_EMAIL?.trim() || DEFAULT_NOTIFY
-  return raw
+  const client = raw
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean)
+
+  // While testing, the override means exactly one recipient and nothing else.
+  if (override) return client
+
+  return [...client, ...getLeadTrackingRecipients(client)]
+}
+
+/**
+ * Service Storm's per-client lead-tracking recipients, matching the pattern
+ * AXE Engineering, Cooler Door Parts, WeLightKC and Precision CNC already use.
+ *
+ * These go on the **To** line beside the client, not in CC. That difference is
+ * why Hoag's leads stopped reaching Orbit: Orbit only ingests from its own
+ * seven mailboxes, and until 27 Oct 2026 no Hoag lead carried one of them
+ * anywhere on the message. Tyler kept getting his leads the whole time; we
+ * simply had no copy, and the client record showed nothing after 30 Sep.
+ *
+ * Comma-separated. Unset = nothing added, same as the other sites.
+ */
+export function getLeadTrackingRecipients(exclude: string[] = []): string[] {
+  const seen = new Set(exclude.map((s) => s.toLowerCase()))
+  return (process.env.LEAD_TRACKING_EMAIL ?? '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => {
+      if (!s || seen.has(s.toLowerCase())) return false
+      seen.add(s.toLowerCase())
+      return true
+    })
 }
 
 /**
@@ -59,10 +91,18 @@ export function getNotifyRecipients(): string[] {
 export function getCcRecipients(primary: string[]): string[] {
   if (process.env.FORM_NOTIFY_OVERRIDE?.trim()) return []
   const cc = process.env.CONTACT_CC_EMAIL ?? 'spencer@servicestorm.io'
+  const seen = new Set(primary.map((s) => s.toLowerCase()))
   return cc
     .split(',')
     .map((s) => s.trim())
-    .filter((s) => s && !primary.includes(s))
+    .filter((s) => {
+      // An address already on the To line must not be repeated in CC. Before
+      // 27 Oct 2026 the tracking alias lived here alone, so this now dedupes
+      // against it rather than sending twice during the changeover.
+      if (!s || seen.has(s.toLowerCase())) return false
+      seen.add(s.toLowerCase())
+      return true
+    })
 }
 
 export function fromAddress(): string {
