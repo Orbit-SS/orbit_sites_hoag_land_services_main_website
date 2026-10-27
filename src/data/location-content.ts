@@ -142,6 +142,103 @@ const HAND_CRAFTED_CONTEXT: Record<string, string> = {
     "<p>One practical thing people here get wrong: Lake Mary is an incorporated city, so tree removal falls under the city&rsquo;s arbor ordinance rather than Seminole County&rsquo;s. Heathrow, a few minutes up the road, is unincorporated and follows the county instead. Different rules, different thresholds, and an HOA architectural review usually sits in front of both. We work out which applies to your address during the estimate and handle the filing.</p>",
     "<p>What we do in Lake Mary: tree removal, crown reduction and structural pruning, palm pruning, storm-damage response, stump grinding, and written tree risk assessments from an ISA Certified Arborist (FL-9491A, TRAQ qualified), which is the document an HOA board, an insurer, or a permit reviewer will actually accept. Licensed, insured, and careful with irrigation, lighting and pavers.</p>",
   ].join('\n'),
+
+  // ───────────────────────────────────────────────────────────────────────
+  // SITE WORK, Tyler's thirteen core towns.
+  //
+  // Added 2026-10-27. Tyler's stated goal is enough machine work on the books
+  // to justify a full-time equipment operator, and until now every hand-written
+  // town page on this site was a tree or fence page. These are the first `-site`
+  // entries. DeLand is not here because it already has its own bespoke page at
+  // /services/site-work/deland.
+  //
+  // Keep these grounded. General geography and land use only; no invented
+  // ordinance numbers, permit thresholds or soil series.
+  // ───────────────────────────────────────────────────────────────────────
+
+  'deleon-springs-site': [
+    "<p>DeLeon Springs is where we are based, so this is not a town we drive out to. It is the yard the machines come home to. If you are off Ponce DeLeon Boulevard, out along Grand Avenue, or on one of the parcels backing onto the state park, we are minutes away rather than an hour, and that shows up in what a job costs you and how fast we can get to it.</p>",
+    "<p>The land here is rural and it is working land: pasture, old grove, fern acreage, and large wooded parcels that have grown in over decades. The jobs follow from that. Clearing a homesite out of twenty years of scrub, cutting a drive back to a buildable spot, bush hogging pasture that got away from somebody, pulling stumps and root plates after a clearing run, and grading so water leaves the pad instead of sitting on it.</p>",
+    "<p>Low, flat ground is the thing that catches people out on this side of Volusia. A lot that looks fine in April behaves very differently in September, and a pad set without thinking about where the water goes becomes somebody&rsquo;s problem every wet season. We shoot grades before we move dirt and build the fall into the job rather than coming back to fix it.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, excavation, house pads, driveways, culverts, drainage, stump grinding and demolition with haul off. Our own machines and our own crew, which is why we can price a half-day job honestly instead of pricing it like a mobilization. Call for a walk of the property and a firm number.</p>",
+  ].join('\n'),
+
+  'pierson-site': [
+    "<p>Pierson calls itself the Fern Capital of the World and the land use round here reflects it. Shade houses, fern beds, packing sheds and the acreage that supports them run through this whole stretch of north Volusia along US 17. That makes for a particular kind of machine work: access tracks, drainage that has to actually function, pads for equipment and structures, and clearing that has to respect what is still in production next door.</p>",
+    "<p>We are the next town south, in DeLeon Springs, so Pierson is a short run for us rather than a trip. That matters on the jobs where you want a machine for a day and a half and do not want to pay for somebody&rsquo;s travel from Orlando.</p>",
+    "<p>The other half of the work here is the residential and small-acreage side. Lots that have grown in, fence lines swallowed by vines and saplings, pasture that has not been cut in years, old grove being turned back into something usable. Forestry mulching handles most of that in a single pass without the burning and hauling that traditional clearing drags along with it.</p>",
+    "<p>What we bring to Pierson: land clearing, forestry mulching, bush hogging and brush mowing, grubbing and root raking, excavation, grading and drainage, house pads, driveway work and culverts, stump grinding, and demolition. Licensed and insured, equipment is ours, and the crew that quotes it is the crew that turns up.</p>",
+  ].join('\n'),
+
+  'seville-site': [
+    "<p>Seville sits at the top of Volusia County on US 17, close enough to the Putnam line that plenty of our work up here straddles both. It is agricultural country: fern, pasture, timber and large rural parcels, with the kind of acreage where a job is measured in days rather than hours and the right machine matters more than the number of bodies on site.</p>",
+    "<p>Most of what we get called for in Seville is land that has been left alone and now needs to do something. Clearing a building envelope out of mature growth, opening a drive into a back parcel, mulching scrub back to manageable, cutting pasture that has gone to saplings, and the grading and drainage that have to follow if any of it is going to hold up.</p>",
+    "<p>We are based in DeLeon Springs, straight down 17, which keeps mobilization sensible on this end of the county. For anything north of here toward Crescent City or west toward the river, this is the same run for us.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, grubbing, excavation and earthworks, house pads, rough grading, drainage and culvert work, stump grinding, fill dirt and hauling, demolition with haul off. Walk the parcel with us and you get a firm price, not an hourly rate that drifts.</p>",
+  ].join('\n'),
+
+  'astor-site': [
+    "<p>Astor is river country. The St. Johns runs right through it, the Ocala National Forest starts on the other side, and a large share of the property here is low, sandy and close to water. That shapes every job. Access is often the hard part, ground conditions change with the season, and anything built without thinking about water finds that out the first time the river comes up.</p>",
+    "<p>We work the clearing and earthmoving side of that: opening and widening drives onto riverfront and back lots, clearing homesites out of palmetto and scrub oak, pulling stumps, building pads up where they need the elevation, and putting in the swales, culverts and fall that keep a property usable rather than soggy.</p>",
+    "<p>Soft ground is the thing to plan for rather than discover. We bring tracked equipment where tyres would do damage, and if a job is better done in a dry month we will say so instead of tearing up your lot to finish on a date that suited us.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, excavation, house pads and fill, driveway construction and gravel repair, culvert installation, drainage and erosion work, stump grinding, storm debris cleanup, and demolition. Based in DeLeon Springs, so Astor is a comfortable run for us.</p>",
+  ].join('\n'),
+
+  'bunnell-site': [
+    "<p>Bunnell is the Flagler County seat and it is surrounded by exactly the kind of land that keeps machines busy: large rural parcels, old agricultural ground, timber, and a lot of acreage west of US 1 that has never been built on. Jobs out here tend to be bigger and more open than the residential work closer to the coast, which usually means better value per acre for the owner.</p>",
+    "<p>The work splits two ways. There is raw land being brought into use, which is clearing, grubbing, access roads, pads and the drainage to make it hold. And there is land that was in use and has gone back, which is mulching, bush hogging, fence line clearing and pulling out what grew in while nobody was watching.</p>",
+    "<p>Flagler ground is flat and it holds water in places, so grading and drainage are rarely optional extras here. We shoot the fall before we start and build it into the price rather than leaving you with a pad and a problem.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging and brush mowing, fire breaks, excavation and earthworks, house pads, driveway grading and gravel work, culverts, drainage and erosion control, stump grinding, fill dirt and hauling, and demolition with haul off. Licensed, insured, and running our own equipment.</p>",
+  ].join('\n'),
+
+  'lake-helen-site': [
+    "<p>Lake Helen is a small incorporated city between DeLand and Orange City, and the machine work here changes depending on which part of it you are on. The old grid near the center is tight: narrow lots, short setbacks, mature canopy and neighbours close enough that how a crew works matters as much as what it does. Out toward Cassadaga and the lake the parcels open up and the work gets properly rural.</p>",
+    "<p>Because Lake Helen is incorporated, the city&rsquo;s own rules apply rather than the county&rsquo;s, which catches people out when a neighbour half a mile away on unincorporated land is under a different set entirely. We check your address against the right one before quoting and deal with the paperwork rather than handing you a form.</p>",
+    "<p>On the larger lots the jobs are the usual run: clearing undergrowth and scrub, mulching, taking fence lines back, cutting pasture, grading and drainage, pads, and drive work. On the tighter in-town lots it is smaller machines, careful access and protecting what you are keeping.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, excavation, grading, drainage and culverts, house pads, driveway work, stump grinding, and demolition. We are ten minutes up the road in DeLeon Springs.</p>",
+  ].join('\n'),
+
+  'orange-city-site': [
+    "<p>Orange City sits between DeLand and Deltona on US 17-92, and it is more built up than most of the places we work. That changes the job rather than removing it. Lots are smaller, neighbours are closer, driveways and irrigation and utilities are all in play, and the machine that fits through the gate is often the one that decides whether the work is straightforward or awkward.</p>",
+    "<p>What we get called for here: clearing overgrown back lots and vacant parcels, taking out what is left after a tree removal, regrading yards that drain toward the house rather than away from it, driveway repair and gravel work, small pads for sheds and additions, and demolition where something is coming down before something else goes up.</p>",
+    "<p>Drainage is the recurring one in Orange City. A lot of these properties sit on flat ground with no natural fall, so water goes wherever the last person to touch the yard sent it. Swales, French drains and regrading fix that properly, which is cheaper than living with it.</p>",
+    "<p>Land clearing, lot clearing, bush hogging, excavation, yard leveling and backfill, grading, drainage and French drains, driveway grading and gravel repair, culverts, stump grinding, and demolition with haul off. Fifteen minutes from our yard.</p>",
+  ].join('\n'),
+
+  'debary-site': [
+    "<p>DeBary runs along the St. Johns River at the south end of Volusia, and it is a mix we see a lot: established subdivisions on one side, large wooded and riverfront parcels on the other, and ground that is flatter and wetter than people expect. Machine work here tends to be about water as much as it is about dirt.</p>",
+    "<p>On the residential side that means yards that pond, drives that wash out, pool and addition pads that need the ground prepared properly first, and lots that have grown in behind the fence line. On the larger parcels it is clearing, mulching, access tracks and the drainage to keep them passable.</p>",
+    "<p>Anything near the river deserves a proper look at elevation before the work starts, not after. We shoot grades, plan where the water is meant to go, and tell you if what you are asking for is going to fight the site rather than work with it.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, excavation, house and shed pads, yard leveling, regrading, French drains and yard drainage, culvert installation, driveway grading, erosion repair, stump grinding, and demolition. Our own machines, our own crew.</p>",
+  ].join('\n'),
+
+  'samsula-spruce-creek-site': [
+    "<p>Samsula is agricultural Volusia, inland from New Smyrna, and it is working ground: pasture, small farms, equestrian property and acreage parcels with real room on them. The machine work that comes out of a place like this is the kind we are built for, because it is open, it is measured in acres, and it is usually about making land usable rather than tidying it.</p>",
+    "<p>Typical jobs here are pasture that has gone to saplings and needs cutting back, fence lines disappearing under vines, clearing for a barn, arena or new homesite, pads and access for outbuildings, and drainage so paddocks and tracks are not a write-off after a wet week.</p>",
+    "<p>Flat ground and a high water table mean grading is the difference between a pad that works and one that sits in a puddle. We build the fall in from the start, and we will tell you when a job wants a dry month rather than pushing through and churning your ground up.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging and field mowing, fence line clearing, grubbing and root raking, excavation, pads, driveway and track work, culverts, drainage, erosion control, stump grinding, fill dirt and hauling, and demolition.</p>",
+  ].join('\n'),
+
+  'crescent-city-site': [
+    "<p>Crescent City sits on the lake in south Putnam County, and the country around it is rural in the way the far north of Volusia is: big parcels, agricultural history, timber, and a lot of land that has been left to grow. We run up here regularly from DeLeon Springs, straight up US 17, so it is a normal part of our patch rather than an outlier.</p>",
+    "<p>The jobs are open-land jobs. Clearing and mulching acreage back to something you can walk and use, cutting in access, taking pasture back from scrub, pulling stumps after a clearing run, and building the pads, drives and drainage that turn a cleared parcel into a usable one.</p>",
+    "<p>Lakeside and low-lying ground needs the drainage thought through properly, and anything near the water is worth getting right first time. We shoot grades and plan where the water goes as part of the job rather than as an afterthought.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, grubbing, excavation and earthworks, house pads, driveway construction and gravel repair, culverts, drainage and erosion work, stump grinding, fill dirt and hauling, and demolition with haul off.</p>",
+  ].join('\n'),
+
+  'codys-corner-site': [
+    "<p>Codys Corner is unincorporated Volusia out on SR 11, between DeLeon Springs and the Barberville side, and it is the kind of place where everybody has land and nobody has a small job. Pasture, woods, agricultural parcels and homesites spread well apart, which suits machine work and suits us, because we are a few minutes down the road.</p>",
+    "<p>Most of what gets asked for here is land being brought back into use. Clearing scrub and undergrowth off a parcel, mulching through acreage in a single pass, cutting pasture that got away, opening or widening a drive, and pulling stumps and root plates so the ground can actually be used afterwards.</p>",
+    "<p>Flat sandy ground that holds water in the wet months is the local reality, so grading and drainage get built into the job rather than sold as an extra. A pad or a drive without fall is a pad or a drive you will be calling somebody about next September.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, grubbing and root raking, excavation, house pads, driveway and culvert work, grading and drainage, stump grinding, fill dirt, and demolition with haul off. Based in DeLeon Springs, so this is about as local as our work gets.</p>",
+  ].join('\n'),
+
+  'ormond-beach-site': [
+    "<p>Ormond Beach covers more ground than people picture. There is the coastal side, and then there is everything west of I-95 running out toward the Tomoka basin and the Loop, where the parcels get large, wooded and genuinely rural. That western half is where most of our machine work here happens.</p>",
+    "<p>Out there the jobs are clearing homesites and building envelopes, mulching through palmetto and scrub oak, access drives, pads, and the drainage that low wooded ground always ends up needing. Closer in, it is lot clearing, regrading yards that drain the wrong way, driveway work, stump removal and demolition.</p>",
+    "<p>Hurricane seasons have left a lot of debris and damaged canopy across this area, and clearing that properly is different work from tidying it. We take it out, haul it, and grade behind us so the ground is left usable rather than just tidier.</p>",
+    "<p>Land clearing, forestry mulching, bush hogging, storm debris cleanup, excavation, house pads, driveway grading and gravel repair, culverts, drainage and erosion control, yard leveling, stump grinding, and demolition with haul off. Licensed and insured, running our own equipment.</p>",
+  ].join('\n'),
 }
 
 const HAND_CRAFTED_TITLE: Record<string, string> = {
@@ -171,6 +268,23 @@ const HAND_CRAFTED_TITLE: Record<string, string> = {
   // actually type.
   'sanford-tree': 'Sanford Tree Removal, Trimming & Arborist',
   'lake-mary-tree': 'Lake Mary Tree Removal, Trimming & Arborist',
+
+  // Site work, Tyler's core towns, added 2026-10-27. "Land clearing" is the
+  // term with demand behind it on this site: it pulled 6,356 appearances over
+  // six months against 511 for forestry mulching and 354 for bush hogging. So
+  // it leads, and the machine words that people actually type follow it.
+  'deleon-springs-site': 'Land Clearing DeLeon Springs FL | Grading & Excavation',
+  'pierson-site': 'Land Clearing Pierson FL | Mulching, Grading & Excavation',
+  'seville-site': 'Land Clearing Seville FL | Mulching, Grading & Excavation',
+  'astor-site': 'Land Clearing Astor FL | Excavation, Driveways & Drainage',
+  'bunnell-site': 'Land Clearing Bunnell FL | Mulching, Grading & Excavation',
+  'lake-helen-site': 'Land Clearing Lake Helen FL | Grading, Drainage & Pads',
+  'orange-city-site': 'Land Clearing Orange City FL | Grading, Drainage & Drives',
+  'debary-site': 'Land Clearing DeBary FL | Grading, Drainage & Excavation',
+  'samsula-spruce-creek-site': 'Land Clearing Samsula FL | Mulching, Pasture & Grading',
+  'crescent-city-site': 'Land Clearing Crescent City FL | Mulching & Excavation',
+  'codys-corner-site': 'Land Clearing Codys Corner FL | Mulching & Excavation',
+  'ormond-beach-site': 'Land Clearing Ormond Beach FL | Grading, Drives & Drainage',
 }
 
 // Anything not keyed above falls through to the generator below, which

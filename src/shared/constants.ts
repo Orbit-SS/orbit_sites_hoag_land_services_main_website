@@ -34,8 +34,8 @@ export const CERTS = [
 // Check the profile and update this whenever the count has moved:
 //   https://www.google.com/maps/search/Hoag+Land+Services+DeLand+FL
 //
-// verified: 2026-08-28 (count), 2026-08-28 (stars)
-export const REVIEW_STATS = { stars: 5.0, count: 40 }
+// verified: 2026-10-27 (count), 2026-10-27 (stars) — read off the live listing
+export const REVIEW_STATS = { stars: 5.0, count: 42 }
 
 // All 51 confirmed photos from hlsdeland.com
 export const IMAGES = {

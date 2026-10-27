@@ -166,6 +166,11 @@ export const STATIC_SERVICE_SLUGS: Record<ServiceCategory, string[]> = {
     'environmental-services', 'bush-hogging-brush-mowing', 'flooding-drainage',
     'land-clearing-permits',
     'demolition',
+    // Added 2026-10-27. Stump grinding drew 814 appearances in six months with
+    // no page to land on. Mobile home demolition is Tyler's own ask, aimed at
+    // trailer park demo work.
+    'stump-grinding',
+    'mobile-home-demolition',
   ],
   fence: [
     'wood-fencing', 'vinyl-fencing', 'aluminum-fencing', 'privacy-fencing',
@@ -189,6 +194,9 @@ export const LOCATIONS: Location[] = [
   { slug: 'lake-helen', name: 'Lake Helen', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32744'], priority: 'high', character: 'rural', popBracket: 'small', nearby: ['deland', 'orange-city', 'cassadaga', 'deleon-springs', 'deltona'] },
   { slug: 'pierson', name: 'Pierson', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32180'], priority: 'high', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'barberville', 'seville', 'deland', 'crescent-city'] },
   { slug: 'barberville', name: 'Barberville', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32105'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'pierson', 'seville', 'astor', 'deland'] },
+  // Named by Tyler on 2026-10-22 as one of his thirteen core towns. Unincorporated
+  // Volusia on SR 11 between DeLeon Springs and Barberville, 32130 delivery area.
+  { slug: 'codys-corner', name: 'Codys Corner', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32130'], priority: 'high', character: 'rural', popBracket: 'tiny', nearby: ['deleon-springs', 'barberville', 'pierson', 'seville', 'deland'] },
   { slug: 'seville', name: 'Seville', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32190'], priority: 'medium', character: 'rural', popBracket: 'tiny', nearby: ['pierson', 'deleon-springs', 'barberville', 'deland', 'crescent-city'] },
   { slug: 'daytona-beach', name: 'Daytona Beach', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32114', '32117', '32118', '32119', '32124'], priority: 'high', character: 'coastal', popBracket: 'large', nearby: ['ormond-beach', 'south-daytona', 'port-orange', 'holly-hill', 'deland'] },
   { slug: 'ormond-beach', name: 'Ormond Beach', stateAbbr: 'FL', county: 'Volusia', zipCodes: ['32174', '32176'], priority: 'high', character: 'coastal', popBracket: 'medium', nearby: ['daytona-beach', 'holly-hill', 'palm-coast', 'flagler-beach', 'deland'] },
