@@ -24,6 +24,7 @@ import {
 } from '@/shared/constants'
 import { Honeypot } from '@/components/Honeypot'
 import { HONEYPOT_NAME } from '@/lib/antispam'
+import EstimateForm from '@/components/EstimateForm'
 
 /* ─────────────────────────────────────────────
    LOCATION PAGE TEMPLATE — Ironclad Theme
@@ -477,6 +478,30 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
             <PhoneIcon />
             {data.ctaText}
           </a>
+
+          {/* Second way in.
+              Until now the only thing to do in the hero was phone a stranger,
+              which is the biggest commitment a visitor can make and useless to
+              somebody looking at 9pm. Service and zip are filled in from the
+              page, so two fields is genuinely all that is asked.
+
+              formType is per service category, so GA4 can separate a hero
+              start from one on the form further down the page. */}
+          <div className="mt-5 max-w-lg mx-auto">
+            <p className="text-sm text-gray-300 mb-2">
+              Or get a callback about your {data.location} property.
+            </p>
+            <EstimateForm
+              compact
+              idPrefix="hero"
+              formType={`hero_${data.serviceCategory}_location`}
+              context={`${data.location}, ${data.stateAbbr} - ${data.serviceCategoryName} hero`}
+              defaultService={data.serviceCategoryName}
+              defaultZip={data.zipCodes[0] || data.location}
+              submitLabel="Get My Free Estimate"
+              sentMessage={`Thanks. We will call you about your ${data.location} property shortly.`}
+            />
+          </div>
 
           {/* Trust micro-copy */}
           <p className="text-sm text-gray-400 mt-4">

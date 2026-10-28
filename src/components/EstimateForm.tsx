@@ -42,6 +42,14 @@ export default function EstimateForm({
   /** Placeholder for the free-text box. The default is land-clearing wording,
       which reads as a non sequitur to someone asking about a tree or a fence. */
   messagePlaceholder = 'Acreage, what is on it now, and what you need it ready for.',
+  /** Name and phone only, sized to sit inside a hero beside the call button.
+   *  Town pages carry one CTA today and it is "call us", which asks for the
+   *  biggest commitment a stranger can make. Everything the compact form drops
+   *  is optional anyway, and service and zip are pre-filled from the page. */
+  compact = false,
+  /** Button copy. Worth varying on the compact form, where "Get Your Free
+   *  Estimate" is long enough to wrap on a phone. */
+  submitLabel,
 }: {
   defaultService?: string
   defaultZip?: string
@@ -50,6 +58,8 @@ export default function EstimateForm({
   idPrefix?: string
   sentMessage?: string
   messagePlaceholder?: string
+  compact?: boolean
+  submitLabel?: string
 }) {
   // A controlled <select> whose value is not one of its options renders as
   // nothing selected, so any defaultService a page passes has to appear in the
@@ -141,6 +151,51 @@ export default function EstimateForm({
         <h3 className="font-display text-2xl font-bold uppercase mb-2">Request Received</h3>
         <p className="text-gray-400">{sentMessage}</p>
       </div>
+    )
+  }
+
+  if (compact) {
+    return (
+      <form
+        onSubmit={handleSubmit}
+        className="bg-[#141614]/90 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 space-y-2.5 text-left"
+      >
+        <Honeypot value={honeypot} onChange={setHoneypot} />
+        <div className="grid sm:grid-cols-2 gap-3">
+          <input
+            id={`${idPrefix}-name`}
+            type="text"
+            required
+            aria-label="Your name"
+            placeholder="Your name"
+            value={form.name}
+            onChange={e => updateField('name', e.target.value)}
+            className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#4a7c59]"
+          />
+          <input
+            id={`${idPrefix}-phone`}
+            type="tel"
+            required
+            aria-label="Your phone number"
+            placeholder="Phone number"
+            value={form.phone}
+            onChange={e => updateField('phone', e.target.value)}
+            className="w-full bg-[#0d0f0d] border border-white/10 rounded px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#4a7c59]"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={formState === 'sending'}
+          className="w-full bg-[#4a7c59] hover:bg-[#3d6b4a] text-white font-display font-bold uppercase tracking-wide py-3.5 rounded transition-colors duration-200 min-h-[48px] disabled:opacity-60"
+        >
+          {formState === 'sending' ? 'Sending...' : (submitLabel || 'Get My Free Estimate')}
+        </button>
+        {formState === 'error' && (
+          <p className="text-sm text-red-400 text-center" role="alert">
+            {errorMsg || 'Something went wrong. Please call us instead.'}
+          </p>
+        )}
+      </form>
     )
   }
 
