@@ -36,5 +36,35 @@ export function spamReason(data: Record<string, unknown>): string | null {
   const elapsed = Number(data._elapsedMs ?? 0)
   if (elapsed > 0 && elapsed < MIN_FILL_MS) return 'too_fast'
 
+  // Layer 3, added 2026-11-10. Three submissions cleared the honeypot and the
+  // timer between 29 Oct and 10 Nov and were filed as real leads, one of them
+  // tagged Site Services, which is the service we are trying to prove demand
+  // for. They are matched on the message body alone, because that is where
+  // these two kinds give themselves away past any doubt. Every other field
+  // they got right.
+  //
+  // Deliberately narrow. A missed spam costs Tyler ten seconds; a blocked
+  // customer costs him a job. Anything caught here still copies to the
+  // tracking alias, so a false positive is visible rather than silent.
+  const message = String(data.message ?? '').trim()
+
+  // A bot filling a date picker into the free-text box. Two arrived this way,
+  // one of them dated in the future. No customer sends only a date.
+  if (message && /^[0-9]{1,4}[-/][0-9]{1,2}[-/][0-9]{1,4}$/.test(message)) {
+    return 'date_only_message'
+  }
+
+  // Agencies pitching SEO and web design through the contact form. Matched on
+  // phrases about the RECIPIENT's own search ranking, which a customer asking
+  // about their land has no reason to write.
+  const pitch = [
+    /\b(seo|search engine optimi[sz]ation)\b/i,
+    /your (business|site|website|company) (should|could|will|can) (show up|rank|appear)/i,
+    /(first page|top of|page one|rank(ing)? higher) (of|on|in) google/i,
+    /\b(we can make that happen|want to see how easy|boost your (traffic|ranking))\b/i,
+    /\b(digital marketing|web design) (services|agency|company)\b/i,
+  ]
+  if (message && pitch.some((re) => re.test(message))) return 'solicitation'
+
   return null
 }
