@@ -123,6 +123,12 @@ export const SERVICE_CATEGORIES: Record<ServiceCategory, {
       { name: 'Erosion Control', desc: 'Installation and maintenance of silt fences, swales, and culverts to meet county and state environmental requirements.', href: '/services/site-work/erosion-control' },
       { name: 'Land Preparation', desc: 'Complete lot preparation for new construction, including clearing, grading, and utility access.', href: '/services/site-work/land-preparation' },
       { name: 'Bush Hogging & Brush Mowing', desc: 'Bush hogging, brush mowing, and field mowing for overgrown lots, pastures, fence lines, and acreage too rough for a lawn mower.', href: '/services/site-work/bush-hogging-brush-mowing' },
+      // Added 2026-11-10. The page has existed since 28 Oct and nothing linked
+      // to it, so Google answered all 116 "stump grinding" impressions last
+      // quarter with tree-service town pages, which earned nothing from them.
+      // Bush hogging is the control: it IS linked from here, and it sits at
+      // position 7.8 taking clicks.
+      { name: 'Stump Grinding', desc: 'Stumps ground out below grade, root plate included, and the hole backfilled. Single stumps through to a whole cleared lot.', href: '/services/site-work/stump-grinding' },
       { name: 'Flooding & Drainage', desc: 'Drainage solutions and flood mitigation for Central Florida properties — swales, French drains, culverts, regrading.', href: '/services/site-work/flooding-drainage' },
       { name: 'Demolition', desc: 'Mobile home teardowns, concrete slab and driveway removal, barns, pool decks, and post-storm structure demolition. Debris hauled off.', href: '/services/site-work/demolition' },
       { name: 'Clearing Permits', desc: 'Whether your lot needs a tree or clearing permit before work starts, which authority governs it, and the filing handled for you. Six inch trunk diameter is the usual trigger.', href: '/services/site-work/land-clearing-permits' },

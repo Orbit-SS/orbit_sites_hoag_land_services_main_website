@@ -379,6 +379,13 @@ export default function SiteWorkPage() {
               { name: 'Drainage & Grading', href: '/services/site-work/drainage-grading', tag: 'Swales, culverts, French drains, regrading' },
               { name: 'Erosion Control', href: '/services/site-work/erosion-control', tag: 'Silt fence, swales, stormwater compliance' },
               { name: 'Bush Hogging & Brush Mowing', href: '/services/site-work/bush-hogging-brush-mowing', tag: 'Pasture, fence line, overgrown acreage' },
+              // Both built 28 Oct 2026 and never added here, so nothing on the
+              // site linked to them. Stump grinding draws 116 impressions a
+              // quarter and every one of them went to a tree-service town page
+              // instead, because this hub is the only thing Google treats as
+              // the index of what site work covers.
+              { name: 'Stump Grinding', href: '/services/site-work/stump-grinding', tag: 'Below grade, root plate, multiple stumps' },
+              { name: 'Mobile Home Demolition', href: '/services/site-work/mobile-home-demolition', tag: 'Teardown, haul-off, lot left clear' },
               { name: 'Flooding & Drainage Fixes', href: '/services/site-work/flooding-drainage', tag: 'Standing water, post-storm fixes' },
               { name: 'Clearing Permits', href: '/services/site-work/land-clearing-permits', tag: 'Volusia and Seminole rules, filing handled' },
             ].map((s) => (
