@@ -885,6 +885,13 @@ export default function LocationPage({ data }: { data: LocationPageData }) {
                 <Link href="/services" className="block text-gray-400 hover:text-white transition-colors text-xs">All Services</Link>
                 <Link href="/services/tree-services" className="block text-gray-400 hover:text-white transition-colors text-xs">Tree Services</Link>
                 <Link href="/services/site-work/land-clearing" className="block text-gray-400 hover:text-white transition-colors text-xs">Land Clearing</Link>
+                {/* Added 2026-11-10. Every location page reaches this footer,
+                    tree pages included, and tree pages are the ones currently
+                    answering forestry mulching searches: Interlachen alone took
+                    137 impressions for the term and earned nothing. The service
+                    page itself got none. This is the one link that puts the
+                    term's anchor text on the pages competing with it. */}
+                <Link href="/services/site-work/forestry-mulching" className="block text-gray-400 hover:text-white transition-colors text-xs">Forestry Mulching</Link>
                 <Link href="/services/site-work" className="block text-gray-400 hover:text-white transition-colors text-xs">Site Services</Link>
                 <Link href="/services/fencing" className="block text-gray-400 hover:text-white transition-colors text-xs">Fencing</Link>
                 <Link href="/portfolio" className="block text-gray-400 hover:text-white transition-colors text-xs">Portfolio</Link>
