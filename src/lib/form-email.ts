@@ -13,10 +13,10 @@
 //   FORM_FROM_EMAIL     "From:" shown to the recipient. Must be on a domain
 //                       verified in Resend or the send is rejected outright.
 //   FORM_NOTIFY_EMAIL   where leads land. Defaults to Tyler.
-//   LEAD_TRACKING_EMAIL Service Storm's lead-tracking recipients, added to the
-//                       To line. Comma-separated. See getLeadTrackingRecipients.
-//   CONTACT_CC_EMAIL    legacy agency copy, kept for compatibility. Prefer
-//                       LEAD_TRACKING_EMAIL; set this empty to disable.
+//   LEAD_TRACKING_EMAIL Service Storm's lead-tracking recipients, sent as a
+//                       hidden Bcc copy. Comma-separated. See getBccRecipients.
+//   CONTACT_CC_EMAIL    legacy agency copy, kept for compatibility, also Bcc.
+//                       Prefer LEAD_TRACKING_EMAIL; set this empty to disable.
 //   FORM_NOTIFY_OVERRIDE  test escape hatch — see below.
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails'
@@ -49,18 +49,31 @@ export function getNotifyRecipients(): string[] {
     .map((s) => s.trim())
     .filter(Boolean)
 
-  // While testing, the override means exactly one recipient and nothing else.
-  if (override) return client
+  // Client only. Service Storm's copies ride as Bcc (getBccRecipients), so
+  // Tyler's Reply All to a customer never copies us on the conversation.
+  return client
+}
 
-  return [...client, ...getLeadTrackingRecipients(client)]
+/**
+ * Hidden copies on the same single send: the tracking alias, then the legacy
+ * agency copy, deduped against the To line. Empty under FORM_NOTIFY_OVERRIDE so
+ * a test goes to exactly one place. Bcc still reaches the alias, so Orbit still
+ * opens its ticket (proven on Bay Gold, 17 Nov 2026).
+ */
+export function getBccRecipients(to: string[]): string[] {
+  if (process.env.FORM_NOTIFY_OVERRIDE?.trim()) return []
+  const tracking = getLeadTrackingRecipients(to)
+  return [...tracking, ...getCcRecipients([...to, ...tracking])]
 }
 
 /**
  * Service Storm's per-client lead-tracking recipients, matching the pattern
  * AXE Engineering, Cooler Door Parts, WeLightKC and Precision CNC already use.
  *
- * These go on the **To** line beside the client, not in CC. That difference is
- * why Hoag's leads stopped reaching Orbit: Orbit only ingests from its own
+ * These now ride as **Bcc** (17 Nov 2026, Oscar: we get the lead, never the
+ * client's back-and-forth). Before that they sat on the To line, and before
+ * 27 Oct only spencer@ was copied, which is why Hoag's leads stopped
+ * reaching Orbit: Orbit only ingests from its own
  * seven mailboxes, and until 27 Oct 2026 no Hoag lead carried one of them
  * anywhere on the message. Tyler kept getting his leads the whole time; we
  * simply had no copy, and the client record showed nothing after 30 Sep.
@@ -128,7 +141,7 @@ export async function sendFormEmail(opts: {
   if (!apiKey) return { ok: false, status: 0, error: 'RESEND_API_KEY not set' }
 
   const to = opts.to ?? getNotifyRecipients()
-  const cc = opts.to ? [] : getCcRecipients(to)
+  const bcc = opts.to ? [] : getBccRecipients(to)
 
   const body: Record<string, unknown> = {
     from: fromAddress(),
@@ -137,7 +150,7 @@ export async function sendFormEmail(opts: {
     html: opts.html,
     text: opts.text,
   }
-  if (cc.length) body.cc = cc
+  if (bcc.length) body.bcc = bcc
   if (opts.replyTo) body.reply_to = opts.replyTo
 
   let res: Response
