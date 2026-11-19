@@ -5,7 +5,7 @@
 //     npx tsx scripts/check-antispam.mjs
 //
 // Each row is [who, message, propertyLocation].
-import { spamReason } from '../src/lib/antispam.ts'
+import { spamReason, HONEYPOT_NAME, LEGACY_HONEYPOT_NAME } from '../src/lib/antispam.ts'
 
 const SPAM = [
   ['Joseph Matthews (29 Oct)',
@@ -48,5 +48,23 @@ for (const [who, message, propertyLocation] of REAL) {
   if (r) bad++
   console.log(`  ${r ? '*** FALSE POSITIVE: ' + r + ' ***' : 'allowed'}   ${who}`)
 }
+// The honeypot itself. A real customer in Groveland was blocked on 19 Nov 2026
+// because Chrome autofilled his employer, "OCPS", into a field named
+// company_website. The name is now meaningless so nothing can be matched to
+// it, but bots must still be caught by either key.
+console.log('\nHONEYPOT')
+const HP = [
+  ['bot fills the current field', { [HONEYPOT_NAME]: 'http://spam.example' }, true],
+  ['bot fills the old field from a cached page', { [LEGACY_HONEYPOT_NAME]: 'OCPS' }, true],
+  ['the Groveland customer, nothing in either', { message: 'Two oaks dropped branches, and the backyard drains badly.', propertyLocation: '726 Sloans Ridge Rd Groveland, FL 34736' }, false],
+]
+for (const [who, payload, wantBlocked] of HP) {
+  const r = spamReason(payload)
+  const ok = wantBlocked ? Boolean(r) : !r
+  if (!ok) bad++
+  console.log(`  ${ok ? 'ok  ' : '*** WRONG ***  '}${(r || 'allowed').padEnd(18)} ${who}`)
+}
+console.log(`\nhoneypot field is now "${HONEYPOT_NAME}", was "${LEGACY_HONEYPOT_NAME}"`)
+
 console.log(bad === 0 ? '\nall correct' : `\n${bad} WRONG`)
 process.exit(bad === 0 ? 0 : 1)

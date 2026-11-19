@@ -16,9 +16,25 @@
 // a lead form. If spam persists, escalate to Cloudflare Turnstile, which is
 // also invisible to nearly every real user.
 
-/** Plausible-looking name so bots take the bait. autoComplete="off" on the
- *  input keeps browser autofill from filling it for a real user. */
-export const HONEYPOT_NAME = 'company_website'
+/** Deliberately meaningless, so no browser can match it to a stored value.
+ *
+ *  It used to be `company_website`, with a matching "Company website" label.
+ *  On 19 Nov 2026 Chrome matched that to its organization field and autofilled
+ *  "OCPS" for a real customer in Groveland, who was then blocked and never
+ *  reached Tyler. He had spent five and a half minutes writing the message.
+ *  `autoComplete="off"` was already set and Chrome ignored it, which it is
+ *  entitled to do. A name that resembles no real field cannot be autofilled.
+ *
+ *  Bots do not need a plausible name to take the bait. They fill every input
+ *  they find, which is the whole premise. */
+export const HONEYPOT_NAME = 'hp_check_7f21'
+
+/** The previous name, still rejected server-side. A page cached in someone's
+ *  browser before this change posts the old key, and until those expire a bot
+ *  on a stale page would otherwise sail through. Humans are safe from it now:
+ *  nothing renders a field by this name any more, so only a bot scraping an
+ *  old cached form can populate it. */
+export const LEGACY_HONEYPOT_NAME = 'company_website'
 
 /** Elapsed-time floor. A human filling even the shortest of these forms takes
  *  longer than this, so false positives are negligible. */
@@ -29,6 +45,8 @@ export const MIN_FILL_MS = 2500
 export function spamReason(data: Record<string, unknown>): string | null {
   const honeypot = String(data[HONEYPOT_NAME] ?? '').trim()
   if (honeypot) return 'honeypot'
+  const legacy = String(data[LEGACY_HONEYPOT_NAME] ?? '').trim()
+  if (legacy) return 'honeypot_legacy'
 
   // Only judge timing when the client actually reported it. An older cached
   // page, or a submission that arrives without the field, must not be blocked
