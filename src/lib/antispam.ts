@@ -54,15 +54,39 @@ export function spamReason(data: Record<string, unknown>): string | null {
     return 'date_only_message'
   }
 
+  // The property is in Florida. It is the only place this company works, and
+  // the field asks for the PROPERTY's zip, so an out-of-state one is wrong
+  // even when the person sending it lives elsewhere.
+  //
+  // This is the rule that actually holds. On 19 Nov 2026 the same sender that
+  // got through on 29 Oct came back having reworded every phrase below, but
+  // kept zip 91360 (Thousand Oaks, CA) and the same phone. Paraphrase beats
+  // phrase matching; it does not move a property.
+  //
+  // Only applied to a bare five-digit number. The field accepts "Town or zip
+  // code" and real people use it: "New Smyrna Beach" and
+  // "119 Lake Winnemissett Dr., DeLand, FL 32724" both arrived as real leads
+  // and neither is touched by this.
+  const zip = String(data.propertyLocation ?? '').trim()
+  if (/^\d{5}$/.test(zip)) {
+    const n = Number(zip)
+    // Florida is 32003-34997. Anything else is not a property he can work.
+    if (n < 32003 || n > 34997) return 'out_of_area_zip'
+  }
+
   // Agencies pitching SEO and web design through the contact form. Matched on
-  // phrases about the RECIPIENT's own search ranking, which a customer asking
-  // about their land has no reason to write.
+  // claims about the RECIPIENT's own search ranking, which a customer asking
+  // about their land has no reason to write. Kept as a second net; the zip
+  // rule above is the one that survives rewording.
   const pitch = [
     /\b(seo|search engine optimi[sz]ation)\b/i,
     /your (business|site|website|company) (should|could|will|can) (show up|rank|appear)/i,
     /(first page|top of|page one|rank(ing)? higher) (of|on|in) google/i,
     /\b(we can make that happen|want to see how easy|boost your (traffic|ranking))\b/i,
     /\b(digital marketing|web design) (services|agency|company)\b/i,
+    /(show(ing)? up first|rank(ing)? first) (when|whenever|if) (someone|people|customers)/i,
+    /\b(launch|run) (your )?campaigns?\b/i,
+    /\bthat('s| is) what we (make happen|do)\b/i,
   ]
   if (message && pitch.some((re) => re.test(message))) return 'solicitation'
 
