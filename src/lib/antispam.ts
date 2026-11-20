@@ -40,6 +40,92 @@ export const LEGACY_HONEYPOT_NAME = 'company_website'
  *  longer than this, so false positives are negligible. */
 export const MIN_FILL_MS = 2500
 
+/** Domains that have pitched a Service Storm client through a public form.
+ *
+ *  A sender rewords a message for free. Moving off the domain their own
+ *  business runs on costs them something, and when they do move we add the new
+ *  one here. Shared across every client site on purpose: these outfits work
+ *  down a list. Trusted Virtual Team hit axeengineering.com five times between
+ *  September and November 2026 and wewashkc.com once on 19 Nov. */
+export const SOLICITOR_DOMAINS = [
+  'automaxrevenue.com',
+  'jmailservice.com',
+  'trustedvirtualteam.com',
+  'virtualteamexpert.com',
+  'vasdirect.com',
+  'vas4hire.com',
+  'localcustomers.ai',
+  'melottogroup.com',
+  'measuredbid.com',
+  'christmaslightsupplier.com',
+  'ranksindia.com',
+  'snplastics.com',
+  'dinglin-tech.com',
+  'anderson-columbia.org',
+  'cienormend.com',
+  'enapter-srl.com',
+]
+
+/** Each entry is a different thing a sales pitch has to DO, not a phrase it
+ *  happens to use. That is the whole point.
+ *
+ *  Phrase matching has now lost twice. On 10 Nov 2026 I blocked an agency on
+ *  its wording; on 19 Nov the same sender returned with every phrase reworded.
+ *  On 20 Nov Ian Crawford of automaxrevenue.com reached Tyler with a pitch
+ *  containing no ranking claim, no mention of SEO, and no property location at
+ *  all, so nothing we had could see it.
+ *
+ *  A pitch cannot drop these and still be a pitch. It must name itself as a
+ *  supplier, it must talk about the recipient's business rather than a piece
+ *  of land, it must state terms, and it must ask for the next step. A customer
+ *  asking about their trees does none of it. */
+const PITCH_SIGNALS: [string, RegExp][] = [
+  // "My team and I help a handful of tree service companies..."
+  ['offers_service_to_businesses',
+   /\b(i|we|my team|our team|our company)\b[^.!?]{0,40}\b(help|helps|helped|work with|partner with|specialis[ez]e in|specialit?z?e in)\b[^.!?]{0,70}\b(business(es)?|compan(y|ies)|contractors?|owners?|clients?|services|pros)\b/i],
+
+  // Talks about the RECIPIENT's business as something to be improved.
+  //
+  // "calendar" and "schedule" were in this list and came straight back out: a
+  // real customer wrote "can I get on your schedule for about an acre?" and
+  // scored a point for it. Same for "reviews", "availability", "advice" and
+  // "crew", which were never in it. The words left are ones a person hiring a
+  // land clearing company has no reason to use.
+  ['about_their_business',
+   /\byour (business|company|pipeline|revenue|sales|marketing|online presence|brand|goals|offer)\b/i],
+
+  // Commercial terms the sender is offering TO the recipient.
+  //
+  // A bare "per month" was in here and came out: "what would you charge per
+  // month to keep the back five acres bush hogged?" is a real recurring job,
+  // and that is the kind of enquiry this site exists to collect.
+  ['states_terms',
+   /\b(retainers?|no results,? no charge|you only pay|pay only when|commission[- ]based|free trial|no upfront|risk[- ]free)\b|\$\s?\d[\d,]*\s?k\s?[-\u2013]\s?\$?\d/i],
+
+  // Selling leads, bookings or answering services.
+  ['sells_leads_or_bookings',
+   /\b(qualified (leads?|homeowners?|customers?|prospects?)|book(ed|ing)?\s+(more\s+)?(jobs?|appointments?|calls?)|fill (your|their) (schedule|calendar)|appointment setting|24\/7 receptionist|virtual assistant|chasing leads|endless follow[- ]ups?|leads? slip)\b/i],
+
+  // Asks for the next step, which an estimate request never does.
+  ['asks_for_a_meeting',
+   /\b(open to (chat|chatting|a (quick )?call)|hop on a call|book a (quick )?call|15[- ]?minute|can i send (it|this|that) over|quick (intro )?video|calendly\.com|let me know if you'?re interested|if you'?re interested or not|would love to hear what your goals)\b/i],
+]
+
+/** Returns the names of every pitch signal present in the message. */
+export function pitchSignals(message: string): string[] {
+  const text = String(message ?? '')
+  if (!text.trim()) return []
+  return PITCH_SIGNALS.filter(([, re]) => re.test(text)).map(([name]) => name)
+}
+
+/** Two signals is a pitch.
+ *
+ *  Every real submission in scripts/check-antispam.mjs scores zero, including
+ *  the ones that mention Google, reviews, and the customer's own company. One
+ *  signal on its own is left alone, because a single phrase is exactly what a
+ *  sender can reword, and a blocked customer costs Tyler a job. */
+export const PITCH_THRESHOLD = 2
+
 /** Returns a reason string when the submission looks automated, else null.
  *  Call this before validation and before any send. */
 export function spamReason(data: Record<string, unknown>): string | null {
@@ -90,6 +176,21 @@ export function spamReason(data: Record<string, unknown>): string | null {
     const n = Number(zip)
     // Florida is 32003-34997. Anything else is not a property he can work.
     if (n < 32003 || n > 34997) return 'out_of_area_zip'
+  }
+
+  // Layer 4, added 20 Nov 2026 after Ian Crawford of automaxrevenue.com
+  // reached Tyler with a pitch that none of the rules above could see.
+  const email = String(data.email ?? '').trim().toLowerCase()
+  const at = email.lastIndexOf('@')
+  if (at > -1) {
+    const domain = email.slice(at + 1)
+    if (SOLICITOR_DOMAINS.some((d) => domain === d || domain.endsWith('.' + d))) {
+      return 'solicitor_domain'
+    }
+  }
+
+  if (message && pitchSignals(message).length >= PITCH_THRESHOLD) {
+    return 'solicitation_pitch'
   }
 
   // Agencies pitching SEO and web design through the contact form. Matched on

@@ -5,7 +5,7 @@
 //     npx tsx scripts/check-antispam.mjs
 //
 // Each row is [who, message, propertyLocation].
-import { spamReason, HONEYPOT_NAME, LEGACY_HONEYPOT_NAME } from '../src/lib/antispam.ts'
+import { spamReason, pitchSignals, PITCH_THRESHOLD, HONEYPOT_NAME, LEGACY_HONEYPOT_NAME } from '../src/lib/antispam.ts'
 
 const SPAM = [
   ['Joseph Matthews (29 Oct)',
@@ -20,6 +20,30 @@ const SPAM = [
   ['Marcus Palmer (19 Nov)',
    "Imagine showing up first whenever someone searches for your product or service - that's what we make happen. We launch campaigns in less than 24 hours, and you only pay for results.",
    '91360'],
+  // Reached Tyler's inbox on 20 Nov 2026 at 20:15. Cleared the honeypot, the
+  // timer, the date rule, the zip rule (he left the property blank) and every
+  // phrase in the SEO net, because he never mentions ranking or SEO at all.
+  // This is a competitor selling lead generation to our own client.
+  ['Ian Crawford (20 Nov, automaxrevenue.com)',
+   `Hey,
+
+Hope things are going well. I had a look at Hoag Land Services and I've gotta say, your work looks amazing. You're clearly doing top-tier work in your area.
+
+My team and I help a handful of tree service companies and other home service businesses bring in qualified homeowners who need a tree removed or trimmed and are ready to book, without the usual hassle of chasing leads or endless follow-ups.
+
+We also set up a 24/7 receptionist, so all the jobs we get you are qualified and zero leads slip through your business.
+
+We don't charge retainers. You only pay when we actually get someone booked onto your calendar for a consultation \u2014 no results, no charge.
+
+And no \u2014 this isn't some mass-blasted message. I recorded a quick 3-minute video for you to introduce myself and show how this works in plain English. Can I send it over?
+
+We've already helped other tree services consistently fill their schedules and automate the whole business, so all they have to do is show up and do the job \u2014 some pulling in $20k\u201350k+ extra per month from the appointments we set.
+
+If you're open to chatting, I'd love to hear what your goals are and see if this would be a fit.
+
+Best regards,
+Ian`,
+   ''],
 ]
 
 const REAL = [
@@ -33,6 +57,9 @@ const REAL = [
   ['mentions google reviews', 'Found you on google, saw your reviews. Need a stump ground out.', '32763'],
   ['no zip given at all', 'Need a quote for clearing half an acre.', ''],
   ['edge of the Florida range', 'Palm trimming please.', '34997'],
+  ['real customer who mentions their own company', 'We are a property management company and need ongoing tree work across four of our properties. What does your availability look like?', '32763'],
+  ['real customer praising the crew', 'Your crew did my neighbour’s lot last month and the work looks great. Can I get on your schedule for about an acre?', '32130'],
+  ['real customer asking about price', 'What would you charge per month to keep the back five acres bush hogged?', '32720'],
 ]
 
 let bad = 0
@@ -65,6 +92,17 @@ for (const [who, payload, wantBlocked] of HP) {
   console.log(`  ${ok ? 'ok  ' : '*** WRONG ***  '}${(r || 'allowed').padEnd(18)} ${who}`)
 }
 console.log(`\nhoneypot field is now "${HONEYPOT_NAME}", was "${LEGACY_HONEYPOT_NAME}"`)
+
+
+// The margin is the real result. A pitch should clear the threshold well, and
+// a customer should score zero, so neither sits anywhere near the line.
+console.log(`
+PITCH SIGNALS  (blocks at ${PITCH_THRESHOLD})`)
+for (const [who, message] of [...SPAM, ...REAL]) {
+  const hits = pitchSignals(message)
+  console.log(`  ${hits.length >= PITCH_THRESHOLD ? 'BLOCK' : '     '} ${hits.length}  ${who}`)
+  if (hits.length) console.log(`          ${hits.join(', ')}`)
+}
 
 console.log(bad === 0 ? '\nall correct' : `\n${bad} WRONG`)
 process.exit(bad === 0 ? 0 : 1)
